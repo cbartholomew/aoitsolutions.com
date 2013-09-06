@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-<title>Title</title>
+<title>SIC://2013</title>
 <!-- Content Delivery Network StyleSheets  -->
 <link rel="stylesheet" type="text/css" href="http://aoitsolutions.com/cdn/css/jquery-ui.smoothness.min.css"> 
 <link rel="stylesheet" type="text/css" href="http://aoitsolutions.com/cdn/css/bootstrap.min.css">
@@ -30,9 +30,9 @@
 <![endif]-->
 
 <script>
-$(document).ready(function(){
-	$('#mySponsorInfo').carousel({interval:2000});	
-});
+    $(document).ready(function () {
+        $('#mySponsorInfo').carousel({ interval: 2000 });
+    });
 </script>
 
 </head>
@@ -43,71 +43,155 @@ $(document).ready(function(){
 	</div>
 	<!-- END BANNER HEADER -->
 	<br>
-	<div class="container">
-		<!-- myPresentAgenda ROW START -->		
-		<div class='myPresentAgenda row'>	
-			<!-- <div class="myUpcomingAgenda row">
-				<a href="" class="btn btn-block btn-default"><i class="glyphicon glyphicon-eject"></i><h4>View Upcoming</h4></a>
-			</div> -->
-			<div class="myTime row  btn-primary">
+	<div class="">
+		<div class='myPresentAgenda'>	
+			<div class="myTime col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h3 class="agendaTime">{start-time} - {end-time}</h3>
 				<h4 class="agendaTime"><i class='glyphicon glyphicon-warning-sign'></i>&nbsp  {alert-status}</h4>
-				<p  class="agendaTime">{alert-message}</p>
+				<p  class="agendaTime">{alert-message}</p>	
+                <div class="row">
+                	
+                    
+                    <div class="myAgendaSlot   well col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="row">
+                            <div class="myPresenter col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						        <label class="myPresTitle label label-primary">Presentation Name</label>
+                                <br />
+                                <br />
+						        <p class='myPresDesc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec lorem eros. Vestibulum ac nulla convallis, sagittis eros a, dapibus nulla. Nunc in bibendum augue, quis ultricies orci. Praesent sollicitudin molestie iaculis. Sed vestibulum odio nec pretium viverra.</p>			
+					        </div>  
+					        <div class="myRoom col-xs-6 col-sm-6 col-md-6 col-lg-6">                         
+						        <label class="myRoomTitle label label-info">A Room Name</label>
+                                <br />
+                                <br />
+                                <p class="myRoomInfo"><i class='glyphicon glyphicon-warning-sign'></i>&nbsp No Alerts</p>
+						        <p class="myRoomInfo"><i>Occupancy 100/100</i></p>
+						        <p class="myRoomInfo"><i>Building A</i></p> 
+					        </div>
+                        </div>
+                        <div class="row">
+                            <div class="myPresenter panel-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+					                    <p><b>Christopher Bartholomew</b></p>
+					                    <p>Technical Architect</p>
+					                    <p>http://google.com</p>
+                                    </div>
+                                    <img src="Static/Images/aristotle3.jpg" class="img-circle speakerImage col-md-3" alt="aristotle" />
+                                </div>
+                            </div>
+                        </div>
+				    </div>
 
-				<!-- Start Specific Speakers for this Time Slot -->	
-				<div class="row myAgendaSlot">
-					<div class="whiteSpace col-md-1 col-lg-1 btn">
-					</div>
-							
-					<div class="myRoom col-md-4 col-lg-4 btn btn-default "> 
-						<h5><i class='glyphicon glyphicon-warning-sign'></i>&nbsp {alert-status}</h5>
-						<h3>{room-name}</h3>
-						<h4>{curr-occu}/{max-occu}</h4>
-						<p>{room-notes}</p>
-					</div>
-		
-					<div class="myConnector col-md-1 col-lg-1">
-						<!-- Image To Connect Row Items -->
-						<div>=============</div>
-						<br>
-						<br>
-						<br>
-						<br>
-						<div>=============</div>
-					</div>
-		
-					<div class="myPresenter col-md-4 col-lg-4 btn btn-warning">
-						<h3>{pres-name}</h3>
-						<p>{pres-desc}</p>
-						<h4>{speak-fn} {speak-ln}</h4>
-						<h4>{speak-title}</h4>
-						<h4>{speak-social}</h4>
-						<h4>{speak-profile}</h4>
-						<h5>http://{survey-url} || {reserve-seat}</h5>				
-					</div>
-					
 
-				</div>
-				<!-- End Specific Speakers for this Time Slot -->
-			
+
+                    <div class="myAgendaSlot  well col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="row">
+                            <div class="myPresenter col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						        <label class="myPresTitle label label-primary">Presentation Name</label>
+                                <br />
+                                <br />
+						        <p class='myPresDesc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec lorem eros. Vestibulum ac nulla convallis, sagittis eros a, dapibus nulla. Nunc in bibendum augue, quis ultricies orci. Praesent sollicitudin molestie iaculis. Sed vestibulum odio nec pretium viverra.</p>			
+					        </div>  
+					        <div class="myRoom col-xs-6 col-sm-6 col-md-6 col-lg-6">                         
+						        <label class="myRoomTitle label label-info">A Room Name</label>
+                                <br />
+                                <br />
+                                <p class="myRoomInfo"><i class='glyphicon glyphicon-warning-sign'></i>&nbsp No Alerts</p>
+						        <p class="myRoomInfo"><i>Occupancy 100/100</i></p>
+						        <p class="myRoomInfo"><i>Building A</i></p> 
+					        </div>
+                        </div>
+                        <div class="row">
+                            <div class="myPresenter panel-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+					                    <p><b>Christopher Bartholomew</b></p>
+					                    <p>Technical Architect</p>
+					                    <p>http://google.com</p>
+                                    </div>
+                                    <img src="Static/Images/aristotle3.jpg" class="img-circle speakerImage col-md-3" alt="aristotle" />
+                                </div>
+                            </div>
+                        </div>
+				    </div>
+
+
+                    <div class="myAgendaSlot  well col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="row">
+                            <div class="myPresenter col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						        <label class="myPresTitle label label-primary">Presentation Name</label>
+                                <br />
+                                <br />
+						        <p class='myPresDesc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec lorem eros. Vestibulum ac nulla convallis, sagittis eros a, dapibus nulla. Nunc in bibendum augue, quis ultricies orci. Praesent sollicitudin molestie iaculis. Sed vestibulum odio nec pretium viverra.</p>			
+					        </div>  
+					        <div class="myRoom col-xs-6 col-sm-6 col-md-6 col-lg-6">                         
+						        <label class="myRoomTitle label label-info">A Room Name</label>
+                                <br />
+                                <br />
+                                <p class="myRoomInfo"><i class='glyphicon glyphicon-warning-sign'></i>&nbsp No Alerts</p>
+						        <p class="myRoomInfo"><i>Occupancy 100/100</i></p>
+						        <p class="myRoomInfo"><i>Building A</i></p> 
+					        </div>
+                        </div>
+                        <div class="row">
+                            <div class="myPresenter panel-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+					                    <p><b>Christopher Bartholomew</b></p>
+					                    <p>Technical Architect</p>
+					                    <p>http://google.com</p>
+                                    </div>
+                                    <img src="Static/Images/aristotle3.jpg" class="img-circle speakerImage col-md-3" alt="aristotle" />
+                                </div>
+                            </div>
+                        </div>
+				    </div>
+
+                    <div class="myAgendaSlot  well col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="row">
+                            <div class="myPresenter col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						        <label class="myPresTitle label label-primary">Presentation Name</label>
+                                <br />
+                                <br />
+						        <p class='myPresDesc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec lorem eros. Vestibulum ac nulla convallis, sagittis eros a, dapibus nulla. Nunc in bibendum augue, quis ultricies orci. Praesent sollicitudin molestie iaculis. Sed vestibulum odio nec pretium viverra.</p>			
+					        </div>  
+					        <div class="myRoom col-xs-6 col-sm-6 col-md-6 col-lg-6">                         
+						        <label class="myRoomTitle label label-info">A Room Name</label>
+                                <br />
+                                <br />
+                                <p class="myRoomInfo"><i class='glyphicon glyphicon-warning-sign'></i>&nbsp No Alerts</p>
+						        <p class="myRoomInfo"><i>Occupancy 100/100</i></p>
+						        <p class="myRoomInfo"><i>Building A</i></p> 
+					        </div>
+                        </div>
+                        <div class="row">
+                            <div class="myPresenter panel-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+					                    <p><b>Christopher Bartholomew</b></p>
+					                    <p>Technical Architect</p>
+					                    <p>http://google.com</p>
+                                    </div>
+                                    <img src="Static/Images/aristotle3.jpg" class="img-circle speakerImage col-md-3" alt="aristotle" />
+                                </div>
+                            </div>
+                        </div>
+				    </div>
+
+                </div>			                  
 			</div>
-			
-			<!-- <div class="myPastAgenda row">
-				<a href="" class="btn btn-block btn-default"><h4>View Prior</h4><i class="glyphicon glyphicon-collapse-down"></i></a>
-			</div> -->
 		</div>
-		<!-- myPresentAgenda ROW END -->	
-	</div>
-
-	<!-- START SPONSOR INFORMATION -->
-	<div id="mySponsorInfo" class="mySponsorInfo carousel slide">
+    <!-- START SPONSOR INFORMATION -->
+    <div id="mySponsorInfo" class="mySponsorInfo carousel slide">
 		<div class="carousel-inner">
-			<div class="item active"><h1>SPONSOR A</h1></div>
-			<div class="item"><h1>SPONSOR B</h1></div>
-			<div class="item"><h1>SPONSOR C</h1></div>
-			<div class="item"><h1>SPONSOR D</h1></div>
+			<div class="item active"><h1>SPONSOR SET A</h1></div>
+			<div class="item"><h1>SPONSOR SET B</h1></div>
+			<div class="item"><h1>SPONSOR SET C</h1></div>
+			<div class="item"><h1>SPONSOR SET D</h1></div>
 		</div>
 	</div>
 	<!-- END SPONSOR INFORMATION -->
+	</div>
 </body>
 </html>

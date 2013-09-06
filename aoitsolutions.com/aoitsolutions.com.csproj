@@ -52,10 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="aoitconference\index.html" />
+    <Content Include="aoitconference\indexv2.html" />
     <Content Include="aoitconference\indexv1.html" />
     <Content Include="aoitconference\removed.html" />
     <Content Include="aoitconference\Static\CSS\index.css" />
     <Content Include="aoitconference\Static\Images\2013-branding.png" />
+    <Content Include="aoitconference\Static\Images\aristotle3.jpg" />
     <Content Include="cdn\boilerplate.html" />
     <Content Include="cdn\bootstrap\assets\css\docs.css" />
     <Content Include="cdn\bootstrap\assets\css\pygments-manni.css" />
