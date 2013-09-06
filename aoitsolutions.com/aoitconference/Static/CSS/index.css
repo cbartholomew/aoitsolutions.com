@@ -1,0 +1,13 @@
+.myBanner 		{ background-color:#233645; height:100%; color:white; text-align:center; font-size:x-large; } 
+.mySponsorInfo  { margin-bottom: 0%;}
+.myConnector	{ padding:0px;}
+.myUpcomingAgenda { }
+.myPresentAgenda  {  }
+.myPastAgenda 	  { }
+.myAgendaSlot	  { margin-top: 10px; margin-bottom:10px; }
+.myTime			  { height: 100%; width: 100%; color: white; margin-top: 10px; margin-bottom:10px; }
+.myTimeAlternate  { height: 100%; width: 100%; color: white; margin-top: 10px; margin-bottom:10px; }
+.myRoom			  { height: 25%; width: 25%; text-align:left}
+.myPresenter	  { height: 25%; width: 25%; text-align:left}
+.agendaTime		  { padding: 10px;}
+.item			  { text-align: center;}

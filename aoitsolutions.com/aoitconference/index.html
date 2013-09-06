@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title</title>
+<!-- Content Delivery Network StyleSheets  -->
+<link rel="stylesheet" type="text/css" href="http://aoitsolutions.com/cdn/css/jquery-ui.smoothness.min.css"> 
+<link rel="stylesheet" type="text/css" href="http://aoitsolutions.com/cdn/css/bootstrap.min.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="Static/CSS/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+<!-- Content Delivery Network Scripts  -->
+<script type="text/javascript" src="http://aoitsolutions.com/cdn/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://aoitsolutions.com/cdn/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://aoitsolutions.com/cdn/js/jquery-ui.min.js"></script>    
+<script type="text/javascript" src="http://aoitsolutions.com/cdn/lib/jQuery.XDomainRequest.js"></script>
+<script type="text/javascript" src="http://aoitsolutions.com/cdn/lib/jquery.json.min.js"></script>
+<script type="text/javascript" src="http://aoitsolutions.com/cdn/lib/jquery.validate.js"></script>
+
+<!-- Modern Browser Requirements -->
+<script type="text/javascript" src="http://aoitsolutions.com/cdn/lib/detectbrowser.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="http://aoitsolutions.com/cdn/lib/html5.js"></script>
+    <script type="text/javascript" src="http://aoitsolutions.com/cdn/lib/ie.js" ></script>
+<![endif]-->
+<!--[if lt IE 10]>
+      	<script type="text/javascript" src="http://aoitsolutions.com/cdn/lib/query.watermark.min.js"></script>
+<![endif]-->
+
+<script>
+$(document).ready(function(){
+	$('#mySponsorInfo').carousel({interval:2000});	
+});
+</script>
+
+</head>
+<body>
+	<!-- START BANNER HEADER -->
+	<div class="myBanner panel-header">
+		<img src="Static/Images/2013-branding.png" width="1290" height="180" alt="2013 Branding">
+	</div>
+	<!-- END BANNER HEADER -->
+	<br>
+	<div class="container">
+		<!-- myPresentAgenda ROW START -->		
+		<div class='myPresentAgenda row'>	
+			<!-- <div class="myUpcomingAgenda row">
+				<a href="" class="btn btn-block btn-default"><i class="glyphicon glyphicon-eject"></i><h4>View Upcoming</h4></a>
+			</div> -->
+			<div class="myTime row  btn-primary">
+				<h3 class="agendaTime">{start-time} - {end-time}</h3>
+				<h4 class="agendaTime"><i class='glyphicon glyphicon-warning-sign'></i>&nbsp  {alert-status}</h4>
+				<p  class="agendaTime">{alert-message}</p>
+
+				<!-- Start Specific Speakers for this Time Slot -->	
+				<div class="row myAgendaSlot">
+					<div class="whiteSpace col-md-1 col-lg-1 btn">
+					</div>
+							
+					<div class="myRoom col-md-4 col-lg-4 btn btn-default "> 
+						<h5><i class='glyphicon glyphicon-warning-sign'></i>&nbsp {alert-status}</h5>
+						<h3>{room-name}</h3>
+						<h4>{curr-occu}/{max-occu}</h4>
+						<p>{room-notes}</p>
+					</div>
+		
+					<div class="myConnector col-md-1 col-lg-1">
+						<!-- Image To Connect Row Items -->
+						<div>=============</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<div>=============</div>
+					</div>
+		
+					<div class="myPresenter col-md-4 col-lg-4 btn btn-warning">
+						<h3>{pres-name}</h3>
+						<p>{pres-desc}</p>
+						<h4>{speak-fn} {speak-ln}</h4>
+						<h4>{speak-title}</h4>
+						<h4>{speak-social}</h4>
+						<h4>{speak-profile}</h4>
+						<h5>http://{survey-url} || {reserve-seat}</h5>				
+					</div>
+					
+
+				</div>
+				<!-- End Specific Speakers for this Time Slot -->
+			
+			</div>
+			
+			<!-- <div class="myPastAgenda row">
+				<a href="" class="btn btn-block btn-default"><h4>View Prior</h4><i class="glyphicon glyphicon-collapse-down"></i></a>
+			</div> -->
+		</div>
+		<!-- myPresentAgenda ROW END -->	
+	</div>
+
+	<!-- START SPONSOR INFORMATION -->
+	<div id="mySponsorInfo" class="mySponsorInfo carousel slide">
+		<div class="carousel-inner">
+			<div class="item active"><h1>SPONSOR A</h1></div>
+			<div class="item"><h1>SPONSOR B</h1></div>
+			<div class="item"><h1>SPONSOR C</h1></div>
+			<div class="item"><h1>SPONSOR D</h1></div>
+		</div>
+	</div>
+	<!-- END SPONSOR INFORMATION -->
+</body>
+</html>
