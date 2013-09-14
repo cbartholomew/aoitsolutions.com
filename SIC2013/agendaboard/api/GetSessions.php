@@ -15,7 +15,7 @@
 		// call the static method
 		$sessions 	= Session::get($site_id,$channel_id);
 	}
-
+	
 	// return the json
 	print(json_encode($sessions));
 	

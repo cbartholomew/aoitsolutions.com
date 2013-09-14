@@ -1,5 +1,4 @@
 <div class='container'>
-	<table class="table table-striped">
 	<?php 
 		print("<h1>List of Sessions</h1>");
 		foreach ($sessions as $session)
@@ -20,5 +19,4 @@
 		}
 		
 	?>
-	</table>
 </div>
