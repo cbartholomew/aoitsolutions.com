@@ -1,32 +1,23 @@
-<!DOCTYPE html>
-<html>
-<!-- Content Delivery Network StyleSheets  -->
-<link rel="stylesheet" type="text/css" href="cdn/css/jquery-ui.smoothness.min.css"> 
-<link rel="stylesheet" type="text/css" href="cdn/css/bootstrap.min.css">
-
-<!-- Custom CSS -->
-<link rel="stylesheet" href="Static/CSS/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
-
-<!-- Content Delivery Network Scripts  -->
-<script type="text/javascript" src="cdn/js/jquery.min.js"></script>
-<script type="text/javascript" src="cdn/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="cdn/js/jquery-ui.min.js"></script>    
-<script type="text/javascript" src="cdn/lib/jQuery.XDomainRequest.js"></script>
-<script type="text/javascript" src="cdn/lib/jquery.json.min.js"></script>
-<script type="text/javascript" src="cdn/lib/jquery.validate.js"></script>
-
-<!-- Modern Browser Requirements -->
-<script type="text/javascript" src="cdn/lib/detectbrowser.js"></script>
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-    <script type="text/javascript" src="cdn/lib/html5.js"></script>
-    <script type="text/javascript" src="cdn/lib/ie.js" ></script>
-<![endif]-->
-<!--[if lt IE 10]>
-      	<script type="text/javascript" src="cdn/lib/query.watermark.min.js"></script>
-<![endif]-->
-<body>
+<?php
+	require("includes/config.php");
+	require("Model/ViewManager.php");
+	require("Controller/Category.php");
+	require("Controller/Session.php");
+	require("Controller/Speaker.php");
 	
-</body>
-</html>
+	// make new view manager
+	$viewManager = new ViewManager();
+	
+	// get business objects by site_id and channel id
+	$sessions 	= Session::get(2,16);
+	$speakers 	= Speaker::get(2,17);
+	$speakerByEntryId = Speaker::getByEntryId(600);
+	
+	$arguments = array(
+				"sessions"   		=> $sessions,
+				"speakers" 	 		=> $speakers,
+				"speakerByEntryId"  => $speakerByEntryId
+			);
+	
+	$viewManager->renderView("agenda",$arguments);
+?>

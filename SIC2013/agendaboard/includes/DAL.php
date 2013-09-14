@@ -1,31 +1,68 @@
 <?php
+	// Switch for production
+	$isProd = false;
+	
+	// based on the value above, swap constants files
+	$DAL_SETTINGS_FILE = ($isProd) ? "dalSettingsProd.php" : "dalSettingsTest.php";
+	
+	require_once($DAL_SETTINGS_FILE);
+	
+	/**
+     * Executes SQL statement, possibly with parameters, returning
+     * an array of all rows in result set or false on (non-fatal) error.
+     */
+    function query(/* $sql [, ... ] */)
+	{
+        // SQL statement
+        $sql = func_get_arg(0);
 
+        // parameters, if any
+        $parameters = array_slice(func_get_args(), 1);
 
-// Test
-define("DB_NAME", 	   "sic206_EE");
-define("DB_SERVER",    "localhost");
-define("DB_USERNAME",  "root");
-define("DB_PASSWORD",  "root");
+        // try to connect to database
+        static $handle;
+        if (!isset($handle))
+        {
+            try
+            {
+                // connect to database
+                $handle = new PDO("mysql:dbname=" . DB_NAME . ";host=" . DB_SERVER, DB_USERNAME, DB_PASSWORD);
 
-// Production
-// define("DB_NAME", 	   "sic206_EE");
-// define("DB_SERVER",    "localhost");
-// define("DB_USERNAME",  "sic206_readonly");
-// define("DB_PASSWORD",  "wQC4R6jx7Z");
- 
+                // ensure that PDO::prepare returns false when passed invalid SQL
+                $handle->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); 
+            }
+            catch (Exception $e)
+            {
+                // trigger (big, orange) error
+                trigger_error($e->getMessage(), E_USER_ERROR);
+                exit;
+            }
+        }
 
-// connect to database server
-if (($connection = @mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD)) === false)
-    echo "Could not connect to database server.";
+        // prepare SQL statement
+        $statement = $handle->prepare($sql);
 
-// select database
-if (@mysql_select_db(DB_NAME, $connection) === false)
-    echo "Could not select database (" . DB_NAME . ").";
+        if ($statement === false)
+        {
+            //trigger (big, orange) error
+			$error_info = $handle->errorInfo();
+            trigger_error($error_info[2], E_USER_ERROR);
+            exit;
+        }
 
-function close_connection()
-{
-	mysql_close($connection);
-}
+        // execute SQL statement
+        $results = $statement->execute($parameters);
+
+        // return result set's rows, if any
+        if ($results !== false)
+        {
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 ?>
 

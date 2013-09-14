@@ -1,0 +1,85 @@
+exp_channel_fields
+	Agenda Field ID's
+	28 agenda_body
+	29 agenda_schedule
+	30 agenda_seo_description
+	31 agenda_seo_keywords
+	
+exp_channel_data
+
+SELECT * 
+FROM exp_channel_data AS ecd
+INNER JOIN exp_channel_titles AS ect ON ecd.entry_id = ect.entry_id
+LIMIT 660 , 30
+
+
+SELECT * 
+FROM exp_channel_data AS ecd
+INNER JOIN exp_channel_titles AS ect ON ecd.entry_id = ect.entry_id
+INNER JOIN exp_channels AS ec ON ecd.channel_id = ec.channel_id
+INNER JOIN exp_category_posts as ecp ON ecp.entry_id = ecd.entry_id 
+WHERE ec.channel_id = 16
+
+SELECT * 
+FROM exp_category_groups AS ecg
+INNER JOIN exp_categories AS ec ON ecg.group_id = ec.group_id
+
+SELECT * 
+FROM exp_category_groups AS ecg
+INNER JOIN exp_channel_fields AS ecf ON ecg.group_id = ecf.group_id
+
+SELECT * 
+FROM  `exp_field_groups` 
+WHERE site_id =2
+LIMIT 0 , 30
+
+select field_id, field_name, field_label
+from exp_field_groups
+where site_id = 2
+and group_id = 
+
+Group
+11	2	Sessions
+12	2	Speakers
+13	2	Sponsors
+15	2	Static Fields
+
+
+// Session!
+SELECT 
+field_id_40 	as session_day, 
+field_id_41 	as session_name,
+field_id_42 	as session_start_time,
+field_id_43 	as session_end_time,
+field_id_44 	as session_description,
+field_id_46 	as session_room,
+field_id_51  	as session_speakers,
+field_id_52  	as session_moderator,
+field_id_185 	as session_topics,
+field_id_157 	as session_is_sponsored,
+field_id_158 	as session_sponsor,
+field_id_177    as session_visible,
+field_id_178    as session_status
+FROM  exp_channel_data AS ecd
+WHERE ecd.channel_id = 16
+AND   ecd.site_id 	 = 2
+
+// Speakers!
+// ec.entry_id == session.speakers -> [id no]
+SELECT 
+field_id_72  as speaker_first_name,
+field_id_73  as speaker_last_name,
+field_id_179 as speaker_status, 
+field_id_76  as speaker_job_title,
+field_id_77  as speaker_company_name
+FROM exp_channel_data AS ecd
+INNER JOIN exp_channel_titles AS ect 
+ON ecd.entry_id = ect.entry_id
+INNER JOIN exp_channels AS ec 
+ON ecd.channel_id = ec.channel_id
+INNER JOIN exp_category_posts as ecp 
+ON ecp.entry_id = ecd.entry_id 
+WHERE ec.channel_id = 17
+AND   ec.site_id 	= 2
+
+
