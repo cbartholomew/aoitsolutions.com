@@ -1,0 +1,259 @@
+{
+	"RoomCount" : 5,
+	"Rooms" 	: [
+			{ "Number": 202, "Occupancy": 192 },
+			{ "Number": 204, "Occupancy": 108 },
+			{ "Number": 301, "Occupancy": 275 },
+			{ "Number": 302, "Occupancy": 275 },
+			{ "Number": 303, "Occupancy": 303 }
+	],
+	"Title"		: "Agenda",
+	"Conference"	: [
+		{
+			"Name" : "Custom Day Name",
+			"DayNo": 1, 
+			"Day"  : "Monday",
+			"Date" : { 
+				"Month" : "10",
+				"Day"	: "28",
+				"Year"	: "2013"
+			}, 
+			"Times": {
+					"Administrative" : [
+						{
+							"Name" : "Registration/Attendee Check-in", 
+							"Order": 1,
+							"Start": "7:00" , "StartMeridian":"AM", 
+							"End"  : "9:00" , "EndMeridian"  :"AM" 		
+						},
+						{
+							"Name" : "SIC://Hub Open Networking (3rd Floor)", 
+							"Order": 2,
+							"Start": "7:30" , "StartMeridian":"AM", 
+							"End"  : "9:00" , "EndMeridian"  :"AM" 		
+						}
+					],
+					"Break" : [
+						{
+							"Name":"Grab and Go Breakfast (3rd Floor)", 
+							"Order": 1 ,
+							"Start": "7:30"   , "StartMeridian":"AM", 
+							"End": 	 "9:00"   , "EndMeridian"  :"AM"
+						},
+						{
+							"Name":"Sponsored Break in SIC://Hub", 
+							"Order": 2 ,
+							"Start": "11:00"   , "StartMeridian":"AM", 
+							"End": 	 "11:30"   , "EndMeridian"  :"AM"
+						},
+						{
+							"Name" :"Lunch", 
+							"Order": 3 ,
+							"Start": "12:30"  , "StartMeridian":"PM", 
+							"End"  : "2:00"   , "EndMeridian"  :"PM"
+						},	
+						{
+							"Name":"Sponsored Break in SIC://Hub", 
+							"Order": 4 ,
+							"Start": "3:00"   , "StartMeridian":"PM", 
+							"End": 	 "3:30"   , "EndMeridian"  :"PM"
+						}
+					],
+					"Session"		 : [
+						{
+							"Order": 1 ,
+							"Start": "9:00" , "StartMeridian":"AM", 
+							"End"  : "9:50" , "EndMeridian"  :"AM"
+						},
+						{
+							"Order": 2, 
+							"Start": "10:10", "StartMeridian":"AM", 
+							"End"  : "11:00", "EndMeridian"  :"AM"
+						},
+						{
+							"Order": 3, 
+							"Start": "11:20", "StartMeridian":"AM", 
+							"End"  : "12:10", "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 4, 
+							"Start": "1:10" , "StartMeridian":"PM", 
+							"End"  : "2:00" , "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 5, 
+							"Start": "2:20", "StartMeridian":"PM", 
+							"End"  : "3:10", "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 6, 
+							"Start": "3:30", "StartMeridian" :"PM", 
+							"End"  : "4:20", "EndMeridian"   :"PM"
+						}
+					]
+			}
+		},
+		{
+			"Name" : "Custom Day Name",
+			"DayNo": 2, 
+			"Day"  : "Tuesday",
+			"Date" : { 
+				"Month" : "10",
+				"Day"	: "28",
+				"Year"	: "2013"
+			},
+			"Times": {
+					"Administrative" : [
+						{
+							"Name" : "Registration/Attendee Check-in", 
+							"Order": 1,
+							"Start": "8:00" , "StartMeridian":"AM", 
+							"End"  : "9:00" , "EndMeridian"  :"AM" 		
+						},
+						{
+							"Name" : "SIC://Hub Open Networking (3rd Floor)", 
+							"Order": 2,
+							"Start": "7:30" , "StartMeridian":"AM", 
+							"End"  : "9:00" , "EndMeridian"  :"AM" 		
+						}
+					],
+					"Break" : [
+							{
+								"Name":"Grab and Go Breakfast (3rd Floor)", 
+								"Order": 1 ,
+								"Start": "7:30"   , "StartMeridian":"AM", 
+								"End": 	 "9:00"   , "EndMeridian"  :"AM"
+							},
+							{
+								"Name":"Sponsored Break in SIC://Hub", 
+								"Order": 2 ,
+								"Start": "11:00"   , "StartMeridian":"AM", 
+								"End": 	 "11:30"   , "EndMeridian"  :"AM"
+							},
+							{
+								"Name" :"Lunch", 
+								"Order": 3 ,
+								"Start": "12:30"  , "StartMeridian":"PM", 
+								"End"  : "2:00"   , "EndMeridian"  :"PM"
+							},	
+							{
+									"Name":"Sponsored Break in SIC://Hub", 
+									"Order": 4 ,
+									"Start": "3:00"   , "StartMeridian":"PM", 
+									"End": 	 "3:30"   , "EndMeridian"  :"PM"
+							}
+					],
+					"Session"		 : [
+						{
+							"Order": 1 ,
+							"Start": "9:00" , "StartMeridian":"AM", 
+							"End"  : "9:50" , "EndMeridian"  :"AM"
+						},
+						{
+							"Order": 2, 
+							"Start": "10:10", "StartMeridian":"AM", 
+							"End"  : "11:00", "EndMeridian"  :"AM"
+						},
+						{
+							"Order": 3, 
+							"Start": "11:20", "StartMeridian":"AM", 
+							"End"  : "12:10", "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 4, 
+							"Start": "1:10" , "StartMeridian":"PM", 
+							"End"  : "2:00" , "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 5, 
+							"Start": "2:20", "StartMeridian":"PM", 
+							"End"  : "3:10", "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 6, 
+							"Start": "3:30", "StartMeridian" :"PM", 
+							"End"  : "4:20", "EndMeridian"   :"PM"
+						}
+					]
+			}
+		},
+		{
+			"Name" : "Custom Day Name",
+			"DayNo": 3, 
+			"Day"  : "Wednesday",
+			"Date" : { 
+				"Month" : "10",
+				"Day"	: "28",
+				"Year"	: "2013"
+			},
+			"Times": {
+					"Administrative" : [
+						{
+							"Name" : "Registration/Attendee Check-in", 
+							"Order": 1,
+							"Start": "8:00" , "StartMeridian":"AM", 
+							"End"  : "9:00" , "EndMeridian"  :"AM" 		
+						},
+						{
+							"Name" : "SIC://Hub Open Networking (3rd Floor)", 
+							"Order": 2,
+							"Start": "7:30" , "StartMeridian":"AM", 
+							"End"  : "9:00" , "EndMeridian"  :"AM" 		
+						}
+					],
+					"Break" : [
+						{
+							"Name":"Grab and Go Breakfast (3rd Floor)", 
+							"Order": 1 ,
+							"Start": "7:30"   , "StartMeridian":"AM", 
+							"End": 	 "9:00"   , "EndMeridian"  :"AM"
+						},
+						{
+							"Name":"Sponsored Break in SIC://Hub", 
+							"Order": 2 ,
+							"Start": "11:00"   , "StartMeridian":"AM", 
+							"End": 	 "11:30"   , "EndMeridian"  :"AM"
+						},
+						{
+							"Name" :"Lunch", 
+							"Order": 3 ,
+							"Start": "12:30"  , "StartMeridian":"PM", 
+							"End"  : "2:00"   , "EndMeridian"  :"PM"
+						}
+					],
+					"Session"		 : [
+						{
+							"Order": 1, 
+							"Start": "9:00" , "StartMeridian":"AM", 
+							"End"  : "9:50" , "EndMeridian"  :"AM"
+						},
+						{
+							"Order": 2, 
+							"Start": "10:10", "StartMeridian":"AM", 
+							"End"  : "11:00", "EndMeridian"  :"AM"
+						},
+						{
+							"Order": 3, 
+							"Start": "11:20", "StartMeridian":"AM", 
+							"End"  : "12:10", "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 4, 
+							"Start": "1:10" , "StartMeridian":"PM", 
+							"End"  : "2:00" , "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 5, 
+							"Start": "2:20", "StartMeridian":"PM", 
+							"End"  : "3:10", "EndMeridian"  :"PM"
+						},
+						{
+							"Order": 6, 
+							"Start": "3:30", "StartMeridian" :"PM", 
+							"End"  : "4:20", "EndMeridian"   :"PM"
+						}
+					]
+			}
+		}
+	]	
+}

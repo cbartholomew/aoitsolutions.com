@@ -47,6 +47,7 @@ Group
 
 // Session!
 SELECT 
+entry_id,
 field_id_40 	as session_day, 
 field_id_41 	as session_name,
 field_id_42 	as session_start_time,
@@ -61,9 +62,9 @@ field_id_158 	as session_sponsor,
 field_id_177    as session_visible,
 field_id_178    as session_status
 FROM  exp_channel_data AS ecd
-WHERE ecd.channel_id = 16
-AND   ecd.site_id 	 = 2
-
+WHERE ecd.channel_id 		= 16
+AND   ecd.site_id 	 		= 2
+AND   ecd.field_id_178 	in ('confirmed','pending')
 // Speakers!
 // ec.entry_id == session.speakers -> [id no]
 SELECT 
@@ -141,5 +142,61 @@ field_id_181 as sponsor_contract				,
 field_id_182 as sponsor_leave_behind			,
 field_id_183 as sponsor_leave_behind_notes		
 FROM  exp_channel_data AS ecd
-WHERE ecd.channel_id = 18
-AND   ecd.site_id 	 = 2
+WHERE ecd.channel_id 	= 18
+AND   ecd.field_id_180 in ('active','pending')
+AND   ecd.site_id 	 	= 2
+
+
+SELECT 
+* 
+FROM
+exp_files 
+WHERE 
+file_id = ?
+
+[296] [jake_newman] Jake Newman
+
+
+
+update exp_channel_data set field_id_46='202' , field_id_42='32400', field_id_43='35400' where entry_id = '474';
+update exp_channel_data set field_id_46='204' , field_id_42='32400', field_id_43='35400' where entry_id = '511';
+update exp_channel_data set field_id_46='301' , field_id_42='32400', field_id_43='35400' where entry_id = '560';
+update exp_channel_data set field_id_46='302' , field_id_42='32400', field_id_43='35400' where entry_id = '587';
+update exp_channel_data set field_id_46='303' , field_id_42='32400', field_id_43='35400' where entry_id = '564';
+
+update exp_channel_data set field_id_46='202' ,field_id_42='36600', field_id_43='39600' where entry_id =590;
+update exp_channel_data set field_id_46='204' ,field_id_42='36600', field_id_43='39600' where entry_id =592;
+update exp_channel_data set field_id_46='301' ,field_id_42='36600', field_id_43='39600' where entry_id =593;
+update exp_channel_data set field_id_46='302' ,field_id_42='36600', field_id_43='39600' where entry_id =601;
+update exp_channel_data set field_id_46='303' ,field_id_42='36600', field_id_43='39600' where entry_id =605;
+
+640
+616
+624
+629
+631
+
+634
+638
+644
+646
+653
+
+656
+664
+671
+674
+676
+
+685
+691
+694
+696
+697
+
+698
+705
+703
+704
+708
+

@@ -4,4 +4,5 @@
 	error_reporting(E_ALL);
 	
 	require("DAL.php");
+	require("Helpers.php");
 ?>

@@ -1,6 +1,27 @@
 <?php		
 	class Session
-	{	
+	{			
+		public static function get($site_id, $channel_id)
+		{
+			// get that specific static query
+			$getQuery = self::$sessionQueries["get"];
+			
+			// join the array of sql strings using space
+			$sql = implode(" ",$getQuery);
+			
+			try
+			{
+				// return results based on the site and channel
+				return query($sql, $site_id, $channel_id);
+			}
+			catch (Exception $e)
+            {
+                // trigger (big, orange) error
+                trigger_error($e->getMessage(), E_USER_ERROR);
+                exit;
+            }	
+		}
+		
 		// sql query, done in such a way where it is easier to add fields, if needed
 	    public static $sessionQueries = array(
 			"get" => array(
@@ -23,29 +44,11 @@
 							"WHERE",
 							"ecd.site_id = ?",
 							"AND",
-							"ecd.channel_id = ?"
+							"ecd.channel_id = ?",
+							"AND",
+							"ecd.field_id_178 in ('confirmed', 'pending')",
+							"order by ecd.field_id_40"
 					 )
-		);	
-		
-		public static function get($site_id, $channel_id)
-		{
-			// get that specific static query
-			$getQuery = self::$sessionQueries["get"];
-			
-			// join the array of sql strings using space
-			$sql = implode(" ",$getQuery);
-			
-			try
-			{
-				// return results based on the site and channel
-				return query($sql, $site_id, $channel_id);
-			}
-			catch (Exception $e)
-            {
-                // trigger (big, orange) error
-                trigger_error($e->getMessage(), E_USER_ERROR);
-                exit;
-            }	
-		}
+		);
 	}
 ?>

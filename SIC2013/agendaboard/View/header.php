@@ -6,6 +6,7 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="Static/CSS/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="Static/CSS/agenda.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <!-- Content Delivery Network Scripts  -->
 <script type="text/javascript" src="cdn/js/jquery.min.js"></script>
@@ -27,3 +28,8 @@
       	<script type="text/javascript" src="cdn/lib/query.watermark.min.js"></script>
 <![endif]-->
 <body>
+<div class='logoHeader row'>
+	<div class='col-lg-8'>
+		<img src="Static/Images/SIC2013-branding-site.png" alt="2013-branding-A" class="logoA" />	
+	</div>
+</div>
