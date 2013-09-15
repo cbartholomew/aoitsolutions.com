@@ -67,8 +67,7 @@
 											}
 										}
 									} 																
-								}
-														
+								}													
 						    }
 							print("<td><h4>" . $s["Start"] . "" . strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . strtolower($s["EndMeridian"]) . "</h4></td>");
 							print("</tr>");												

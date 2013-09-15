@@ -162,7 +162,7 @@ update exp_channel_data set field_id_46='202' , field_id_42='32400', field_id_43
 update exp_channel_data set field_id_46='204' , field_id_42='32400', field_id_43='35400' where entry_id = '511';
 update exp_channel_data set field_id_46='301' , field_id_42='32400', field_id_43='35400' where entry_id = '560';
 update exp_channel_data set field_id_46='302' , field_id_42='32400', field_id_43='35400' where entry_id = '587';
-update exp_channel_data set field_id_46='303' , field_id_42='32400', field_id_43='35400' where entry_id = '564';
+update exp_channel_data set field_id_46='303' , field_id_42='32400', field_id_43='35400' where entry_id = '594';
 
 update exp_channel_data set field_id_46='202' ,field_id_42='36600', field_id_43='39600' where entry_id =590;
 update exp_channel_data set field_id_46='204' ,field_id_42='36600', field_id_43='39600' where entry_id =592;
