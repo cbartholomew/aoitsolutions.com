@@ -54,10 +54,12 @@
     <Content Include="aoitconference\index.html" />
     <Content Include="aoitconference\indexv2.html" />
     <Content Include="aoitconference\indexv1.html" />
+    <Content Include="aoitconference\JS\jquery.pulse.min.js" />
     <Content Include="aoitconference\removed.html" />
     <Content Include="aoitconference\Static\CSS\index.css" />
     <Content Include="aoitconference\Static\Images\2013-branding.png" />
     <Content Include="aoitconference\Static\Images\aristotle3.jpg" />
+    <Content Include="aoitconference\TestPopOver.html" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -76,7 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="aoitconference\Controller\" />
-    <Folder Include="aoitconference\JS\" />
     <Folder Include="aoitconference\Model\" />
     <Folder Include="aoitconference\Static\Icons\" />
     <Folder Include="aoitconference\View\" />
