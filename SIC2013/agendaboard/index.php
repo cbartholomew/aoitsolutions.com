@@ -15,9 +15,11 @@
 	$sponsors   = Sponsor::get(2,18);
 	$speakerByEntryId = Speaker::getByEntryId(600);
 	
+	// get the agenda board configuration
 	$json_data = file_get_contents('Configuration/Agenda.json');
 	$agenda    = json_decode($json_data,true);
 	
+	// pass the arguments to the view
 	$arguments = array(
 				"sessions"   		=> $sessions,
 				"speakers" 	 		=> $speakers,
@@ -25,6 +27,6 @@
 				"speakerByEntryId"  => $speakerByEntryId,
 				"agenda"			=> $agenda
 			);
-	
+	// render view
 	$viewManager->renderView("agenda",$arguments);
 ?>

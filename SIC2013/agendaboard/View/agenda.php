@@ -42,34 +42,78 @@
 					</tr>
 				</thead>
 				<tbody>	
-					<?php
+					<?php	
+						// get all conference sessions										
 						$conferenceSessions = $agenda["Conference"][0]["Times"]["Session"];
-					
+						
+						// get the local time
+						$localTime 	= date('H:i', time());
+						
+						// override for testing
+						$localTime = "9:00";
+												
 						foreach($conferenceSessions as $s)
-						{
-							print("<tr>");
-							print("<td><h4>" . $s["Start"] . "" . strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . strtolower($s["EndMeridian"]) . "</h4></td>");					
-					
+						{	
+							// convert the local time in seconds
+							$localTimeInSeconds = ConvertTimeToSeconds($localTime);
+							$agendaStartTime 	= ConvertTimeToSeconds($s["Start"]);
+							$agendaEndTime	    = ConvertTimeToSeconds($s["End"]);
+
+							// run against the session time to confirm if it's the current slot			
+							$isCurrentSlot = IsCurrentSlotTime($localTimeInSeconds,$agendaStartTime,$agendaEndTime);
+															
+						    // determine which slot gets the active row
+							$rowCls	 	= ($isCurrentSlot) ? "activeRow" : "";
+							$columnCls 	= ($isCurrentSlot) ? "activeCol" : "";
+						
+							print("<tr class='" . $rowCls . "'>");								
+							print("<td class='" . $columnCls ."'><h4>" 	   . $s["Start"]   . "" . 
+								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] 	   . "" . 
+								  strtolower($s["EndMeridian"])   . "</h4></td>");					
+							
+							// Template used for testing until they enter the data
+							for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
+							{			
+								$backgroundCls = GetBackgroundCSS($room["Number"]);
+								
+								$sessionHtml = "TBD";
+														
+								// extract the room
+								$room = $agenda["Rooms"][$i];																
+								print("<td class='". $columnCls . " " . $backgroundCls . " sessionColumn " . 
+									   str_replace(":","_",$s["Start"]) . "_" . $room["Number"] ."'>" .
+									   $sessionHtml . "</td>");
+							} 
+							// Production 
 							// create inner columns
-							foreach ($sessions as $session)
-							{
-								for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
-								{
-									// extract the room
-									$room = $agenda["Rooms"][$i];
-									if(ConvertSecondsToTime($session["session_start_time"]) == $s["Start"])
-									{
-										if($session["session_room"] != "tbd") 
-										{
-											if( $session["session_room"] == $room["Number"])
-											{
-												print("<td class='sessionColumn " . str_replace(":","_",$s["Start"]) . "_" . $room["Number"] ."'>" . $session["session_name"] ."</td>");									
-											}
-										}
-									} 																
-								}													
-						    }
-							print("<td><h4>" . $s["Start"] . "" . strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . strtolower($s["EndMeridian"]) . "</h4></td>");
+							// foreach ($sessions as $session)
+							// {
+							// 	for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
+							// 	{									
+							// 		// extract the room
+							// 		$room = $agenda["Rooms"][$i];		
+							// 		
+							// 		// get the background cls for the column;							
+							// 		$backgroundCls = GetBackgroundCSS($room["Number"]);
+							// 		
+							// 		if(ConvertSecondsToTime($session["session_start_time"]) == $s["Start"])
+							// 		{
+							// 			if($session["session_room"] != "tbd") 
+							// 			{
+							// 				if( $session["session_room"] == $room["Number"])
+							// 				{
+							// 					print("<td class='". $columnCls . " " . $backgroundCls . " sessionColumn " . 
+							// 						  str_replace(":","_",$s["Start"]) . "_" . $room["Number"] ."'>" .
+							// 						  $session["session_name"] ."</td>");									
+							// 				}
+							// 			}
+							// 		} 																
+							// 	}													
+							// 						    }
+							print("<td class='" . $columnCls ."'><h4>" . $s["Start"] . "" . 
+								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . 
+								  strtolower($s["EndMeridian"]) . "</h4></td>");
+							
 							print("</tr>");												
 						}
 					?>
@@ -77,6 +121,26 @@
 			</table>
 		</div>
 	</div>
+	<script>
+	    function exposeCurrentTimeSlot() { 
+	        $(".currentRow").addClass("activeRow");
+	        $(".currentCol").addClass("activeCol");
+	        $(".currentRow").children().each(function () { 
+	            $(this).addClass("activeBorder");
+	        });
+	        var properties = {
+	            //height: '225px' 
+	           	paddingTop: "25px",
+				paddingBottom: "25px"
+	        };
+	        var el = $(".activeCol");
+			// 50 minutes, i.e. 3,000,000 million miliseconds, divided by 5000 miliseconds = 600 pulses per 50 minutes
+	        el.pulse(properties, { duration: 5000, pulses: 600 });
+	    }   
+	 	$(document).ready(function(){
+			exposeCurrentTimeSlot();
+		});
+	</script>
 	<?php 
 		// print("<h1>List of Sessions</h1>");
 		// 	foreach ($sessions as $session)

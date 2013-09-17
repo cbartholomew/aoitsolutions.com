@@ -15,7 +15,7 @@
 <script type="text/javascript" src="cdn/lib/jQuery.XDomainRequest.js"></script>
 <script type="text/javascript" src="cdn/lib/jquery.json.min.js"></script>
 <script type="text/javascript" src="cdn/lib/jquery.validate.js"></script>
-
+<script type="text/javascript" src="JS/jquery.pulse.min.js"></script>
 <!-- Modern Browser Requirements -->
 <script type="text/javascript" src="cdn/lib/detectbrowser.js"></script>
 

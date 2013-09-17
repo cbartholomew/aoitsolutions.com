@@ -1,6 +1,17 @@
-body    {background: url(../Images/diagonal.png); background-color: rgb(242, 242, 242); }
-.agendaTable { height:100%;}
+body   { background-color: rgb(242, 242, 242); background: url(../Images/diagonal.png); }
+thead  { background-color:#00DEF2;}
+th 	   { font-weight:bold; color:white; text-align: center;} 
+.activeCol     { height: 250px;}
+.activeRow     { font-size: 30px; background-color:#D0D0D0; color: white; }
+.agenda 	   { font-family:"proxima-nova", "Century Gothic", "Arial", "san-serif"; }
+.agendaTable   { height:100%;}
+.head 		   { font-weight:bold; font-family:"proxima-nova", "Century Gothic", "Arial", "san-serif"; background-color:#233645; color:white;  }
+.logoC		   { height: 60px; width:180px;}
+.room202	{ /*background-color: #19b244 */}
+.room204	{ }	
+.room301	{ }
+.room302	{ }
+.room303 	{ }
+.roomNotActive { }
 .sessionColumn { height: 100%;}
-.logoC  {height: 60px; width:180px;}
-.agenda { font-family:"proxima-nova", "Century Gothic", "Arial", "san-serif"; }
-.head   { color:white; font-weight:bold; font-family:"proxima-nova", "Century Gothic", "Arial", "san-serif"; background-color:#233645; }
+
