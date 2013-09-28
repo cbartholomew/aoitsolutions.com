@@ -49,8 +49,9 @@
 						// get the local time
 						$localTime 	= date('H:i', time());
 						
-						// override for testing
+						// override to 9:00 am is if it's past 4:20						
 						$localTime = "9:00";
+
 												
 						foreach($conferenceSessions as $s)
 						{	
