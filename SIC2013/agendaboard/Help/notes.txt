@@ -44,6 +44,8 @@ Group
 13	2	Sponsors
 15	2	Static Fields
 
+update exp_channel_data set field_id_41 = 'a Future Worth Wanting' where entry_id = 705
+update exp_channel_data set field_id_41 = 'a Future Worth Wanting' where entry_id = 705
 
 // Session!
 SELECT 
@@ -156,47 +158,25 @@ file_id = ?
 
 [296] [jake_newman] Jake Newman
 
+SELECT 
+field_id_46 as session_room
+FROM  exp_channel_data AS ecd
+WHERE ecd.channel_id 		= 16
+AND   ecd.site_id 	 		= 2
+AND   ecd.field_id_178 	in ('confirmed','pending')
+group by field_id_46
 
+SELECT 
+field_id_46 as session_room,
+count(field_id_46) as room_count
+FROM  exp_channel_data AS ecd
+WHERE ecd.channel_id 		= 16
+AND   ecd.site_id 	 		= 2
+AND   ecd.field_id_178 	in ('confirmed','pending')
+group by field_id_46
 
-update exp_channel_data set field_id_46='202' , field_id_42='32400', field_id_43='35400' where entry_id = '474';
-update exp_channel_data set field_id_46='204' , field_id_42='32400', field_id_43='35400' where entry_id = '511';
-update exp_channel_data set field_id_46='301' , field_id_42='32400', field_id_43='35400' where entry_id = '560';
-update exp_channel_data set field_id_46='302' , field_id_42='32400', field_id_43='35400' where entry_id = '587';
-update exp_channel_data set field_id_46='303' , field_id_42='32400', field_id_43='35400' where entry_id = '594';
+$hours = floor($seconds / 3600);
+$mins  = floor(($seconds - ($hours*3600)) / 60);
 
-update exp_channel_data set field_id_46='202' ,field_id_42='36600', field_id_43='39600' where entry_id =590;
-update exp_channel_data set field_id_46='204' ,field_id_42='36600', field_id_43='39600' where entry_id =592;
-update exp_channel_data set field_id_46='301' ,field_id_42='36600', field_id_43='39600' where entry_id =593;
-update exp_channel_data set field_id_46='302' ,field_id_42='36600', field_id_43='39600' where entry_id =601;
-update exp_channel_data set field_id_46='303' ,field_id_42='36600', field_id_43='39600' where entry_id =605;
-
-640
-616
-624
-629
-631
-
-634
-638
-644
-646
-653
-
-656
-664
-671
-674
-676
-
-685
-691
-694
-696
-697
-
-698
-705
-703
-704
-708
-
+// HOURS
+=FLOOR((A3 - ((IF(FLOOR(A3 / 3600) > 12,FLOOR(A3 / 3600) - 12,FLOOR(A3/3600)))  * 3600)) / 60)

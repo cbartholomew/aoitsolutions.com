@@ -1,9 +1,15 @@
 <?php
 	// Switch for production
 	$isProd = false;
+	// Staging  (until I can get PDO back up or find a different solution)
+	$isStaging = false;
 	
 	// based on the value above, swap constants files
 	$DAL_SETTINGS_FILE = ($isProd) ? "dalSettingsProd.php" : "dalSettingsTest.php";
+	
+	// staging database override
+	if($isStaging)
+		$DAL_SETTINGS_FILE = "dalSettingsStaging.php";
 	
 	require_once($DAL_SETTINGS_FILE);
 	

@@ -2,19 +2,19 @@
 		<div class="row head">
 			<div class="col-lg-4"> 
 				<?php
-					$conference = $agenda["Conference"][0];
+					$conference = $agenda["Conference"][$day];
 					print("<h1>" . $conference["Day"] . ", " . $conference["Date"]["Month"] . "/" . $conference["Date"]["Day"] . "</h1>"); 
 				?>
 			</div>
 			<div class="col-lg-4"> 
 				<?php
-					$conference = $agenda["Conference"][0];
+					$conference = $agenda["Conference"][$day];
 					print("<h1>Agenda: Sessions</h1>");
 				?>
 			</div>
 			<div class="col-lg-2"> 
 				<?php
-					$conference = $agenda["Conference"][0];
+					$conference = $agenda["Conference"][$day];
 					print("<h1>Day " . $conference["DayNo"] . "</h1>");
 				 ?>		
 			</div>
@@ -44,7 +44,7 @@
 				<tbody>	
 					<?php	
 						// get all conference sessions										
-						$conferenceSessions = $agenda["Conference"][0]["Times"]["Session"];
+						$conferenceSessions = $agenda["Conference"][$day]["Times"]["Session"];
 						
 						// get the local time
 						$localTime 	= date('H:i', time());
@@ -55,10 +55,13 @@
 												
 						foreach($conferenceSessions as $s)
 						{	
+													
 							// convert the local time in seconds
-							$localTimeInSeconds = ConvertTimeToSeconds($localTime);
-							$agendaStartTime 	= ConvertTimeToSeconds($s["Start"]);
-							$agendaEndTime	    = ConvertTimeToSeconds($s["End"]);
+							$localTimeInSeconds = $localTime;
+							$agendaStartTime 	= $s["Start"];
+							$agendaEndTime	    = $s["End"];
+							$full_start_time 	= $s["Start"] . strtolower($s["StartMeridian"]);
+							$full_end_time 		= $s["End"]   . strtolower($s["EndMeridian"]);
 
 							// run against the session time to confirm if it's the current slot			
 							$isCurrentSlot = IsCurrentSlotTime($localTimeInSeconds,$agendaStartTime,$agendaEndTime);
@@ -72,45 +75,44 @@
 								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] 	   . "" . 
 								  strtolower($s["EndMeridian"])   . "</h4></td>");					
 							
-							// Template used for testing until they enter the data
+							
+							// for each room - find the matching session							
 							for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
-							{			
+							{																																		
+								// extract the room
+								$room = $agenda["Rooms"][$i];	
+								
+								// set the session search parameters
+								$Session->set($full_start_time,	$full_end_time , ConvertDayNoToDayStr($day), $room["Number"]);
+								
+								// run search
+								$Session->get($sessions);
+								
+								// set the background cls
 								$backgroundCls = GetBackgroundCSS($room["Number"]);
 								
-								$sessionHtml = "TBD";
-														
-								// extract the room
-								$room = $agenda["Rooms"][$i];																
-								print("<td class='". $columnCls . " " . $backgroundCls . " sessionColumn " . 
-									   str_replace(":","_",$s["Start"]) . "_" . $room["Number"] ."'>" .
-									   $sessionHtml . "</td>");
-							} 
-							// Production 
-							// create inner columns
-							// foreach ($sessions as $session)
-							// {
-							// 	for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
-							// 	{									
-							// 		// extract the room
-							// 		$room = $agenda["Rooms"][$i];		
-							// 		
-							// 		// get the background cls for the column;							
-							// 		$backgroundCls = GetBackgroundCSS($room["Number"]);
-							// 		
-							// 		if(ConvertSecondsToTime($session["session_start_time"]) == $s["Start"])
-							// 		{
-							// 			if($session["session_room"] != "tbd") 
-							// 			{
-							// 				if( $session["session_room"] == $room["Number"])
-							// 				{
-							// 					print("<td class='". $columnCls . " " . $backgroundCls . " sessionColumn " . 
-							// 						  str_replace(":","_",$s["Start"]) . "_" . $room["Number"] ."'>" .
-							// 						  $session["session_name"] ."</td>");									
-							// 				}
-							// 			}
-							// 		} 																
-							// 	}													
-							// 						    }
+								// if we found a session, write it - otherwise - apply no info avaliable
+								if(isset($Session->item))
+								{
+									//print_r($Session->item);
+									print("<td class='". $columnCls . " " . $backgroundCls . " sessionColumn " . 
+									str_replace(":","_",$s["Start"]) . "_" . $Session->item["Room"] ."'>" .
+									$Session->item["Name"] ."</td>");
+								}
+								else
+								{																												
+										$sessionHtml = "No information available";
+																
+										// extract the room
+										$room = $agenda["Rooms"][$i];																
+										print("<td class='". $columnCls . " " . $backgroundCls . " sessionColumn " . 
+											   str_replace(":","_",$s["Start"]) . "_" . $room["Number"] ."'>" .
+											   $sessionHtml . "</td>");
+								}
+								
+							}
+							
+							// add final time track																								
 							print("<td class='" . $columnCls ."'><h4>" . $s["Start"] . "" . 
 								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . 
 								  strtolower($s["EndMeridian"]) . "</h4></td>");

@@ -106,7 +106,7 @@
 							"field_id_183 as sponsor_leave_behind_notes		 ",
 							"FROM  exp_channel_data AS ecd                   ",
 							"WHERE ecd.site_id 	 	= ?                      ",
-							"AND   ecd.field_id_180 in ('active','pending')  ",
+							"AND   ecd.field_id_180 in ('active')  ",
 							"AND   ecd.channel_id 	= ?                      ",
 					 ),
 			 "getSponsorFileById" => array(

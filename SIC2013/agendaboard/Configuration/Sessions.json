@@ -1,0 +1,3427 @@
+{
+  "Sessions": [
+  
+    { 
+      "Event ID":756 ,
+      "Name":"A Data Geek's Guide to Marketing on Facebook, Twitter, Instagram, Tumblr, LinkedIn, Google+, YouTube, and Pinterest" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"analytics"}, {"Name":"data managment"}, {"Name":"social"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":596,       
+           "First Name": "Adam",
+           "Last Name": "Schoenfeld",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Simply Measured",
+           "Job Title":"Co-Founder & CEO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":705 ,
+      "Name":"A Future Worth Wanting" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"emerging"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":699,       
+           "First Name": "James ",
+           "Last Name": "Whittaker ",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Microsoft",
+           "Job Title":"Partner Technical Evangelist"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":710 ,
+      "Name":"Agile\/Lean: It\u2019s An Attitude, Not Just a Methodology" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"personal dev"}, {"Name":"web dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":627,       
+           "First Name": "Steve",
+           "Last Name": "Shapero",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Substantial",
+           "Job Title":"Partner & Principal"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":794 ,
+      "Name":"Aiming Up: The Dreams and the Realities of Start Ups" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":734,       
+           "First Name": "Dean",
+           "Last Name": "Graziano",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Lively",
+           "Job Title":"Founder & CEO"
+        },      
+        {    
+          "Speaker ID":695,       
+           "First Name": "John",
+           "Last Name": "Cook",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "GeekWire",
+           "Job Title":"Co-Founder & Technology Reporter"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":703 ,
+      "Name":"Aligning to multi-screen customer journeys" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Design" ,
+      "Day":"Day Two" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"ux"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":700,       
+           "First Name": "Carrie ",
+           "Last Name": "Byrne",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Seattle Wunderman Network",
+           "Job Title":"Associate Director, User Experience"
+        },      
+        {    
+          "Speaker ID":701,       
+           "First Name": "Paul ",
+           "Last Name": "Booth",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "iconmobile",
+           "Job Title":"Strategy Lead"
+        },      
+        {    
+          "Speaker ID":702,       
+           "First Name": "Geoff ",
+           "Last Name": "Harrison",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Blink User Experience",
+           "Job Title":"Creative Director\/Partner"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":737 ,
+      "Name":"Beyond 2020: The Shape of Things to Come" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"emerging"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":472,       
+           "First Name": "Glen",
+           "Last Name": "Hiemstra",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Futurist.com",
+           "Job Title":"CEO & Founder"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":768 ,
+      "Name":"Bill Briggs - Deloitte Digital Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day One" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":513,       
+           "First Name": "Bill",
+           "Last Name": "Briggs",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Deloitte Digital",
+           "Job Title":"CTO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":757 ,
+      "Name":"Brace Yourselves, Change is Coming" ,
+      "Public":"false" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"mobile"}, {"Name":"visual design"}, {"Name":"web dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":471,       
+           "First Name": "Jumana",
+           "Last Name": "Al Hashal",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Zillow Inc.",
+           "Job Title":"Mobile Development Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":664 ,
+      "Name":"Building the Uncarrier Website: Simplicity & Transparency on tmobile.com" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day One" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"web dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":663,       
+           "First Name": "Peter",
+           "Last Name": "Francis",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "T-Mobile",
+           "Job Title":"Vice President of eCommerce & Web Transformation"
+        },      
+        {    
+          "Speaker ID":665,       
+           "First Name": "Mike",
+           "Last Name": "Selman",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Razorfish",
+           "Job Title":"Group VP, Strategy"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":775 ,
+      "Name":"Cal McCallister - Wexley School for Girls Session" ,
+      "Public":"false" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Three" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":475,       
+           "First Name": "Cal",
+           "Last Name": "McAllister",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Wexley School for Girls",
+           "Job Title":"Co-founder & CEO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":711 ,
+      "Name":"Come At Me, Bro! How to use transparent dialogue to challenge your critics" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"public relations"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":640,       
+           "First Name": "Matt",
+           "Last Name": "Ashworth",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Porter Novelli",
+           "Job Title":"Vice President Tech Practice"
+        },      
+        {    
+          "Speaker ID":639,       
+           "First Name": "Rob",
+           "Last Name": "McMurtie",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Porter Novelli",
+           "Job Title":"Senior Vice President, Technology Practice Lead"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":764 ,
+      "Name":"Creating a true \"Social TV\" experience with Roy Sekoff, President and co-creator of HuffPost Live, and founding editor of The Huffington Post" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"content dev"}, {"Name":"social"}, {"Name":"trends"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":568,       
+           "First Name": "Roy",
+           "Last Name": "Sekoff",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Huffington Post",
+           "Job Title":"Founding Editor"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":767 ,
+      "Name":"Cross Screen\/Cross Platform Master Class Workshop" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":570,       
+           "First Name": "Chad",
+           "Last Name": "Gallagher",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Advertising.com",
+           "Job Title":"Director of Mobile"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":720 ,
+      "Name":"Dare to Be Wrong: How we semi-screwed up the world\u2019s first full-length book released as an app (and why you might want to make some mistakes of your own)." ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"business dev"}
+      ],
+      "Summary":"When Razorfish Chair, Clark Kokich, and Larry Asher, CD of Worker Bees, published the hybrid book+app, Do or Die, their failure was underestimating the percentage of iPad owners in their target audience. The lessons learned (that Larry will share) include:\n- Don\u2019t be blinded by the \u201ccan\u2019t lose\u201d brilliance of your innovation\n- Be honest when asked, \u201chow\u2019s it going?\u201d so you can get constructive advice\n- Don\u2019t let perfection get in the way of progress" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":462,       
+           "First Name": "Larry",
+           "Last Name": "Asher",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Worker Bees",
+           "Job Title":"Principal"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":778 ,
+      "Name":"David Oliveira - mBuy Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":632,       
+           "First Name": "David",
+           "Last Name": "Oliveira",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "mBuy",
+           "Job Title":"SVP & General Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":771 ,
+      "Name":"David Shing - Digital Prophet Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":503,       
+           "First Name": "David",
+           "Last Name": "Shing",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "AOL",
+           "Job Title":"Digital Prophet"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":774 ,
+      "Name":"Designing SaaS products for the Small Business Owner" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Three" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"business dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":659,       
+           "First Name": "Raj",
+           "Last Name": "Nijjer",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "GoDaddy",
+           "Job Title":"Sr. Director - Product Management"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":766 ,
+      "Name":"Digital Content is Free. People are Not" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":507,       
+           "First Name": "Jack",
+           "Last Name": "Conte",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Patreon.com",
+           "Job Title":"Founder"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":719 ,
+      "Name":"Digital Maturity. What is it? Are you there yet?" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Two" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"advertising"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":718,       
+           "First Name": "Dean",
+           "Last Name": "Elissat",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Engine Digital",
+           "Job Title":"VP Client Engagement"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":798 ,
+      "Name":"Discovering Music Discovery Panel" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":464,       
+           "First Name": "James",
+           "Last Name": "Hamlin",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Who Sampled",
+           "Job Title":"Head of Sales & Marketing"
+        },      
+        {    
+          "Speaker ID":810,       
+           "First Name": "Chris",
+           "Last Name": "Kornelis",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "",
+           "Job Title":"Writer\/Editor"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":679 ,
+      "Name":"Do Your Part for the Inboxes of the World: Upgrade Your Email Design " ,
+      "Public":"false" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"email"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":677,       
+           "First Name": "Haydn",
+           "Last Name": "Sweterlitsch",
+           "Public":"false" ,
+           "Status":"Confirmed",
+           "Company": "Hacker Group",
+           "Job Title":"VP, Executive Creative Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":560 ,
+      "Name":"Engage. Inspire. Delight: Software Experience Design" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"ux"}, {"Name":"web dev"}
+      ],
+      "Summary":"Software has become the touch-point for how consumers experience brands; through apps, web, operating systems &ndash; virtually all digital interfaces are now the embodiment of brand. Bill Flora discusses the approach, process and point of view he &amp; his firm use to design some of the most widely used and well-received software experiences on the planet.\n\n&nbsp;" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":559,       
+           "First Name": "Bill",
+           "Last Name": "Flora",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "tectonic",
+           "Job Title":"Principal Partner"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":759 ,
+      "Name":"Escape the Cave: Rethinking What Makes a Great Creative" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"business dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":681,       
+           "First Name": "Keith",
+           "Last Name": "Frankel",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "HubSpot",
+           "Job Title":"Head of Creative and Design"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":742 ,
+      "Name":"Establishing Your Brand on the Local Search Frontier" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"search"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":271,       
+           "First Name": "David",
+           "Last Name": "Mihm",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Moz",
+           "Job Title":"Director of Local Search Strategy"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":594 ,
+      "Name":"From Theory to Practice \u2013 5 Ways to Do Cross-Device Right" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Master Class"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"mobile"}
+      ],
+      "Summary":"Every year there\u2019s a white-hot topic in digital marketing. This year it&#8217;s cross-device marketing. In theory, cross-device sounds like a winning strategy to reach consumers with fragmented attention across multiple screens \u2013 but doing cross-device right requires a building plans around the customer and their cross-device usage patterns, not platforms or devices. Put theory into practice by learning the 5 key drivers of cross-device marketing effectiveness." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":595,       
+           "First Name": "Kurt",
+           "Last Name": "Hawks",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Greystripe",
+           "Job Title":"General Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":741 ,
+      "Name":"Fun with Transparency" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Two" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"trends"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":492,       
+           "First Name": "Steve",
+           "Last Name": "Cullen",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Creature",
+           "Job Title":"Design & Creative Director"
+        },      
+        {    
+          "Speaker ID":102,       
+           "First Name": "Jim",
+           "Last Name": "Haven",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Creature",
+           "Job Title":"Chief Creative Officer, Managing Partner"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":644 ,
+      "Name":"Getting the \u201cA\u201d in BrAnd:  Understanding the Seven Audiences Most Likely to Influence Your Reputation" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Three" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"strategy"}
+      ],
+      "Summary":"Getting an \u201cA\u201d in brand depends on understanding and managing your AUDIENCE - Nurturing them will win you ADVOCATES, mistreating them will create ADVERSARIES and ignoring them generates brand AGNOSTICS.&nbsp; We will  discuss the most important audiences that can influence your reputation and how to move them from adversaries to advocates with the right strategy and approach." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":643,       
+           "First Name": "Kerry",
+           "Last Name": "McGowne",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Pivotal Communications",
+           "Job Title":"President"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":605 ,
+      "Name":"Hackathons and Building Creative Cultures" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"web dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":564,       
+           "First Name": "Matt ",
+           "Last Name": "Mulder",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Digital Kitchen",
+           "Job Title":"Executive Creative Director"
+        },      
+        {    
+          "Speaker ID":666,       
+           "First Name": "Mike ",
+           "Last Name": "Kemery",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "MakerHaus",
+           "Job Title":"Cofounder"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":716 ,
+      "Name":"Harnessing the Power of Visual Communication" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"analytics"}, {"Name":"branding"}, {"Name":"content dev"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":558,       
+           "First Name": "Amy",
+           "Last Name": "Balliett",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Killer Infographics",
+           "Job Title":"Co-Founder"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":765 ,
+      "Name":"Haydn Sweterlitsch - Hacker Group Session" ,
+      "Public":"false" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":677,       
+           "First Name": "Haydn",
+           "Last Name": "Sweterlitsch",
+           "Public":"false" ,
+           "Status":"Confirmed",
+           "Company": "Hacker Group",
+           "Job Title":"VP, Executive Creative Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":786 ,
+      "Name":"Hillel Cooperman from Jackson Fish Company - UX Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":804,       
+           "First Name": "Hillel",
+           "Last Name": "Cooperman",
+           "Public":"false" ,
+           "Status":"Confirmed",
+           "Company": "Jackson Fish Company",
+           "Job Title":"User Experience Design Leadership"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":714 ,
+      "Name":"How a CTO Looks at Your Project" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day One" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"web dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":469,       
+           "First Name": "Scott",
+           "Last Name": "Porad",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Rover.com",
+           "Job Title":"SVP, Product Development"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":708 ,
+      "Name":"How I got Jeff Bezos to sign my Kindle, and what it means for storytelling and branded content" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"content dev"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":105,       
+           "First Name": "Hanson",
+           "Last Name": "Hosein",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "University of Washington",
+           "Job Title":"Director Communication Leadership graduate program"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":646 ,
+      "Name":"How To Lie Effectively in the Age of Transparency" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":647,       
+           "First Name": "Jason ",
+           "Last Name": "Carmel",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "POSSIBLE",
+           "Job Title":"Global SVP, Marketing Sciences"
+        },      
+        {    
+          "Speaker ID":648,       
+           "First Name": "Ray ",
+           "Last Name": "Page ",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "POSSIBLE",
+           "Job Title":"Executive Creative Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":709 ,
+      "Name":"How to Suck Less" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"personal dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":626,       
+           "First Name": "Donte",
+           "Last Name": "Parks",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Substantial",
+           "Job Title":"Co-Founder & VP of Culture"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":671 ,
+      "Name":"How to win \"friends\" and really influence people" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Two" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"content dev"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":583,       
+           "First Name": "Ryan",
+           "Last Name": "Vanni",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "BKWLD",
+           "Job Title":"CEO\/Founder"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":793 ,
+      "Name":"Importance of Renewables to Build a Sustainable IT Future in the Cloud. " ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":735,       
+           "First Name": "Eiríkur",
+           "Last Name": "Hrafnsson",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "GreenQloud",
+           "Job Title":"Co-founder & Chief Global Strategist"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":616 ,
+      "Name":"Interactive Production: Making It Happen" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Three" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"analytics"}, {"Name":"business dev"}, {"Name":"content dev"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":615,       
+           "First Name": "Lori",
+           "Last Name": "DeBortoli",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Wieden + Kennedy",
+           "Job Title":"Executive Producer"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":722 ,
+      "Name":"Interactivity is Interpersonal- Real Work Requires #RealTalk" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"personal dev"}
+      ],
+      "Summary":"How often do we discuss what it requires to get the incredible work presented at conferences to happen? Presentations don\u2019t often include details of the sleepless nights, politics, dropped balls, creative differences, differing work styles and obstacles certain to pop up in even the most amicable of collaborations. Let\u2019s get real about navigating the red tape, red lights and red faces and talk about what it really takes to overcome what is holding back our work." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":563,       
+           "First Name": "Brittan",
+           "Last Name": "Bright",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "iAcquire",
+           "Job Title":"Director of Client Strategy"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":601 ,
+      "Name":"Is The Hashtag the New URL?" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Master Class"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"analytics"}, {"Name":"social"}
+      ],
+      "Summary":"Learn how the hashtag has changed the social media conversation and marketing for brands &ndash; globally\n\n&nbsp;" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":600,       
+           "First Name": "Josh",
+           "Last Name": "Decker",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Tagboard",
+           "Job Title":"CEO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":760 ,
+      "Name":"Jeff Lanctot & Callie Schweitzer Fireside Chat Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":761,       
+           "First Name": "Jeff",
+           "Last Name": "Lanctot",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "",
+           "Job Title":"Digital Executive"
+        },      
+        {    
+          "Speaker ID":784,       
+           "First Name": "Callie",
+           "Last Name": "Schweitzer",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "TIME Magazine",
+           "Job Title":"Director of Digital Innovation"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":787 ,
+      "Name":"Jennifer Lopez - Community Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Master Class"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":645,       
+           "First Name": "Jennifer",
+           "Last Name": "Lopez",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Moz",
+           "Job Title":"Director of Community"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":807 ,
+      "Name":"Jennifer Wong Mobile Tracking Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Three" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"analytics"}, {"Name":"mobile"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":806,       
+           "First Name": "Jennifer",
+           "Last Name": "Wong",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "HasOffers & MobileAppTracking",
+           "Job Title":"Director of Marketing"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":780 ,
+      "Name":"Jeremy LaCroix - Mobile UX Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":501,       
+           "First Name": "Jeremy",
+           "Last Name": "LaCroix",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "AOL",
+           "Job Title":"Head of UX\/Design & Product, Mobile Publishing"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":802 ,
+      "Name":"Jonathan Woods - Photo Editor at TIME.com Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"mobile"}, {"Name":"ux"}, {"Name":"web dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":785,       
+           "First Name": "Jonathan",
+           "Last Name": "Woods",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "TIME.com",
+           "Job Title":"Senior Editor, Photo & Interactive"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":801 ,
+      "Name":"Keeping up with the Mobile World: Best Practices for Responsive Design Across Platforms" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"mobile"}, {"Name":"search"}, {"Name":"ux"}, {"Name":"web dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":800,       
+           "First Name": "Jason",
+           "Last Name": "Milstead",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "WhitePages",
+           "Job Title":"General Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":763 ,
+      "Name":"Lee Brown - Tumblr Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":579,       
+           "First Name": "Lee",
+           "Last Name": "Brown",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Tumblr",
+           "Job Title":"Global Head of Sales"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":782 ,
+      "Name":"Make the Most of Your Data" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Workshop"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"business dev"}, {"Name":"data managment"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":571,       
+           "First Name": "Brian",
+           "Last Name": "Tomasette",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "AOL Networks",
+           "Job Title":"Director of Platform Sales"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":809 ,
+      "Name":"Mason Garrity Search Session" ,
+      "Public":"false" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":808,       
+           "First Name": "Mason",
+           "Last Name": "Garrity",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "3Q Digital",
+           "Job Title":"Client Strategist"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":777 ,
+      "Name":"Matt Harding - Where the Hell is Matt Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":582,       
+           "First Name": "Matt",
+           "Last Name": "Harding",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Where the Hell is Matt",
+           "Job Title":"American Traveller"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":762 ,
+      "Name":"Michael King - iAcquire Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":562,       
+           "First Name": "Michael",
+           "Last Name": "King",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "iAcquire.com",
+           "Job Title":"Director, Inbound Marketing"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":587 ,
+      "Name":"No Pain, No Gain: How to Identify Pain Points to Build Your Business" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"business dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":288,       
+           "First Name": "Rand",
+           "Last Name": "Fishkin",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Moz",
+           "Job Title":"CEO"
+        },      
+        {    
+          "Speaker ID":604,       
+           "First Name": "Grant",
+           "Last Name": "Feek",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "tred",
+           "Job Title":"CEO"
+        }      
+      ],
+       "Moderator":[
+       
+        {           
+          "Speaker ID":586,
+           "First Name": "David",
+           "Last Name": "Mandell",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "PivotDesk",
+           "Job Title":"Co-Founder & CEO"
+        }      
+      ]
+    },  
+    { 
+      "Event ID":755 ,
+      "Name":"Onion Turns 25: Founder Who \u201cHasn\u2019t Done Shit There in 24 Years\u201d Takes Credit" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"content dev"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":498,       
+           "First Name": "Tim",
+           "Last Name": "Keck",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "The Stranger",
+           "Job Title":"Publisher & Founder"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":634 ,
+      "Name":"Open House: How Open Platforms are Making Our Homes Smarter" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day One" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"emerging"}, {"Name":"product dev"}
+      ],
+      "Summary":"SmartThings Senior Director of Platform Strategy Dan Lieberman will explain how Internet of Things companies are making it easy to connect everyday objects to the Internet and control them via their smartphones. He\u2019ll discuss how the \u201copen source revolution\u201d is encouraging companies to innovate and streamline the user experience in a simple and secure fashion." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":588,       
+           "First Name": "Dan",
+           "Last Name": "Lieberman",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "SmartThings",
+           "Job Title":"Senior Director of Platform Strategy"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":733 ,
+      "Name":"Opening Remarks by Mayor Mike McGinn" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"9:00am" ,
+      "End Time":"9:10am" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"trends"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":732,       
+           "First Name": "Mike",
+           "Last Name": "McGinn",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "City of Seattle",
+           "Job Title":"Mayor"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":772 ,
+      "Name":"Pablos Holman - Komposite.com Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":636,       
+           "First Name": "Pablos",
+           "Last Name": "Holman",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Komposite, Inc.",
+           "Job Title":"Inventor"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":592 ,
+      "Name":"Pay It Forward: Programmer Transparency and Collaborative Education" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Develop" ,
+      "Day":"Day Three" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"personal dev"}, {"Name":"web dev"}
+      ],
+      "Summary":"In the competitive world of web development, it may seem unwise to be transparent and share your knowledge with others. However, greater transparency is actually the key to better work. If teams can increase transparency, knowledge can be shared more quickly, leading to more time spent learning new skills to share and benefit everyone.&nbsp; In this session, Marc Ammann will discuss how embracing transparency and collaborative education can help us all provide each other with the knowledge required to work more efficiently and build something that might one day change the world." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":591,       
+           "First Name": "Marc",
+           "Last Name": "Ammann",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Huge\/KingCoyle",
+           "Job Title":"Technical Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":791 ,
+      "Name":"Planning in the Digital Age, Or . . . What Would Road Runner Do? " ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Two" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":790,       
+           "First Name": "Krista ",
+           "Last Name": "Alef",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "HackerGroup",
+           "Job Title":"Media Supervisor"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":715 ,
+      "Name":"Programmatic 101" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"analytics"}, {"Name":"data managment"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":292,       
+           "First Name": "Eshwar",
+           "Last Name": "Belani",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Rocket Fuel",
+           "Job Title":"VP, Products & Biz Dev"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":769 ,
+      "Name":"Rand Fishkin - Moz.com Session" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":288,       
+           "First Name": "Rand",
+           "Last Name": "Fishkin",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Moz",
+           "Job Title":"CEO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":590 ,
+      "Name":"Real-time\/Programmatic Advertising for Display and Mobile: What's Next?" ,
+      "Public":"false" ,
+      "Status":"Cancelled" ,
+      "Type":""	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"mobile"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":589,       
+           "First Name": "Dave",
+           "Last Name": "Osborn",
+           "Public":"false" ,
+           "Status":"Cancelled",
+           "Company": "AppNexus",
+           "Job Title":"VP, Global Accounts"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":758 ,
+      "Name":"Sanaz Ahari - Google Keynote" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":792,       
+           "First Name": "Sanaz ",
+           "Last Name": "Ahari",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Google",
+           "Job Title":"Senior Product Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":629 ,
+      "Name":"Secrets of a Killer Pitch" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Three" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"content dev"}, {"Name":"strategy"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":578,       
+           "First Name": "Adam",
+           "Last Name": "Tratt",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Haiku Deck",
+           "Job Title":"Co-Founder & CEO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":698 ,
+      "Name":"Shifting Paradigms: Knowledge Powered Audience Engagement" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"analytics"}, {"Name":"data"}, {"Name":"emerging"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":597,       
+           "First Name": "Dr. Ying",
+           "Last Name": "Li",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Parllay",
+           "Job Title":"Chief Scientist Advisor"
+        },      
+        {    
+          "Speaker ID":598,       
+           "First Name": "Tarek",
+           "Last Name": "Najm",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Maana",
+           "Job Title":"CTO & Technical Fellow"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":593 ,
+      "Name":"Shopping Inside a Mash-Up: How Retailers are blurring the lines between the physical and the digital" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Develop" ,
+      "Day":"Day One" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"emerging"}, {"Name":"trends"}, {"Name":"ux"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":618,       
+           "First Name": "Neil",
+           "Last Name": "Crist",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Venuelabs",
+           "Job Title":"CEO\/Founder"
+        },      
+        {    
+          "Speaker ID":619,       
+           "First Name": "Todd",
+           "Last Name": "Sherman",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Point Inside",
+           "Job Title":"Chief Marketing Officer"
+        },      
+        {    
+          "Speaker ID":628,       
+           "First Name": "Andy",
+           "Last Name": "Chu",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Sears Holding",
+           "Job Title":"Divisional Vice President & GM"
+        },      
+        {    
+          "Speaker ID":797,       
+           "First Name": "Scott",
+           "Last Name": "Svenson",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "MOD Pizza",
+           "Job Title":"Co-Founder and CEO"
+        }      
+      ],
+       "Moderator":[
+       
+        {           
+          "Speaker ID":617,
+           "First Name": "Martin",
+           "Last Name": "Mehalchin",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Lenati",
+           "Job Title":"Partner"
+        }      
+      ]
+    },  
+    { 
+      "Event ID":805 ,
+      "Name":"Social Analytics: Why You Need More Than \u2018Likes\u2019" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room LL2" ,
+      "Topics" :[
+       {"Name":"analytics"}, {"Name":"social"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":803,       
+           "First Name": "Page",
+           "Last Name": "Sands",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "R2Integrated",
+           "Job Title":"VP - Social Marketing"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":696 ,
+      "Name":"Social Media For Good " ,
+      "Public":"false" ,
+      "Status":"Pending" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":512,       
+           "First Name": "Brooke",
+           "Last Name": "Angles",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Admosis Media",
+           "Job Title":"Founder"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":744 ,
+      "Name":"Storytelling's Secret Weapon" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Three" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"content dev"}, {"Name":"ux"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":669,       
+           "First Name": "Jen",
+           "Last Name": "Panasik",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "IDEO",
+           "Job Title":"Portfolio Lead and Interaction Designer"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":685 ,
+      "Name":"Technology, Journalism and Business: A Legit Mix?" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"emerging"}, {"Name":"trends"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":633,       
+           "First Name": "Kelly",
+           "Last Name": "Clay",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Forbes & HasOffers",
+           "Job Title":"Digital Communications Strategist"
+        },      
+        {    
+          "Speaker ID":721,       
+           "First Name": "Brier",
+           "Last Name": "Dudley",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "The Seattle Times",
+           "Job Title":"Technology Columnist"
+        },      
+        {    
+          "Speaker ID":695,       
+           "First Name": "John",
+           "Last Name": "Cook",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "GeekWire",
+           "Job Title":"Co-Founder & Technology Reporter"
+        },      
+        {    
+          "Speaker ID":810,       
+           "First Name": "Chris",
+           "Last Name": "Kornelis",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "",
+           "Job Title":"Writer\/Editor"
+        }      
+      ],
+       "Moderator":[
+       
+        {           
+          "Speaker ID":795,
+           "First Name": "Chris",
+           "Last Name": "Grygiel",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "The Associated Press",
+           "Job Title":"PNW Editor"
+        }      
+      ]
+    },  
+    { 
+      "Event ID":674 ,
+      "Name":"Telling the stories from data: lessons in visualizing, story-telling, transparency and impact." ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"analytics"}, {"Name":"data managment"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":672,       
+           "First Name": "Whitney",
+           "Last Name": "Stensrud",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "The Seattle Times",
+           "Job Title":"Art Director, Graphics"
+        },      
+        {    
+          "Speaker ID":673,       
+           "First Name": "Cheryl ",
+           "Last Name": "Phillips",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "The Seattle Times",
+           "Job Title":"Data Innovation Editor"
+        },      
+        {    
+          "Speaker ID":675,       
+           "First Name": "Ian ",
+           "Last Name": "Kalin",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Socrata",
+           "Job Title":"Director of Open Data"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":726 ,
+      "Name":"The 95%: What people outside the U.S. think about\u2014well, everything" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"2:50pm" ,
+      "End Time":"3:50pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"business dev"}, {"Name":"product dev"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":724,       
+           "First Name": "Jeffrey ",
+           "Last Name": "Foster",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Seattle Wunderman Network",
+           "Job Title":"Senior Strategist"
+        },      
+        {    
+          "Speaker ID":725,       
+           "First Name": "Ben ",
+           "Last Name": "Sadler",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Seattle Wunderman Network",
+           "Job Title":"Global Strategist"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":773 ,
+      "Name":"The Convergence of Storytelling and UX Design" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Two" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"ux"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":465,       
+           "First Name": "Adam",
+           "Last Name": "Kleinberg",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Traction",
+           "Job Title":"CEO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":779 ,
+      "Name":"The Era of New Contexts " ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Three" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"ux"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":661,       
+           "First Name": "Ben",
+           "Last Name": "Winters",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "WINTR",
+           "Job Title":"Founder & CEO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":638 ,
+      "Name":"The Evolution of Branded Content" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"branding"}, {"Name":"content dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":637,       
+           "First Name": "Andrew ",
+           "Last Name": "Grinaker",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "POSSIBLE",
+           "Job Title":"Sr. Media Services Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":717 ,
+      "Name":"The Future of Search. Driven by Consumers, Engaged by Business" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Keynote"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"emerging"}, {"Name":"search"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":491,       
+           "First Name": "Duane",
+           "Last Name": "Forrester",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Bing",
+           "Job Title":"Senior Product Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":511 ,
+      "Name":"The Future of Social Advertising \u2013 What Can It Do for Your Brand?" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"branding"}, {"Name":"social"}
+      ],
+      "Summary":"Key themes, trends and content strategies for social advertising on Facebook, Twitter and LinkedIn will be shared to meet direct response and engagement goals. Best practices for leveraging paid, earned and owned social strategies and examples of customer ROI will show how social platforms can help build community, improve brand lift and conversion rates, mobilize followers, and improve revenue." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":497,       
+           "First Name": "Rebecca",
+           "Last Name": "Kaykas-Wolff",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Adobe",
+           "Job Title":"Group Product Marketing, Social Advertising"
+        },      
+        {    
+          "Speaker ID":512,       
+           "First Name": "Brooke",
+           "Last Name": "Angles",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Admosis Media",
+           "Job Title":"Founder"
+        },      
+        {    
+          "Speaker ID":682,       
+           "First Name": "Tyler",
+           "Last Name": "Willis",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Unified",
+           "Job Title":"Vice President of Business Development"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":691 ,
+      "Name":"The Idea Idea Day 1" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Workshop"	,
+      "Track":"Develop" ,
+      "Day":"Day One" ,
+      "Start Time":"10:10am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 205" ,
+      "Topics" :[
+       {"Name":"product dev"}, {"Name":"social"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":689,       
+           "First Name": "Brian  ",
+           "Last Name": "Spittler",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Method Communications",
+           "Job Title":"Account Executive"
+        },      
+        {    
+          "Speaker ID":690,       
+           "First Name": "Brian ",
+           "Last Name": "O'Shea",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "BuildersCloud",
+           "Job Title":"Co-Founder\/Director of Product "
+        },      
+        {    
+          "Speaker ID":688,       
+           "First Name": "Amy ",
+           "Last Name": "Spittler Shaffer",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Kidnected and The Wonderment",
+           "Job Title":"Creative Director"
+        },      
+        {    
+          "Speaker ID":577,       
+           "First Name": "Corey",
+           "Last Name": "Gutch",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Civilization",
+           "Job Title":"Co-Founder\/Interactive Director"
+        },      
+        {    
+          "Speaker ID":496,       
+           "First Name": "Michael",
+           "Last Name": "Ellsworth",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Civilization",
+           "Job Title":"Creative Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":754 ,
+      "Name":"The Idea Idea Day 2" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Workshop"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"10:10am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 205" ,
+      "Topics" :[
+       {"Name":"product dev"}, {"Name":"social"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":689,       
+           "First Name": "Brian  ",
+           "Last Name": "Spittler",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Method Communications",
+           "Job Title":"Account Executive"
+        },      
+        {    
+          "Speaker ID":690,       
+           "First Name": "Brian ",
+           "Last Name": "O'Shea",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "BuildersCloud",
+           "Job Title":"Co-Founder\/Director of Product "
+        },      
+        {    
+          "Speaker ID":688,       
+           "First Name": "Amy ",
+           "Last Name": "Spittler Shaffer",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Kidnected and The Wonderment",
+           "Job Title":"Creative Director"
+        },      
+        {    
+          "Speaker ID":496,       
+           "First Name": "Michael",
+           "Last Name": "Ellsworth",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Civilization",
+           "Job Title":"Creative Director"
+        },      
+        {    
+          "Speaker ID":577,       
+           "First Name": "Corey",
+           "Last Name": "Gutch",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Civilization",
+           "Job Title":"Co-Founder\/Interactive Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":753 ,
+      "Name":"The Idea Idea Day 3" ,
+      "Public":"false" ,
+      "Status":"Cancelled" ,
+      "Type":"Master Class"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 205" ,
+      "Topics" :[
+       {"Name":"product dev"}, {"Name":"social"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":690,       
+           "First Name": "Brian ",
+           "Last Name": "O'Shea",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "BuildersCloud",
+           "Job Title":"Co-Founder\/Director of Product "
+        },      
+        {    
+          "Speaker ID":689,       
+           "First Name": "Brian  ",
+           "Last Name": "Spittler",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Method Communications",
+           "Job Title":"Account Executive"
+        },      
+        {    
+          "Speaker ID":496,       
+           "First Name": "Michael",
+           "Last Name": "Ellsworth",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Civilization",
+           "Job Title":"Creative Director"
+        },      
+        {    
+          "Speaker ID":577,       
+           "First Name": "Corey",
+           "Last Name": "Gutch",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Civilization",
+           "Job Title":"Co-Founder\/Interactive Director"
+        },      
+        {    
+          "Speaker ID":688,       
+           "First Name": "Amy ",
+           "Last Name": "Spittler Shaffer",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Kidnected and The Wonderment",
+           "Job Title":"Creative Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":736 ,
+      "Name":"The intersection of technology, design and strategy through the prism of storytelling." ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Two" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 303" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":678,       
+           "First Name": "Dave",
+           "Last Name": "McKeague",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Tether",
+           "Job Title":"Interactive Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":723 ,
+      "Name":"The Mobile Native \u2013 helping brands organically engage with their mobile savvy customer" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"mobile"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":611,       
+           "First Name": "Carrie",
+           "Last Name": "Seifer",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Millennial Media",
+           "Job Title":"VP, Strategy"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":750 ,
+      "Name":"The Power of Play" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"strategy"}, {"Name":"trends"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":748,       
+           "First Name": "Brian",
+           "Last Name": "Marr",
+           "Public":"false" ,
+           "Status":"Confirmed",
+           "Company": "Smashing Ideas",
+           "Job Title":"Director of Strategy"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":676 ,
+      "Name":"The Power of Real Time Marketing through Mobile" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"analytics"}, {"Name":"mobile"}
+      ],
+      "Summary":"The ultimate goal of many marketers is to deliver highly personalized content, real-time, relative to what a consumer is doing \u201cnow.\u201d&nbsp; This means truly delivering the right message, right person, right place, and right time, while addressing them by name.&nbsp; Now combine this with the Omni-presence of the mobile channel and the result is a tremendously powerful advertising tool.\n\nLearn how AT&amp;T is doing just this by leveraging dynamic, personalized content through mobile video to drive significant customer engagement and increase loyalty." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":516,       
+           "First Name": "Matt",
+           "Last Name": "Ramerman",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "VEHICLE",
+           "Job Title":"Co-Founder & Managing Director"
+        },      
+        {    
+          "Speaker ID":565,       
+           "First Name": "Michelle",
+           "Last Name": "Schmoelzer",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "AT&T",
+           "Job Title":"Associate Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":713 ,
+      "Name":"The Power of Story" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"business dev"}, {"Name":"content dev"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":599,       
+           "First Name": "John",
+           "Last Name": "Jacobsen",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "The Artist Toolbox",
+           "Job Title":"Director & Film Writer"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":610 ,
+      "Name":"The REI 1440 Project: Curating Outdoor Adventure" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"4:00pm" ,
+      "End Time":"5:00pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"social"}
+      ],
+      "Summary":"REI&#8217;s mission is to inspire, educate and outfit for a lifetime of outdoor adventure and stewardship. What does that look like in online social networks? The REI 1440 Project. In this case study presentation, the REI Digital Engagement Team will review its discovery process, partnership with agencies, and successes and challenges in hosting an owned social community." ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":620,       
+           "First Name": "Paolo",
+           "Last Name": "Mottola",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "REI",
+           "Job Title":"Digital Engagement Program Manager"
+        },      
+        {    
+          "Speaker ID":623,       
+           "First Name": "Kelly",
+           "Last Name": "Walsh",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "REI",
+           "Job Title":"Digital Engagement Program Manager"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":653 ,
+      "Name":"The Transparent: Your data and how three digital marketing professionals intend to use it to make your life better" ,
+      "Public":"false" ,
+      "Status":"Pending" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":649,       
+           "First Name": "Patrick ",
+           "Last Name": "Cartmel",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Undertone",
+           "Job Title":"VP, National Strategic Accounts"
+        },      
+        {    
+          "Speaker ID":650,       
+           "First Name": "Kirsten ",
+           "Last Name": "Ward",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Microsoft",
+           "Job Title":"Sr. Director, Xbox Digital and Direct Marketing"
+        },      
+        {    
+          "Speaker ID":651,       
+           "First Name": "Megan ",
+           "Last Name": "Tweed",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Razorfish",
+           "Job Title":"VP of Media"
+        },      
+        {    
+          "Speaker ID":652,       
+           "First Name": "Mike",
+           "Last Name": "Reeder",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "POSSIBLE",
+           "Job Title":"VP, Account Planning & Strategy"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":752 ,
+      "Name":"Thinking Inside the Box" ,
+      "Public":"false" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day One" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"mobile"}, {"Name":"ux"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":749,       
+           "First Name": "Antonio",
+           "Last Name": "Holguin",
+           "Public":"false" ,
+           "Status":"Confirmed",
+           "Company": "Smashing Ideas",
+           "Job Title":"Senior Mobile Designer,"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":712 ,
+      "Name":"Transparency Through Design: Complex Information, Clear Experiences" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Design" ,
+      "Day":"Day Three" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 302" ,
+      "Topics" :[
+       {"Name":"ux"}, {"Name":"visual design"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":662,       
+           "First Name": "David",
+           "Last Name": "Schwarz",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "HUSH",
+           "Job Title":"Creative Partner"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":789 ,
+      "Name":"Trust Protocols, Trust Economies" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"9:00am" ,
+      "End Time":"10:00am" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"branding"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":788,       
+           "First Name": "Ken",
+           "Last Name": "Rufo",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "University of Washington",
+           "Job Title":"Professor"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":811 ,
+      "Name":"Trust Protocols, Trust Economies" ,
+      "Public":"false" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"" ,
+      "Day":"" ,
+      "Start Time":"" ,
+      "End Time":"" ,
+      "Room":"TBD" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":788,       
+           "First Name": "Ken",
+           "Last Name": "Rufo",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "University of Washington",
+           "Job Title":"Professor"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":694 ,
+      "Name":"Wearables Hackathon - Finalists Presentations" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Develop" ,
+      "Day":"Day Two" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"emerging"}, {"Name":"mobile"}, {"Name":"product dev"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":580,       
+           "First Name": "Rebecca",
+           "Last Name": "Kaden",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Maveron",
+           "Job Title":"Principal"
+        },      
+        {    
+          "Speaker ID":575,       
+           "First Name": "Michelle",
+           "Last Name": "Goldberg",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Partner",
+           "Job Title":"Ignition Partners"
+        },      
+        {    
+          "Speaker ID":105,       
+           "First Name": "Hanson",
+           "Last Name": "Hosein",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "University of Washington",
+           "Job Title":"Director Communication Leadership graduate program"
+        },      
+        {    
+          "Speaker ID":695,       
+           "First Name": "John",
+           "Last Name": "Cook",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "GeekWire",
+           "Job Title":"Co-Founder & Technology Reporter"
+        },      
+        {    
+          "Speaker ID":699,       
+           "First Name": "James ",
+           "Last Name": "Whittaker ",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Microsoft",
+           "Job Title":"Partner Technical Evangelist"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":731 ,
+      "Name":"We\u2019re all divas now\u2014how to reach high-maintenance consumers with your brand story" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day One" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+       {"Name":"branding"}, {"Name":"strategy"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":727,       
+           "First Name": "Kelby ",
+           "Last Name": "Johnson",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Seattle Wunderman Network",
+           "Job Title":"Sr Emerging Media Strategist"
+        },      
+        {    
+          "Speaker ID":728,       
+           "First Name": "Esther ",
+           "Last Name": "Lim",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Story Worldwide",
+           "Job Title":"VP, Group Account Director"
+        },      
+        {    
+          "Speaker ID":729,       
+           "First Name": "Jessica ",
+           "Last Name": "Michaels",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Bread n\u2019 Butter",
+           "Job Title":"Founder "
+        }      
+      ],
+       "Moderator":[
+       
+        {           
+          "Speaker ID":730,
+           "First Name": "Julie ",
+           "Last Name": "Rezek",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Seattle Wunderman Network",
+           "Job Title":"Managing Director"
+        }      
+      ]
+    },  
+    { 
+      "Event ID":624 ,
+      "Name":"What is Attribution?" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"10:10am" ,
+      "End Time":"11:10am" ,
+      "Room":"Room 202" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"analytics"}, {"Name":"data managment"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":625,       
+           "First Name": "David",
+           "Last Name": "Perez",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Convertro",
+           "Job Title":"Co-Founder & CMO"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":697 ,
+      "Name":"Why an Agency having its head in the cloud makes sense" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Session"	,
+      "Track":"Digital" ,
+      "Day":"Day Three" ,
+      "Start Time":"1:40pm" ,
+      "End Time":"2:40pm" ,
+      "Room":"Room 204" ,
+      "Topics" :[
+       {"Name":"advertising"}, {"Name":"business dev"}, {"Name":"data managment"}
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":684,       
+           "First Name": "Ian ",
+           "Last Name": "Clausen",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Rational",
+           "Job Title":"Technology Director"
+        }      
+      ],
+       "Moderator":[
+       
+      ]
+    },  
+    { 
+      "Event ID":656 ,
+      "Name":"[Not Provided] - Measuring Paid and Organic Search" ,
+      "Public":"true" ,
+      "Status":"Confirmed" ,
+      "Type":"Panel"	,
+      "Track":"Digital" ,
+      "Day":"Day Two" ,
+      "Start Time":"11:30am" ,
+      "End Time":"12:30pm" ,
+      "Room":"Room 301" ,
+      "Topics" :[
+      
+      ],
+      "Summary":"" ,
+      "Speakers": [
+      
+        {    
+          "Speaker ID":642,       
+           "First Name": "Ben",
+           "Last Name": "Lloyd",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Amplify Interactive",
+           "Job Title":"President"
+        },      
+        {    
+          "Speaker ID":641,       
+           "First Name": "Ian",
+           "Last Name": "Lurie",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Portent Inc.",
+           "Job Title":"CEO"
+        },      
+        {    
+          "Speaker ID":622,       
+           "First Name": "Stephen",
+           "Last Name": "Hall",
+           "Public":"false" ,
+           "Status":"Invited",
+           "Company": "Catalyst \/ GroupM",
+           "Job Title":"Sr. Partner; Group Account Director"
+        }      
+      ],
+       "Moderator":[
+       
+        {           
+          "Speaker ID":655,
+           "First Name": "Rob",
+           "Last Name": "Ousbey",
+           "Public":"true" ,
+           "Status":"Confirmed",
+           "Company": "Distilled",
+           "Job Title":"COO"
+        }      
+      ]
+    }    
+  ]
+}

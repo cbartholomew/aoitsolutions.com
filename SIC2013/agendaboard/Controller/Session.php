@@ -1,54 +1,77 @@
 <?php		
+
 	class Session
-	{			
-		public static function get($site_id, $channel_id)
-		{
-			// get that specific static query
-			$getQuery = self::$sessionQueries["get"];
-			
-			// join the array of sql strings using space
-			$sql = implode(" ",$getQuery);
-			
+	{	
+		public $start_time,$end_time,$day_no,$room_no,$max,$index,$item;	    
+				
+		function __construct($MaxItems) 
+		{	 
 			try
-			{
-				// return results based on the site and channel
-				return query($sql, $site_id, $channel_id);
+			{	
+		   		$this->max		 = $MaxItems;
+		   		$this->index 	 = 0;
+		   		$this->item 	 = null;	
 			}
 			catch (Exception $e)
             {
                 // trigger (big, orange) error
                 trigger_error($e->getMessage(), E_USER_ERROR);
-                exit;
+            }
+	   	}
+		
+		public function set($StartTime, $EndTime, $Day, $RoomNo)
+		{
+		  	$this->start_time = $StartTime;
+		  	$this->end_time	  = $EndTime;
+		  	$this->day_no 	  = $Day;
+		  	$this->room_no    = $RoomNo;
+			$this->index = 0;
+			$this->item = null;
+		}
+		
+		public function get($sessions)
+		{			
+			try
+			{
+				if($this->index >= $this->max)
+					return;
+				
+				if(isset($this->item))
+					return;
+					
+				$session = $sessions[$this->index];
+				
+				if($session["Day"] == $this->day_no)
+				{		
+					if($session["Start Time"] == $this->start_time)
+					{				
+						if($session["End Time"] == $this->end_time)
+						{
+							if($session["Room"] == $this->room_no)
+							{								
+									$this->item = $session;	
+									return;					
+							}							
+						}						
+					}
+				}
+								
+				$this->index++;
+				$this->get($sessions);
+								
+			}
+			catch (Exception $e)
+            {
+                // trigger (big, orange) error
+                trigger_error($e->getMessage(), E_USER_ERROR);
             }	
 		}
 		
-		// sql query, done in such a way where it is easier to add fields, if needed
-	    public static $sessionQueries = array(
-			"get" => array(
-							"SELECT",
-							"field_id_40  as session_day,",
-							"field_id_41  as session_name,",
-							"field_id_42  as session_start_time,",
-							"field_id_43  as session_end_time,",
-							"field_id_44  as session_description,",
-							"field_id_46  as session_room,",
-							"field_id_51  as session_speakers,",
-							"field_id_52  as session_moderator,",
-							"field_id_185 as session_topics,",
-							"field_id_157 as session_is_sponsored,",
-							"field_id_158 as session_sponsor,",
-							"field_id_177 as session_visible,",
-							"field_id_178 as session_status",
-							"FROM",
-							"exp_channel_data AS ecd",
-							"WHERE",
-							"ecd.site_id = ?",
-							"AND",
-							"ecd.channel_id = ?",
-							"AND",
-							"ecd.field_id_178 in ('confirmed', 'pending')",
-							"order by ecd.field_id_40"
-					 )
-		);
+		public function makeTrackView()
+		{
+			
+			
+		}
+		
 	}
 ?>
