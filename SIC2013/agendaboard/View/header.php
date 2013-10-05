@@ -7,6 +7,7 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="Static/CSS/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/agenda.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="Static/CSS/panel.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <!-- Content Delivery Network Scripts  -->
 <script type="text/javascript" src="cdn/js/jquery.min.js"></script>

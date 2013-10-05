@@ -112,7 +112,25 @@
 		
 		return $output;
 	}
-	
+	function GetMultiSpeakerHTML($items, $publicOnly)
+	{
+		$html = "";
+		
+		$html .= "<ul>";
+		
+		foreach($items as $item)
+		{
+			if($publicOnly)
+				if(!$item["Public"])
+					continue;
+				
+			$html .= "<li>" . $item["First Name"] . " " . $item["Last Name"] . "," . $item["Job Title"] . " <br>// <small><em>" . $item["Company"] . "</em></small></li>";		
+		}
+		
+		$html .= "</ul>";
+		
+		return $html;
+	}
 	function GetBackgroundCSS($roomNumber)
 	{
 		switch($roomNumber) 
@@ -133,7 +151,7 @@
 				return "room303";
 			break;
 			case "Room LL2":
-				return "roomLLß2";
+				return "roomLL2";
 			break;
 			case "tbd":					
 			default:

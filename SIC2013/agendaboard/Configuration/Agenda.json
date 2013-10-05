@@ -100,7 +100,7 @@
 			"Day"  : "Tuesday",
 			"Date" : { 
 				"Month" : "10",
-				"Day"	: "28",
+				"Day"	: "29",
 				"Year"	: "2013"
 			},
 			"Times": {
@@ -148,32 +148,32 @@
 						{
 							"Order": 1 ,
 							"Start": "9:00" , "StartMeridian":"AM", 
-							"End"  : "9:50" , "EndMeridian"  :"AM"
+							"End"  : "10:00" , "EndMeridian"  :"AM"
 						},
 						{
 							"Order": 2, 
 							"Start": "10:10", "StartMeridian":"AM", 
-							"End"  : "11:00", "EndMeridian"  :"AM"
+							"End"  : "11:10", "EndMeridian"  :"AM"
 						},
 						{
 							"Order": 3, 
-							"Start": "11:20", "StartMeridian":"AM", 
-							"End"  : "12:10", "EndMeridian"  :"PM"
+							"Start": "11:30", "StartMeridian":"AM", 
+							"End"  : "12:30", "EndMeridian"  :"PM"
 						},
 						{
 							"Order": 4, 
-							"Start": "1:10" , "StartMeridian":"PM", 
-							"End"  : "2:00" , "EndMeridian"  :"PM"
+							"Start": "1:40" , "StartMeridian":"PM", 
+							"End"  : "2:40" , "EndMeridian"  :"PM"
 						},
 						{
 							"Order": 5, 
-							"Start": "2:20", "StartMeridian":"PM", 
-							"End"  : "3:10", "EndMeridian"  :"PM"
+							"Start": "2:50", "StartMeridian":"PM", 
+							"End"  : "3:50", "EndMeridian"  :"PM"
 						},
 						{
 							"Order": 6, 
-							"Start": "3:30", "StartMeridian" :"PM", 
-							"End"  : "4:20", "EndMeridian"   :"PM"
+							"Start": "4:00", "StartMeridian" :"PM", 
+							"End"  : "5:00", "EndMeridian"   :"PM"
 						}
 					]
 			}
@@ -184,7 +184,7 @@
 			"Day"  : "Wednesday",
 			"Date" : { 
 				"Month" : "10",
-				"Day"	: "28",
+				"Day"	: "30",
 				"Year"	: "2013"
 			},
 			"Times": {
@@ -226,32 +226,22 @@
 						{
 							"Order": 1, 
 							"Start": "9:00" , "StartMeridian":"AM", 
-							"End"  : "9:50" , "EndMeridian"  :"AM"
+							"End"  : "10:00" , "EndMeridian"  :"AM"
 						},
 						{
 							"Order": 2, 
 							"Start": "10:10", "StartMeridian":"AM", 
-							"End"  : "11:00", "EndMeridian"  :"AM"
+							"End"  : "11:10", "EndMeridian"  :"AM"
 						},
 						{
 							"Order": 3, 
-							"Start": "11:20", "StartMeridian":"AM", 
-							"End"  : "12:10", "EndMeridian"  :"PM"
+							"Start": "11:30", "StartMeridian":"AM", 
+							"End"  : "12:30", "EndMeridian"  :"PM"
 						},
 						{
 							"Order": 4, 
-							"Start": "1:10" , "StartMeridian":"PM", 
-							"End"  : "2:00" , "EndMeridian"  :"PM"
-						},
-						{
-							"Order": 5, 
-							"Start": "2:20", "StartMeridian":"PM", 
-							"End"  : "3:10", "EndMeridian"  :"PM"
-						},
-						{
-							"Order": 6, 
-							"Start": "3:30", "StartMeridian" :"PM", 
-							"End"  : "4:20", "EndMeridian"   :"PM"
+							"Start": "1:40" , "StartMeridian":"PM", 
+							"End"  : "2:40" , "EndMeridian"  :"PM"
 						}
 					]
 			}

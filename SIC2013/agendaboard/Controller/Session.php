@@ -66,12 +66,6 @@
                 trigger_error($e->getMessage(), E_USER_ERROR);
             }	
 		}
-		
-		public function makeTrackView()
-		{
-			
-			
-		}
-		
+				
 	}
 ?>

@@ -10,23 +10,26 @@
 	$viewManager = new ViewManager();
 	
 	// get the agenda board configuration
-	$agenda_json = file_get_contents(JSON_AGENDA_URI);
-	$agenda    = json_decode($agenda_json,true);
+	$agenda_uri  = (IS_PROD) ? JSON_AGENDA_PROD_URI : JSON_AGENDA_URI;
+	$agenda_json = file_get_contents($agenda_uri);
+	$agenda      = json_decode($agenda_json,true);
 	
 	// get the sessions via json
 	$session_uri = (IS_PROD) ? JSON_SESSION_PROD_URI : JSON_SESSION_TEST_URI;
 	$session_json = file_get_contents($session_uri);
 	$sessions     = json_decode($session_json, true);
 	
-	$Session = new Session(count($sessions["Sessions"]));
+	$session = new Session(count($sessions["Sessions"]));
 	
 	// pass the arguments to the view
 	$arguments = array(
 				"sessions"   		=> $sessions["Sessions"],
 				"agenda"			=> $agenda,
 				"day"				=> $dayNo,
-				"Session"			=> $Session
+				"session"			=> $session,
+				"viewManager"		=> $viewManager
 			);
 	// render view
 	$viewManager->renderView("agenda",$arguments);
+	
 ?>
