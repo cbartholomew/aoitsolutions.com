@@ -41,9 +41,9 @@ function exposeCurrentTimeSlot() {
 }   
 		
 $(document).ready(function(){
-	exposeCurrentTimeSlot();
+	//exposeCurrentTimeSlot();
 	//goToActiveRow();
-	runSponsorBanner();
-	setTimeout(refreshWebPanel,60000);
+	//runSponsorBanner();
+	//setTimeout(refreshWebPanel,60000);
 });
 </script>

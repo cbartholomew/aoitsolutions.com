@@ -116,7 +116,7 @@
 	{
 		$html = "";
 		
-		$html .= "<ul>";
+		//$html .= "<ul>";
 		
 		foreach($items as $item)
 		{
@@ -124,10 +124,11 @@
 				if(!$item["Public"])
 					continue;
 				
-			$html .= "<li>" . $item["First Name"] . " " . $item["Last Name"] . "," . $item["Job Title"] . " <br>// <small><em>" . $item["Company"] . "</em></small></li>";		
+			$html .= "<label class='speakerName'>" . $item["First Name"] . " " . $item["Last Name"] . "</label>";
+			$html .= "<br><small class='speakerCompany'><em>// " . htmlspecialchars($item["Company"]) . "</em></small><br>";		
 		}
 		
-		$html .= "</ul>";
+		//$html .= "</ul>";
 		
 		return $html;
 	}
@@ -141,6 +142,9 @@
 			case "Room 204":
 				return "room204";
 			break;
+		   	case "Room 205":
+		  		return "room205";
+		  	break;
 			case "Room 301":
 				return "room301";
 			break;
@@ -157,6 +161,55 @@
 			default:
 				return "roomNotActive";
 			break;
+		}
+	}
+	function GetBackgroundHeaderCSS($roomNumber)
+	{
+		switch($roomNumber) 
+		{
+			case "Room 202":
+				return "room202Header";
+			break;
+			case "Room 204":
+				return "room204Header";
+			break;
+			case "Room 205":
+				return "room205Header";
+			break;
+			case "Room 301":
+				return "room301Header";
+			break;
+			case "Room 302":
+				return "room302Header";
+			break;
+			case "Room 303":
+				return "room303Header";
+			break;
+			case "Room LL2":
+				return "roomLL2Header";
+			break;
+			case "tbd":					
+			default:
+				return "defaultHeaderBackground";
+			break;
+		}
+	}
+	function GetTrackLabelCSS($trackType)
+	{
+		switch($trackType)
+		{
+				case "Develop":
+					return "trackDevelop";
+				break;
+				case "Digital":
+					return "trackDigital";
+				break;
+				case "Design":
+					return "trackDesign";
+				break;
+				default:
+					return "trackNoTrack";
+				break;		
 		}
 		
 	}
