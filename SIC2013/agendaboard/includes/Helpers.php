@@ -125,7 +125,7 @@
 					continue;
 				
 			$html .= "<label class='speakerName'>" . $item["First Name"] . " " . $item["Last Name"] . "</label>";
-			$html .= "<br><small class='speakerCompany'><em>// " . htmlspecialchars($item["Company"]) . "</em></small><br>";		
+			$html .= "<br><small class='speakerCompany'><em>// " . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></small><br>";		
 		}
 		
 		//$html .= "</ul>";

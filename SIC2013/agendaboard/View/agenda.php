@@ -89,7 +89,7 @@
 								if(isset($session->item))
 								{
 									// name of session
-									$sessionName = htmlspecialchars($session->item["Name"]);
+									$sessionName = iconv("UTF-8", "CP1252", $session->item["Name"]);
 								    // handles multiple speakers html
 								    $speakerHtml = GetMultiSpeakerHTML($session->item["Speakers"], true);
 									// set track and status
@@ -124,7 +124,7 @@
 
 								// set arguments up for mypanel view replace
 								$arguments = array(
-									ViewManager::MakeViewArgument("SESSION_NAME",htmlspecialchars($sessionName) ),
+									ViewManager::MakeViewArgument("SESSION_NAME",$sessionName ),
 							   		ViewManager::MakeViewArgument("ROOM", $backgroundCls),						
 							   		ViewManager::MakeViewArgument("SPEAKER_INFORMATION",$speakerHtml),
 							   		ViewManager::MakeViewArgument("TRACK", $track),
