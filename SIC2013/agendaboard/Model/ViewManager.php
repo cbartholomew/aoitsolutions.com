@@ -9,10 +9,14 @@
 			$BASE_VIEW_PATH = "View/";
 			
 			$this->viewPath = array(
-				"header" => $BASE_VIEW_PATH . "header.php",
-				"footer" => $BASE_VIEW_PATH . "footer.php",
-				"agenda" => $BASE_VIEW_PATH . "agenda.php",
-				"panel"  => $BASE_VIEW_PATH . "panel.php"
+				"header" 		=> $BASE_VIEW_PATH . "header.php",
+				"footer" 		=> $BASE_VIEW_PATH . "footer.php",
+				"agenda" 		=> $BASE_VIEW_PATH . "agenda.php",
+				"panel"  		=> $BASE_VIEW_PATH . "panel.php",
+				"panelmodal"  	=> $BASE_VIEW_PATH . "panelmodal.php",
+				"twitterpanel" 	=> $BASE_VIEW_PATH . "twitterpanel.php",
+				"tweet"		   	=> $BASE_VIEW_PATH . "tweet.php",
+				"agendatest" 	=> $BASE_VIEW_PATH . "agendatest.php"
 			);
 		}
 		

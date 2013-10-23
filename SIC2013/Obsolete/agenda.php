@@ -1,26 +1,6 @@
 	<div class=""> 
 		<div class="row head">
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> 
-				<?php
-					$conference = $agenda["Conference"][$day];
-					print("<h1>" . $conference["Day"] . ", " . $conference["Date"]["Month"] . "/" . $conference["Date"]["Day"] . "</h1>"); 
-				?>
-			</div>
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"> 
-				<?php
-					$conference = $agenda["Conference"][$day];
-					print("<h1>Agenda: Sessions</h1>");
-				?>
-			</div>
-			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"> 
-				<?php
-					$conference = $agenda["Conference"][$day];
-					print("<h1>Day " . $conference["DayNo"] . "</h1>");
-				 ?>		
-			</div>
-			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-				<img src="Static/Images/SIC2013-branding.png" alt="2013-branding-B" class="logoC" />
-			</div>
+			
 		</div>
 		<br>
 		<div class="agenda">
@@ -76,7 +56,7 @@
 						
 							// begin laying out the table track frame
 							print("<tr id=". $rowId ." class='" . $rowCls . "'>");								
-							print("<td class='" . $columnCls ."'><h4>" 	   . $s["Start"]   . "" . 
+							print("<td class='trackTimes " . $columnCls ."'><h4>" 	   . $s["Start"]   . "" . 
 								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] 	   . "" . 
 								  strtolower($s["EndMeridian"])   . "</h4></td>");					
 							
@@ -97,19 +77,19 @@
 								$backgroundCls = GetBackgroundCSS($room["Number"]);
 								
 								// set up input argument variables								
-								$sessionName = "";// "No Session Avaliable";
-								$speakerHtml = "";// "<ul><li>N/A</li></ul>";
-								$track 		 = "";// "N/A";
-								$status		 = "";// "N/A";
-								$statusCSS 	 = "";// "statusLabelConfirmedFalse";
-								$trackCSS    = "";// GetTrackLabelCSS(""); // GetTrackLabelCSS("");
+								$sessionName = "";
+								$speakerHtml = "";
+								$track 		 = "";
+								$status		 = "";
+								$statusCSS 	 = "";
+								$trackCSS    = "";
 								
 								
 								// if we found a session, write it - otherwise - apply no info avaliable
 								if(isset($session->item))
 								{
 									// name of session
-									$sessionName = $session->item["Name"];
+									$sessionName = iconv("UTF-8", "CP1252", $session->item["Name"]);
 								    // handles multiple speakers html
 								    $speakerHtml = GetMultiSpeakerHTML($session->item["Speakers"], true);
 									// set track and status
@@ -124,7 +104,7 @@
 									if($session->item["Status"] != "Confirmed")
 									{
 										$statusCSS = "";
-										$status = "";
+										$status    = "";
 										$statusCSS = "statusLabelConfirmedFalse";
 									}
 									else if($rowCls == "activeRow" && $session->item["Status"] == "Confirmed")
@@ -134,12 +114,12 @@
 									else 
 									{
 										$statusCSS = "";
-										$status = "";
+										$status    = "";
 									}
 								}
 								
 								// print start column
-								print("<td class='". $columnCls . " " . $backgroundCls . " sessionColumn " . 
+								print("<td class=' myPanelTd ". $columnCls . " " . $backgroundCls . " sessionColumn " . 
 								str_replace(":","_",$s["Start"]) . "_" . str_replace(" ", "_",$session->item["Room"]) ."'>");
 
 								// set arguments up for mypanel view replace
@@ -165,7 +145,7 @@
 							}
 							
 							// add final time track																								
-							print("<td class='" . $columnCls ."'><h4>" . $s["Start"] . "" . 
+							print("<td class=trackTimes'" . $columnCls ."'><h4>" . $s["Start"] . "" . 
 								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . 
 								  strtolower($s["EndMeridian"]) . "</h4></td>");
 								

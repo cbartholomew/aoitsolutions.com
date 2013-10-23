@@ -1,13 +1,12 @@
 {
-	"RoomCount" : 7,
+	"RoomCount" : 6,
 	"Rooms" 	: [
 				{ "Number": "Room 301", "Occupancy": 275, "Short":"301"},
 				{ "Number": "Room 302", "Occupancy": 275, "Short":"302"},
 				{ "Number": "Room 303", "Occupancy": 303, "Short":"303"},
 				{ "Number": "Room 202", "Occupancy": 192, "Short":"202"},
 				{ "Number": "Room 204", "Occupancy": 108, "Short":"204"},
-				{ "Number": "Room LL2", "Occupancy": 300, "Short":"LL2"},
-				{ "Number": "Room 205", "Occupancy": 100, "Short":"205"}
+				{ "Number": "Room LL2", "Occupancy": 300, "Short":"LL2"}
 	],
 	"Title"		: "Agenda",
 	"Conference"	: [

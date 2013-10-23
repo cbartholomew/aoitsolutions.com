@@ -1,6 +1,7 @@
 <?php
 	require("includes/config.php");
 	require("Model/ViewManager.php");
+	require("Model/TwitterSearchAPI.php");
 	require("Controller/Session.php");
 	
 	// get date from query string - change to actual date before conference	
@@ -15,7 +16,7 @@
 	$agenda      = json_decode($agenda_json,true);
 	
 	// get the sessions via json
-	$session_uri = (IS_PROD) ? JSON_SESSION_PROD_URI : JSON_SESSION_TEST_URI;
+	$session_uri  = (IS_PROD) ? JSON_SESSION_PROD_URI : JSON_SESSION_TEST_URI;
 	$session_json = file_get_contents($session_uri);
 	$sessions     = json_decode($session_json, true);
 	
@@ -31,5 +32,6 @@
 			);
 	// render view
 	$viewManager->renderView("agenda",$arguments);
+	//$viewManager->renderView("agendatest",$arguments);
 	
 ?>

@@ -1,5 +1,58 @@
 <?php
+	
+	function GetStatusCSS($input)
+	{		
+		return ($input != "Confirmed") ? "statusLabelConfirmedFalse": "statusLabelConfirmedTrue";
+	}	
+	function GetIsRoomFullText($input)
+	{	
+		return ($input == "False") ? array( "CSS"=>"statusLabelFullTrue","MSG"=>"Room Full!" ) : array( "CSS"=>"statusLabelFullFalse","MSG"=>"Room Open" ) ;
+	}	
+	function GetTweetsByHashEventTag($roomHashTag)
+	{
+		$tweets = NULL;
+		// make new twitter api
+		$twitter = new TwitterSearchAPI(CONSUMER_KEY,CONSUMER_SECRET);
+		// do request to get token
+		
+		if(!isset($_SERVER["ACCESS_TOKEN"]))
+		{
+			$twitter->doRequest(TwitterSearchAPI::REQUEST_TOKEN);
+			$_SERVER["ACCESS_TOKEN"] = $twitter->getAccessToken();
+		}
+		else
+		{
+			$twitter->setAccessToken($_SERVER["ACCESS_TOKEN"]);
+		}
+	
+		// if we get a token - search for room hash
+		if($twitter->getAccessToken() != -1)
+		{
+			// set hash tag
+			$twitter->setSearchTag($roomHashTag);
+		
+			// do request
+			$twitter->doRequest(TwitterSearchAPI::REQUEST_SEARCH);
 
+			// get tweets
+			$tweets = $twitter->getTweets()->statuses;
+		}
+
+		return $tweets;
+	}	
+	
+	function GetTopicMultiHtml($items)
+	{
+		$html = "";
+
+		foreach($items as $item)
+		{
+			$html .= "<span class='label label-default'>" . $item["Name"]. "</span>&nbsp;";	
+		}
+
+		return $html;	
+	}
+	
 	function SplitAndReplace($input, $dilimiter, $returnIndex) 
 	{
 		try
@@ -22,8 +75,7 @@
 		{
 			return $output;
 		}	
-	}
-	
+	}	
 	function ScrubBrackets($input)
 	{
 		$input = str_replace("[", "" , $input);
@@ -33,7 +85,7 @@
 		
 		return $output;		
 	}
-	
+
 	function ConvertDayNoToDayStr($input)
 	{
 		$output = "Day One";
@@ -50,8 +102,7 @@
 			break;
 		}
 		return $output;
-	}
-	
+	}	
 	function ConvertDayStrToDayNo($input)
 	{
 		$output = 0;
@@ -69,15 +120,13 @@
 		}
 		return $output;
 	}
-	
 	function ConvertSecondsToTime($seconds)
 	{
 		$hours = floor($seconds / 3600);
 		$mins  = floor(($seconds - ($hours*3600)) / 60);
 		$mins  = ($mins == 0) ? "00" : $mins;
 		return $hours . ":" . $mins;	
-	}
-	
+	}	
 	function ConvertTimeToSeconds($time)
 	{
 			
@@ -85,13 +134,11 @@
 		$time = str_replace("pm","",$time);
 		$timeArr = explode(":", $time);
 		return (int) $timeArr[0] * 3600 + (int) $timeArr[1] * 60;		
-	}
-		
+	}		
 	function IsCurrentSlotTime($localTimeInSeconds, $start, $end)
 	{
 		return ($localTimeInSeconds >= $start && $localTimeInSeconds <= $end) ? true : false;
 	}
-	
 	function cmp($a, $b)
 	{
 		$a_room = explode(" ",$a["Room"]);
@@ -102,8 +149,7 @@
 	        return 0;
 	    }	
 	    return ($a_room < $b_room) ? -1 : 1;
-	}
-	
+	}	
 	function SortRooms($input)
 	{
 		$output = $input;
@@ -115,20 +161,38 @@
 	function GetMultiSpeakerHTML($items, $publicOnly)
 	{
 		$html = "";
-		
-		//$html .= "<ul>";
-		
+
 		foreach($items as $item)
 		{
 			if($publicOnly)
 				if(!$item["Public"])
 					continue;
 				
-			$html .= "<label class='speakerName'>" . $item["First Name"] . " " . $item["Last Name"] . "</label>";
-			$html .= "<br><small class='speakerCompany'><em>// " . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></small><br>";		
+			$html .= "<label class='speakerName'>" . $item["First Name"] . " " . $item["Last Name"];
+			$html .= "<br><small style='color:black;'><em>// " . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></small></label>";		
+		}
+
+		return $html;
+	}
+	function GetMultiSpeakerHTMLFull($items, $publicOnly)
+	{
+		$html = "";
+		
+		$html .= "<ul>";
+		
+		foreach($items as $item)
+		{
+			if($publicOnly)
+				if(!$item["Public"])
+					continue;
+			
+			$html .= "<li>";	
+			$html .=  $item["First Name"] . " " . $item["Last Name"] . ", " . $item["Job Title"]  . "<br>";
+			$html .= "<small style='color:black;'><em>// " . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></small>";	
+			$html .= "</li>";	
 		}
 		
-		//$html .= "</ul>";
+		$html .= "</ul>";
 		
 		return $html;
 	}

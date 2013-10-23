@@ -7,6 +7,7 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="Static/CSS/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/agenda.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="Static/CSS/agendatest.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/panel.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <!-- Content Delivery Network Scripts  -->
@@ -19,6 +20,11 @@
 <script type="text/javascript" src="JS/jquery.pulse.min.js"></script>
 <!-- Modern Browser Requirements -->
 <script type="text/javascript" src="cdn/lib/detectbrowser.js"></script>
+
+<!-- Typekit -->
+<script type="text/javascript" src="//use.typekit.net/jfk3vaq.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
