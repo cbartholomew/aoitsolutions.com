@@ -1,7 +1,7 @@
 <div class="innerLeftColumn_#ROOM#">
 	<div class='#PANEL_CSS# #EVENT_ID#'>
 		<div class="row"> 
-			<div class='col-xs-12 col-sm-12 col-col-md-12 col-lg-12 innerRightColumn_#ROOM#'>
+			<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 innerRightColumn_#ROOM#'>
 				<small class='text-left makesmaller'><label class='#TRACK_LABEL#'>#TRACK#</label></small>
 				<small class='text-left makesmaller'><b>#SESSION_NAME#</b></small>
 				<br>

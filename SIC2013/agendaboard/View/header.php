@@ -36,7 +36,7 @@
 <![endif]-->
 <body>
 <div class='logoHeader row'>
-	<div class='col-lg-8'>
+	<div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 '>
 		<img src="Static/Images/SIC2013-branding-site.png" alt="2013-branding-A" class="logoA" />	
 	</div>
 </div>
