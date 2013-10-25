@@ -19,19 +19,21 @@
 	$session_uri  = (IS_PROD) ? JSON_SESSION_PROD_URI : JSON_SESSION_TEST_URI;
 	$session_json = file_get_contents($session_uri);
 	$sessions     = json_decode($session_json, true);
-	
 	$session = new Session(count($sessions["Sessions"]));
+	
+	// get current header
+	$headerImage = GetHeader($dayNo);
 	
 	// pass the arguments to the view
 	$arguments = array(
 				"sessions"   		=> $sessions["Sessions"],
 				"agenda"			=> $agenda,
+				"headerImage"		=> $headerImage,
 				"day"				=> $dayNo,
 				"session"			=> $session,
-				"viewManager"		=> $viewManager
+				"viewManager"		=> $viewManager				
 			);
 	// render view
 	$viewManager->renderView("agenda",$arguments);
-	//$viewManager->renderView("agendatest",$arguments);
-	
+	//$viewManager->renderView("agendatest",$arguments);	
 ?>

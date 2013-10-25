@@ -1,4 +1,4 @@
-body  		   { background-color: rgb(242, 242, 242); background: url(../Images/diagonal.png); font-family: "proxima-nova","Century Gothic","Arial","san-serif";}
+body  		   { background-color: #111; background: url(../Images/diagonal2.png); font-family: "proxima-nova","Century Gothic","Arial","san-serif";}
 thead 		   { font-size:large;}
 th 	   		   { font-weight:bold; color:white; text-align: center;} 
 .myPanelTd	   { width:  17%; }

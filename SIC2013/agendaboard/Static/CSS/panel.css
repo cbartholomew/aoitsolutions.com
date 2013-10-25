@@ -6,7 +6,7 @@
 .twitterPanel { font-size:x-small;}
 .tweet { padding-top:2px; padding-right:5px}
 
-.eventOverlay  { opacity:0.6;   filter:alpha(opacity=70);}
+.eventOverlay  { opacity:0.9;   filter:alpha(opacity=90);}
 
 .innerLeftColumn_room202 { height: 100%; background-color: #34b44e;padding-left:20px; border-radius:5px; }
 .innerLeftColumn_room204 { height: 100%; background-color: #005DA4;padding-left:20px; border-radius:5px; }
@@ -41,7 +41,8 @@
 .trackDigital { background-color: #f26529; float:right; margin-top:2%;margin-right:3%; color:white;padding:5px; border-radius:5px; }
 .trackDevelop { background-color: #662584; float:right; margin-top:2%;margin-right:3%; color:white;padding:5px; border-radius:5px; }
 .trackDesign  { background-color: #54C7DF; float:right; margin-top:2%;margin-right:3%; color:white;padding:5px; border-radius:5px; }
-.trackNoTrack { /*background-color: #000;    color:white;padding:5px; border-radius:5px; */}
 
 .speakerName    { font-weight: bold; font-size:small; color: #19b244}
+label.speakerName {line-height: 1.1em; display: block;}
+
 .speakerCompany { font-size:x-small; }

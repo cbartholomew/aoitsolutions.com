@@ -83,6 +83,7 @@
 								$track 		 		= "";
 								$roomIsFullMSG  	= "";
 								$roomIsFullCSS 		= "";
+								$roomNoStr			= $room["Number"];
 								$trackCSS   		= "";
 								$sessionAbstract	= "No Session Available";
 								$panelCSS			= "mypanel_inactive";
@@ -92,6 +93,7 @@
 								// depreciated
 								$status		 	= "";
 								$statusCSS 	 	= "";
+								
 								
 								// if we found a session, write it - otherwise - apply no info avaliable
 								if(isset($session->item))
@@ -135,7 +137,8 @@
 								// set arguments up for mypanel view replace
 								$arguments = array(
 									ViewManager::MakeViewArgument("SESSION_NAME",$sessionName ),
-							   		ViewManager::MakeViewArgument("ROOM", $backgroundCls),						
+							   		ViewManager::MakeViewArgument("ROOM", $backgroundCls),
+								    ViewManager::MakeViewArgument("ROOM_NO", $roomNoStr),
 							   		ViewManager::MakeViewArgument("SPEAKER_INFORMATION",$speakerHtml),
 							   		ViewManager::MakeViewArgument("TRACK", $track),
 									ViewManager::MakeViewArgument("TRACK_LABEL", $trackCSS),

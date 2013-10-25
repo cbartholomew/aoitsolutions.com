@@ -34,7 +34,7 @@
 	   	#SPEAKER_INFORMATION_MODAL#	
 		<h4>More Information</h4>
 		<ul>
-			<li>#ROOM#</li>
+			<li>#ROOM_NO#</li>
 			<li>#TIME#</li>
 		 	<li><a href="http://2013.seattleinteractive.com/sessions/#EVENT_ID#" target="_blank">View Full Details</a></li>
 		</ul>

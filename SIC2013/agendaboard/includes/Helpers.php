@@ -1,4 +1,26 @@
 <?php
+	function GetHeader($dayNo)
+	{
+		$imagePath = "";
+		
+		switch($dayNo)
+		{
+			case "0":
+				$imagePath = "Static/Images/SIC2013-MON.png";
+				break;
+			case "1":
+				$imagePath = "Static/Images/SIC2013-TUE.png";
+				break;
+			case "2":
+				$imagePath = "Static/Images/SIC2013-WED.png";
+				break;
+			default:
+				$imagePath = "Static/Images/SIC2013-branding-site.png";
+				break;
+		}
+		return $imagePath;
+	}
+	
 	
 	function GetStatusCSS($input)
 	{		
