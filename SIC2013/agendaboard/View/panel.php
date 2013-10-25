@@ -11,9 +11,7 @@
 				<!-- <small class='text-left #STATUS_LABEL#'>#STATUS#</small>-->
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-12">#TWITTER#</div>
-		</div>	
+		#TWITTER#
 	</div>
 </div>
 <!-- Modal -->
@@ -44,12 +42,12 @@
 </div><!-- /.modal -->
 <script>
 $(".#PANEL_CSS#").on('mouseover',function(){
-	$(this).addClass("eventOverlay");
+		$(this).addClass("eventOverlay");
 });
 $(".#PANEL_CSS#").on('mouseout',function(){
-	$(this).removeClass("eventOverlay");
+		$(this).removeClass("eventOverlay");
 });
 $(".#EVENT_ID#").on('click',function(){
-	$('##EVENT_ID#_MODAL').modal('show');
+		$('##EVENT_ID#_MODAL').modal('show');
 });
 </script>

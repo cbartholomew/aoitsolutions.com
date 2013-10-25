@@ -1,4 +1,4 @@
-<div class='row table-bordered'>		
+<div class='row table-hover'>		
 	<div class='row'>							
 		<div class='col-xs-8 col-sm-8 col-md-8 col-lg-8 tweet'>
 			<b><a href="https://twitter.com/#TWITTER_HANDLE#" target="_blank">#TWITTER_HANDLE#</a></b>
@@ -10,7 +10,7 @@
 		</div>
 	</div>								
 	<div class='row'>
-		<div class='col-xs-8 col-sm-8 col-md-8 col-lg-8 tweet'>
+		<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 tweet'>
 			#TWITTER_TEXT#
 		</div>
 	</div>
