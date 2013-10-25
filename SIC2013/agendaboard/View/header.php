@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="cdn/css/bootstrap.min.css">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" href="Static/CSS/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="Static/CSS/header.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/agenda.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/agendatest.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/panel.css" type="text/css" media="screen" title="no title" charset="utf-8">

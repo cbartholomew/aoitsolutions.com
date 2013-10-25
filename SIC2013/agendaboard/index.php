@@ -35,5 +35,7 @@
 			);
 	// render view
 	$viewManager->renderView("agenda",$arguments);
+	
+	// test agenda
 	//$viewManager->renderView("agendatest",$arguments);	
 ?>
