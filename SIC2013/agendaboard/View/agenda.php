@@ -160,20 +160,30 @@
 									
 									$tweets = GetTweetsByHashEventTag($session->item["Hashtag"]);
 									
-									$tweetHtml = "";		
+									$tweetHtml = "";
+									$tweetMax = 1;
+									$currentTweetIndex = 0;
 									foreach($tweets as $tweet)
 									{	
 										$tweetArguments = array(
 										 	ViewManager::MakeViewArgument("TWITTER_HANDLE","@" . $tweet->user->screen_name),
 										 	ViewManager::MakeViewArgument("TWITTER_TEXT",$tweet->text),
-											ViewManager::MakeViewArgument("TWITTER_TWEET_ID", $tweet->id_str)									
+											ViewManager::MakeViewArgument("TWITTER_TWEET_ID", $tweet->id_str)
 										);									
-										$tweetHtml .= $viewManager->renderViewHTML("tweet",$tweetArguments, false, false);					
+										
+										if($currentTweetIndex < $tweetMax)
+										{
+											$tweetHtml .= $viewManager->renderViewHTML("tweet",$tweetArguments, false, false);	
+											$currentTweetIndex++;
+										}
+										
 									}
 									
 									$twitterArguments = array(
 										ViewManager::MakeViewArgument("TWEETS",$tweetHtml),
-										ViewManager::MakeViewArgument("TWITTER_HASH",$roomHashTag)
+										ViewManager::MakeViewArgument("TWITTER_HASH",$roomHashTag),
+										ViewManager::MakeViewArgument("ROOM", $backgroundCls),
+										ViewManager::MakeViewArgument("EVENT_ID", $sessionId),
 									);
 									
 									// make html

@@ -39,11 +39,18 @@ function exposeCurrentTimeSlot() {
 	// 50 minutes, i.e. 3,000,000 million miliseconds, divided by 5000 miliseconds = 600 pulses per 50 minutes
     el.pulse(properties, { duration: 5000, pulses: 600 });
 }   
-		
+
+function unbindNoSession()
+{
+	$(".999").unbind("mouseover");
+    $(".999").unbind("mouseout");
+	$(".999").unbind("click");
+}
 $(document).ready(function(){
 	//exposeCurrentTimeSlot();
 	//goToActiveRow();
 	//runSponsorBanner();
 	//setTimeout(refreshWebPanel,60000);
+	unbindNoSession();
 });
 </script>
