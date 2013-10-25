@@ -1,5 +1,13 @@
 <?php		
-
+	/**
+	 * Session.php
+	 *
+	 * Christopher Bartholomew
+	 * cbartholomew@gmail.com
+	 *
+	 * Controller / Class to search for sessions
+	 * 
+	 */
 	class Session
 	{	
 		public $start_time,$end_time,$day_no,$room_no,$max,$index,$item;	    

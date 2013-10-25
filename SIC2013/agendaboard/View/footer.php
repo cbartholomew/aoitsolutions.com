@@ -1,3 +1,14 @@
+<?php
+/**
+ * Footer.php
+ *
+ * Christopher Bartholomew
+ * cbartholomew@gmail.com
+ *
+ * footer data, normally add scripts here.
+ * 
+ */
+?>
     </body>
 </html>
 <script>

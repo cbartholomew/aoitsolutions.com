@@ -1,4 +1,12 @@
 <?php
+	/**
+	 * Index.php
+	 *
+	 * Christopher Bartholomew
+	 * cbartholomew@gmail.com
+	 * 
+	 * Main index controller
+	 */
 	require("includes/config.php");
 	require("Model/ViewManager.php");
 	require("Model/TwitterSearchAPI.php");

@@ -1,4 +1,14 @@
-<?php	
+<?php
+	/**
+	 * ViewManager.php
+	 *
+	 * Christopher Bartholomew
+	 * cbartholomew@gmail.com
+	 *
+	 * Used to render views
+	 * 
+	 */
+	
 	class ViewManager 
 	{		
 		protected $viewPath;

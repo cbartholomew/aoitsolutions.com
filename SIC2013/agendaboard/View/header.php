@@ -1,3 +1,14 @@
+<?php
+/**
+ * header.php
+ *
+ * Christopher Bartholomew
+ * cbartholomew@gmail.com
+ *
+ * header data, include scripts
+ * 
+ */
+?>
 <!DOCTYPE html>
 <html>
 <!-- Content Delivery Network StyleSheets  -->

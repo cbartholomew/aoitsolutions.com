@@ -1,3 +1,15 @@
+<?php
+/**
+ * Panel.php
+ *
+ * Christopher Bartholomew
+ * cbartholomew@gmail.com
+ *
+ * Each TD contains a panel that is rendered. 
+ * 
+ */
+?>
+
 <div class="innerLeftColumn_#ROOM#">
 	<div class='#PANEL_CSS# #EVENT_ID#'>
 		<div class="row"> 
