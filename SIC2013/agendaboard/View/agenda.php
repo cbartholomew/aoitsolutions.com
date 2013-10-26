@@ -215,7 +215,7 @@
 							}
 							
 							// add final time track																								
-							print("<td class=trackTimes'" . $columnCls ."'><h4>" . $s["Start"] . "" . 
+							print("<td class='trackTimes " . $columnCls ."'><h4>" . $s["Start"] . "" . 
 								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . 
 								  strtolower($s["EndMeridian"]) . "</h4></td>");
 								
