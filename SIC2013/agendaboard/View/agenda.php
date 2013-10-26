@@ -24,10 +24,18 @@
 											
 							// create the header column, which are the room names - this is from Agenda.JSON config file
 							for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
-							{
+							{								
 								// extract the room
 								$room = $agenda["Rooms"][$i];	
-								$roomHeaderCSS = GetBackgroundHeaderCSS($room["Number"]);		
+								
+								// if room is not active, skip
+								if(!$room["Active"])
+									continue;
+								
+								$roomHeaderCSS = "defaultHeaderBackground";	
+								// get the correct background CSS
+								$roomHeaderCSS = $room["CSS"]["TableHeader"];		
+								
 								// write the header	
 								print("<th class=' ". $roomHeaderCSS . "'>" . $room["Short"] . "</th>");
 							}
@@ -67,8 +75,7 @@
 						    
 							// make active anchor id to go to
 							$rowId = ($isCurrentSlot) ? "ACTIVE" : "";
-							 
-						
+							 										
 							// begin laying out the table track frame
 							print("<tr id=". $rowId ." class='" . $rowCls . "'>");								
 							print("<td class='trackTimes " . $columnCls ."'><h4>" 	   . $s["Start"]   . "" . 
@@ -78,19 +85,22 @@
 							
 							// for each room - find the matching session							
 							for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
-							{																																		
+							{																																									
 								// extract the room
 								$room = $agenda["Rooms"][$i];	
 								
+								// skip inactive rooms from json config
+								if(!$room["Active"])
+									continue;
+																
 								// set the session search parameters
 								$session->set($full_start_time,	$full_end_time , ConvertDayNoToDayStr($day), $room["Number"]);
 								
 								// run search
 								$session->get($sessions);
 								
-								// set the background cls
-								$backgroundCls = GetBackgroundCSS($room["Number"]);
-								
+								// set the background cls, essentially roomNo
+								$backgroundCls 	    = GetBackgroundCSS($room["Number"]);																
 								// set up input argument variables																
 								$sessionName 		= "";
 								$speakerHtml 		= "";
@@ -105,6 +115,11 @@
 								$sessionId			= "999";
 								$topicHtml			= "";
 								$fullModalTime		= "";
+								$permalink			= "";
+							 	// get the left, right, and modal panel css from Agenda.JSON
+								$innerPanelLeftCSS	= $room["CSS"]["PanelLeft"];
+								$innerPanelRightCSS	= $room["CSS"]["PanelRight"];
+								$innerModalCSS		= $room["CSS"]["Modal"];
 								// depreciated
 								$status		 	= "";
 								$statusCSS 	 	= "";
@@ -133,7 +148,9 @@
 									$roomAvailability =  GetIsRoomFullText($session->item["Full"]);														
 									// set time
 									$fullModalTime	= $session->item["Start Time"] . " - " . $session->item["End Time"];
-																									
+									// use permalink instead of event id - google analytics specific - 10/26/2013
+									$permalink = $session->item["Permalink"];
+																												
 									// get the status, place has false if not confirmed
  									if($rowCls == "activeRow")
 									{						
@@ -148,11 +165,10 @@
 								// print start column
 								print("<td class=' myPanelTd ". $columnCls . " " . $backgroundCls . " sessionColumn " . 
 								str_replace(":","_",$s["Start"]) . "_" . str_replace(" ", "_",$session->item["Room"]) ."'>");
-								
+																
 								// set arguments up for mypanel view replace
 								$arguments = array(
 									ViewManager::MakeViewArgument("SESSION_NAME",$sessionName ),
-							   		ViewManager::MakeViewArgument("ROOM", $backgroundCls),
 								    ViewManager::MakeViewArgument("ROOM_NO", $roomNoStr),
 							   		ViewManager::MakeViewArgument("SPEAKER_INFORMATION",$speakerHtml),
 							   		ViewManager::MakeViewArgument("TRACK", $track),
@@ -164,7 +180,11 @@
 									ViewManager::MakeViewArgument("SESSION_ABSTRACT",$sessionAbstract),
 									ViewManager::MakeViewArgument("SPEAKER_INFORMATION_MODAL",$speakerModalHtml),
 									ViewManager::MakeViewArgument("TOPICS",$topicHtml),
-									ViewManager::MakeViewArgument("TIME",$fullModalTime)
+									ViewManager::MakeViewArgument("TIME",$fullModalTime),
+									ViewManager::MakeViewArgument("PERMALINK",$permalink),
+									ViewManager::MakeViewArgument("INNER_LEFT_PANEL",$innerPanelLeftCSS),
+									ViewManager::MakeViewArgument("INNER_RIGHT_PANEL",$innerPanelRightCSS),
+									ViewManager::MakeViewArgument("INNER_MODAL_CSS",$innerModalCSS)
 								);			
 								
 								// out of scope variable to handle the twitter panel, not used on non-active sessions

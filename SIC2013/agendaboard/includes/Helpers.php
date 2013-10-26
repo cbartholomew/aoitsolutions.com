@@ -227,32 +227,32 @@
 		return ($localTimeInSeconds >= $start && $localTimeInSeconds <= $end) ? true : false;
 	}
 	
-	/* cmp($a, $b)
+	/* cmpDisplayOrder($a, $b)
 	 *
-	 * Compare function, sorts by room number. 
+	 * Compare function, sorts by display orders
 	 */
-	function cmp($a, $b)
+	function cmpDisplayOrder($a, $b)
 	{
-		$a_room = explode(" ",$a["Room"]);
-		$b_room = explode(" ",$b["Room"]);
+		$a_room = explode(" ",$a["DisplayOrder"]);
+		$b_room = explode(" ",$b["DisplayOrder"]);
 			
 		if ($a_room == $b_room) 
 		{
 	        return 0;
 	    }	
 	    return ($a_room < $b_room) ? -1 : 1;
-	}	
+	}
 	
-	/* SortRooms($input)
+	/* SortObjectByProperty($input)
 	 *
 	 * sorts the array of rooms by room no, returns 
 	 * array of rooms
 	 */
-	function SortRooms($input)
+	function SortObjectByProperty($input)
 	{
 		$output = $input;
 		
-		usort($output, "cmp");
+		usort($output, "cmpDisplayOrder");
 		
 		return $output;
 	}
@@ -308,8 +308,9 @@
 		return $html;
 	}
 	
-	/* GetBackgroundCSS($roomNumber)
-	 *
+	/* [DEPRICIATED] GetBackgroundCSS($roomNumber)
+	 * 
+	 * <!-- THIS CSS IS NOW SPECIFIC TO THE ROOM IN AGENDA.JSON -->
 	 * based on input roomNumber, will return
 	 * the specific CSS to be applied to agenda.php
 	 */
@@ -345,8 +346,9 @@
 		}
 	}
 	
-	/* GetBackgroundHeaderCSS($roomNumber)
+	/* [DEPRICIATED] GetBackgroundHeaderCSS($roomNumber)
 	 *
+	 * <!-- THIS CSS IS NOW SPECIFIC TO THE ROOM IN AGENDA.JSON -->
 	 * based on input roomNumber, will return
 	 * the specific CSS to be applied to the table header
 	 * in agenda.php
