@@ -17,6 +17,7 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="Static/CSS/header.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="Static/CSS/fixedheader.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/agenda.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/agendatest.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <link rel="stylesheet" href="Static/CSS/panel.css" type="text/css" media="screen" title="no title" charset="utf-8">
@@ -29,7 +30,11 @@
 <script type="text/javascript" src="cdn/lib/jQuery.XDomainRequest.js"></script>
 <script type="text/javascript" src="cdn/lib/jquery.json.min.js"></script>
 <script type="text/javascript" src="cdn/lib/jquery.validate.js"></script>
+<script type="text/javascript" src="js/underscore-min.js"></script>
+
 <script type="text/javascript" src="JS/jquery.pulse.min.js"></script>
+<script type="text/javascript" src="JS/jquery.floatThead.js"></script>
+
 <!-- Modern Browser Requirements -->
 <script type="text/javascript" src="cdn/lib/detectbrowser.js"></script>
 

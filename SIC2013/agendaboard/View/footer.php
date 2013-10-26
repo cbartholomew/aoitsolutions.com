@@ -63,5 +63,6 @@ $(document).ready(function(){
 	//runSponsorBanner();
 	//setTimeout(refreshWebPanel,60000);
 	unbindNoSession();
+	$('table').floatThead(); 
 });
 </script>
