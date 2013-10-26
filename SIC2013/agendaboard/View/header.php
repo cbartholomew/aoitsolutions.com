@@ -30,7 +30,7 @@
 <script type="text/javascript" src="cdn/lib/jQuery.XDomainRequest.js"></script>
 <script type="text/javascript" src="cdn/lib/jquery.json.min.js"></script>
 <script type="text/javascript" src="cdn/lib/jquery.validate.js"></script>
-<script type="text/javascript" src="js/underscore-min.js"></script>
+<script type="text/javascript" src="JS/underscore-min.js"></script>
 
 <script type="text/javascript" src="JS/jquery.pulse.min.js"></script>
 <script type="text/javascript" src="JS/jquery.floatThead.js"></script>
