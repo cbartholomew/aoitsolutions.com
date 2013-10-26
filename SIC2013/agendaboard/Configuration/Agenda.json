@@ -4,7 +4,7 @@
 				{ 
 					"Number": "Room 301", 
 					"Active": true,
-					"DisplayOrder" : 1,
+					"DisplayOrder" : 3,
 					"Occupancy": 999, 
 					"Short":"301", 
 					"CSS" : 
@@ -12,7 +12,7 @@
 						"TableHeader":"room301Header",
 						"PanelLeft"  :"innerLeftColumn_room301",
 						"PanelRight" :"innerRightColumn_room301",
-						"Modal"	 :"innerLeftColumnModal_room301"
+						"Modal"	 	 :"innerLeftColumnModal_room301"
 					} 
 				},
 				{ 
@@ -32,7 +32,7 @@
 				{ 
 					"Number": "Room 303",
 					"Active": true, 
-					"DisplayOrder" : 3,
+					"DisplayOrder" :1,
 					"Occupancy": 999, 
 					"Short":"303", 
 					"CSS" : 
@@ -46,7 +46,7 @@
 				{ 
 					"Number": "Room 202",
 					"Active": true,
-					"DisplayOrder" : 4, 
+					"DisplayOrder" : 5, 
 					"Occupancy": 999, 
 					"Short":"202", 
 					"CSS" : 
@@ -60,7 +60,7 @@
 				{ 
 					"Number": "Room 204", 
 					"Active": true,
-					"DisplayOrder" : 5, 
+					"DisplayOrder" : 4, 
 					"Occupancy": 999, 
 					"Short":"204", 
 					"CSS" : 
