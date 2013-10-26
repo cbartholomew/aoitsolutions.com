@@ -11,16 +11,18 @@
 ?>
 	<div class=""> 
 		<div class="row head">
-			
+		 <!-- I can't remember what this was for, but I'm too tired to remove it. -->	
 		</div>
 		<br>
 		<div class="agenda">
 			<table class="table table-bordered table-condensed agendaTable">
 				<thead>
 					<tr>
-						<?php	
-							print("<th class='defaultHeaderBackground'>Times</th>");				
-							// create the header column, which are the room names
+						<?php
+							// set the background colors for the header
+							print("<th class='defaultHeaderBackground'>Times</th>");
+											
+							// create the header column, which are the room names - this is from Agenda.JSON config file
 							for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
 							{
 								// extract the room
@@ -29,6 +31,7 @@
 								// write the header	
 								print("<th class=' ". $roomHeaderCSS . "'>" . $room["Short"] . "</th>");
 							}
+							// render
 							print("<th class='defaultHeaderBackground'>Times</th>");
 						?>
 					</tr>
@@ -43,7 +46,8 @@
 						
 						// override to 9:00 am is if it's past 4:20						
 						$localTime = "10:10";
-												
+						
+						// for all sessions found, create the agenda table
 						foreach($conferenceSessions as $s)
 						{	
 													
@@ -163,33 +167,47 @@
 									ViewManager::MakeViewArgument("TIME",$fullModalTime)
 								);			
 								
+								// out of scope variable to handle the twitter panel, not used on non-active sessions
 								$twitterPanelHtml = "";
 								
+								// if active row, begin twitter trolling
 								if($rowCls == "activeRow")
 								{
+									// set the room's hash tag
 									$roomHashTag = $session->item["Hashtag"];
 									
+									// render tweets by hashtag - function is called in helpers
 									$tweets = GetTweetsByHashEventTag($session->item["Hashtag"]);
 									
+									// set up the tweet html variable
 									$tweetHtml = "";
-									$tweetMax = 1;
+									
+									// get the max tweets
+									$tweetMax  = TwitterSearchAPI::TWEETS_SHOWN;
+									
+									// set up the index
 									$currentTweetIndex = 0;
 									foreach($tweets as $tweet)
 									{	
-										$tweetArguments = array(
-										 	ViewManager::MakeViewArgument("TWITTER_HANDLE","@" . $tweet->user->screen_name),
-										 	ViewManager::MakeViewArgument("TWITTER_TEXT",$tweet->text),
-											ViewManager::MakeViewArgument("TWITTER_TWEET_ID", $tweet->id_str)
-										);									
-										
 										if($currentTweetIndex < $tweetMax)
 										{
+											// build view arguments
+											$tweetArguments = array(
+											 	ViewManager::MakeViewArgument("TWITTER_HANDLE","@" . $tweet->user->screen_name),
+											 	ViewManager::MakeViewArgument("TWITTER_TEXT",$tweet->text),
+												ViewManager::MakeViewArgument("TWITTER_TWEET_ID", $tweet->id_str)
+											);									
+											
+											// render each tweet via html
 											$tweetHtml .= $viewManager->renderViewHTML("tweet",$tweetArguments, false, false);	
+											
+											// increase the index
 											$currentTweetIndex++;
 										}
 										
 									}
 									
+									// make the twitter panel, which holds tweets
 									$twitterArguments = array(
 										ViewManager::MakeViewArgument("TWEETS",$tweetHtml),
 										ViewManager::MakeViewArgument("TWITTER_HASH",$roomHashTag),
@@ -197,7 +215,7 @@
 										ViewManager::MakeViewArgument("EVENT_ID", $sessionId),
 									);
 									
-									// make html
+									// make html that creates a panel of tweets
 									$twitterPanelHtml = $viewManager->renderViewHTML("twitterpanel",$twitterArguments, false, false);															
 								}	
 								

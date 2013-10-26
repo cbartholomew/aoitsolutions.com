@@ -5,7 +5,7 @@
 	 * Christopher Bartholomew
 	 * cbartholomew@gmail.com
 	 *
-	 * Used to render views
+	 * Used to render views, the bread and butter of my application, who needs a cms?
 	 * 
 	 */
 	
@@ -13,6 +13,12 @@
 	{		
 		protected $viewPath;
 		
+		/* __construct() 
+		 *
+		 * construct will load a dictionary of views
+		 * with a configured base view path.
+		 * this is used for each access to the view
+		 */
 		function __construct() 
 		{
 			// constant for base view path
@@ -30,6 +36,14 @@
 			);
 		}
 		
+		/* renderView($view, $arguments)
+		 *
+   		 * Used to render a view within the $this->viewPath
+ 		 * array. It will always render a header and footer.
+         * When you pass in the dictionary of arguments, it 
+         * will also make those arguments avaliable to all views
+ 		 * which will be rendered.
+		 */		
 		public function renderView($view, $arguments)
 		{
 			// if template exists, render it
@@ -54,6 +68,16 @@
 			}	
 		}
 		
+		/* renderViewHTML($view, $arguments, $includeHeader, $includeFooter)
+		 *
+   		 * Used to render a view within the $this->viewPath
+ 		 * array. It will always render a header and footer, IF YOU SPECIFY.
+         * When you pass in the dictionary of arguments, it 
+         * will also make those arguments avaliable to all views
+ 		 * which will be rendered.
+		 * This will actually return post rendered html, and it will look for specific
+		 * #KEYWORDS# to replace those arguments. 
+		 */
 		public function renderViewHTML($view, $arguments, $includeHeader, $includeFooter)
 		{
 			$html = "";
@@ -91,6 +115,11 @@
 						
 		}
 		
+		/* MakeViewArgument($key, $value)
+		 *
+		 * Simple model static function to create an array[key][value]
+		 * used for passing arguments to renderViewHtml
+		 */
 		public static function MakeViewArgument($key, $value)
 		{
 			return array(
