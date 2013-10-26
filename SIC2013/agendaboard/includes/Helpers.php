@@ -191,7 +191,7 @@
 					continue;
 				
 			$html .= "<label class='speakerName'>" . $item["First Name"] . " " . $item["Last Name"];
-			$html .= "<br><small style='color:black;'><em>// " . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></small></label>";		
+			$html .= "<span class='speakerCompany'><em>" . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></span></label>";		
 		}
 
 		return $html;
@@ -209,8 +209,8 @@
 					continue;
 			
 			$html .= "<li>";	
-			$html .=  $item["First Name"] . " " . $item["Last Name"] . ", " . $item["Job Title"]  . "<br>";
-			$html .= "<small style='color:black;'><em>// " . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></small>";	
+			$html .= "<b>" . $item["First Name"] . " " . $item["Last Name"] . "</b>, " . $item["Job Title"];
+			$html .= "<span class='speakerCompany'><em>" . iconv("UTF-8", "CP1252", $item["Company"]) . "</em></span>";	
 			$html .= "</li>";	
 		}
 		
