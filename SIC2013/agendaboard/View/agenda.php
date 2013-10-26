@@ -106,8 +106,8 @@
 								$speakerHtml 		= "";
 								$speakerModalHtml 	= "No Speaker Information Available";
 								$track 		 		= "";
-								$roomIsFullMSG  	= "";
 								$roomIsFullCSS 		= "";
+								$roomIsFullHTML		= "";
 								$roomNoStr			= $room["Number"];
 								$trackCSS   		= "";
 								$sessionAbstract	= "No Session Available";
@@ -145,7 +145,7 @@
 									// set status & label css
 									$trackCSS  = GetTrackLabelCSS($track);																		
 									// room availability
-									$roomAvailability =  GetIsRoomFullText($session->item["Full"]);														
+									$roomAvailability =  GetIsRoomFullText($session->item["Full"]);																															
 									// set time
 									$fullModalTime	= $session->item["Start Time"] . " - " . $session->item["End Time"];
 									// use permalink instead of event id - google analytics specific - 10/26/2013
@@ -153,10 +153,13 @@
 																												
 									// get the status, place has false if not confirmed
  									if($rowCls == "activeRow")
-									{						
-										// set the css and message
-										$roomIsFullCSS = $roomAvailability["CSS"];
-										$roomIsFullMSG = $roomAvailability["MSG"];
+									{	
+										if($session->item["Full"] != "false")
+										{								
+											// set the css and message
+											$roomIsFullHTML = $roomAvailability["HTML"];
+										}
+										// set panel css				
 										$panelCSS 	   = "mypanel";									
 									}
 									
@@ -173,8 +176,6 @@
 							   		ViewManager::MakeViewArgument("SPEAKER_INFORMATION",$speakerHtml),
 							   		ViewManager::MakeViewArgument("TRACK", $track),
 									ViewManager::MakeViewArgument("TRACK_LABEL", $trackCSS),
-							   		ViewManager::MakeViewArgument("ROOM_IS_FULL_MSG", $roomIsFullMSG),
-									ViewManager::MakeViewArgument("ROOM_IS_FULL_LABEL",$roomIsFullCSS),
 									ViewManager::MakeViewArgument("PANEL_CSS",$panelCSS),
 									ViewManager::MakeViewArgument("EVENT_ID",$sessionId),
 									ViewManager::MakeViewArgument("SESSION_ABSTRACT",$sessionAbstract),
@@ -184,8 +185,10 @@
 									ViewManager::MakeViewArgument("PERMALINK",$permalink),
 									ViewManager::MakeViewArgument("INNER_LEFT_PANEL",$innerPanelLeftCSS),
 									ViewManager::MakeViewArgument("INNER_RIGHT_PANEL",$innerPanelRightCSS),
-									ViewManager::MakeViewArgument("INNER_MODAL_CSS",$innerModalCSS)
+									ViewManager::MakeViewArgument("INNER_MODAL_CSS",$innerModalCSS),
+									ViewManager::MakeViewArgument("ROOM_IS_FULL_HTML",$roomIsFullHTML)
 								);			
+								
 								
 								// out of scope variable to handle the twitter panel, not used on non-active sessions
 								$twitterPanelHtml = "";

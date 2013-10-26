@@ -32,10 +32,11 @@
 .innerRightColumn_room303 { height: 100%; margin-left:1%; margin-right:2%; }
 .innerRightColumn_roomLL2 { height: 100%; margin-left:1%; margin-right:2%; }
 
+/* need to modify */
 .statusLabelConfirmedTrue  {color:#19b244; font-weight: bold; margin-bottom:10%}
 .statusLabelConfirmedFalse {color:#ba2025; font-weight: bold;}
-.statusLabelFullFalse {color:#19b244; font-weight: bold; margin-bottom:10%}
-.statusLabelFullTrue  {color:#ba2025; font-weight: bold;}
+.statusLabelFullFalse { margin-bottom:1%;color:white;padding:3px 6px; border-radius:5px;}
+.statusLabelFullTrue  { margin-bottom:1%;color:white;padding:3px 6px; border-radius:5px;}
 
 
 .trackDigital { background-color: #f26529; float:right; margin-top:1%;margin-right:3%; margin-left: 2%; color:white;padding:3px 6px; border-radius:5px; }
