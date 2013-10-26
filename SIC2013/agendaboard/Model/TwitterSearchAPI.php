@@ -16,6 +16,7 @@
 	define("METHOD" ,"method");
 	define("CONTENT","content");
 	define("HTTP"   ,"http");
+	define("QUERY", "q");
 
 	class TwitterSearchAPI 
 	{			
@@ -112,7 +113,7 @@
 			try
 			{	
 				// set content
-				$this->setContent("q",$this->getSearchTag());
+				$this->setContent(QUERY,$this->getSearchTag());
 			
 				// set default url sceheme
 				$default_url = API_SEARCH_ENDPOINT;
