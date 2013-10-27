@@ -23,6 +23,9 @@
 	$agenda_json = file_get_contents($agenda_uri);
 	$agenda      = json_decode($agenda_json,true);
 	
+	// run sort on rooms by display order
+	$agenda["Rooms"] = SortObjectByProperty($agenda["Rooms"]);
+	
 	// get the sessions via json
 	$session_uri  = (IS_PROD) ? JSON_SESSION_PROD_URI : JSON_SESSION_TEST_URI;
 	$session_json = file_get_contents($session_uri);

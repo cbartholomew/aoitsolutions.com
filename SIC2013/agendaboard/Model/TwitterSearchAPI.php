@@ -7,6 +7,8 @@
 	 *
 	 * Using consume key and consumer secrets, this library will build and set an access token
 	 * for a user, then it will do a search for a specific hash tag and then return the results
+	 *
+	 * TODO: Comment Below.
 	 */
 
 	// constants
@@ -16,6 +18,8 @@
 	define("METHOD" ,"method");
 	define("CONTENT","content");
 	define("HTTP"   ,"http");
+	define("QUERY", "q");
+	
 
 	class TwitterSearchAPI 
 	{			
@@ -24,7 +28,7 @@
 		const BEARER  = "Bearer";
 		const REQUEST_TOKEN  = 0;
 		const REQUEST_SEARCH = 1;
-	
+		
 		// private variables
 		protected $_credentials;
 		protected $_accessToken;
@@ -112,7 +116,7 @@
 			try
 			{	
 				// set content
-				$this->setContent("q",$this->getSearchTag());
+				$this->setContent(QUERY,$this->getSearchTag());
 			
 				// set default url sceheme
 				$default_url = API_SEARCH_ENDPOINT;

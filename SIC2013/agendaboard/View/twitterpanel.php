@@ -1,14 +1,3 @@
-<?php
-/**
- * twitterpanel.php
- *
- * Christopher Bartholomew
- * cbartholomew@gmail.com
- *
- * Twitter Panel, which creates the panel that will create the active twitter feed
- * 
- */
-?>
 <div class="row blankRow_#ROOM#"></div>
 <div class="container twitterRow_#ROOM# twitterContainer">
 	<div class="row">

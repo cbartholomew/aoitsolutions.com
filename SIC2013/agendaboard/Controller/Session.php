@@ -10,8 +10,10 @@
 	 */
 	class Session
 	{	
+		// set public variables
 		public $start_time,$end_time,$day_no,$room_no,$max,$index,$item;	    
-				
+		
+		// contrusct session object, max items 
 		function __construct($MaxItems) 
 		{	 
 			try
@@ -27,6 +29,12 @@
             }
 	   	}
 		
+		/* set($StartTime, $EndTime, $Day, $RoomNo)
+		 *
+		 * Sets the search criteria for what I'm searching for exactly
+		 * in terms of rooms. Also resets index and item properties
+		 * for multiple usage
+		 */
 		public function set($StartTime, $EndTime, $Day, $RoomNo)
 		{
 		  	$this->start_time = $StartTime;
@@ -37,6 +45,13 @@
 			$this->item = null;
 		}
 		
+		/* get($sessions)
+		 *
+		 * Accepts an array of "session" objects.
+		 * will run a recursive search based on the search criteria.
+		 * If search critera is met by base case, will set to $this->item
+		 * otherwise, it will return null
+		 */
 		public function get($sessions)
 		{			
 			try

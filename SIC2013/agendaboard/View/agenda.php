@@ -1,34 +1,34 @@
-<?php
-/**
- * Agenda.php
- *
- * Christopher Bartholomew
- * cbartholomew@gmail.com
- *
- * Main Agenda Page
- * 
- */
-?>
 	<div class=""> 
 		<div class="row head">
-			
+		 <!-- I can't remember what this was for, but I'm too tired to remove it. -->	
 		</div>
 		<br>
 		<div class="agenda">
 			<table class="table table-bordered table-condensed agendaTable">
 				<thead>
 					<tr>
-						<?php	
-							print("<th class='defaultHeaderBackground'>Times</th>");				
-							// create the header column, which are the room names
+						<?php
+							// set the background colors for the header
+							print("<th class='defaultHeaderBackground'>Times</th>");
+											
+							// create the header column, which are the room names - this is from Agenda.JSON config file
 							for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
-							{
+							{								
 								// extract the room
 								$room = $agenda["Rooms"][$i];	
-								$roomHeaderCSS = GetBackgroundHeaderCSS($room["Number"]);		
+								
+								// if room is not active, skip
+								if(!$room["Active"])
+									continue;
+								
+								$roomHeaderCSS = "defaultHeaderBackground";	
+								// get the correct background CSS
+								$roomHeaderCSS = $room["CSS"]["TableHeader"];		
+								
 								// write the header	
 								print("<th class=' ". $roomHeaderCSS . "'>" . $room["Short"] . "</th>");
 							}
+							// render
 							print("<th class='defaultHeaderBackground'>Times</th>");
 						?>
 					</tr>
@@ -43,7 +43,8 @@
 						
 						// override to 9:00 am is if it's past 4:20						
 						$localTime = "10:10";
-												
+						
+						// for all sessions found, create the agenda table
 						foreach($conferenceSessions as $s)
 						{	
 													
@@ -63,8 +64,7 @@
 						    
 							// make active anchor id to go to
 							$rowId = ($isCurrentSlot) ? "ACTIVE" : "";
-							 
-						
+							 										
 							// begin laying out the table track frame
 							print("<tr id=". $rowId ." class='" . $rowCls . "'>");								
 							print("<td class='trackTimes " . $columnCls ."'><h4>" 	   . $s["Start"]   . "" . 
@@ -74,26 +74,29 @@
 							
 							// for each room - find the matching session							
 							for($i=0,$n=$agenda["RoomCount"];$i<$n;$i++)
-							{																																		
+							{																																									
 								// extract the room
 								$room = $agenda["Rooms"][$i];	
 								
+								// skip inactive rooms from json config
+								if(!$room["Active"])
+									continue;
+																
 								// set the session search parameters
 								$session->set($full_start_time,	$full_end_time , ConvertDayNoToDayStr($day), $room["Number"]);
 								
 								// run search
 								$session->get($sessions);
 								
-								// set the background cls
-								$backgroundCls = GetBackgroundCSS($room["Number"]);
-								
+								// set the background cls, essentially roomNo
+								$backgroundCls 	    = GetBackgroundCSS($room["Number"]);																
 								// set up input argument variables																
 								$sessionName 		= "";
 								$speakerHtml 		= "";
 								$speakerModalHtml 	= "No Speaker Information Available";
 								$track 		 		= "";
-								$roomIsFullMSG  	= "";
 								$roomIsFullCSS 		= "";
+								$roomIsFullHTML		= "";
 								$roomNoStr			= $room["Number"];
 								$trackCSS   		= "";
 								$sessionAbstract	= "No Session Available";
@@ -101,6 +104,11 @@
 								$sessionId			= "999";
 								$topicHtml			= "";
 								$fullModalTime		= "";
+								$permalink			= "";
+							 	// get the left, right, and modal panel css from Agenda.JSON
+								$innerPanelLeftCSS	= $room["CSS"]["PanelLeft"];
+								$innerPanelRightCSS	= $room["CSS"]["PanelRight"];
+								$innerModalCSS		= $room["CSS"]["Modal"];
 								// depreciated
 								$status		 	= "";
 								$statusCSS 	 	= "";
@@ -126,16 +134,21 @@
 									// set status & label css
 									$trackCSS  = GetTrackLabelCSS($track);																		
 									// room availability
-									$roomAvailability =  GetIsRoomFullText($session->item["Full"]);														
+									$roomAvailability =  GetIsRoomFullText($session->item["Full"]);																															
 									// set time
 									$fullModalTime	= $session->item["Start Time"] . " - " . $session->item["End Time"];
-																									
+									// use permalink instead of event id - google analytics specific - 10/26/2013
+									$permalink = $session->item["Permalink"];
+																												
 									// get the status, place has false if not confirmed
  									if($rowCls == "activeRow")
-									{						
-										// set the css and message
-										$roomIsFullCSS = $roomAvailability["CSS"];
-										$roomIsFullMSG = $roomAvailability["MSG"];
+									{	
+										if($session->item["Full"] != "false")
+										{								
+											// set the css and message
+											$roomIsFullHTML = $roomAvailability["HTML"];
+										}
+										// set panel css				
 										$panelCSS 	   = "mypanel";									
 									}
 									
@@ -144,52 +157,71 @@
 								// print start column
 								print("<td class=' myPanelTd ". $columnCls . " " . $backgroundCls . " sessionColumn " . 
 								str_replace(":","_",$s["Start"]) . "_" . str_replace(" ", "_",$session->item["Room"]) ."'>");
-								
+																
 								// set arguments up for mypanel view replace
 								$arguments = array(
 									ViewManager::MakeViewArgument("SESSION_NAME",$sessionName ),
-							   		ViewManager::MakeViewArgument("ROOM", $backgroundCls),
 								    ViewManager::MakeViewArgument("ROOM_NO", $roomNoStr),
 							   		ViewManager::MakeViewArgument("SPEAKER_INFORMATION",$speakerHtml),
 							   		ViewManager::MakeViewArgument("TRACK", $track),
 									ViewManager::MakeViewArgument("TRACK_LABEL", $trackCSS),
-							   		ViewManager::MakeViewArgument("ROOM_IS_FULL_MSG", $roomIsFullMSG),
-									ViewManager::MakeViewArgument("ROOM_IS_FULL_LABEL",$roomIsFullCSS),
 									ViewManager::MakeViewArgument("PANEL_CSS",$panelCSS),
 									ViewManager::MakeViewArgument("EVENT_ID",$sessionId),
 									ViewManager::MakeViewArgument("SESSION_ABSTRACT",$sessionAbstract),
 									ViewManager::MakeViewArgument("SPEAKER_INFORMATION_MODAL",$speakerModalHtml),
 									ViewManager::MakeViewArgument("TOPICS",$topicHtml),
-									ViewManager::MakeViewArgument("TIME",$fullModalTime)
+									ViewManager::MakeViewArgument("TIME",$fullModalTime),
+									ViewManager::MakeViewArgument("PERMALINK",$permalink),
+									ViewManager::MakeViewArgument("INNER_LEFT_PANEL",$innerPanelLeftCSS),
+									ViewManager::MakeViewArgument("INNER_RIGHT_PANEL",$innerPanelRightCSS),
+									ViewManager::MakeViewArgument("INNER_MODAL_CSS",$innerModalCSS),
+									ViewManager::MakeViewArgument("ROOM_IS_FULL_HTML",$roomIsFullHTML)
 								);			
 								
+								
+								// out of scope variable to handle the twitter panel, not used on non-active sessions
 								$twitterPanelHtml = "";
 								
+								// if active row, begin twitter trolling
 								if($rowCls == "activeRow")
 								{
+									// set the room's hash tag
 									$roomHashTag = $session->item["Hashtag"];
 									
+									// render tweets by hashtag - function is called in helpers
 									$tweets = GetTweetsByHashEventTag($session->item["Hashtag"]);
 									
+									// set up the tweet html variable
 									$tweetHtml = "";
-									$tweetMax = 1;
+									
+									// get the max tweets
+									$tweetMax  = $room["Twitter"]["MaxShown"];
+									
+									// set up the index
 									$currentTweetIndex = 0;
+									
+									// tweet max
 									foreach($tweets as $tweet)
 									{	
-										$tweetArguments = array(
-										 	ViewManager::MakeViewArgument("TWITTER_HANDLE","@" . $tweet->user->screen_name),
-										 	ViewManager::MakeViewArgument("TWITTER_TEXT",$tweet->text),
-											ViewManager::MakeViewArgument("TWITTER_TWEET_ID", $tweet->id_str)
-										);									
-										
 										if($currentTweetIndex < $tweetMax)
 										{
+											// build view arguments
+											$tweetArguments = array(
+											 	ViewManager::MakeViewArgument("TWITTER_HANDLE","@" . $tweet->user->screen_name),
+											 	ViewManager::MakeViewArgument("TWITTER_TEXT",$tweet->text),
+												ViewManager::MakeViewArgument("TWITTER_TWEET_ID", $tweet->id_str)
+											);									
+											
+											// render each tweet via html
 											$tweetHtml .= $viewManager->renderViewHTML("tweet",$tweetArguments, false, false);	
+											
+											// increase the index
 											$currentTweetIndex++;
 										}
 										
 									}
 									
+									// make the twitter panel, which holds tweets
 									$twitterArguments = array(
 										ViewManager::MakeViewArgument("TWEETS",$tweetHtml),
 										ViewManager::MakeViewArgument("TWITTER_HASH",$roomHashTag),
@@ -197,7 +229,7 @@
 										ViewManager::MakeViewArgument("EVENT_ID", $sessionId),
 									);
 									
-									// make html
+									// make html that creates a panel of tweets
 									$twitterPanelHtml = $viewManager->renderViewHTML("twitterpanel",$twitterArguments, false, false);															
 								}	
 								
@@ -215,7 +247,7 @@
 							}
 							
 							// add final time track																								
-							print("<td class=trackTimes'" . $columnCls ."'><h4>" . $s["Start"] . "" . 
+							print("<td class='trackTimes " . $columnCls ."'><h4>" . $s["Start"] . "" . 
 								  strtolower($s["StartMeridian"]) . "<br>" . $s["End"] . "" . 
 								  strtolower($s["EndMeridian"]) . "</h4></td>");
 								

@@ -1,14 +1,4 @@
-<?php
-/**
- * Footer.php
- *
- * Christopher Bartholomew
- * cbartholomew@gmail.com
- *
- * footer data, normally add scripts here.
- * 
- */
-?>
+
     </body>
 </html>
 <script>
@@ -63,5 +53,6 @@ $(document).ready(function(){
 	//runSponsorBanner();
 	//setTimeout(refreshWebPanel,60000);
 	unbindNoSession();
+	$('table').floatThead(); 
 });
 </script>

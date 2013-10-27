@@ -1,12 +1,108 @@
 {
 	"RoomCount" : 6,
 	"Rooms" 	: [
-				{ "Number": "Room 301", "Occupancy": 275, "Short":"301"},
-				{ "Number": "Room 302", "Occupancy": 275, "Short":"302"},
-				{ "Number": "Room 303", "Occupancy": 303, "Short":"303"},
-				{ "Number": "Room 202", "Occupancy": 192, "Short":"202"},
-				{ "Number": "Room 204", "Occupancy": 108, "Short":"204"},
-				{ "Number": "Room LL2", "Occupancy": 300, "Short":"LL2"}
+				{ 
+					"Number": "Room 301", 
+					"Active": true,
+					"DisplayOrder" : 3,
+					"Occupancy": 999, 
+					"Short":"301",
+					"Twitter": {
+						"MaxShown": 3
+					}, 
+					"CSS" : 
+					{ 
+						"TableHeader":"room301Header",
+						"PanelLeft"  :"innerLeftColumn_room301",
+						"PanelRight" :"innerRightColumn_room301",
+						"Modal"	 	 :"innerLeftColumnModal_room301"
+					} 
+				},
+				{ 
+					"Number": "Room 302", 
+					"Active": true,
+					"DisplayOrder" : 2,
+					"Occupancy": 999, 
+					"Short":"302", 
+					"Twitter": {
+						"MaxShown": 3
+					},
+					"CSS" : 
+					{ 
+						"TableHeader":"room302Header",
+						"PanelLeft": "innerLeftColumn_room302",
+						"PanelRight":"innerRightColumn_room302",
+						"Modal"	 :"innerLeftColumnModal_room302"
+					} 
+				},
+				{ 
+					"Number": "Room 303",
+					"Active": true, 
+					"DisplayOrder" :1,
+					"Occupancy": 999, 
+					"Short":"303",
+					"Twitter": {
+						"MaxShown": 3
+					},
+					"CSS" : 
+					{ 
+						"TableHeader":"room303Header",
+						"PanelLeft": "innerLeftColumn_room303",
+						"PanelRight":"innerRightColumn_room303",
+						"Modal"	 :"innerLeftColumnModal_room303"
+					} 
+				},
+				{ 
+					"Number": "Room 202",
+					"Active": true,
+					"DisplayOrder" : 5, 
+					"Occupancy": 999, 
+					"Short":"202",
+					"Twitter": {
+						"MaxShown": 3
+					},
+					"CSS" : 
+					{ 
+						"TableHeader":"room202Header",
+						"PanelLeft": "innerLeftColumn_room202",
+						"PanelRight":"innerRightColumn_room202",
+						"Modal"	 : "innerLeftColumnModal_room202"
+					} 
+				},
+				{ 
+					"Number": "Room 204", 
+					"Active": true,
+					"DisplayOrder" : 4, 
+					"Occupancy": 999, 
+					"Short":"204",
+					"Twitter": {
+						"MaxShown": 3
+					},
+					"CSS" : 
+					{ 
+						"TableHeader":"room204Header",
+						"PanelLeft": "innerLeftColumn_room204",
+						"PanelRight":"innerRightColumn_room204",
+						"Modal"	 : "innerLeftColumnModal_room204"
+					} 
+				},
+				{ 
+					"Number": "Room LL2", 
+					"Active": true,
+					"DisplayOrder" : 6, 
+					"Occupancy": 999, 
+					"Short":"LL2",
+					"Twitter": {
+						"MaxShown": 3
+					},
+					"CSS" : 
+					{ 
+						"TableHeader":"roomLL2Header",
+						"PanelLeft": "innerLeftColumn_roomLL2",
+						"PanelRight":"innerRightColumn_roomLL2",
+						"Modal"	 : "innerLeftColumnModal_roomLL2"
+					} 
+				}
 	],
 	"Title"		: "Agenda",
 	"Conference"	: [
@@ -138,10 +234,10 @@
 								"End"  : "2:00"   , "EndMeridian"  :"PM"
 							},	
 							{
-									"Name":"Sponsored Break in SIC://Hub", 
-									"Order": 4 ,
-									"Start": "3:00"   , "StartMeridian":"PM", 
-									"End": 	 "3:30"   , "EndMeridian"  :"PM"
+								"Name":"Sponsored Break in SIC://Hub", 
+								"Order": 4 ,
+								"Start": "3:00"   , "StartMeridian":"PM", 
+								"End": 	 "3:30"   , "EndMeridian"  :"PM"
 							}
 					],
 					"Session"		 : [
