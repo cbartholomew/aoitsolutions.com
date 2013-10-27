@@ -1,14 +1,3 @@
-<?php
-/**
- * header.php
- *
- * Christopher Bartholomew
- * cbartholomew@gmail.com
- *
- * header data, include scripts
- * 
- */
-?>
 <!DOCTYPE html>
 <html>
 <!-- Content Delivery Network StyleSheets  -->
@@ -39,9 +28,9 @@
 <script type="text/javascript" src="cdn/lib/detectbrowser.js"></script>
 
 <!-- Typekit -->
-<script type="text/javascript" src="http://use.typekit.net/jfk3vaq.js"></script>
+<script type="text/javascript" src="//use.typekit.net/jfk3vaq.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>

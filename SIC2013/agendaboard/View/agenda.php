@@ -1,14 +1,3 @@
-<?php
-/**
- * Agenda.php
- *
- * Christopher Bartholomew
- * cbartholomew@gmail.com
- *
- * Main Agenda Page
- * 
- */
-?>
 	<div class=""> 
 		<div class="row head">
 		 <!-- I can't remember what this was for, but I'm too tired to remove it. -->	
