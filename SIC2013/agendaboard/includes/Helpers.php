@@ -28,8 +28,19 @@
 	}	
 	function GetIsRoomFullText($input)
 	{	
-		return ($input == "False") ? array( "CSS"=>"statusLabelFullTrue","MSG"=>"Room Full!" ) : array( "CSS"=>"statusLabelFullFalse","MSG"=>"Room Open" ) ;
-	}	
+		return ($input != "false") ? 
+			array( "CSS"  =>"statusLabelFullTrue",
+				   "HTML" => "<label class='label label-danger roomFull'><i class='glyphicon glyphicon-ban-circle'></i>&nbsp;Room Full</label>") : 
+			array( "CSS"  =>"statusLabelFullFalse",
+				   "HTML" => "<label class='label label-success' ><i class='glyphicon glyphicon-thumbs-up'></i>&nbsp;Room Open</label>") ;
+	}
+
+	/* GetTweetsByHashEventTag($roomHashTag)
+	 *
+ 	 * Acts as a controller to call my custom TwitterSearchAPI, 
+  	 * It will return a list of a "tweets", based on a specific
+ 	 * search tag.
+	 */		
 	function GetTweetsByHashEventTag($roomHashTag)
 	{
 		$tweets = NULL;

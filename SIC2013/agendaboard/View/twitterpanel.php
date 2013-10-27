@@ -10,7 +10,7 @@
  */
 ?>
 <div class="row blankRow_#ROOM#"></div>
-<div class="container twitterRow_#ROOM# ">
+<div class="container twitterRow_#ROOM# twitterContainer">
 	<div class="row">
 		<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 liveTweetsTop '>Live Tweets</div>
 	</div>

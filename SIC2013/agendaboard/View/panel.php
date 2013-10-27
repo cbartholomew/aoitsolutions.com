@@ -13,10 +13,11 @@
 <div class="innerLeftColumn_#ROOM#">
 	<div class='#PANEL_CSS# #EVENT_ID#'>
 		<div class="row"> 
-			<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 innerRightColumn_#ROOM#'>
+			<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 #INNER_RIGHT_PANEL#'>
+			 #ROOM_IS_FULL_HTML#
 				<small class='text-left makesmaller'><label class='#TRACK_LABEL#'>#TRACK#</label></small>
 				<p class='text-left makesmaller sessionName'><b>#SESSION_NAME#</b></p>
-				#SPEAKER_INFORMATION#		
+				#SPEAKER_INFORMATION#				 	
 				<!--<small class='text-left #ROOM_IS_FULL_LABEL#'>#ROOM_IS_FULL_MSG#</small>-->
 				<!-- <small class='text-left #STATUS_LABEL#'>#STATUS#</small>-->
 			</div>

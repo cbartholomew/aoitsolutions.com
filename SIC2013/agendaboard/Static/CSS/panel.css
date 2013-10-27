@@ -5,18 +5,25 @@
 .trackTimes h4 { padding-left: 5px; font-size: 1.1em; }
 
 .eventOverlay  { opacity:0.9;   filter:alpha(opacity=90); }
-.eventOverlay:hover { cursor: pointer; }
+.eventOverlay:hover,
+.eventOverlay .speakerName:hover,
+.eventOverlay .speakerCompany:hover,
+.eventOverlay .trackDigital:hover,
+.eventOverlay .trackDesign:hover,
+.eventOverlay .trackDevelop:hover {cursor: pointer; }
 
-.innerLeftColumn_room202 { height: 100%; background-color: #19B244;padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
-.innerLeftColumn_room204 { height: 100%; background-color: #005DA4;padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
-.innerLeftColumn_room205 { height: 100%; background-color: #6A6A6A;padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
-.innerLeftColumn_room301 { height: 100%; background-color: #cc2129;padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
-.innerLeftColumn_room302 { height: 100%; background-color: #652c84;padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
-.innerLeftColumn_room303 { height: 100%; background-color: #00DEF2;padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
-.innerLeftColumn_roomLL2 { height: 100%; background-color: #f26625;padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+label.roomFull { display: block; background: #CC2129; margin: 3px 5px 10px 0px; border-radius: 0px; }
 
-.innerLeftColumnModal_room202 { height: 100%; background-color: #19B244;padding-left:20px; border-radius:5px; color:white;}
-.innerLeftColumnModal_room204 { height: 100%; background-color: #005DA4;padding-left:20px; border-radius:5px; color:white;}
+.innerLeftColumn_room202 { height: 100%; background-color: #005DA4; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+.innerLeftColumn_room204 { height: 100%; background-color: #19B244; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+.innerLeftColumn_room205 { height: 100%; background-color: #6A6A6A; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+.innerLeftColumn_room301 { height: 100%; background-color: #00DEF2; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+.innerLeftColumn_room302 { height: 100%; background-color: #652c84; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+.innerLeftColumn_room303 { height: 100%; background-color: #cc2129; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+.innerLeftColumn_roomLL2 { height: 100%; background-color: #f26625; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
+
+.innerLeftColumnModal_room202 { height: 100%; background-color: #005DA4;padding-left:20px; border-radius:5px; color:white;}
+.innerLeftColumnModal_room204 { height: 100%; background-color: #19B244;padding-left:20px; border-radius:5px; color:white;}
 .innerLeftColumnModal_room205 { height: 100%; background-color: #6A6A6A;padding-left:20px; border-radius:5px; color:white;}
 .innerLeftColumnModal_room301 { height: 100%; background-color: #cc2129;padding-left:20px; border-radius:5px; color:white;}
 .innerLeftColumnModal_room302 { height: 100%; background-color: #652c84;padding-left:20px; border-radius:5px; color:white;}
