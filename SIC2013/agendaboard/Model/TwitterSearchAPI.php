@@ -29,9 +29,6 @@
 		const REQUEST_TOKEN  = 0;
 		const REQUEST_SEARCH = 1;
 		
-		// called by other classes to determine tweet max
-		const TWEETS_SHOWN	 = 1;
-		
 		// private variables
 		protected $_credentials;
 		protected $_accessToken;

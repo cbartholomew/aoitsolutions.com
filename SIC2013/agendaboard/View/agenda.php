@@ -206,10 +206,12 @@
 									$tweetHtml = "";
 									
 									// get the max tweets
-									$tweetMax  = TwitterSearchAPI::TWEETS_SHOWN;
+									$tweetMax  = $room["Twitter"]["MaxShown"];
 									
 									// set up the index
 									$currentTweetIndex = 0;
+									
+									// tweet max
 									foreach($tweets as $tweet)
 									{	
 										if($currentTweetIndex < $tweetMax)

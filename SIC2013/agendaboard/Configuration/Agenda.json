@@ -6,7 +6,10 @@
 					"Active": true,
 					"DisplayOrder" : 3,
 					"Occupancy": 999, 
-					"Short":"301", 
+					"Short":"301",
+					"Twitter": {
+						"MaxShown": 3
+					}, 
 					"CSS" : 
 					{ 
 						"TableHeader":"room301Header",
@@ -21,6 +24,9 @@
 					"DisplayOrder" : 2,
 					"Occupancy": 999, 
 					"Short":"302", 
+					"Twitter": {
+						"MaxShown": 3
+					},
 					"CSS" : 
 					{ 
 						"TableHeader":"room302Header",
@@ -34,7 +40,10 @@
 					"Active": true, 
 					"DisplayOrder" :1,
 					"Occupancy": 999, 
-					"Short":"303", 
+					"Short":"303",
+					"Twitter": {
+						"MaxShown": 3
+					},
 					"CSS" : 
 					{ 
 						"TableHeader":"room303Header",
@@ -48,7 +57,10 @@
 					"Active": true,
 					"DisplayOrder" : 5, 
 					"Occupancy": 999, 
-					"Short":"202", 
+					"Short":"202",
+					"Twitter": {
+						"MaxShown": 3
+					},
 					"CSS" : 
 					{ 
 						"TableHeader":"room202Header",
@@ -62,7 +74,10 @@
 					"Active": true,
 					"DisplayOrder" : 4, 
 					"Occupancy": 999, 
-					"Short":"204", 
+					"Short":"204",
+					"Twitter": {
+						"MaxShown": 3
+					},
 					"CSS" : 
 					{ 
 						"TableHeader":"room204Header",
@@ -76,7 +91,10 @@
 					"Active": true,
 					"DisplayOrder" : 6, 
 					"Occupancy": 999, 
-					"Short":"LL2", 
+					"Short":"LL2",
+					"Twitter": {
+						"MaxShown": 3
+					},
 					"CSS" : 
 					{ 
 						"TableHeader":"roomLL2Header",

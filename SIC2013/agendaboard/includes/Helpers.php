@@ -44,7 +44,7 @@
 		
 		return ($input != "false") ? 
 			array( "CSS"  =>"statusLabelFullTrue",
-				   "HTML" => "<label class='label label-danger '><i class='glyphicon glyphicon-ban-circle'></i>&nbsp;Room Full</label>") : 
+				   "HTML" => "<label class='label label-danger'><i class='glyphicon glyphicon-ban-circle'></i>&nbsp;Room Full</label>") : 
 			array( "CSS"  =>"statusLabelFullFalse",
 				   "HTML" => "<label class='label label-success' ><i class='glyphicon glyphicon-thumbs-up'></i>&nbsp;Room Open</label>") ;
 	}
