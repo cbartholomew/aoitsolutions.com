@@ -16,7 +16,7 @@
 	$dayNo =  (isset($_GET["dayno"])) ? $_GET["dayno"] : 0;
 	
 	// make new view manager
-	$viewManager = new ViewManager();
+	$viewManager = new ViewManager("View/");
 	
 	// get the agenda board configuration
 	$agenda_uri  = (IS_PROD) ? JSON_AGENDA_PROD_URI : JSON_AGENDA_URI;

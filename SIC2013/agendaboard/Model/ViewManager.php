@@ -19,10 +19,10 @@
 		 * with a configured base view path.
 		 * this is used for each access to the view
 		 */
-		function __construct() 
+		function __construct($baseView) 
 		{
 			// constant for base view path
-			$BASE_VIEW_PATH = "View/";
+			$BASE_VIEW_PATH = $baseView; 
 			
 			$this->viewPath = array(
 				"header" 		=> $BASE_VIEW_PATH . "header.php",

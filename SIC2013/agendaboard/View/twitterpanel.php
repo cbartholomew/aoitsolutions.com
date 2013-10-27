@@ -3,8 +3,8 @@
 	<div class="row">
 		<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 liveTweetsTop '>Live Tweets</div>
 	</div>
-	<div class="row ">
-		<div class="twitterPanel col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+	<div class="row" id="twitterFeed_#ROOM#">
+		<div class="twitterPanel twitterPanel_#ROOM# col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 			#TWEETS#
 		</div>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -16,5 +16,16 @@
 	</div>
 </div>
 <script>
-$(".blankRow_#ROOM#").height($(".#EVENT_ID#").height() - (($(".twitterRow_#ROOM#").position().top - $(".#EVENT_ID#").position().top) + $(".twitterRow_#ROOM#").height()))
+$(".blankRow_#ROOM#").height($(".#EVENT_ID#").height() - (($(".twitterRow_#ROOM#").position().top - $(".#EVENT_ID#").position().top) + $(".twitterRow_#ROOM#").height()));
+/*
+setTimeout(function(){
+	var encoded = encodeURIComponent("#TWITTER_HASH#");
+	$.ajax({
+		url: "http://localhost/aoit/aoitsolutions.com/sic2013/agendaboard/api/GetTwitterFeed.php?hashtag=" + encoded + "&room=#ROOM#&eventid=#EVENT_ID#",
+		success: function(feed){
+			$("#twitterPanel_#ROOM#").html(feed);
+		}
+	})
+},10000);
+*/
 </script>
