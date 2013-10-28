@@ -189,7 +189,7 @@
 								$twitterPanelHtml = "";
 								
 								// if active row, begin twitter trolling
-								if($rowCls == "activeRow")
+								if($rowCls == "activeRow" && $panelCSS == "mypanel")
 								{
 									// set the room's hash tag
 									$roomHashTag = $session->item["Hashtag"];
