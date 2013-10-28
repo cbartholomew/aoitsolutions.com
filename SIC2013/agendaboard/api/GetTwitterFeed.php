@@ -5,8 +5,8 @@
 	
 	// get hash tag
 	$hashTag 	= (isset($_GET["hashtag"]))  ? $_GET["hashtag"]  : -1;
-	$roomNo 	= (isset($_GET["room"]))	 ? $_GET["room"]	: -1;
-	$eventid 	= (isset($_GET["eventid"]))	 ? $_GET["eventid"]	: -1;
+	$roomNo 	= (isset($_GET["room"]))	 ? $_GET["room"]	 : -1;
+	$eventid 	= (isset($_GET["eventid"]))	 ? $_GET["eventid"]	 : -1;
 	if($hashTag == -1 || $roomNo == -1 || $eventid == -1)
 	{
 		$twitterPanelHtml = "problem with loading tweets";

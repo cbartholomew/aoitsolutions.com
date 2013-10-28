@@ -226,7 +226,7 @@
 										ViewManager::MakeViewArgument("TWEETS",$tweetHtml),
 										ViewManager::MakeViewArgument("TWITTER_HASH",$roomHashTag),
 										ViewManager::MakeViewArgument("ROOM", $backgroundCls),
-										ViewManager::MakeViewArgument("EVENT_ID", $sessionId),
+										ViewManager::MakeViewArgument("EVENT_ID", $sessionId)
 									);
 									
 									// make html that creates a panel of tweets

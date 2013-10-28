@@ -10,7 +10,9 @@
 				<!-- <small class='text-left #STATUS_LABEL#'>#STATUS#</small>-->
 			</div>
 		</div>
+		<div class='twitterPanel_#ROOM#'>
 		#TWITTER#
+		</div>
 	</div>
 </div>
 <!-- Modal -->
