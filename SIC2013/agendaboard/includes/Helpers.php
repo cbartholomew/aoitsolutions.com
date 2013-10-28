@@ -81,9 +81,10 @@
 		}
 		else
 		{
+			// $twitter->doRequest(TwitterSearchAPI::REQUEST_TOKEN);
 			$twitter->setAccessToken($_SESSION["ACCESS_TOKEN"]);
 		}
-	
+
 		// if we get a token - search for room hash
 		if($twitter->getAccessToken() != -1)
 		{
