@@ -1,7 +1,7 @@
 {
   "name": "SIC2013 Agenda Board",
   "description": "Agenda Board for 2013 Seattle Interactive Conference",
-  "version": "1",
+  "version": "0.0.0.1",
   "manifest_version": 2,
   "app": {
     "urls": [
