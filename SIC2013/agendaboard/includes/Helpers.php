@@ -64,11 +64,12 @@
 		if(!isset($_SERVER["ACCESS_TOKEN"]))
 		{
 			$twitter->doRequest(TwitterSearchAPI::REQUEST_TOKEN);
-			$_SERVER["ACCESS_TOKEN"] = $twitter->getAccessToken();
+			//$_SERVER["ACCESS_TOKEN"] = $twitter->getAccessToken();
 		}
 		else
 		{
-			$twitter->setAccessToken($_SERVER["ACCESS_TOKEN"]);
+			$twitter->doRequest(TwitterSearchAPI::REQUEST_TOKEN);
+			//$twitter->setAccessToken($_SERVER["ACCESS_TOKEN"]);
 		}
 	
 		// if we get a token - search for room hash

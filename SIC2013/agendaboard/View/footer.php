@@ -26,6 +26,7 @@ function runSponsorBanner() {
 
 }
 
+
 function exposeCurrentTimeSlot() { 
     $(".currentRow").addClass("activeRow");
     $(".currentCol").addClass("activeCol");
