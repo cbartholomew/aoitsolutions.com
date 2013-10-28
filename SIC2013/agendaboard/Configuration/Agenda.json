@@ -8,7 +8,7 @@
 					"Occupancy": 999, 
 					"Short":"301",
 					"Twitter": {
-						"MaxShown": 3
+						"MaxShown": 1
 					}, 
 					"CSS" : 
 					{ 
@@ -25,7 +25,7 @@
 					"Occupancy": 999, 
 					"Short":"302", 
 					"Twitter": {
-						"MaxShown": 3
+						"MaxShown": 1
 					},
 					"CSS" : 
 					{ 
@@ -42,7 +42,7 @@
 					"Occupancy": 999, 
 					"Short":"303",
 					"Twitter": {
-						"MaxShown": 3
+						"MaxShown": 1
 					},
 					"CSS" : 
 					{ 
@@ -59,7 +59,7 @@
 					"Occupancy": 999, 
 					"Short":"202",
 					"Twitter": {
-						"MaxShown": 3
+						"MaxShown": 1
 					},
 					"CSS" : 
 					{ 
@@ -76,7 +76,7 @@
 					"Occupancy": 999, 
 					"Short":"204",
 					"Twitter": {
-						"MaxShown": 3
+						"MaxShown": 1
 					},
 					"CSS" : 
 					{ 
@@ -93,7 +93,7 @@
 					"Occupancy": 999, 
 					"Short":"LL2",
 					"Twitter": {
-						"MaxShown": 3
+						"MaxShown": 1
 					},
 					"CSS" : 
 					{ 

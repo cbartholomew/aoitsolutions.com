@@ -1,4 +1,4 @@
-body  		   { background-color: #111; background: url(../Images/diagonal.png); font-family: "proxima-nova","Century Gothic","Arial","san-serif";}
+body  		   { background-color: #111; background: #ddd/* url(../Images/diagonal.png) */; font-family: "proxima-nova","Century Gothic","Arial","san-serif";}
 h1, h2, h3, h4, h5, h6 { font-family: "proxima-nova","Century Gothic","Arial","san-serif"; font-weight: 700; }
 p, ol, ul { font-family: "proxima-nova","Century Gothic","Arial","san-serif"; }
 thead 		   { font-size:large;}
