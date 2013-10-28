@@ -5,8 +5,5 @@
 4. pass results to the view by calling ViewManager:RenderView(ViewName, arguments array)
 5. Ensure those arguments are in the view and should be handled accordingly.
 
-For Chrome Extension
-1. Open Chrome, Go chrome://extensions/
-2. Make sure "Developer Mode" is checked
-3. Choose, "Load Unpacked Extension"
-4. Drill down to the app
+
+
