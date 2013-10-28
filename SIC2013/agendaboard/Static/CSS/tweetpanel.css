@@ -3,6 +3,6 @@
 .liveTweetsTop { background-color:#39b3d7;font-weight:400;color:white; border-top-left-radius: 5px; border-top-right-radius: 5px; text-align: center; text-transform: uppercase; } 
 .liveTweetsBottom { background-color:#39b3d7;font-weight:bold;color:white; border-bottom-left-radius: 5px 5px; border-bottom-right-radius: 5px;} 
 .liveTweetsBottom iframe { margin-top: 5px;}
-.twitterHandle { line-height: 1.5em; padding-top: 5px; }
-.twitterActions { min-width: 55px; text-align: right; /*position: absolute;*/ top: 2px; right: 0px; }
-.twitterText { padding-bottom: 4px; }
+.twitterHandle { line-height: 1.1em; padding-top: 0px; }
+.twitterActions { min-width: 70px; text-align: right; /*position: absolute;*/ }
+.twitterText { padding-bottom: 4px; padding-top: 4px; }
