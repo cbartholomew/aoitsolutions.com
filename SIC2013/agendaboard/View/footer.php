@@ -20,7 +20,7 @@ function unbindNoSession()
 
 $(document).ready(function(){
 	//goToActiveRow();
-	setTimeout(refreshWebPanel,120000);
+	setTimeout(refreshWebPanel,60000);
 	unbindNoSession();
 	$('table').floatThead(); 
 });

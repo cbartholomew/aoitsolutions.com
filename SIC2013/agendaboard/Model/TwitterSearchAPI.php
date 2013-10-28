@@ -120,15 +120,14 @@
 			
 				// set default url sceheme
 				$default_url = API_SEARCH_ENDPOINT;
-			
+				
 				// check for a refresh url
-				$refresh_url = $this->getRefreshURL();
-			
+				$refresh_url = GetRefreshURLDictionary($this->getSearchTag());
+				
 				// build a url based on the previous data set
-				$url  = ($refresh_url == NULL) ? $default_url . "?" . http_build_query($this->getContent()) 
+				$url  = ($refresh_url == "") ? $default_url . "?" . http_build_query($this->getContent()) 
 											   : $default_url . $refresh_url;
-			
-			
+							
 				$options = array(
 					HTTP => array(
 						HEADER  => $this->getHeader(TwitterSearchAPI::BEARER),
@@ -177,6 +176,8 @@
 		private function setRefreshURL($url)
 		{
 			$this->_refreshURL = $url;
+			
+			SetRefreshURLDictionary($this->getSearchTag(),$this->getRefreshURL());
 		}
 	
 		function getRefreshURL()

@@ -60,7 +60,7 @@
 			array( "CSS"  =>"statusLabelFullFalse",
 				   "HTML" => "<label class='label label-success' ><i class='glyphicon glyphicon-thumbs-up'></i>&nbsp;Room Open</label>") ;
 	}
-
+		
 	/* GetTweetsByHashEventTag($roomHashTag)
 	 *
  	 * Acts as a controller to call my custom TwitterSearchAPI, 
@@ -74,15 +74,14 @@
 		$twitter = new TwitterSearchAPI(CONSUMER_KEY,CONSUMER_SECRET);
 		// do request to get token
 		
-		if(!isset($_SERVER["ACCESS_TOKEN"]))
+		if(!isset($_SESSION["ACCESS_TOKEN"]))
 		{
 			$twitter->doRequest(TwitterSearchAPI::REQUEST_TOKEN);
-			$_SERVER["ACCESS_TOKEN"] = $twitter->getAccessToken();
+			$_SESSION["ACCESS_TOKEN"] = $twitter->getAccessToken();
 		}
 		else
 		{
-			$twitter->doRequest(TwitterSearchAPI::REQUEST_TOKEN);
-			$twitter->setAccessToken($_SERVER["ACCESS_TOKEN"]);
+			$twitter->setAccessToken($_SESSION["ACCESS_TOKEN"]);
 		}
 	
 		// if we get a token - search for room hash
@@ -100,7 +99,24 @@
 
 		return $tweets;
 	}
+	
+	function SetRefreshURLDictionary($hastag, $refreshURL)
+	{
+		$_SESSION[$hastag] = $refreshURL;
+	}
+	
+	function GetRefreshURLDictionary($hastag)
+	{
+		if(isset($_SESSION[$hastag]) && !empty($_SESSION[$hastag]))
+		{
+			return "";
+			// disabled because only rendering one tweet
+			//return $_SESSION[$hastag];			
+		}
 		
+		return "";
+	}
+	
 	/*  GetTopicMultiHtml($items)
 	 *
      *  Builds some html for the variety of topics passed in

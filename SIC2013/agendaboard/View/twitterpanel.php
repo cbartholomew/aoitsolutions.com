@@ -17,6 +17,7 @@
 </div>
 <script>
 $(".blankRow_#ROOM#").height($(".#EVENT_ID#").height() - (($(".twitterRow_#ROOM#").position().top - $(".#EVENT_ID#").position().top) + $(".twitterRow_#ROOM#").height()));
+/*
 function PollTweets()
 {
 	var encoded = encodeURIComponent("#TWITTER_HASH#");
@@ -28,4 +29,5 @@ function PollTweets()
  	});	
 }
 setInterval(PollTweets, 60000);
+*/
 </script>
