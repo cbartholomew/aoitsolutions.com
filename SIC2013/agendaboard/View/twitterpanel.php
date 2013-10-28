@@ -17,17 +17,4 @@
 </div>
 <script>
 $(".blankRow_#ROOM#").height($(".#EVENT_ID#").height() - (($(".twitterRow_#ROOM#").position().top - $(".#EVENT_ID#").position().top) + $(".twitterRow_#ROOM#").height()));
-/*
-function PollTweets()
-{
-	var encoded = encodeURIComponent("#TWITTER_HASH#");
- 	$.ajax({
- 		url: "api/GetTwitterFeed.php?hashtag=" + encoded + "&room=#ROOM#&eventid=#EVENT_ID#",
- 		success: function(feed){
- 			$(".twitterPanel_#ROOM#").html(feed);
- 		}
- 	});	
-}
-setInterval(PollTweets, 60000);
-*/
 </script>
