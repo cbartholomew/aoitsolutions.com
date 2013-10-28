@@ -4,5 +4,5 @@
 .liveTweetsBottom { background-color:#39b3d7;font-weight:bold;color:white; border-bottom-left-radius: 5px 5px; border-bottom-right-radius: 5px;} 
 .liveTweetsBottom iframe { margin-top: 5px;}
 .twitterHandle { line-height: 1.1em; padding-top: 0px; }
-.twitterActions { min-width: 70px; text-align: right; /*position: absolute;*/ }
+.twitterActions { min-width: 70px; text-align: right; }
 .twitterText { padding-bottom: 4px; padding-top: 4px; }

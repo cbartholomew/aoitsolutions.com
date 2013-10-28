@@ -7,7 +7,6 @@
 .eventOverlay  { opacity:0.9;   filter:alpha(opacity=90); }
 .eventOverlay:hover { cursor: pointer; }
 
-
 .innerLeftColumn_room202 { height: 100%; background-color: #005DA4; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
 .innerLeftColumn_room204 { height: 100%; background-color: #19B244; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
 .innerLeftColumn_room205 { height: 100%; background-color: #6A6A6A; padding-left:14px; border-radius:5px; box-shadow: 0px 0px 1px #ddd; }
@@ -32,12 +31,10 @@
 .innerRightColumn_room303 { height: 100%; margin-left:1%; margin-right:2%; }
 .innerRightColumn_roomLL2 { height: 100%; margin-left:1%; margin-right:2%; }
 
-/* need to modify */
-.statusLabelConfirmedTrue  {color:#19b244; font-weight: bold; margin-bottom:10%}
-.statusLabelConfirmedFalse {color:#ba2025; font-weight: bold;}
+.statusLabelCancelledTrue  { margin-bottom:1%;color:white;padding:3px 6px; border-radius:5px;}
+.statusLabelMovedTrue 	   { margin-bottom:1%;color:white;padding:3px 6px; border-radius:5px;}
 .statusLabelFullFalse { margin-bottom:1%;color:white;padding:3px 6px; border-radius:5px;}
 .statusLabelFullTrue  { margin-bottom:1%;color:white;padding:3px 6px; border-radius:5px;}
-
 
 .trackDigital { background-color: #f26529; float:right; margin-top:1%;margin-right:3%; margin-left: 2%; color:white;padding:3px 6px; border-radius:5px; }
 .trackDevelop { background-color: #662584; float:right; margin-top:1%;margin-right:3%; margin-left: 2%; color:white;padding:3px 6px; border-radius:5px; }

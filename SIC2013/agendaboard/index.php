@@ -12,9 +12,9 @@
 	require("Model/TwitterSearchAPI.php");
 	require("Controller/Session.php");
 	
-	// get date from query string - change to actual date before conference	
-	$dayNo =  (isset($_GET["dayno"])) ? $_GET["dayno"] : 0;
-	
+	// get date from query string - if it's set manually, it will over ride current date 
+	$dayNo =  (isset($_GET["dayno"])) ? $_GET["dayno"] : GetDayNo(getdate());
+		
 	// make new view manager
 	$viewManager = new ViewManager("View/");
 	
@@ -24,14 +24,14 @@
 	$agenda      = json_decode($agenda_json,true);
 	
 	// run sort on rooms by display order
-	$agenda["Rooms"] = SortObjectByProperty($agenda["Rooms"]);
+	$agenda["Rooms"] = SortObjectByProperty($agenda["Rooms"],"cmpDisplayOrder");
 	
 	// get the sessions via json
 	$session_uri  = (IS_PROD) ? JSON_SESSION_PROD_URI : JSON_SESSION_TEST_URI;
 	$session_json = file_get_contents($session_uri);
 	$sessions     = json_decode($session_json, true);
-	$session = new Session(count($sessions["Sessions"]));
-	
+	$session 	  = new Session(count($sessions["Sessions"]));
+
 	// get current header
 	$headerImage = GetHeader($dayNo);
 	

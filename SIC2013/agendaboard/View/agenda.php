@@ -38,11 +38,11 @@
 						// get all conference sessions										
 						$conferenceSessions = $agenda["Conference"][$day]["Times"]["Session"];
 						
+						// force pacific standard time
+						date_default_timezone_set("America/Los_Angeles");
+						
 						// get the local time
 						$localTime 	= date('H:i', time());
-						
-						// override to 9:00 am is if it's past 4:20						
-						$localTime = "10:10";
 						
 						// for all sessions found, create the agenda table
 						foreach($conferenceSessions as $s)
@@ -50,13 +50,15 @@
 													
 							// convert the local time in seconds
 							$localTimeInSeconds = $localTime;
-							$agendaStartTime 	= $s["Start"];
-							$agendaEndTime	    = $s["End"];
 							$full_start_time 	= $s["Start"] . strtolower($s["StartMeridian"]);
 							$full_end_time 		= $s["End"]   . strtolower($s["EndMeridian"]);
-
+								
+							// convert the time
+							$agendaStartTime 	= date('H:i', strtotime($full_start_time));
+							$agendaEndTime	    = date('H:i', strtotime($full_end_time));
+												
 							// run against the session time to confirm if it's the current slot			
-							$isCurrentSlot = IsCurrentSlotTime($localTimeInSeconds,$agendaStartTime,$agendaEndTime);
+							$isCurrentSlot = IsCurrentSlotTime($localTime,$agendaStartTime,$agendaEndTime);
 															
 						    // determine which slot gets the active row
 							$rowCls	 	= ($isCurrentSlot) ? "activeRow" : "";
@@ -109,11 +111,12 @@
 								$innerPanelLeftCSS	= $room["CSS"]["PanelLeft"];
 								$innerPanelRightCSS	= $room["CSS"]["PanelRight"];
 								$innerModalCSS		= $room["CSS"]["Modal"];
+								$statusHTML		= "";
 								// depreciated
 								$status		 	= "";
 								$statusCSS 	 	= "";
-								
-								
+							
+																
 								// if we found a session, write it - otherwise - apply no info avaliable
 								if(isset($session->item))
 								{
@@ -139,7 +142,9 @@
 									$fullModalTime	= $session->item["Start Time"] . " - " . $session->item["End Time"];
 									// use permalink instead of event id - google analytics specific - 10/26/2013
 									$permalink = $session->item["Permalink"];
-																												
+									// statushtml
+									$statusHTML = GetStatusHTML($session->item["Status"]);
+									
 									// get the status, place has false if not confirmed
  									if($rowCls == "activeRow")
 									{	
@@ -175,7 +180,8 @@
 									ViewManager::MakeViewArgument("INNER_LEFT_PANEL",$innerPanelLeftCSS),
 									ViewManager::MakeViewArgument("INNER_RIGHT_PANEL",$innerPanelRightCSS),
 									ViewManager::MakeViewArgument("INNER_MODAL_CSS",$innerModalCSS),
-									ViewManager::MakeViewArgument("ROOM_IS_FULL_HTML",$roomIsFullHTML)
+									ViewManager::MakeViewArgument("ROOM_IS_FULL_HTML",$roomIsFullHTML),
+									ViewManager::MakeViewArgument("STATUS_HTML",$statusHTML)
 								);			
 								
 								
@@ -205,6 +211,9 @@
 									{	
 										if($currentTweetIndex < $tweetMax)
 										{
+											// scrub tweet text and convert characters
+											$tweet->text = iconv("UTF-8", "CP1252", $tweet->text);
+											
 											// build view arguments
 											$tweetArguments = array(
 											 	ViewManager::MakeViewArgument("TWITTER_HANDLE","@" . $tweet->user->screen_name),

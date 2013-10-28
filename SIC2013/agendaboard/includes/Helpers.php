@@ -30,9 +30,22 @@
 	 *
  	 * Determines which CSS should be used for the status
 	 */	
-	function GetStatusCSS($input)
+	function GetStatusHTML($input)
 	{		
-		return ($input != "Confirmed") ? "statusLabelConfirmedFalse": "statusLabelConfirmedTrue";
+		$output = "";
+		switch($input)
+		{
+			case "Cancelled":
+				$output = "<label class='label label-danger statusLabelCancelledTrue'><i class='glyphicon glyphicon-exclamation-sign'></i>&nbsp;Event Cancelled!</label>";
+			break;
+			case "Moved":
+				$output = "<label class='label label-danger statusLabelMovedTrue'><i class='glyphicon glyphicon-transfer'></i>&nbsp;Event Moved!</label>";
+			break;	
+			default:
+				$output = "";
+			break;
+		}
+		return $output;
 	}	
 	
 	/* GetIsRoomFullText($input)
@@ -193,6 +206,37 @@
 		return $output;
 	}
 	
+	function GetDayNo($date)
+	{
+		// copy date values
+		$month = $date["mon"]; 
+		$day   = $date["mday"];
+		$year  = $date["year"];
+		
+		// build full date
+		$date = $month . "-" . $day . "-" . $year;
+		
+		$dayNo = 0;
+		// return day no
+		switch($date)
+		{
+			case "10-28-2013":
+				$dayNo = 0;
+			break;
+			case "10-29-2013":
+				$dayNo = 1;
+			break;
+			case "10-30-2013":
+				$dayNo = 2;
+			break;
+			default:
+				$dayNo = 0;
+			break;
+		}
+		
+		return $dayNo;
+	}
+	
 	/*	ConvertSecondsToTime($seconds)
 	 *
 	 *	Converts the amount of time in sections to 
@@ -225,19 +269,19 @@
 	 * Checks if it's the current timeslot so that the agenda
 	 * will display custom CSS. 
 	 */		
-	function IsCurrentSlotTime($localTimeInSeconds, $start, $end)
+	function IsCurrentSlotTime($localTime, $agendaStartTime, $agendaEndTime)
 	{
-		return ($localTimeInSeconds >= $start && $localTimeInSeconds <= $end) ? true : false;
+		return ($localTime >= $agendaStartTime && $localTime<= $agendaEndTime);
 	}
 	
 	/* cmpDisplayOrder($a, $b)
 	 *
 	 * Compare function, sorts by display orders
 	 */
-	function cmpDisplayOrder($a, $b)
+	function cmpDisplayOrder($a_room, $b_room)
 	{
-		$a_room = explode(" ",$a["DisplayOrder"]);
-		$b_room = explode(" ",$b["DisplayOrder"]);
+		$a_room = $a_room["DisplayOrder"];
+		$b_room = $b_room["DisplayOrder"];
 			
 		if ($a_room == $b_room) 
 		{
@@ -245,17 +289,17 @@
 	    }	
 	    return ($a_room < $b_room) ? -1 : 1;
 	}
-	
+		
 	/* SortObjectByProperty($input)
 	 *
 	 * sorts the array of rooms by room no, returns 
 	 * array of rooms
 	 */
-	function SortObjectByProperty($input)
+	function SortObjectByProperty($input, $sortType)
 	{
 		$output = $input;
 		
-		usort($output, "cmpDisplayOrder");
+		usort($output, $sortType);
 		
 		return $output;
 	}
@@ -272,7 +316,7 @@
 		foreach($items as $item)
 		{
 			if($publicOnly)
-				if(!$item["Public"])
+				if($item["Public"] == "false")
 					continue;
 				
 			$html .= "<label class='speakerName'>" . $item["First Name"] . " " . $item["Last Name"];
