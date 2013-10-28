@@ -57,7 +57,7 @@
 	}
 
 	// read from file, but make a new request for the json when last request is > two minutes
-	if($requestTimeInMinutes > 4)
+	if($requestTimeInMinutes > 3)
 	{
 		// look up and save new file
 		file_put_contents ("Configuration/mysessions.json",file_get_contents($session_uri));
