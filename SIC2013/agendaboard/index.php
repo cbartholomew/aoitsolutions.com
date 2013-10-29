@@ -31,7 +31,8 @@
 	
 	// get the sessions via json
 	$session_uri  = (IS_PROD) ? JSON_SESSION_PROD_URI : JSON_SESSION_TEST_URI;
-	
+
+	/*	
 	// time difference
 	$requestTimeInMinutes = 0;
 	
@@ -47,6 +48,7 @@
 	$lastRequestDTTM = 0;
 	
 	// if the session's last request is set and not empty
+
 	if(isset($_SESSION["LASTDTTM"]) && !empty($_SESSION["LASTDTTM"]))
 	{
 		// .. then get the last request in minutes
@@ -55,7 +57,8 @@
 		// process the difference 
 		$requestTimeInMinutes = $sessionDate - $lastRequestDTTM;
 	}
-
+	*/
+	/*
 	// read from file, but make a new request for the json when last request is > two minutes
 	if($requestTimeInMinutes > 3)
 	{
@@ -77,7 +80,8 @@
 		// send local config instead
 		$session_uri  = "Configuration/mysessions.json";
 	}
-
+	*/
+	
 	// get file contents
 	$session_json = file_get_contents($session_uri);
 	// decode the contents
