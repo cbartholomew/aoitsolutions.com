@@ -1,7 +1,8 @@
 {
   "Sessions": [
   
-    {"Name":"How I got Jeff Bezos to sign my Kindle, and what it means for storytelling and branded content" ,
+    {
+	  "Name":"How I got Jeff Bezos to sign my Kindle, and what it means for storytelling and branded content" ,
       "Public":"false" ,
       "Status":"Confirmed" ,
       "Type":"Session"	,
@@ -11,7 +12,7 @@
       "End Time":"" ,
       "Room":"tbd" ,
       "Topics" :[
-      
+      	
       ],
       "Summary":"" ,
       "Speakers": [
@@ -26,7 +27,7 @@
         }      
       ],
        "Moderator":[
-       
+       	
       ]
     },  
     {"Name":"<Not Provided> - Measuring Paid and Organic Search" ,
