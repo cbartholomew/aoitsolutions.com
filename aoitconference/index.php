@@ -21,18 +21,23 @@ switch($_SERVER["REQUEST_METHOD"])
 	break;
 	
 	case "GET":
-		handleGetRequests($_GET);
+		handleGet($_GET);
 	break;
 }
 
-function handleGetRequests($request)
+function handleGet($request)
 {
+	// if there is an operation assoicated to request, check what kind
+	// otherwise, print the normal landing page
 	if(isset($request["operation"]))
 	{
 		switch($request["operation"])
 		{
 			case "login":
 				echo "login";
+			break;
+			case "registration":
+				echo "registration";
 			break;
 		}	
 	}
