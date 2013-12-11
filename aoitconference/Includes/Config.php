@@ -4,6 +4,7 @@
 	error_reporting(E_ALL);
 	session_start();
 	require("Constants.php");
+	require("DAL.php");
 	require("Controller/ViewController.php");
 	require("Model/View.php");
 	
