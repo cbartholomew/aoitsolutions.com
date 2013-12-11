@@ -1,5 +1,6 @@
 <?php
-
+class Conference()
+{
 	public $_conferenceIdentity;
 	public $_accountIdentity;
 	public $_name;
@@ -17,7 +18,7 @@
 		$this->_endDate            = $obj["END_DATE"];
 		$this->_numberOfDays       = $obj["NUMBER_OF_DAYS"];
 		
-		return this;
+		return $this;
 	}
-
+}
 ?>

@@ -1,18 +1,18 @@
 <?php
-	class Track()
+class Track()
+{
+	public $_trackIdentity;
+	public $_conferenceIdentity;
+	public $_name;
+	
+	function __construct($obj) 
 	{
-		public $_trackIdentity;
-		public $_conferenceIdentity;
-		public $_name;
-		
-		function __construct($obj) 
-		{
-			$this->_trackIdentity  = $obj["TRACK_IDENTITY"];
-			$this->_conferenceIdentity = $obj["CONFERENCE_IDENTITY"];
-			$this->_name  = $obj["NAME"];
-						 
-			return this;
-		}
-		
+		$this->_trackIdentity  = $obj["TRACK_IDENTITY"];
+		$this->_conferenceIdentity = $obj["CONFERENCE_IDENTITY"];
+		$this->_name  = $obj["NAME"];
+					 
+		return $this;
 	}
+	
+}
 ?>

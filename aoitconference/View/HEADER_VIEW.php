@@ -5,27 +5,43 @@
 <link rel="stylesheet" type="text/css" href="cdn/css/bootstrap.min.css">
 
 <!-- Custom CSS -->
-
-<!-- Content Delivery Network Scripts  -->
-<script type="text/javascript" src="cdn/js/jquery.min.js"></script>
-<script type="text/javascript" src="cdn/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="cdn/js/jquery-ui.min.js"></script>    
-<script type="text/javascript" src="cdn/lib/jQuery.XDomainRequest.js"></script>
-<script type="text/javascript" src="cdn/lib/jquery.json.min.js"></script>
-<script type="text/javascript" src="cdn/lib/jquery.validate.js"></script>
-
-<!-- Modern Browser Requirements -->
-<script type="text/javascript" src="cdn/lib/detectbrowser.js"></script>
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-    <script type="text/javascript" src="cdn/lib/html5.js"></script>
-    <script type="text/javascript" src="cdn/lib/ie.js" ></script>
-<![endif]-->
-<!--[if lt IE 10]>
-      	<script type="text/javascript" src="cdn/lib/query.watermark.min.js"></script>
-<![endif]-->
+<link rel="stylesheet" type="text/css" href="Static/CSS/index.css">
 <body>
 <div class='header'>
-	<div class=''>Conference Solution Header</div>
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Brand</a>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+	 	  <li><a href="#">Home</a></li>
+          <li><a href="#">Create</a></li>
+          <li><a href="#">Manage</a></li>
+          <li><a href="#">Launch</a></li>
+          <li class="divider"></li>
+          <li><a href="#">About AOIT Conference</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+			#ACCOUNT_DROPDOWN#
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
 </div>
