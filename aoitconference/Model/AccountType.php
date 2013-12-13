@@ -1,5 +1,5 @@
 <?php
-class AccountType()
+class AccountType
 {
 	public $_typeIdentity;
 	public $_name;

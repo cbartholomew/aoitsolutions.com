@@ -1,42 +1,81 @@
 <?php
-class AccountController()
+class AccountController
 {	
-	function Get($input)
+	public static function Get($account)
 	{
-		$getQuery = self::$sqlQueries["GET"];
-		
-		$query = implode(" ", $getQuery);
-		
-		$rows = query($query, $input["EMAIL"]);
-		
-		$account = null;
-		
-		foreach($rows as $row)
-		{			
-			$account = new Account($row);
-			break;			
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["GET"]);
+				
+			$rows = query($query, $account->_emailAddress);
+				
+			foreach($rows as $row)
+			{			
+				$account = new Account($row);
+				break;			
+			}
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);
 		}
 		
 		return $account;
 	}	
-		
-	function Post($input)
-	{
-		$getQuery = self::$sqlQueries["POST"];
-		
-		$query = implode(" ",$getQuery);
-		
-		query($query,$input["EMAIL"],$input["FIRST"],$input["LAST"],$input["ORG"],$input["TYPE"],$input["DISABLED"]);	
-	}	
 	
-	function Put()
+	public static function GetById($account)
 	{
-		$query = self::$sqlQueries["UPDATE"];
+		$accountResult = null;
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["GET_BY_ID"]);
+				
+			$rows = query($query, $account->_identity);
+				
+			foreach($rows as $row)
+			{			
+				$accountResult = new Account($row);
+				break;			
+			}
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+		
+		return $accountResult;
 	}
 	
-	function Delete()
+	public static function Post($account)
 	{
-		$query = self::$sqlQueries["DELETE"];
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["POST"]);
+	
+			query($query,
+				$account->_emailAddress,
+				$account->_firstName,
+				$account->_lastName,
+				$account->_organizationName,
+				$account->_accountTypeIdentity,
+				$account->_accountDisabled);
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);			
+			return false;
+		}	
+		return true;
+	}	
+	
+	public static function Put()
+	{
+		$query = implode(" ",self::$sqlQueries["UPDATE"]);
+	}
+	
+	public static function Delete()
+	{
+		$query = implode(" ",self::$sqlQueries["DELETE"]);
 	}
 	
 	// sql query, done in such a way where it is easier to add fields, if needed
@@ -49,13 +88,21 @@ class AccountController()
 			"WHERE",
 			"EMAIL_ADDRESS = ?"
 		),
+		"GET_BY_ID" => array(
+			"SELECT",
+			"*",
+			"FROM",
+			"ACCOUNT",
+			"WHERE",
+			"IDENTITY = ?"
+		),
 		"POST"  => array(
 			"INSERT INTO",
 			"ACCOUNT",
 			"(EMAIL_ADDRESS,",
 			"FIRST_NAME,",
 			"LAST_NAME,",
-			"ORGANIZATION_NAME",
+			"ORGANIZATION_NAME,",
 			"ACCOUNT_TYPE_IDENTITY,",
 			"ACCOUNT_DISABLED)",
 			"VALUES",
@@ -69,7 +116,7 @@ class AccountController()
 			"LAST_NAME = ?,",
 			"ORGANIZATION_NAME = ?,",
 			"ACCOUNT_TYPE_IDENTITY = ?,",
-			"ACCOUNT_DISABLED = 0"
+			"ACCOUNT_DISABLED = 0",
 			"WHERE",
 			"IDENTITY = ?"
 		),

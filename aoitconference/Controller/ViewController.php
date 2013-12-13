@@ -20,9 +20,9 @@ class ViewController
 		$BASE_VIEW_PATH = "View/";
 		
 		$this->viewPath = array(
-			"HEADER_VIEW" 				=> $BASE_VIEW_PATH . "HEADER_VIEW.php",
+			"HEADER_VIEW" 				=> $BASE_VIEW_PATH . "Index/HEADER_VIEW.php",
 			$this->view->_viewName  	=> $BASE_VIEW_PATH . $this->view->_viewPath, 
-			"FOOTER_VIEW" 				=> $BASE_VIEW_PATH . "FOOTER_VIEW.php"
+			"FOOTER_VIEW" 				=> $BASE_VIEW_PATH . "Index/FOOTER_VIEW.php"
 		);
 		
 	}

@@ -1,5 +1,5 @@
 <?php
-class Conference()
+class Conference
 {
 	public $_conferenceIdentity;
 	public $_accountIdentity;

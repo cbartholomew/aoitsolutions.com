@@ -1,5 +1,5 @@
 <?php
-class QREvent()
+class QREvent
 {
 	public $_qrIdentity;
 	public $_conferenceIdentity;

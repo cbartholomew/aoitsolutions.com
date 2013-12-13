@@ -1,5 +1,5 @@
 <?php
-class Topic()
+class Topic
 {
 	public $_topicIdentity;
 	public $_conferenceIdentity;

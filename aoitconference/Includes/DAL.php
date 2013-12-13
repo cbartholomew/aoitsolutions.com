@@ -5,7 +5,7 @@ $isProd = false;
 // based on the value above, swap constants files
 $DAL_SETTINGS_FILE = ($isProd) ? "dalSettingsProd.php" : "dalSettingsTest.php";
 	
-require_once($DAL_SETTINGS_FILE);
+require($DAL_SETTINGS_FILE);
 
 /**
  * Executes SQL statement, possibly with parameters, returning
@@ -38,10 +38,10 @@ function query(/* $sql [, ... ] */)
             exit;
         }
     }
-
+	
     // prepare SQL statement
     $statement = $handle->prepare($sql);
-
+	
     if ($statement === false)
     {
         //trigger (big, orange) error
@@ -65,4 +65,3 @@ function query(/* $sql [, ... ] */)
 }
 
 ?>
-

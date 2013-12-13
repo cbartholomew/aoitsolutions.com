@@ -1,22 +1,22 @@
 <?php
 class ConferenceController()
 {																	
-	function Get()
+	public static function Get()
 	{
 		
 	}	
 		
-	function Post()
+	public static function Post()
 	{
 		
 	}	
 	
-	function Put()
+	public static function Put()
 	{
 				
 	}
 	
-	function Delete()
+	public static function Delete()
 	{
 		
 	}

@@ -1,5 +1,5 @@
 <?php
-class Status()
+class Status
 {
 	public $_statusIdentity;
 	public $_conferenceIdentity;

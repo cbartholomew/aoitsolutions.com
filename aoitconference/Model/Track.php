@@ -1,5 +1,5 @@
 <?php
-class Track()
+class Track
 {
 	public $_trackIdentity;
 	public $_conferenceIdentity;

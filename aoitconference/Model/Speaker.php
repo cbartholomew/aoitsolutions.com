@@ -1,5 +1,5 @@
 <?php	
-class Speaker()
+class Speaker
 {
 	public $_speakerIdentity;
 	public $_conferenceIdentity;

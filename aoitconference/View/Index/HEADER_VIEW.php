@@ -36,7 +36,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">#ACCOUNT_MESSAGE# <b class="caret"></b></a>
         <ul class="dropdown-menu">
 			#ACCOUNT_DROPDOWN#
         </ul>
