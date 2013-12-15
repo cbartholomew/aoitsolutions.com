@@ -74,7 +74,7 @@ class UserAccessController
 			"SESSION = ?"
 		),
 		"POST"  => array(
-			"INSERT INTO",
+			"REPLACE",
 			"USER_ACCESS",			
 			"(SESSION,",
 			"LAST_REQUEST_DTTM,",

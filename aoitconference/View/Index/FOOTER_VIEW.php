@@ -1,5 +1,5 @@
 		<center><div>
-			<p>Copyright 2013 <a href="http://www.aoitsolutions.com">aoitsolutions.com</a></p>
+			<p>Copyright 2013 <a href="http://www.aoitsolutions.com">aoitsolutions.com LLC</a></p>
 		</div></center>
     </body>
 </html>
@@ -24,4 +24,5 @@
 <![endif]-->
 
 <!-- Custom Scripts -->
-<script type="text/javascript" src="js/marketing.js"></script>
+<script type="text/javascript" src="Js/marketing.js"></script>
+<script>$('#myModal').modal()</script>

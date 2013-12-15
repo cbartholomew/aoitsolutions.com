@@ -10,6 +10,8 @@ require("Utilities.php");
 require("DAL.php");
 
 // Controllers
+require("Controller/IndexGetController.php");
+require("Controller/IndexPostController.php");
 require("Controller/ViewController.php");
 require("Controller/AccountController.php");
 require("Controller/UserAccessController.php");
@@ -18,4 +20,6 @@ require("Controller/UserAccessController.php");
 require("Model/View.php");
 require("Model/Account.php");
 require("Model/UserAccess.php");
+
+
 ?>

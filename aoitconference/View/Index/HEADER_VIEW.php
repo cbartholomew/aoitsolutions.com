@@ -25,8 +25,8 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
         <ul class="dropdown-menu">
-	 	  <li><a href="#">Home</a></li>
-          <li><a href="#">Create</a></li>
+	 	  <li><a href="../aoitconference/">Home</a></li>
+          <li><a href="?m=create">Create</a></li>
           <li><a href="#">Manage</a></li>
           <li><a href="#">Launch</a></li>
           <li class="divider"></li>

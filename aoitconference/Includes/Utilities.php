@@ -3,14 +3,13 @@
 	{		
 		if(!UserAccessController::Post($userAccess))
 		{
-			Redirect("View/Error/401.php");
+			Redirect("?m=login");
 		}
 		else
 		{
 			$_SESSION["identity"] = $userAccess->_accountIdentity;
 		}
 	}
-	
 	function PutSession($userAccess)
 	{
 		// set the updated last request dttm
@@ -19,13 +18,26 @@
 		// error - redirect due to unauthorized
 		if(!UserAccessController::Put($userAccess))
 		{
-			Redirect("View/Error/401.php");
+			Redirect("?m=login");
 		}		
 		
+	}	
+	
+	function CheckIdentity($identity)
+	{
+		if(@isset($identity))
+		{
+			Redirect("");
+		}
 	}
 	
 	function GetSession($userAccess)
-	{
+	{	
+		if(!isset($userAccess))
+		{
+			Redirect("?m=login");
+		}
+		
 		// check if the session even has an identity assigned to it
 		if(isset($_SESSION['identity']))
 		{
@@ -39,12 +51,13 @@
 			}
 			else 
 			{
-				Redirect("View/Error/401.php");
+				Signout();
+				//Redirect("?m=login");
 			}
-		}		
-		return $userAccess;
-	}
+		}
 	
+		return $userAccess;
+	}	
 	function IsSessionNotExpired($userAccess)
 	{
 		// get current dttm
@@ -66,8 +79,7 @@
 				
 		// session ok
 		return true;
-	}
-	
+	}	
 	/**
      * Logs out current user, if any.  Based on Example #1 at
      * http://us.php.net/manual/en/function.session-destroy.php.
@@ -87,8 +99,7 @@
         session_destroy();
 		
 		Redirect("");
-    }
-	
+    }	
 	function Redirect($destination)
 	{
 		 // handle URL
