@@ -1,5 +1,5 @@
 <?php
-class SpeakerController()
+class SpeakerController
 {																	
 	public static function Get($speaker)
 	{
@@ -143,7 +143,7 @@ class SpeakerController()
 			"EMAIL_ADDRESS,",
 			"PUBLIC,",
 			"STATUS,",
-			"COMPANY,"
+			"COMPANY,",
 			"JOB_TITLE)",
 			"VALUES",
 			"(?,?,?,?,?,?,?,?,?)"

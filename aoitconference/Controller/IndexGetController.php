@@ -131,10 +131,23 @@ function handleCreateGet($request)
 	$viewHtml = file_get_contents($viewHtmlPath);
 		
 	// speaker create view html
-	$speakerCreateViewHTML = file_get_contents("View/Create/CREATE_INDEX_SPEAKER_VIEW.php");
+	// $speakerCreateViewHTML = //file_get_contents("View/Create/CREATE_INDEX_SPEAKER_VIEW.php");
+	
+	// new array to hold the speaker view arguments
+	$speakerViewArguments = array();
+	
+	// push the speaker social html to the argument stack
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_TYPE",GetSocialTypeHTML()));
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE",GetStatusHTML($userAccess)));	
 		
+	// apply special arguments to speaker view only
+	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW","Create/CREATE_INDEX_SPEAKER_VIEW.php",$speakerViewArguments));
+	
+	// speaker create view html
+	$speakerCreateViewHTML = $speakerViewController->renderViewHTML(false,false);
+	
 	// speaker modal view
-	$speakerModalViewHTML = file_get_contents("View/Create/CREATE_INDEX_SOCIAL_VIEW.php");
+	$speakerModalViewHTML  = file_get_contents("View/Create/CREATE_INDEX_SOCIAL_VIEW.php");
 	
 	// display message text to user based on if they are logged in or not
 	$headerText = "Account";
@@ -157,14 +170,13 @@ function handleCreateGet($request)
 		
 		// modify the header text
 		$headerText = $account->_firstName . " " . $account->_lastName;
-
 		
 		// push on to the argument stack
-		array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE",$headerText));
-		array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN",$viewHtml));
-		array_push($arguments,View::MakeViewArgument("SPEAKER_MODAL", $speakerModalViewHTML));
-		array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW",$speakerCreateViewHTML));
-  
+		array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"	,$headerText));
+		array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"	,$viewHtml));
+		array_push($arguments,View::MakeViewArgument("SPEAKER_MODAL"	,$speakerModalViewHTML));
+		array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"		,$speakerCreateViewHTML));
+  		
 		
 		// create new view controller
 		$vc = new ViewController(new View("CREATE_INDEX_VIEW","Create/CREATE_INDEX_VIEW.php",$arguments));

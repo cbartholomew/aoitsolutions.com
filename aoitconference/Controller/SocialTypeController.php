@@ -1,5 +1,5 @@
 <?php
-class SocialTypeController()
+class SocialTypeController
 {																	
 	public static function Get()
 	{ 
@@ -54,7 +54,7 @@ class SocialTypeController()
 				$socialType->_name,       		
 				$socialType->_icoUrl,      	
 				$socialType->_url,        		
-				$socialType->_bannerUrl);
+				$socialType->_bannerUrl,
 				$socialType->_socialTypeIdentity);
 		}
 		catch(Exception $e)

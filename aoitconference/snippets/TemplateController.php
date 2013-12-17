@@ -1,5 +1,5 @@
 <?php
-class TemplateController()
+class TemplateController
 {																	
 	public static function Get()
 	{

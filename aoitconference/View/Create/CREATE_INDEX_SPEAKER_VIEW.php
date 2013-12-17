@@ -37,29 +37,21 @@
 	  </button>
 	  <!-- TODO: Auto render this! -->
 	  <ul class="dropdown-menu" data-toggle="modal" data-target="#mySocialNetworkModal" role="menu">
-	    <li><a href="#">Google</a></li>
-		<li><a href="#">Twitter</a></li>
-	    <li><a href="#">Facebook</a></li>
-	    <li><a href="#">LinkedIn</a></li>		
+	   #SPEAKER_SOCIAL_TYPE#
 	  </ul>
 	</div>
-    <!-- <label for="add_social" class="control-label">Social</label> -->
-	<!-- <button type='button' id="add_social" class='btn btn-success'><i class="glyphicon glyphicon-plus inverse"></i></button> -->
 	<div class="social_options">
 	</div>
   </div>
   <div class="form-group">
     <label for="status" class="control-label">Speaker Status</label>
-	<!-- TODO: Auto render this! -->
     <select id="status"class="form-control" name="status">
-		<option value="pending" selected="selected">Pending</option>
-		<option value="confirmed">Confirmed</option>
-		<option value="cancelled">Cancelled</option>
+		#SPEAKER_STATUS_TYPE#
 	</select>
   </div>
   <div class="form-group">
     <div class="">
-      <button type="submit" class="btn btn-block btn-primary">Save Speaker</button>
+      <button type="submit" class="btn btn-block btn-primary">Add Speaker</button>
     </div>
   </div>
 </form>

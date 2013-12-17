@@ -18,6 +18,7 @@
 			        <input id="search" type="text" class="form-control col-sm-3" placeholder="Search" />
 			      </div>
 			    </form>
+				<!--Auto Render This -->
 				<table class='table table-condensed'>
 					<thead>
 						<tr>

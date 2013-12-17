@@ -129,4 +129,47 @@
 	    // exit immediately since we're redirecting anyway
 	    exit;
 	}
+	
+	function GetSocialTypeHTML()
+	{
+		$html = "";
+		$allSocialTypes = SocialTypeController::Get();
+		
+		if(count($allSocialTypes) <= 0)
+			return "<li><a href='#' custom='' class='disabled'>No Social Networks Available</a></li>";
+			
+		foreach($allSocialTypes as $socialType)
+		{
+			$html .= "<li><a href='#' custom='" . $socialType->_icoUrl . "' id='" 
+				  . $socialType->_socialTypeIdentity 
+				  . "' class='socialType'>" . $socialType->_name . "</a></li>";
+		}
+		return $html;
+	}
+	
+	function GetStatusHTML($userAccess)
+	{
+		$html = "";
+		
+		// get all statuses avaliable by null or or account identity
+		$allStatuses = StatusController::Get(new Status(array(
+			"STATUS_IDENTITY" 	=> "",
+			"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+			"NAME"				=> "")));
+		
+		// ensure first is selected	
+		$selected = "selected='selected'";
+		
+		if(count($allStatuses) <= 0)
+			return "<option>No Statuses Available</option>";
+			
+		foreach($allStatuses as $status)
+		{
+			$html .= "<option value='" . $status->_statusIdentity . "' ". $selected .">". $status->_name ."</option>";
+			
+			// make only the first one selected
+			$selected = "";
+		}
+		return $html;
+	}
 ?>
