@@ -2,6 +2,7 @@
 class Speaker
 {
 	public $_speakerIdentity;
+	public $_accountIdentity;
 	public $_firstName;
 	public $_lastName;
 	public $_emailAddress;
@@ -13,6 +14,7 @@ class Speaker
 	function __construct($obj)
 	{
 	 	$this->_speakerIdentity    = $obj["SPEAKER_IDENTITY"]; 
+		$this->_accountIdentity    = $obj["ACCOUNT_IDENTITY"]; 
 	 	$this->_firstName          = $obj["FIRST_NAME"]; 		   
 	 	$this->_lastName           = $obj["LAST_NAME"]; 
 		$this->_emailAddress       = $obj["EMAIL_ADDRESS"]; 		   

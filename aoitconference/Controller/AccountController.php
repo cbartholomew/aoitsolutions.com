@@ -68,14 +68,43 @@ class AccountController
 		return true;
 	}	
 	
-	public static function Put()
-	{
-		$query = implode(" ",self::$sqlQueries["UPDATE"]);
+	public static function Put($account)
+	{		
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["UPDATE"]);
+	
+			query($query,
+				$account->_emailAddress,
+				$account->_firstName,
+				$account->_lastName,
+				$account->_organizationName,
+				$account->_accountTypeIdentity,
+				$account->_accountDisabled,
+				$account->_identity);
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);			
+			return false;
+		}	
+		return true;
 	}
 	
-	public static function Delete()
+	public static function Delete($account)
 	{
-		$query = implode(" ",self::$sqlQueries["DELETE"]);
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["DELETE"]);
+	
+			query($query,$account->_identity);
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);			
+			return false;
+		}	
+		return true;
 	}
 	
 	// sql query, done in such a way where it is easier to add fields, if needed
