@@ -63,6 +63,9 @@ function handleGet($request)
 			case "create":
 				handleCreateGet($request);
 			break;		
+			case "modal":
+				handleSocialModalGet($request);
+			break;
 			default:
 				handleGet($request);
 		}			

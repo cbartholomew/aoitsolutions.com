@@ -129,26 +129,24 @@ function handleCreateGet($request)
 	
 	// get the sub header information
 	$viewHtml = file_get_contents($viewHtmlPath);
-		
-	// speaker create view html
-	// $speakerCreateViewHTML = //file_get_contents("View/Create/CREATE_INDEX_SPEAKER_VIEW.php");
-	
+			
 	// new array to hold the speaker view arguments
 	$speakerViewArguments = array();
+	
+	// speaker modal view
+	// $speakerModalViewHTML  = file_get_contents("View/Create/CREATE_INDEX_SOCIAL_VIEW.php");
 	
 	// push the speaker social html to the argument stack
 	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_TYPE",GetSocialTypeHTML()));
 	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE",GetStatusHTML($userAccess)));	
+	// array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_MODAL",$speakerModalViewHTML));
 		
 	// apply special arguments to speaker view only
 	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW","Create/CREATE_INDEX_SPEAKER_VIEW.php",$speakerViewArguments));
 	
 	// speaker create view html
 	$speakerCreateViewHTML = $speakerViewController->renderViewHTML(false,false);
-	
-	// speaker modal view
-	$speakerModalViewHTML  = file_get_contents("View/Create/CREATE_INDEX_SOCIAL_VIEW.php");
-	
+		
 	// display message text to user based on if they are logged in or not
 	$headerText = "Account";
 	
@@ -174,16 +172,77 @@ function handleCreateGet($request)
 		// push on to the argument stack
 		array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"	,$headerText));
 		array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"	,$viewHtml));
-		array_push($arguments,View::MakeViewArgument("SPEAKER_MODAL"	,$speakerModalViewHTML));
 		array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"		,$speakerCreateViewHTML));
-  		
-		
+  				
 		// create new view controller
 		$vc = new ViewController(new View("CREATE_INDEX_VIEW","Create/CREATE_INDEX_VIEW.php",$arguments));
 
 		// this method will render w arguments
-		print $vc->renderViewHTML(true,true);
-		
+		print $vc->renderViewHTML(true,true);		
+	}
+	else
+	{
+		Redirect("");	
+	}
+}
+
+function handleSocialModalGet($request)
+{
+	// view arguments array
+	$arguments = array();
+	
+	// get the social id that was requested
+	$socialIdentity  = (isset($request["social"])) ? $request["social"] : null;
+	
+	// if there is a speaker value set - return the speaker information
+	$speakerIdentity = (isset($request["speaker"])) ? $request["speaker"] : null;
+
+	// identity
+	$identity = (isset($_SESSION["identity"])) ? $_SESSION["identity"] : null;
+	
+	if(isset($identity))
+	{
+		// make new user access object
+		$userAccess = new UserAccess(array(						
+			"USER_ACCESS_INDEX" => null,
+			"SESSION" 			=> session_id(), 	
+			"CREATED_DTTM" 		=> null,
+			"LAST_REQUEST_DTTM" => null,
+			"ACCOUNT_IDENTITY" 	=> $identity
+		));
+	
+		// get user access information		
+		$userAccess = GetSession($userAccess);
+	
+		// update the last request dttm
+		PutSession($userAccess);
+	
+		// speaker modal view
+		$socialModalViewHTML  = "";
+	
+		// Get the speaker social items
+		$socialType = SocialTypeController::GetById(new SocialType(array(
+			"SOCIAL_TYPE_IDENTITY" => $socialIdentity,
+			"NAME"				   => "",
+			"ICO_URL"			   => "",
+			"URL"				   => "",
+			"BANNER_URL"		   => "",
+			"PLACEHOLDER_A"		   => ""
+		)));
+	
+		// push arguments 
+		array_push($arguments,View::MakeViewArgument("SOCIAL_HEADER_LOGO",$socialType->_icoUrl));
+		array_push($arguments,View::MakeViewArgument("SOCIAL_HEADER_TYPE",$socialType->_name));
+		array_push($arguments,View::MakeViewArgument("SOCIAL_PLACEHOLDER_A",$socialType->_placeHolderA));
+		array_push($arguments,View::MakeViewArgument("SOCIAL_URL",$socialType->_url));
+	
+		// apply special arguments to speaker view only
+		$socialModalViewController = new ViewController(new View("CREATE_INDEX_SOCIAL_VIEW","Create/CREATE_INDEX_SOCIAL_VIEW.php",$arguments));
+	
+		// speaker create view html
+		$socialModalViewHTML = $socialModalViewController->renderViewHTML(false,false);
+	
+		print $socialModalViewHTML;
 	}
 	else
 	{

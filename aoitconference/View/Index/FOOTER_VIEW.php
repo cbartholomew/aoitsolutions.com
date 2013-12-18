@@ -25,4 +25,4 @@
 
 <!-- Custom Scripts -->
 <script type="text/javascript" src="Js/marketing.js"></script>
-<script>$('#myModal').modal()</script>
+<script type="text/javascript" src="Js/util.js"></script>

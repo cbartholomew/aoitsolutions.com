@@ -28,16 +28,14 @@
       <input type="text" class="form-control" id="company" name="company" placeholder="Government">
   </div>
   <div class="form-group">
-
 	<!-- Split button -->
 	<div class="btn-group">
 	  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
 	    Add Social Network Information <span class="caret"></span>
 	  <span class="sr-only">Social Networks</span>
 	  </button>
-	  <!-- TODO: Auto render this! -->
-	  <ul class="dropdown-menu" data-toggle="modal" data-target="#mySocialNetworkModal" role="menu">
-	   #SPEAKER_SOCIAL_TYPE#
+	  <ul class="dropdown-menu" role="menu">
+	    #SPEAKER_SOCIAL_TYPE#
 	  </ul>
 	</div>
 	<div class="social_options">
@@ -55,3 +53,6 @@
     </div>
   </div>
 </form>
+<div class="modal fade"  id="mySocialNetworkModal" tabindex="-1" role="dialog" aria-labelledby="mySocialNetworkModalLabel" aria-hidden="true">
+  
+</div><!-- /.modal -->

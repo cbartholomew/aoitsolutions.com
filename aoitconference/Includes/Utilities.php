@@ -140,7 +140,8 @@
 			
 		foreach($allSocialTypes as $socialType)
 		{
-			$html .= "<li><a href='#' custom='" . $socialType->_icoUrl . "' id='" 
+			$html .= "<li><a data-toggle='modal' href=?m=modal&social=" . $socialType->_socialTypeIdentity . "
+				    data-target='#mySocialNetworkModal' custom='" . $socialType->_icoUrl . "' id='" 
 				  . $socialType->_socialTypeIdentity 
 				  . "' class='socialType'>" . $socialType->_name . "</a></li>";
 		}

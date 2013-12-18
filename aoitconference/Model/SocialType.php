@@ -6,6 +6,7 @@ class SocialType
 	public $_icoUrl;
 	public $_url;
 	public $_bannerUrl;
+	public $_placeHolderA;
 	
 	function __construct($obj)
 	{
@@ -14,6 +15,7 @@ class SocialType
 		$this->_icoUrl      		= $obj["ICO_URL"];
 		$this->_url        			= $obj["URL"];
 		$this->_bannerUrl    		= $obj["BANNER_URL"];
+		$this->_placeHolderA		= $obj["PLACEHOLDER_A"];
 		
 		return $this;
 	}	

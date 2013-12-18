@@ -8,7 +8,6 @@
 	<div class="tab-content">
 		<div class="tab-pane fade in active" id="speaker">
 			<div class="panel col-sm-6">
-				#SPEAKER_MODAL#
 				#SPEAKER_VIEW#
 			</div>
 			<div class="panel col-sm-6">
