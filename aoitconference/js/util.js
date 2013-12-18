@@ -11,11 +11,11 @@ function addSocialNetwork(element)
 	var inHandle  	= "<input type='hidden' name='handle' value='" + handle  + "' />";
 	var inProfile 	= "<input type='hidden' name='url'    value='" + profile + "' />";
 	var cssType 	= "label-danger";
-	var icon		= "<i id='icon_" + network.toString().replace(" ", "_") + "' class='glyphicon glyphicon-remove-circle inverse'></i>";
+	var icon		= "<i id='icon_" + network + "' class='glyphicon glyphicon-remove-circle inverse'></i>";
 	
 	switch(network)
 	{
-		case "Google Plus":
+		case "Google":
 			cssType = "label-danger";
 		break;
 		case "Facebook":
@@ -30,20 +30,22 @@ function addSocialNetwork(element)
 	}
 	
 	var html = "";
-	html += "<label id='" + network.toString().replace(" ", "_") + "' class='label " + cssType +" inverse'>" + inHandle + inProfile + network + "</label>";
+	html += "<label id='" + network + "' class='label " + cssType +" inverse'>" + inHandle + inProfile + network + "</label>";
 	html += "<label class='label " + cssType + "'>" + icon + "</label>";
-	if($("#" + network.toString().replace(" ", "_")).length != 0)
+	if($("#" + network).length != 0)
 	{
-		$("#" + network.toString().replace(" ", "_")).remove();
-		$("#" + "icon_" + network.toString().replace(" ", "_")).remove();
+		$("#" + network).remove();
+		$("#" + "icon_" + network).remove();
 	}			
 	$(".social_options").append(html);	
 	$("#mySocialNetworkModal").modal("hide");
-	$("#icon_" + network.toString().replace(" ", "_")).click(function(){
-		$("#" + network.toString().replace(" ", "_")).remove();
-		$("#" + "icon_" + network.toString().replace(" ", "_")).remove();
+	$("#icon_" + network).click(function(){
+		$("#" + network).remove();
+		$("#" + "icon_" + network).remove();
 	});
-	$("#" + network.toString().replace(" ", "_")).click(function(){
-		
+	$("#" + network).click(function(){
+		$("#" + network).children().each(function(e){
+			console.log($(this).val());		
+		});
 	});
 }
