@@ -83,8 +83,11 @@ function handleAccountLoginPost($request)
 			// set the session
 			PostSessionIdentity($userAccess);
 			
+			// set redirect route
+			$redirectTo = ($request["return"] != "") ? "?m=" . $request["return"] : ""; 
+
 			// redirect back to index
-			Redirect("");
+			Redirect($redirectTo);
 		}
 		else
 		{

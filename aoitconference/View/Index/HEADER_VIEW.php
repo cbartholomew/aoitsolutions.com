@@ -3,6 +3,7 @@
 <!-- Content Delivery Network StyleSheets  -->
 <link rel="stylesheet" type="text/css" href="cdn/css/jquery-ui.smoothness.min.css"> 
 <link rel="stylesheet" type="text/css" href="cdn/css/bootstrap.min.css">
+<link rel="stylesheet" href="Static/CSS/create_social_speaker_view.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="Static/CSS/index.css">

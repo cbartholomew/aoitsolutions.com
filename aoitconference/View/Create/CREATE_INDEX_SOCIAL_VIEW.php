@@ -16,23 +16,19 @@
 		<form class="form" role="form">
 		  <div class="form-group">
 		    <label for="handle" class="control-label">Handle</label>
-		      <input type="text" class="form-control" id="handle" placeholder="#SOCIAL_PLACEHOLDER_A#">
+		      <input type="text" class="form-control" id="handle" onblur="appendHandle(this);" placeholder="#SOCIAL_PLACEHOLDER_A#" value="#SOCIAL_HANDLE#" />
 		  </div>
 		  <div class="form-group">
 		    <label for="profile_url" class="control-label">Profile URL</label>
-		      <input type="text" id="profile_url" class="form-control" id="profile_url" placeholder="#SOCIAL_URL#/#SOCIAL_PLACEHOLDER_A#">
+		      <input type="text" id="profile_url" class="form-control" id="profile_url" placeholder="#SOCIAL_URL#/#SOCIAL_PLACEHOLDER_A#" value="#SOCIAL_PROFILE#" />
 		  </div>
 		  <div class="form-group">
-		       <label for="is_public" class="control-label">Viewable?</label>
-				<div id="is_public" class="btn-group btn-group-lg">
-					<button type="button" class="btn btn-success"><i class="glyphicon glyphicon-ok inverse"></i></button>
-					<button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-remove inverse"></i></button>
-				</div>
-		  </div>
+		       <label for="is_public" class="control-label">Viewable? <input type="checkbox" id="is_public" name="is_public" #SOCIAL_PUBLIC# /></label>				
+		  </div> 
 		</form>
 	  </div>
       <div class="modal-footer">
-	    <button type="button" class="btn btn-block btn-info" network='#SOCIAL_HEADER_TYPE#' onclick="addSocialNetwork(this);">Add Network</button>
+	    <button type="button" class="btn btn-block btn-info" network='#SOCIAL_HEADER_TYPE#' onclick="addSocialNetwork(this);">#SOCIAL_ACTION# Network</button>
         <button type="button" class="btn btn-block btn-default" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->

@@ -3,6 +3,7 @@
 	<div class='col-sm-4'>
 		<form class="form" role="form" action="index.php" method="POST">
 		  <input type="hidden" name="m" value="login" /> 
+		  <input type="hidden" name="return" value="#RETURN_TO#" /> 
 		  <div class="form-group #ERROR_STATUS#">
 		    <label for="email" class="control-label">Email</label>
 			<input type="email" class="form-control" id="email" name="email" placeholder="youremail@domain.com">

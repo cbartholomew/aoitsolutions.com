@@ -23,12 +23,9 @@
 		
 	}	
 	
-	function CheckIdentity($identity)
+	function CheckAuth($userAccess)
 	{
-		if(@isset($identity))
-		{
-			Redirect("");
-		}
+		return isset($userAccess->_accountIdentity);		
 	}
 	
 	function GetSession($userAccess)
