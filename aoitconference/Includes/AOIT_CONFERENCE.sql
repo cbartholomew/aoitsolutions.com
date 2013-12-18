@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 17, 2013 at 06:54 PM
+-- Generation Time: Dec 18, 2013 at 04:17 AM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -133,6 +133,7 @@ CREATE TABLE `SOCIAL_TYPE` (
   `ICO_URL` varchar(255) NOT NULL,
   `URL` varchar(255) NOT NULL,
   `BANNER_URL` varchar(255) NOT NULL,
+  `PLACEHOLDER_A` varchar(25) NOT NULL,
   PRIMARY KEY (`SOCIAL_TYPE_IDENTITY`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
@@ -140,11 +141,11 @@ CREATE TABLE `SOCIAL_TYPE` (
 -- Dumping data for table `SOCIAL_TYPE`
 --
 
-INSERT INTO `SOCIAL_TYPE` (`SOCIAL_TYPE_IDENTITY`, `NAME`, `ICO_URL`, `URL`, `BANNER_URL`) VALUES
-(1, 'Linkedin', '/Static/Assets/Linkedin/LinkedIn-Logo-02.png', 'https://www.linkedin.com/in', ''),
-(2, 'Facebook', '/Static/Assets/Facebook/FB-f-Logo__blue_1024.png', 'https://www.facebook.com', ''),
-(3, 'Google', '/Static/Assets/Google/gplus-64.png', 'https://plus.google.com', ''),
-(4, 'Twitter', '/Static/Assets/Twitter/twitter_logo_blue.png', 'https://twitter.com', '');
+INSERT INTO `SOCIAL_TYPE` (`SOCIAL_TYPE_IDENTITY`, `NAME`, `ICO_URL`, `URL`, `BANNER_URL`, `PLACEHOLDER_A`) VALUES
+(1, 'Google Plus', 'Static/Assets/Google/gplus-64.png', 'https://plus.google.com', '', '+HonestAbe'),
+(2, 'Facebook', 'Static/Assets/Facebook/FB-f-Logo__blue_1024.png', 'https://www.facebook.com', '', 'HonestAbe'),
+(3, 'Twitter', 'Static/Assets/Twitter/twitter_logo_blue.png', 'https://twitter.com', '', '@HonestAbe'),
+(4, 'Linkedin', 'Static/Assets/Linkedin/LinkedIn-Logo-02.png', 'https://www.linkedin.com/in', '', 'HonestAbe');
 
 -- --------------------------------------------------------
 
@@ -205,7 +206,7 @@ CREATE TABLE `STATUS` (
   `ACCOUNT_IDENTITY` bigint(20) DEFAULT NULL,
   `NAME` varchar(100) NOT NULL,
   PRIMARY KEY (`STATUS_IDENTITY`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `STATUS`
@@ -214,7 +215,8 @@ CREATE TABLE `STATUS` (
 INSERT INTO `STATUS` (`STATUS_IDENTITY`, `ACCOUNT_IDENTITY`, `NAME`) VALUES
 (1, NULL, 'Pending'),
 (2, NULL, 'Confirmed'),
-(3, NULL, 'Cancelled');
+(3, NULL, 'Cancelled'),
+(4, 10, 'Need more information');
 
 -- --------------------------------------------------------
 
@@ -273,7 +275,7 @@ CREATE TABLE `USER_ACCESS` (
 
 INSERT INTO `USER_ACCESS` (`USER_ACCESS_INDEX`, `SESSION`, `CREATED_DTTM`, `LAST_REQUEST_DTTM`, `ACCOUNT_IDENTITY`) VALUES
 (28, 'e8483e9805d4b0121f83e11e1743f4ed', '2013-12-15 16:05:48', '2013-12-16 03:05:47', 10),
-(29, '6d679900ee028b7e7aa26b3df16eeafe', '2013-12-17 17:39:49', '2013-12-17 23:39:52', 10);
+(29, '6d679900ee028b7e7aa26b3df16eeafe', '2013-12-17 17:39:49', '2013-12-18 09:08:47', 10);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
