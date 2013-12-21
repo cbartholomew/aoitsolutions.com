@@ -102,10 +102,14 @@ function handleCreateGet($request,$userAccess)
 	
 	// get the sub header information
 	$viewHtml = file_get_contents($viewHtmlPath);
-				
+	
+	// get the social type and status html
+	$socialViewTypeHTML = GetSocialTypeHTML();
+	$socialStatusHTML = GetStatusHTML($userAccess);
+	
 	// push the speaker social html to the argument stack
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_TYPE",GetSocialTypeHTML()));
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE",GetStatusHTML($userAccess)));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_TYPE", 	$socialViewTypeHTML));
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE", 	$socialStatusHTML));	
 		
 	// apply special arguments to speaker view only
 	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW","Create/CREATE_INDEX_SPEAKER_VIEW.php",$speakerViewArguments));
@@ -133,11 +137,15 @@ function handleCreateGet($request,$userAccess)
 	// modify the header text
 	$headerText = $account->_firstName . " " . $account->_lastName;
 	
+	// get the speaker list view html
+	$speakerListViewHTML = GetSpeakerListViewHTML($userAccess);
+	
 	// push on to the argument stack
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"	,$headerText));
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"	,$viewHtml));
 	array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"		,$speakerCreateViewHTML));
- 				
+ 	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW",$speakerListViewHTML));	
+		
 	// create new view controller
 	$vc = new ViewController(new View("CREATE_INDEX_VIEW","Create/CREATE_INDEX_VIEW.php",$arguments));
 

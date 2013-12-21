@@ -29,18 +29,7 @@
 						</tr>
 					</thead>
 					<tbody class="speakers">
-						<tr>
-							<td>Christopher</td>
-							<td>Bartholomew</td>
-							<td>cbartholomew@gmail.com</td>
-							<td>AOIT Conference</td>
-							<td>
-								<div class="btn-group btn-group-xs">
-									<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-wrench inverse"></i></button>
-									<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-minus inverse"></i></button>
-								</div>
-							</td>
-						</tr>
+						#SPEAKER_LIST_VIEW#
 					</tbody>					
 				</table>
 			</div>

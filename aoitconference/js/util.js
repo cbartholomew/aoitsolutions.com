@@ -3,39 +3,44 @@ $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
    $("#mySocialNetworkModal").removeData();
 });
 
-function appendHandle(element)
+function manage( element )
 {
-	var placeholder = $("#profile_url").attr("placeholder");
-	var handle = $(element).val();
-	
-	if(handle == "")
-	{
-		return false;
-	}
-	
-	var placehodlerUrl = placeholder.toString().split("/")[2];
-	$("#profile_url").val("https://" + placehodlerUrl + "/" + handle);
 	
 }
 
-function addSocialNetwork(element)
+function delete( delete )
+{
+	
+	
+}
+
+function appendHandle( element )
+{
+	var placeholder = $("#profile_url").attr("placeholder");
+	var placehodlerUrl = placeholder.toString().split("/")[2];
+	var handle = $(element).val();
+	if(handle == "") {
+		return false;
+	}
+	$("#profile_url").val("https://" + placehodlerUrl + "/" + handle);
+}
+
+function addSocialNetwork( element )
 {	
 	var network 		= $(element).attr("network");
 	var handle 			= $("#handle").val();
 	var profile 		= $("#profile_url").val();	
-	var isPublic    	= $("#is_public").prop("checked");
+	var isPublic    	= ($("#is_public").prop("checked")) ? 1 : 0;
 	var socialTypeId	= 0;
 	var cssType 		= "label-danger";
 	var icon			= "<i id='icon_" + network + "' class='glyphicon glyphicon-remove-circle inverse'></i>";
 	
 	if(handle == "" ||
-	   profile == "")
-	{
-		return false;
+	   profile == "") {
+		return false; 
 	}
 	
-	switch(network)
-	{
+	switch(network) {
 		case "Google":
 			cssType = "label-danger";
 			socialTypeId = 1;
@@ -53,18 +58,19 @@ function addSocialNetwork(element)
 			socialTypeId = 4;
 		break;	
 	}
+	
 	var inSocialType	= "<input type='hidden' name='" + socialTypeId + "' value='" + network  + "' />";
 	var inHandle  		= "<input type='hidden' name='" + network + "_handle' 		value='" + handle  + "' />";
 	var inProfile 		= "<input type='hidden' name='" + network + "_url'    		value='" + profile + "' />";
 	var inViewable 		= "<input type='hidden' name='" + network + "_is_public'    value='" + isPublic + "' />";
-	var hrefModal = "?m=modal&social=" + socialTypeId + "&handle=" + handle + "&profile=" + profile + "&public=" + isPublic;
+	var hrefModal 		= "?m=modal&social=" + socialTypeId + "&handle=" + handle + "&profile=" + profile + "&public=" + isPublic;
+	
 	var html = "";
 	html += "<label id='" + network + "' class='label " + cssType +" inverse'>" + inSocialType + inHandle + inProfile + inViewable; 
 	html += "<a data-toggle='modal' href='" + hrefModal + "' data-target='#mySocialNetworkModal' id='" + socialTypeId + "' class='socialType'>";
 	html += network + "</a></label>";
 	html += "<label class='label " + cssType + "'>" + icon + "</label>";
-	if($("#" + network).length != 0)
-	{
+	if($("#" + network).length != 0) {
 		$("#" + network).remove();
 		$("#" + "icon_" + network).remove();
 	}			

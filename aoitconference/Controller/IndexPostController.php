@@ -134,21 +134,25 @@ function handleCreateSpeakerPost($request,$userAccess)
 	// create new speaker social view for each social network
 	$allSpeakerSocial = array();
 	
-	$maxSocialTypes = 4;
+	$socialTypes = SocialTypeController::Get();
 	
-	for($i = 1; $i <= $maxSocialTypes; $i++)
+	foreach($socialTypes as $socialType)
 	{
-		if(isset($request["$i"]))
+		if(isset($request["$socialType->_socialTypeIdentity"]))
 		{
-			$network = $request["$i"];
+			// get the listed network name
+			$network = $socialType->_name;
+			
+			// get each property that was provided
 			$handle  = $request[$network . "_handle"];
 			$profile = $request[$network . "_url"];
 			$public  = $request[$network . "_is_public"];
 			
+			// insert or replace the social network name
 			$speakerSocialType = new SpeakerSocial(array(
 				"SPEAKER_SOCIAL_IDENTITY" 	=> null,
 				"SPEAKER_IDENTITY"			=> $newSpeaker->_speakerIdentity,
-				"SOCIAL_TYPE_IDENTITY"		=> $i,
+				"SOCIAL_TYPE_IDENTITY"		=> $socialType->_socialTypeIdentity,
 				"HANDLE"					=> $handle,
 				"PROFILE_URL"				=> $profile,
 				"IS_VIEWABLE"				=> $public
@@ -156,10 +160,9 @@ function handleCreateSpeakerPost($request,$userAccess)
 			
 			// insert social network associated to the speaker identity
 			SpeakerSocialController::Post($speakerSocialType);
-		}
+		}	
 	}
 	
-	Redirect("?m=create");
-	
+	Redirect("?m=create");	
 }
 ?>
