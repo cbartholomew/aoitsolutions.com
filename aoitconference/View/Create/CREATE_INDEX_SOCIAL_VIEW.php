@@ -15,7 +15,7 @@
 		<br />
 		<form class="form" role="form">
 		  <div class="form-group">
-		    <label for="handle" class="control-label">Handle</label>
+		    <label for="#SOCIAL_HEADER_TYPE#_handle" class="control-label">Handle</label>
 		      <input type="text" class="form-control" id="handle" onblur="appendHandle(this);" placeholder="#SOCIAL_PLACEHOLDER_A#" value="#SOCIAL_HANDLE#" />
 		  </div>
 		  <div class="form-group">

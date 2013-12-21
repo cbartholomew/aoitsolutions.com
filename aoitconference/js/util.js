@@ -20,16 +20,13 @@ function appendHandle(element)
 
 function addSocialNetwork(element)
 {	
-	var network 	= $(element).attr("network");
-	var handle 		= $("#handle").val();
-	var profile 	= $("#profile_url").val();	
-	var isPublic    = $("#is_public").prop("checked");
-	var socialTypeId= 0;
-	var inHandle  	= "<input type='hidden' name='handle' 		value='" + handle  + "' />";
-	var inProfile 	= "<input type='hidden' name='url'    		value='" + profile + "' />";
-	var inViewable 	= "<input type='hidden' name='is_public'    value='" + isPublic + "' />";
-	var cssType 	= "label-danger";
-	var icon		= "<i id='icon_" + network + "' class='glyphicon glyphicon-remove-circle inverse'></i>";
+	var network 		= $(element).attr("network");
+	var handle 			= $("#handle").val();
+	var profile 		= $("#profile_url").val();	
+	var isPublic    	= $("#is_public").prop("checked");
+	var socialTypeId	= 0;
+	var cssType 		= "label-danger";
+	var icon			= "<i id='icon_" + network + "' class='glyphicon glyphicon-remove-circle inverse'></i>";
 	
 	if(handle == "" ||
 	   profile == "")
@@ -56,10 +53,13 @@ function addSocialNetwork(element)
 			socialTypeId = 4;
 		break;	
 	}
-	
+	var inSocialType	= "<input type='hidden' name='" + socialTypeId + "' value='" + network  + "' />";
+	var inHandle  		= "<input type='hidden' name='" + network + "_handle' 		value='" + handle  + "' />";
+	var inProfile 		= "<input type='hidden' name='" + network + "_url'    		value='" + profile + "' />";
+	var inViewable 		= "<input type='hidden' name='" + network + "_is_public'    value='" + isPublic + "' />";
 	var hrefModal = "?m=modal&social=" + socialTypeId + "&handle=" + handle + "&profile=" + profile + "&public=" + isPublic;
 	var html = "";
-	html += "<label id='" + network + "' class='label " + cssType +" inverse'>" + inHandle + inProfile + inViewable; 
+	html += "<label id='" + network + "' class='label " + cssType +" inverse'>" + inSocialType + inHandle + inProfile + inViewable; 
 	html += "<a data-toggle='modal' href='" + hrefModal + "' data-target='#mySocialNetworkModal' id='" + socialTypeId + "' class='socialType'>";
 	html += network + "</a></label>";
 	html += "<label class='label " + cssType + "'>" + icon + "</label>";
@@ -74,5 +74,4 @@ function addSocialNetwork(element)
 		$("#" + network).remove();
 		$("#" + "icon_" + network).remove();
 	});
-
 }

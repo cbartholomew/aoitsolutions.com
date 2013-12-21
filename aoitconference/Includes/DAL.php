@@ -7,6 +7,20 @@ $DAL_SETTINGS_FILE = ($isProd) ? "dalSettingsProd.php" : "dalSettingsTest.php";
 	
 require($DAL_SETTINGS_FILE);
 
+global $lastId;
+
+function getLastId()
+{
+	global $lastId;
+	return $lastId;
+}
+
+function setLastId($id)
+{
+	global $lastId;
+	$lastId = $id;
+}
+
 /**
  * Executes SQL statement, possibly with parameters, returning
  * an array of all rows in result set or false on (non-fatal) error.
@@ -52,7 +66,9 @@ function query(/* $sql [, ... ] */)
 
     // execute SQL statement
     $results = $statement->execute($parameters);
-
+	
+	setLastId($handle->lastInsertId());
+	
     // return result set's rows, if any
     if ($results !== false)
     {

@@ -51,7 +51,7 @@ class SpeakerController
 		{
 			$query = implode(" ",self::$sqlQueries["POST"]);
 	
-			query($query,
+			$result = query($query,
 				$speaker->_accountIdentity,
 				$speaker->_firstName,      
 				$speaker->_lastName,       
@@ -60,7 +60,8 @@ class SpeakerController
 				$speaker->_status,         
 				$speaker->_company,        
 				$speaker->_jobTitle);   
-				   
+				
+			return $result;  
 		}
 		catch(Exception $e)
 		{
@@ -146,7 +147,7 @@ class SpeakerController
 			"COMPANY,",
 			"JOB_TITLE)",
 			"VALUES",
-			"(?,?,?,?,?,?,?,?,?)"
+			"(?,?,?,?,?,?,?,?)"
 		),
 		"UPDATE" => array(
 			"UPDATE",

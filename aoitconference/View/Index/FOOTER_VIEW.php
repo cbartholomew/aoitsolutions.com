@@ -24,5 +24,6 @@
 <![endif]-->
 
 <!-- Custom Scripts -->
-<script type="text/javascript" src="Js/marketing.js"></script>
-<script type="text/javascript" src="Js/util.js"></script>
+<script type="text/javascript" src="js/marketing.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/aoit.js"></script>

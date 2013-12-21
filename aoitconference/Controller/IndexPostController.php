@@ -110,4 +110,52 @@ function handleAccountLoginPost($request)
 	}
 }
 
+function handleCreateSpeakerPost($request,$userAccess)
+{
+	// create a new speaker in the database
+	$newSpeaker = new Speaker(array(
+		"SPEAKER_IDENTITY" =>  null,
+		"ACCOUNT_IDENTITY" =>  $userAccess->_accountIdentity,
+		"FIRST_NAME"	   =>  $request["first_name"],
+		"LAST_NAME"   	   =>  $request["last_name"],
+		"EMAIL_ADDRESS"    =>  $request["email"],
+		"PUBLIC"		   =>  $request["public"],
+		"STATUS"		   =>  $request["status"],
+		"COMPANY"		   =>  $request["company"],
+		"JOB_TITLE"		   =>  $request["job_title"]
+	));
+	
+	// insert the new speaker
+	SpeakerController::Post($newSpeaker);
+	
+	// set the identity of the current speaker
+	$newSpeaker->_speakerIdentity = getLastId();
+	
+	// create new speaker social view for each social network
+	$allSpeakerSocial = array();
+	
+	$maxSocialTypes = 4;
+	for($i = 1; $i <= $maxSocialTypes; $i++)
+	{
+		if(isset($request["$i"]))
+		{
+			$network = $request["$i"];
+			$handle  = $request[$network . "_handle"];
+			$profile = $request[$network . "_url"];
+			$public  = $request[$network . "_is_public"];
+			
+			$speakerSocialType = new SpeakerSocial(array(
+				"SPEAKER_SOCIAL_IDENTITY" 	=> null,
+				"SPEAKER_IDENTITY"			=> $newSpeaker->_speakerIdentity,
+				"SOCIAL_TYPE_IDENTITY"		=> $i,
+				"HANDLE"					=> $handle,
+				"PROFILE_URL"				=> $profile,
+				"IS_VIEWABLE"				=> $public
+			));
+			
+			// insert social network associated to the speaker identity
+			SpeakerSocialController::Post($speakerSocialType);
+		}
+	}
+}
 ?>

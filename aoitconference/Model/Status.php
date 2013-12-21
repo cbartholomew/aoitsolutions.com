@@ -7,7 +7,7 @@ class Status
 	
 	function __construct($obj) 
 	{
-		$this->_identity  		= $obj["STATUS_IDENTITY"];
+		$this->_statusIdentity  = $obj["STATUS_IDENTITY"];
 		$this->_accountIdentity = $obj["ACCOUNT_IDENTITY"];
 		$this->_name  			= $obj["NAME"];
 					 

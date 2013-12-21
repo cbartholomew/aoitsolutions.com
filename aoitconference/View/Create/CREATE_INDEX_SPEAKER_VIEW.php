@@ -1,31 +1,31 @@
-<form class="form" role="form" action="index.php" method="POST">
+<form id="create_speaker_form" class="form" role="form" action="index.php" method="POST">
   <input type="hidden" name="m" value="create_speaker" /> 
   <div class="form-group">
     <label for="first_name" class="control-label">First Name</label>
-    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="John">
+    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="John"  required />
   </div>
   <div class="form-group">
     <label for="last_name" class="control-label">Last Name</label>
-    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Kennedy">
+    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Kennedy" required />
   </div>
   <div class="form-group">
     <label for="public" class="control-label">Public Viewable</label>
     <select id="public"class="form-control" name="public">
-		<option value="false" selected="selected">False</option>
-		<option value="true">True</option>
+		<option value="0" selected="selected">False</option>
+		<option value="1">True</option>
 	</select>
   </div>
   <div class="form-group">
     <label for="email" class="control-label">Email</label>
-	<input type="email" class="form-control" id="email" name="email" placeholder="youremail@domain.com">
+	<input type="email" class="form-control" id="email" name="email" placeholder="youremail@domain.com" required />
   </div>
   <div class="form-group">
     <label for="job_title" class="control-label">Job Title</label>
-      <input type="text" class="form-control" id="job_title" name="job_title" placeholder="President">
+      <input type="text" class="form-control" id="job_title" name="job_title" placeholder="President" />
   </div>
   <div class="form-group">
-    <label for="company" class="control-label">Company</label>
-      <input type="text" class="form-control" id="company" name="company" placeholder="Government">
+      <label for="company" class="control-label">Company</label>
+      <input type="text" class="form-control" id="company" name="company" placeholder="Government" />
   </div>
   <div class="form-group">
 	<!-- Split button -->
@@ -54,5 +54,4 @@
   </div>
 </form>
 <div class="modal fade"  id="mySocialNetworkModal" tabindex="-1" role="dialog" aria-labelledby="mySocialNetworkModalLabel" aria-hidden="true">
-  
 </div><!-- /.modal -->
