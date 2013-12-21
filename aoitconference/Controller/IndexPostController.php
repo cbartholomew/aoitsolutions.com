@@ -135,6 +135,7 @@ function handleCreateSpeakerPost($request,$userAccess)
 	$allSpeakerSocial = array();
 	
 	$maxSocialTypes = 4;
+	
 	for($i = 1; $i <= $maxSocialTypes; $i++)
 	{
 		if(isset($request["$i"]))
@@ -157,5 +158,8 @@ function handleCreateSpeakerPost($request,$userAccess)
 			SpeakerSocialController::Post($speakerSocialType);
 		}
 	}
+	
+	Redirect("?m=create");
+	
 }
 ?>
