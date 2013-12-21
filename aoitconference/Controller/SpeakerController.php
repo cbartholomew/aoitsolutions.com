@@ -27,13 +27,13 @@ class SpeakerController
 	{
 		try
 		{
-			$query = implode(" ",self::$sqlQueries["GET"]);
+			$query = implode(" ",self::$sqlQueries["GET_BY_ID"]);
 				
 			$rows = query($query, $speaker->_speakerIdentity, $speaker->_accountIdentity);
 				
 			foreach($rows as $row)
 			{			
-				$speaker = new Account($row);
+				$speaker = new Speaker($row);
 				break;			
 			}
 		}
@@ -154,6 +154,7 @@ class SpeakerController
 			"SPEAKER SET",			
 			"ACCOUNT_IDENTITY = ?,",
 			"FIRST_NAME = ?,", 
+			"LAST_NAME = ?,",
 			"EMAIL_ADDRESS = ?,",
 			"PUBLIC = ?,",
 			"STATUS = ?,",

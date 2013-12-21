@@ -92,24 +92,42 @@ function handleAccountRegistrationGet($request)
 
 function handleCreateGet($request,$userAccess)
 {
-	$arguments = array();
-	
+	// new array to hold all arguments for index view
+	$arguments = array();	
 	// new array to hold the speaker view arguments
 	$speakerViewArguments = array();
-	
 	// check if the user is logged in or not
 	$viewHtmlPath  = (isset($userAccess->_userAccessIndex)) ? "View/Index/SUB_HEADER_VIEW_AUTH.php" : "View/Index/SUB_HEADER_VIEW_NOAUTH.php";
-	
 	// get the sub header information
 	$viewHtml = file_get_contents($viewHtmlPath);
 	
 	// get the social type and status html
 	$socialViewTypeHTML = GetSocialTypeHTML();
-	$socialStatusHTML = GetStatusHTML($userAccess);
+	$socialStatusHTML 	= GetStatusHTML($userAccess, null);
+	
+	// set up variables for speaker view rendering
+	$viewMethod = "POST";
+	$viewAction = "Add";
+	$viewSpeakerFirstName 	  = "";
+	$viewSpeakerLastName  	  = "";
+	$viewSpeakerEmail	  	  = "";
+	$viewSpeakerJobTitle  	  = "";
+	$viewSpeakerCompany	 	  = "";
+	$viewSpeakerSocialOptions = "";
 	
 	// push the speaker social html to the argument stack
 	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_TYPE", 	$socialViewTypeHTML));
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE", 	$socialStatusHTML));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE", 	$socialStatusHTML));
+	
+	// push blank speaker arguments to the view since it's create only
+	array_push($speakerViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_FIRST_NAME",$viewSpeakerFirstName));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_LAST_NAME",$viewSpeakerLastName));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_EMAIL",$viewSpeakerEmail));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_JOB_TITLE",$viewSpeakerJobTitle));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_COMPANY",$viewSpeakerCompany));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_OPTIONS",$viewSpeakerSocialOptions));
+	array_push($speakerViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
 		
 	// apply special arguments to speaker view only
 	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW","Create/CREATE_INDEX_SPEAKER_VIEW.php",$speakerViewArguments));
@@ -154,6 +172,49 @@ function handleCreateGet($request,$userAccess)
 
 }
 
+function handleManageSpeakerGet($request,$userAccess)
+{
+	// make new speaker social list
+	$speakerSocialList = array();
+	
+	// get speaker from controller
+	$speaker = SpeakerController::GetById(new Speaker(array(
+		"SPEAKER_IDENTITY"	 => $request["identity"],
+		"ACCOUNT_IDENTITY"   => $userAccess->_accountIdentity,
+		"FIRST_NAME"	     => null,
+		"LAST_NAME"          => null,
+		"EMAIL_ADDRESS"      => null,
+		"PUBLIC"             => null,
+		"STATUS"             => null,
+		"COMPANY"	         => null,
+		"JOB_TITLE"	         => null
+	)));
+	
+	if(isset($speaker) && isset($speaker->_firstName))
+	{
+		// get soical list of speaker is set
+		$speakerSocialList = SpeakerSocialController::GetById($speaker);	
+	}
+	
+	// return json instead of re-rendering
+	header('Content-type: application/json');
+	
+	// remove account identity, should be a secret
+	$speaker->_accountIdentity = "private";
+	
+	// make new associative array
+	$result = array(
+		"speaker" => $speaker,
+		"speakerSocial" => $speakerSocialList 
+	);
+	
+	// return result in json encoded format
+	print json_encode($result);
+	
+	// exit
+	exit;
+}
+
 function handleSocialModalGet($request)
 {
 	// pass default "add" text to modal unless it's an updated
@@ -165,18 +226,20 @@ function handleSocialModalGet($request)
 	// if there is a speaker value set - return the speaker information
 	$speakerIdentity = (isset($request["speaker"])) ? $request["speaker"] : null;	
 	// handle
-	$incomingHandle   =  (isset($request["handle"]))  ? $request["handle"]  : "";
+	$incomingHandle  =  (isset($request["handle"]))  ? $request["handle"]  : "";
 	// profile url
 	$incomingProfile  =  (isset($request["profile"])) ? $request["profile"] : "";
 	// viewability 
 	$incomingViewable =  (isset($request["public"]))  ? $request["public"]  : "";
 	// handle checked or not checked
-	$incomingViewable =  ($incomingViewable == "true") ? "checked" : "";
+	$incomingViewable =  ($incomingViewable == "1") ? "checked" : "";
 	
 	// make update network if it's an update
-	if($incomingHandle != "" || isset($speakerIdentity))
+	if($incomingHandle != "" || isset($speakerIdentity)) 
+	{
 		$socialAction = "Update";
-
+	}
+	
 	// speaker modal view
 	$socialModalViewHTML  = "";
 
@@ -200,7 +263,7 @@ function handleSocialModalGet($request)
 	array_push($arguments,View::MakeViewArgument("SOCIAL_HANDLE" ,$incomingHandle));
 	array_push($arguments,View::MakeViewArgument("SOCIAL_PROFILE",$incomingProfile));
 	array_push($arguments,View::MakeViewArgument("SOCIAL_PUBLIC" ,$incomingViewable));
-	array_push($arguments,View::MakeViewArgument("SOCIAL_ACTION",$socialAction));
+	array_push($arguments,View::MakeViewArgument("SOCIAL_ACTION", $socialAction));
 	// apply special arguments to speaker view only
 	$socialModalViewController = new ViewController(new View("CREATE_INDEX_SOCIAL_VIEW","Create/CREATE_INDEX_SOCIAL_VIEW.php",$arguments));
 

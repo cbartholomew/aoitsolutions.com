@@ -18,8 +18,20 @@ var options = {
 		};
 		return methods[name]();
 	}
+	$.aoit.request = function( url, method, parameters, callback)
+	{
+		$.ajax({
+			url: url,
+			data: parameters,
+			method: method,
+			success: callback,
+			error: function(xhr)
+			{
+				console.log(xhr);
+			}
+		});
+	}
 }(jQuery));
-
 
 // initialize form validation
 $.aoit("create_speaker");

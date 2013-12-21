@@ -1,12 +1,14 @@
-<form id="create_speaker_form" class="form" role="form" action="index.php" method="POST">
-  <input type="hidden" name="m" value="create_speaker" /> 
+<form id="create_speaker_form" class="form" role="form" action="index.php" method="#METHOD#">
+  <input type="hidden" 	 name="m" value="create_speaker" /> 
+  <input type="hidden" id="speaker_identity" name="speaker_identity" value="" /> 
+  <input type="hidden" id="method" name="method" value="POST" /> 
   <div class="form-group">
     <label for="first_name" class="control-label">First Name</label>
-    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="John"  required />
+    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="John" 		value="#SPEAKER_FIRST_NAME#" required />
   </div>
   <div class="form-group">
     <label for="last_name" class="control-label">Last Name</label>
-    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Kennedy" required />
+    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Kennedy" 		value="#SPEAKER_LAST_NAME#" required />
   </div>
   <div class="form-group">
     <label for="public" class="control-label">Public Viewable</label>
@@ -17,15 +19,15 @@
   </div>
   <div class="form-group">
     <label for="email" class="control-label">Email</label>
-	<input type="email" class="form-control" id="email" name="email" placeholder="youremail@domain.com" required />
+	<input type="email" class="form-control" id="email" name="email" placeholder="youremail@domain.com" value="#SPEAKER_EMAIL#" required />
   </div>
   <div class="form-group">
     <label for="job_title" class="control-label">Job Title</label>
-      <input type="text" class="form-control" id="job_title" name="job_title" placeholder="President" />
+      <input type="text" class="form-control" id="job_title" name="job_title" placeholder="President" 	value="#SPEAKER_JOB_TITLE#" />
   </div>
   <div class="form-group">
       <label for="company" class="control-label">Company</label>
-      <input type="text" class="form-control" id="company" name="company" placeholder="Government" />
+      <input type="text" class="form-control" id="company" name="company" placeholder="Government" 		value="#SPEAKER_COMPANY#" />
   </div>
   <div class="form-group">
 	<!-- Split button -->
@@ -39,6 +41,7 @@
 	  </ul>
 	</div>
 	<div class="social_options">
+		#SPEAKER_SOCIAL_OPTIONS#
 	</div>
   </div>
   <div class="form-group">
@@ -48,8 +51,8 @@
 	</select>
   </div>
   <div class="form-group">
-    <div class="">
-      <button type="submit" class="btn btn-block btn-primary">Add Speaker</button>
+    <div class="btn-controls">
+      <button type="submit" class="btn btn-block btn-primary btn-speaker-submit">#ACTION# Speaker</button>
     </div>
   </div>
 </form>

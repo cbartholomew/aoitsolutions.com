@@ -97,7 +97,7 @@ class SpeakerSocialController
 
 			query($query,
 				$speakerSocial->_speakerIdentity,
-				$speakerSocial->_socialTypeId,
+				$speakerSocial->_socialTypeIdentity,
 				$speakerSocial->_handle,
 				$speakerSocial->_profileUrl,
 				$speakerSocial->_isViewable,

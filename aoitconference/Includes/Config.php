@@ -9,10 +9,14 @@ require("Constants.php");
 require("Utilities.php");
 require("DAL.php");
 
-// Controllers
+// Main Controllers
 require("Controller/IndexGetController.php");
 require("Controller/IndexPostController.php");
+require("Controller/IndexPutController.php");
+require("Controller/IndexDeleteController.php");
 require("Controller/ViewController.php");
+
+// Model Controllers
 require("Controller/AccountController.php");
 require("Controller/UserAccessController.php");
 require("Controller/SpeakerController.php");

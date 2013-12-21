@@ -2,6 +2,11 @@
 {
 	color: white;
 }
+.clear
+{
+	color: white;
+	font-size: small;
+}
 
 .errorCls
 {

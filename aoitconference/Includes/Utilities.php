@@ -144,7 +144,7 @@
 		return $html;
 	}
 	
-	function GetStatusHTML($userAccess)
+	function GetStatusHTML($userAccess,$speaker)
 	{
 		$html = "";
 		
@@ -159,14 +159,35 @@
 		
 		if(count($allStatuses) <= 0)
 			return "<option>No Statuses Available</option>";
-			
-		foreach($allStatuses as $status)
+		
+		// no speaker
+		if(!isset($speaker))
 		{
-			$html .= "<option value='" . $status->_statusIdentity . "' ". $selected .">". $status->_name ."</option>";
+			foreach($allStatuses as $status)
+			{
+				$html .= "<option value='" . $status->_statusIdentity . "' ". $selected .">". $status->_name ."</option>";
 			
-			// make only the first one selected
-			$selected = "";
+				// make only the first one selected
+				$selected = "";
+			}
 		}
+		else
+		{
+			foreach($allStatuses as $status)
+			{
+				if($status->_statusIdentity == $speaker->_status)
+				{
+					$selected = "selected='selected'";
+				}
+				else
+				{
+					$selected = "";
+				}
+				
+				$html .= "<option value='" . $status->_statusIdentity . "' ". $selected .">". $status->_name ."</option>";	
+			}
+		}
+		
 		return $html;
 	}
 	
@@ -203,10 +224,10 @@
 			{
 				foreach($speakers as $speaker)
 				{
-					$btnManageHtml = "<button type='button' onclick='manage(this);' id='manage_" . $speaker->_speakerIdentity . "' 
+					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='speaker' id='manage_" . $speaker->_speakerIdentity . "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
 				
-					$btnRemoveHtml = "<button type='button' onclick='delete(this);' id='delete_" . $speaker->_speakerIdentity .  "' 
+					$btnRemoveHtml = "<button type='button' onclick='delete(this);' operation='speaker' id='delete_" . $speaker->_speakerIdentity .  "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
 				
 					$html .= "<tr>";
@@ -225,4 +246,13 @@
 		}
 		return $html;
 	}
+	
+	function GetSocialOptionsHTML($speakerSocialList)
+	{
+		$html = "";
+		
+		
+		
+	}
+	
 ?>

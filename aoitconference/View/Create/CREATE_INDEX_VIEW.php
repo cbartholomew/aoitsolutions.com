@@ -7,7 +7,7 @@
 		</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade in active" id="speaker">
-			<div class="panel col-sm-6">
+			<div id="speaker_panel" class="panel col-sm-6">
 				#SPEAKER_VIEW#
 			</div>
 			<div class="panel col-sm-6">
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="tab-pane fade"  id="topic">
-			<div class="panel col-sm-6">
+			<div id="topic_panel" class="panel col-sm-6">
 				
 			</div>
 			<div class="panel col-sm-6">
