@@ -27,3 +27,4 @@
 <script type="text/javascript" src="js/marketing.js"></script>
 <script type="text/javascript" src="js/util.js"></script>
 <script type="text/javascript" src="js/aoit.js"></script>
+<script type="text/javascript" src="js/createnav.js"></script>

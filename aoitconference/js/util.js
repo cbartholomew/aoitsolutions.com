@@ -5,7 +5,6 @@ $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
 $('#generic_modal').on('hidden.bs.modal', function (e) {
    $("#generic_modal").removeData();
 });
-
 var request_map = {
 	"manage_speaker" : handleSpeaker,
 	"delete_speaker" : handlePrompt

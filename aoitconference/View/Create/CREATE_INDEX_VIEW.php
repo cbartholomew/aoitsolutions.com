@@ -1,5 +1,5 @@
 <div class='container'>
-	<ul class="nav nav-tabs nav-justified">
+	<ul class="nav nav-tabs nav-justified" id="createTabs">
 		<li class="active"><a href="#speaker"  data-toggle="tab">Speaker</a></li>
 		<li><a href="#topic" 	data-toggle="tab">Topic</a></li>
 		<li><a href="#track"  	data-toggle="tab">Track</a></li>
@@ -14,7 +14,7 @@
 				<br>
 			    <form class="form-horizontal" role="search">
 			      <div class="form-group">
-			        <input id="search" type="text" class="form-control col-sm-3" placeholder="Search" />
+			        <input id="speaker_search" type="text" class="form-control col-sm-3" placeholder="Search" />
 			      </div>
 			    </form>
 				<!--Auto Render This -->
@@ -25,7 +25,7 @@
 							<th>Last</th>
 							<th>Email</th>
 							<th>Company</th>
-							<th>Action</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody class="speakers">
