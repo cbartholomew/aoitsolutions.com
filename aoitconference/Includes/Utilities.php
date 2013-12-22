@@ -1,6 +1,6 @@
 <?php
 	function PostSessionIdentity($userAccess)
-	{		
+	{
 		if(!UserAccessController::Post($userAccess))
 		{
 			Redirect("?m=login");
@@ -47,7 +47,7 @@
 	}
 	
 	function GetSession($userAccess)
-	{	
+	{
 		if(!isset($userAccess))
 		{
 			Redirect("?m=login");
@@ -72,6 +72,7 @@
 	
 		return $userAccess;
 	}	
+	
 	function IsSessionNotExpired($userAccess)
 	{
 		// get current dttm
@@ -114,6 +115,7 @@
 		
 		Redirect("");
     }	
+	
 	function Redirect($destination)
 	{
 		 // handle URL
@@ -347,8 +349,6 @@
 					$modalObjectInformation .= "</tr>";
 					$modalObjectInformation .= "</table>";	
 				}
-				
-			
 			break;
 			
 		}
