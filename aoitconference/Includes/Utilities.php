@@ -23,6 +23,24 @@
 		
 	}	
 	
+	function NotAuthorized()
+	{
+	 	// return json instead of re-rendering
+	 	header('Content-Type: application/json');
+		http_response_code(401);
+	 	print json_encode(array("status" => 401));
+	}
+	
+	function BadRequest()
+	{
+	 	// return json instead of re-rendering
+	 	header('Content-Type: text/html');
+		
+		http_response_code(400);
+	 	
+		exit;
+	}
+	
 	function CheckAuth($userAccess)
 	{
 		return isset($userAccess->_accountIdentity);		
@@ -227,7 +245,7 @@
 					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='speaker' id='manage_" . $speaker->_speakerIdentity . "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
 				
-					$btnRemoveHtml = "<button type='button' onclick='delete(this);' operation='speaker' id='delete_" . $speaker->_speakerIdentity .  "' 
+					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='speaker' id='delete_" . $speaker->_speakerIdentity .  "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
 				
 					$html .= "<tr>";
@@ -247,12 +265,101 @@
 		return $html;
 	}
 	
-	function GetSocialOptionsHTML($speakerSocialList)
+	function GetPromptPath($requestedAction)
 	{
-		$html = "";
+		$name   	= "";
+		$filePath   = "";
 		
+		switch($requestedAction)
+		{
+			case "delete":
+				$name = "GENERIC_DELETE_MODAL_VIEW";
+				$filePath = "Prompt/GENERIC_DELETE_MODAL_VIEW.php";
+			break;
+			
+			case "alert":
+				$name = "GENERIC_ALERT_MODAL_VIEW";
+				$filePath = "Prompt/GENERIC_ALERT_MODAL_VIEW.php";
+			break;
+		}
 		
-		
+		return array(
+			"name" => $name,
+			"filePath" => $filePath
+		);
 	}
 	
+	function GetPromptObject($userAccess, $requestAction, $requestType, $requestIdentity)
+	{
+		$modalObjectName = "";
+		$modalObjectType = "";
+		$modalObjectInformation = "";
+		$modalObjectIdentity	= "";
+		$modalObjectAction		= "";
+		
+		switch($requestType)
+		{
+			case "speaker":
+				$modalObjectType   		= $requestType;
+				$modalObjectAction 		= $requestAction;
+				$modalObjectIdentity	= $requestIdentity;
+				
+				// get speaker from controller
+				$speaker = SpeakerController::GetById(new Speaker(array(
+					"SPEAKER_IDENTITY"	 => $requestIdentity,
+					"ACCOUNT_IDENTITY"   => $userAccess->_accountIdentity,
+					"FIRST_NAME"	     => null,
+					"LAST_NAME"          => null,
+					"EMAIL_ADDRESS"      => null,
+					"PUBLIC"             => null,
+					"STATUS"             => null,
+					"COMPANY"	         => null,
+					"JOB_TITLE"	         => null
+				)));
+				
+				if(isset($speaker))
+				{
+					$modalObjectName   = $speaker->_firstName . " " . $speaker->_lastName;
+					
+					// create the request action
+					switch($requestAction)
+					{
+						case "delete":
+							$modalObjectAction = "purge(this);";  
+						break;
+						case "alert":
+							$modalObjectAction = "alertUser(this);";  
+						break;
+					}
+					
+					$modalObjectInformation .= "<table class='table table-striped'>";
+					$modalObjectInformation .= "<tr>";
+					$modalObjectInformation .= "<th>First Name</th>";
+					$modalObjectInformation .= "<th>Last Name</th>";
+					$modalObjectInformation .= "<th>Email Address</th>";
+					$modalObjectInformation .= "<th>Identity</th>";
+					$modalObjectInformation .= "</tr>";
+					$modalObjectInformation .= "<tr>";
+					$modalObjectInformation .= "<td>" . $speaker->_firstName    . "</td>";
+					$modalObjectInformation .= "<td>" . $speaker->_lastName     . "</td>";
+					$modalObjectInformation .= "<td>" . $speaker->_emailAddress . "</td>";
+					$modalObjectInformation .= "<td>" . $requestIdentity 		. "</td>";
+					$modalObjectInformation .= "</tr>";
+					$modalObjectInformation .= "</table>";	
+				}
+				
+			
+			break;
+			
+		}
+		
+		return array(
+			"MODAL_OBJECT_NAME"			=>$modalObjectName,
+			"MODAL_OBJECT_TYPE" 		=>$modalObjectType,
+			"MODAL_OBJECT_INFORMATION" 	=>$modalObjectInformation ,
+			"MODAL_OBJECT_IDENTITY" 	=>$modalObjectIdentity,	
+			"MODAL_OBJECT_ACTION"		=>$modalObjectAction		
+		);
+		
+	}
 ?>

@@ -2,9 +2,13 @@
 $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
    $("#mySocialNetworkModal").removeData();
 });
+$('#generic_modal').on('hidden.bs.modal', function (e) {
+   $("#generic_modal").removeData();
+});
 
 var request_map = {
-	"speaker" : handleSpeaker
+	"manage_speaker" : handleSpeaker,
+	"delete_speaker" : handlePrompt
 };
 
 function manage( element )
@@ -14,7 +18,7 @@ function manage( element )
 	var requestType = $(element).attr("id").split('_')[0];
 	var identity 	= $(element).attr("id").split('_')[1]; 
 	var operation	= $(element).attr("operation");
-	var callback = request_map[operation];	
+	var callback = request_map[requestType + "_" + operation];	
 	var request = {
 		"m" : requestType + "_" + operation,
 		"identity" : identity
@@ -22,19 +26,39 @@ function manage( element )
 	$.aoit.request(url,method,request,callback);
 }
 
-function remove( element )
+function prompt( element )
 {
-	// TODO!
-	
+	var url			= "index.php";
+	var method 		= "GET";
+	var requestType = $(element).attr("id").split('_')[0];
+	var identity 	= $(element).attr("id").split('_')[1]; 
+	var operation	= $(element).attr("operation");
+	var callback 	= request_map[requestType + "_" + operation];	
+	var request = {
+		"m" : requestType + "_" + operation,
+		"identity" : identity,
+		"action"   : requestType,
+		"type"	   : operation
+	};
+	$.aoit.request(url,method,request,callback); 	
+}
+
+function purge( element )
+{
+	console.log(element);
+}
+
+function handlePrompt(data)
+{
+	$("#generic_modal").html(data);
+	$("#generic_modal").modal("show");
 }
 
 function handleSpeaker(data)
 {
 	// add update speaker check?
-	
 	var speaker = data["speaker"];
 	var social 	= data["speakerSocial"];
-	
 	$("#speaker_identity").val(speaker["_speakerIdentity"]);
 	$("#method").val("PUT");
 	$("#first_name").val(speaker["_firstName"]);
@@ -54,10 +78,20 @@ function handleSpeaker(data)
 		};
 		addSocialNetwork(null,null,socialOverride);
 	});
-	$(".btn-speaker-submit").text("Update Speaker");
+	$(".btn-speaker-submit").text("Save Changes to Speaker");
+	$("#speaker_being_updated").val("1");
+	
 	if($(".clear-label").length == 0) {
-		var labelHtml = "<label class='clear-label label label-default'><a href='?m=create' class='clear'>Clear <i class='glyphicon glyphicon-remove-circle'></i></a><label>";
-		$("#create_speaker_form").prepend(labelHtml);
+		var labelHtml = "<button class='clear-label btn btn-block btn-default btn-clear'><a href='?m=create' class='clear btn-clear'>Exit Speaker Editor</a></button>";
+		$("#create_speaker_form").append(labelHtml);
+		
+		// $(".btn-clear").click(function(){
+		// 			if($("#speaker_being_updated").val() == "1")
+		// 			{
+		// 				console.log("Speaker not yet saved, are you sure you want to continue?");
+		// 				return false;
+		// 			}
+		// 		});
 	}
 }
 

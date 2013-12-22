@@ -204,6 +204,7 @@ function handleManageSpeakerGet($request,$userAccess)
 	
 	// make new associative array
 	$result = array(
+		"status" => 200,
 		"speaker" => $speaker,
 		"speakerSocial" => $speakerSocialList 
 	);
@@ -273,11 +274,59 @@ function handleSocialModalGet($request)
 	print $socialModalViewHTML;
 }
 
+function handlePromptWithActionGet($request,$userAccess)
+{
+	// view arguments array
+	$arguments = array();
+	$userAction = "";
+	$actionType = "";
+	$identity 	= "";
+	
+	if(!isset($request["action"]) || !isset($request["type"]))
+	{
+		BadRequest();
+	}
+	else
+	{
+		$userAction = $request["action"];
+		$actionType	= $request["type"];
+	}
+
+	if(isset($request["identity"]))
+	{
+		$identity = $request["identity"];
+	}
+	
+	// make a new prompt object to fill the view
+	$prompt = GetPromptObject($userAccess, $userAction, $actionType, $identity);
+	
+	// push the arguments up
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME", $prompt["MODAL_OBJECT_NAME"]));
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_TYPE", $prompt["MODAL_OBJECT_TYPE"]));
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_INFORMATION",$prompt["MODAL_OBJECT_INFORMATION"]));
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_IDENTITY",$prompt["MODAL_OBJECT_IDENTITY"]));
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_ACTION",$prompt["MODAL_OBJECT_ACTION"]));
+	
+	// get the view based on the user action that came in
+	$promptView = GetPromptPath($userAction);
+	
+	// render new view controller with specific view
+	$promptModalViewController = new ViewController(new View($promptView["name"],$promptView["filePath"],$arguments));	
+	
+	// render the object data
+	$promptHTML = $promptModalViewController->renderViewHTML(false,false);
+	
+	print $promptHTML;
+	
+}
+
 function handleAccountSignoutGet($request)
 {
 	// unset the header
 	unset($request["m"]);
 	Signout();
 }
+
+
 
 ?>

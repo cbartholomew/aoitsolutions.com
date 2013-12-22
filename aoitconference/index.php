@@ -144,6 +144,14 @@ function handleGet($request)
 				}
 				// I don't want it to loop back to the modal
 				$request["m"] = "create";
+			case "delete_speaker":
+				if(CheckAuth($userAccess))
+				{
+					handlePromptWithActionGet($request,$userAccess);
+					return;
+				}
+				// I don't want it to loop back to the modal
+				$request["m"] = "create";
 			break;
 			case "manage_speaker":
 				if(CheckAuth($userAccess))
@@ -151,8 +159,11 @@ function handleGet($request)
 					handleManageSpeakerGet($request,$userAccess);
 					return;
 				}
-				// I don't want it to loop back to the manage speaker view
-				$request["m"] = "create";
+				else
+				{
+					NotAuthorized();
+					return;
+				}
 			break;
 			default:
 				// unset request

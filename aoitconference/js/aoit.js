@@ -27,7 +27,7 @@ var options = {
 			success: callback,
 			error: function(xhr)
 			{
-				console.log(xhr);
+				window.location = "?m=login&return=create";
 			}
 		});
 	}
@@ -35,5 +35,3 @@ var options = {
 
 // initialize form validation
 $.aoit("create_speaker");
-
-

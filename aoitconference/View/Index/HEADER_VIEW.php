@@ -46,3 +46,4 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 </div>
+<div class="modal fade"  id="generic_modal" tabindex="-1" role="dialog" aria-labelledby="generic_modal" aria-hidden="true"></div><!-- /.modal -->

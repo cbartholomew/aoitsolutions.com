@@ -2,6 +2,7 @@
 	<div class='col-sm-4'></div>
 	<div class='col-sm-4'>
 		<form class="form" role="form" action="index.php" method="POST">
+		  <input type="hidden" name="method" value="" /> 
 		  <input type="hidden" name="m" value="registration" /> 
 		  <div class="form-group">
 		    <label for="email" class="control-label">Email</label>

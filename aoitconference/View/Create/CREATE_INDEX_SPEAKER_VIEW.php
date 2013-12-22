@@ -1,6 +1,7 @@
 <form id="create_speaker_form" class="form" role="form" action="index.php" method="#METHOD#">
-  <input type="hidden" 	 name="m" value="create_speaker" /> 
+  <input type="hidden" id="m" name="m" value="create_speaker" /> 
   <input type="hidden" id="speaker_identity" name="speaker_identity" value="" /> 
+  <input type="hidden" id="speaker_being_updated" value="0" />
   <input type="hidden" id="method" name="method" value="POST" /> 
   <div class="form-group">
     <label for="first_name" class="control-label">First Name</label>
