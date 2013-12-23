@@ -22,6 +22,7 @@ switch($_SERVER["REQUEST_METHOD"])
 				return;
 			break;	
 			case "DELETE":
+				handleDelete($_POST);
 			break;
 			default:
 				handlePost($_POST);
@@ -222,6 +223,57 @@ function handlePut($request)
 			break;
 			case "create_speaker":
 				handleCreateSpeakerPut($request,$userAccess);
+				return;
+			break;
+			default:
+				// 
+				unset($request["m"]);
+				handleGet($request);
+		}
+		Redirect("?m=login&return=" . $request["m"]);		
+	}			
+	else
+	{     	
+		// landing page
+		handleLandingGet($request,$userAccess);
+		return;
+	}
+	
+}
+
+function handleDelete($request)
+{
+
+	// identity
+	$identity = (isset($_SESSION["identity"])) ? $_SESSION["identity"] : null;
+	
+	// get credentials
+	// make new user access object
+	$userAccess = new UserAccess(array(						
+		"USER_ACCESS_INDEX" => null,
+		"SESSION" 			=> session_id(), 	
+		"CREATED_DTTM" 		=> null,
+		"LAST_REQUEST_DTTM" => null,
+		"ACCOUNT_IDENTITY" 	=> $identity
+	));
+	
+	// if there is an m assoicated to request, check what kind
+	// otherwise, print the normal landing page			
+	if(isset($userAccess->_accountIdentity))
+	{
+		// get user access information and check if it's expired	
+		$userAccess = GetSession($userAccess);
+
+		// update the last request dttm
+		PutSession($userAccess);	
+	}
+	
+	if(isset($request["m"]))
+	{
+		switch($request["m"])
+		{
+			case "delete_speaker":
+				handleCreateSpeakerDelete($request,$userAccess);
 				return;
 			break;
 			default:

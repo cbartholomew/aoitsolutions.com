@@ -94,20 +94,37 @@ function handleCreateGet($request,$userAccess)
 {
 	// new array to hold all arguments for index view
 	$arguments = array();	
-	// new array to hold the speaker view arguments
+	// new array to hold the view arguments for each view
 	$speakerViewArguments = array();
+	$topicViewArguments   = array();
+	$trackViewArguments   = array();
+	$statusViewArguments  = array();
+	
+	// variables to hold html 
+	$speakerCreateViewHTML = "";
+	$topicCreateViewHTML   = "";
+	$trackCreateViewHTML   = "";
+	$statusCreateViewHTML   = "";
+	
 	// check if the user is logged in or not
 	$viewHtmlPath  = (isset($userAccess->_userAccessIndex)) ? "View/Index/SUB_HEADER_VIEW_AUTH.php" : "View/Index/SUB_HEADER_VIEW_NOAUTH.php";
 	// get the sub header information
 	$viewHtml = file_get_contents($viewHtmlPath);
-	
+		
+	/********************************************************************
+	 *
+	 *	Speaker View Constructor 
+	 *
+	 ********************************************************************/
 	// get the social type and status html
 	$socialViewTypeHTML = GetSocialTypeHTML();
 	$socialStatusHTML 	= GetStatusHTML($userAccess, null);
 	
 	// set up variables for speaker view rendering
-	$viewMethod = "POST";
-	$viewAction = "Add";
+	$viewMethod 			  = "POST";
+	$viewAction 			  = "Add";
+	
+	// these varibles are set up if I wanted to go a different route than ajax
 	$viewSpeakerFirstName 	  = "";
 	$viewSpeakerLastName  	  = "";
 	$viewSpeakerEmail	  	  = "";
@@ -130,10 +147,33 @@ function handleCreateGet($request,$userAccess)
 	array_push($speakerViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
 		
 	// apply special arguments to speaker view only
-	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW","Create/CREATE_INDEX_SPEAKER_VIEW.php",$speakerViewArguments));
+	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW",
+														 "Create/CREATE_INDEX_SPEAKER_VIEW.php",
+														 $speakerViewArguments));
 	
 	// speaker create view html
 	$speakerCreateViewHTML = $speakerViewController->renderViewHTML(false,false);
+	
+	/********************************************************************
+	 *
+	 *	Topic View Constructor
+	 *
+	 ********************************************************************/
+	
+		// TODO
+	/********************************************************************
+	 *
+	 *	Track View Constructor
+	 *
+	 ********************************************************************/
+		// TODO
+		
+	/********************************************************************
+	 *
+	 *	Status View Constructor
+	 *  
+	 ********************************************************************/
+		// TODO
 		
 	// display message text to user based on if they are logged in or not
 	$headerText = "Account";
@@ -157,15 +197,26 @@ function handleCreateGet($request,$userAccess)
 	
 	// get the speaker list view html
 	$speakerListViewHTML = GetSpeakerListViewHTML($userAccess);
+	// get topic list view html
+	$topicListViewHTML 	 = GetTopicListViewHTML($userAccess);
+	// get track list view html
+	$trackListViewHTML 	 = GetTrackListViewHTML($userAccess);
+	// get status list view html 
+	$statusListViewHTML  = GetStatusListViewHTML($userAccess);
 	
 	// push on to the argument stack
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"	,$headerText));
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"	,$viewHtml));
 	array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"		,$speakerCreateViewHTML));
- 	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW",$speakerListViewHTML));	
+ 	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW",$speakerListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TOPIC_LIST_VIEW"	,$topicListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TRACK_LIST_VIEW"	,$trackListViewHTML));
+	array_push($arguments,View::MakeViewArgument("STATUS_LIST_VIEW"	,$statusListViewHTML));
 		
 	// create new view controller
-	$vc = new ViewController(new View("CREATE_INDEX_VIEW","Create/CREATE_INDEX_VIEW.php",$arguments));
+	$vc = new ViewController(new View("CREATE_INDEX_VIEW",
+									  "Create/CREATE_INDEX_VIEW.php",
+									  $arguments));
 
 	// this method will render w arguments
 	print $vc->renderViewHTML(true,true);		
@@ -301,11 +352,10 @@ function handlePromptWithActionGet($request,$userAccess)
 	$prompt = GetPromptObject($userAccess, $userAction, $actionType, $identity);
 	
 	// push the arguments up
-	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME", $prompt["MODAL_OBJECT_NAME"]));
-	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_TYPE", $prompt["MODAL_OBJECT_TYPE"]));
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME", 		$prompt["MODAL_OBJECT_NAME"]));
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_TYPE", 		$prompt["MODAL_OBJECT_TYPE"]));
 	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_INFORMATION",$prompt["MODAL_OBJECT_INFORMATION"]));
-	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_IDENTITY",$prompt["MODAL_OBJECT_IDENTITY"]));
-	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_ACTION",$prompt["MODAL_OBJECT_ACTION"]));
+	array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_IDENTITY",	$prompt["MODAL_OBJECT_IDENTITY"]));
 	
 	// get the view based on the user action that came in
 	$promptView = GetPromptPath($userAction);

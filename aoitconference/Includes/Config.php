@@ -23,6 +23,8 @@ require("Controller/SpeakerController.php");
 require("Controller/SpeakerSocialController.php");
 require("Controller/SocialTypeController.php");
 require("Controller/StatusController.php");
+require("Controller/TopicController.php");
+require("Controller/TrackController.php");
 
 // Models
 require("Model/View.php");
@@ -32,5 +34,6 @@ require("Model/Speaker.php");
 require("Model/SpeakerSocial.php");
 require("Model/SocialType.php");
 require("Model/Status.php");
-
+require("Model/Topic.php");
+require("Model/Track.php");
 ?>

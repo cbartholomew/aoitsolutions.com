@@ -1,3 +1,8 @@
+var request_map = {
+	"manage_speaker" : handleSpeaker,
+	"delete_speaker" : handlePrompt
+};
+
 // clean out data when ajax is completed
 $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
    $("#mySocialNetworkModal").removeData();
@@ -5,17 +10,50 @@ $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
 $('#generic_modal').on('hidden.bs.modal', function (e) {
    $("#generic_modal").removeData();
 });
-var request_map = {
-	"manage_speaker" : handleSpeaker,
-	"delete_speaker" : handlePrompt
-};
 
-function manage( element )
-{
+$("#speaker_search").on("keyup",function(e){
+	var searchFor = $("#speaker_search").val();
+	var inTable	  = $(".speakers");
+	search(searchFor,inTable);
+});
+
+function search( query, tableBody)
+{	
+	var hideNone = false;
+	
+	if(query == "")
+	{
+		hideNone = true;
+	}
+	
+	$(tableBody).children().each(function(){
+		if(hideNone)
+		{
+			$(this).show();
+		}
+		else
+		{			
+			var columnText = $(this).html();
+			query = query.toLowerCase();
+			columnText = columnText.toLowerCase();
+			if(columnText.indexOf(query) == -1)
+			{
+				$(this).hide();
+			}
+			else
+			{
+				$(this).show();
+			}	
+		}
+	});
+}
+
+function manage( element ){
 	var url			= "index.php";
 	var method 		= "GET";
-	var requestType = $(element).attr("id").split('_')[0];
-	var identity 	= $(element).attr("id").split('_')[1]; 
+	var requestType  = $(element).attr("id").split('_')[0];
+	var subOperation = $(element).attr("id").split('_')[1];
+	var identity 	 = $(element).attr("id").split('_')[2]; 
 	var operation	= $(element).attr("operation");
 	var callback = request_map[requestType + "_" + operation];	
 	var request = {
@@ -25,12 +63,12 @@ function manage( element )
 	$.aoit.request(url,method,request,callback);
 }
 
-function prompt( element )
-{
+function prompt( element ){
 	var url			= "index.php";
 	var method 		= "GET";
-	var requestType = $(element).attr("id").split('_')[0];
-	var identity 	= $(element).attr("id").split('_')[1]; 
+	var requestType  = $(element).attr("id").split('_')[0];
+	var subOperation = $(element).attr("id").split('_')[1];
+	var identity 	 = $(element).attr("id").split('_')[2];
 	var operation	= $(element).attr("operation");
 	var callback 	= request_map[requestType + "_" + operation];	
 	var request = {
@@ -42,19 +80,12 @@ function prompt( element )
 	$.aoit.request(url,method,request,callback); 	
 }
 
-function purge( element )
-{
-	console.log(element);
-}
-
-function handlePrompt(data)
-{
+function handlePrompt(data){
 	$("#generic_modal").html(data);
 	$("#generic_modal").modal("show");
 }
 
-function handleSpeaker(data)
-{
+function handleSpeaker(data){
 	// add update speaker check?
 	var speaker = data["speaker"];
 	var social 	= data["speakerSocial"];
@@ -81,21 +112,12 @@ function handleSpeaker(data)
 	$("#speaker_being_updated").val("1");
 	
 	if($(".clear-label").length == 0) {
-		var labelHtml = "<button class='clear-label btn btn-block btn-default btn-clear'><a href='?m=create' class='clear btn-clear'>Exit Speaker Editor</a></button>";
+		var labelHtml = "<button class='clear-label btn btn-block btn-warning btn-clear'><a href='?m=create' class='clear btn-clear'>Cancel Changes</a></button>";
 		$("#create_speaker_form").append(labelHtml);
-		
-		// $(".btn-clear").click(function(){
-		// 			if($("#speaker_being_updated").val() == "1")
-		// 			{
-		// 				console.log("Speaker not yet saved, are you sure you want to continue?");
-		// 				return false;
-		// 			}
-		// 		});
 	}
 }
 
-function appendHandle( element )
-{
+function appendHandle( element ){
 	var placeholder = $("#profile_url").attr("placeholder");
 	var placehodlerUrl = placeholder.toString().split("/")[2];
 	var handle = $(element).val();
@@ -105,8 +127,7 @@ function appendHandle( element )
 	$("#profile_url").val("https://" + placehodlerUrl + "/" + handle);
 }
 
-function getSocialNetworkById( id )
-{	
+function getSocialNetworkById( id ){
 	var cssType    = "";
 	var socialName = "";
 	switch(id) {
@@ -133,8 +154,8 @@ function getSocialNetworkById( id )
 				"socialName": socialName
 			};
 }
-function getSocialNetworkByName( name )
-{
+
+function getSocialNetworkByName( name ){
 	var cssType 	 = "";
 	var socialTypeId = 0;
 	switch(name) {
@@ -162,8 +183,7 @@ function getSocialNetworkByName( name )
 			};
 }
 
-function addSocialNetwork( element, e, override)
-{		
+function addSocialNetwork( element, e, override){
 	var network 		= "";
 	var handle 			= ""; 
 	var profile 		= "";

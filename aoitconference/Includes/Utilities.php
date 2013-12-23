@@ -244,10 +244,10 @@
 			{
 				foreach($speakers as $speaker)
 				{
-					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='speaker' id='manage_" . $speaker->_speakerIdentity . "' 
+					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='speaker' id='manage_speaker_" . $speaker->_speakerIdentity . "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
 				
-					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='speaker' id='delete_" . $speaker->_speakerIdentity .  "' 
+					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='speaker' id='delete_speaker_" . $speaker->_speakerIdentity .  "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
 				
 					$html .= "<tr>";
@@ -257,6 +257,150 @@
 					$html .= "<td>" . $speaker->_company	  . "</td>";
 					$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";		
 					$html .= "</tr>";
+				}
+			}
+		}
+		catch(Exception $e)
+		{
+				trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+		return $html;
+	}
+	
+	function GetTopicListViewHTML($userAccess)
+	{
+		// define and init html for speaker
+		$html = "";
+		
+		try
+		{					
+			// init new speaker array
+			$t = new Topic(array(
+				"TOPIC_IDENTITY"	 => null,
+				"ACCOUNT_IDENTITY"   => $userAccess->_accountIdentity,
+				"NAME"	     		 => null
+			));
+		
+			// get list of speakers by account identity
+			$topics = TopicController::Get($t);
+		
+			if(count($topics) <= 0)
+			{
+				$html .= "<tr>";
+				$html .= "<td colspan='2'>This account has no Topics available</td>";
+				$html .= "</tr>";	
+			}
+			else
+			{
+				foreach($topics as $topic)
+				{
+					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='topic' id='manage_topic_" . $topic->_topicIdentity . "' 
+					class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
+				
+					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='topic' id='delete_topic_" . $topic->_topicIdentity .  "' 
+					class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
+				
+					$html .= "<tr>";
+					$html .= "<td>" . $topic->_name . "</td>";
+					$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";		
+					$html .= "</tr>";
+				}
+			}
+		}
+		catch(Exception $e)
+		{
+				trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+		return $html;
+	}
+	
+	function GetTrackListViewHTML($userAccess)
+	{
+		// define and init html for speaker
+		$html = "";
+		
+		try
+		{					
+			// init new speaker array
+			$t = new Track(array(
+				"TRACK_IDENTITY"	 => null,
+				"ACCOUNT_IDENTITY"   => $userAccess->_accountIdentity,
+				"NAME"	     		 => null
+			));
+		
+			// get list of speakers by account identity
+			$tracks = TrackController::Get($t);
+		
+			if(count($tracks) <= 0)
+			{
+				$html .= "<tr>";
+				$html .= "<td colspan='2'>This account has no Tracks available</td>";
+				$html .= "</tr>";	
+			}
+			else
+			{
+				foreach($tracks as $track)
+				{
+					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='track' id='manage_track_" . $track->_trackIdentity . "' 
+					class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
+				
+					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='track' id='delete_track_" . $track->_trackIdentity .  "' 
+					class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
+				
+					$html .= "<tr>";
+					$html .= "<td>" . $track->_name . "</td>";
+					$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";	
+					$html .= "</tr>";
+				}
+			}
+		}
+		catch(Exception $e)
+		{
+				trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+		return $html;
+	}
+	
+	function GetStatusListViewHTML($userAccess)
+	{
+		// define and init html for speaker
+		$html = "";
+		
+		try
+		{					
+			// init new speaker array
+			$s = new Status(array(
+				"STATUS_IDENTITY"	 => null,
+				"ACCOUNT_IDENTITY"   => $userAccess->_accountIdentity,
+				"NAME"	     		 => null
+			));
+		
+			// get list of speakers by account identity
+			$statuses = StatusController::Get($s);
+		
+			if(count($statuses) <= 0)
+			{
+				$html .= "<tr>";
+				$html .= "<td colspan='2'>This account has no Statuses available</td>";
+				$html .= "</tr>";	
+			}
+			else
+			{
+				foreach($statuses as $status)
+				{
+					if(isset($status->accountIdentity))
+					{
+						$btnManageHtml = "<button type='button' onclick='manage(this);' operation='status' id='manage_status_" . 
+						$status->_statusIdentity . "' class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
+				
+						$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='status' id='delete_status_" . 
+						$status->_statusIdentity . "' class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
+					
+						$html .= "<tr>";
+						$html .= "<td>" . $status->_name . "</td>";
+						$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";	
+						$html .= "</tr>";
+					}
 				}
 			}
 		}
