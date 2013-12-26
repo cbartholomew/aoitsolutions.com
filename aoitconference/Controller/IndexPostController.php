@@ -19,6 +19,9 @@ function handleAccountRegistrationPost($request)
 		// get the information back
 		$account = AccountController::Get($account);
 		
+		// set the user up with some defaults
+		BootstrapNewUser($account);
+		
 		// insert the account into the user_access database
 		$lastRequestDttm = date('Y-m-d H:i:s');	
 		
@@ -47,7 +50,8 @@ function handleAccountRegistrationPost($request)
 		// trigger (big, orange) error
         trigger_error($e->getMessage(), E_USER_ERROR);
 	}
-}		
+}	
+	
 function handleAccountLoginPost($request)
 {
 	$arguments = array();
@@ -165,4 +169,53 @@ function handleCreateSpeakerPost($request,$userAccess)
 	
 	Redirect("?m=create");	
 }
+
+function handleCreateTopicPost($request,$userAccess)
+{
+	// init new topic based on request parameters
+	$topic = new Topic(array(
+		"TOPIC_IDENTITY"	=> null,
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> $request["topic_name"]
+	));
+	
+ 	// insert the new topic
+	TopicController::Post($topic);
+	
+	// redirect back to topic page
+	Redirect("?m=create#topic");
+}
+
+function handleCreateTrackPost($request,$userAccess) 
+{
+	// init new topic based on request parameters
+	$track = new Track(array(
+		"TRACK_IDENTITY"	=> null,
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> $request["track_name"]
+	));
+	
+ 	// insert the new topic
+	TrackController::Post($track);
+	
+	// redirect back to topic page
+	Redirect("?m=create#track");
+}
+
+function handleCreateStatusPost($request,$userAccess)
+{
+	// init new topic based on request parameters
+	$status = new Status(array(
+		"STATUS_IDENTITY"	=> null,
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> $request["status_name"]
+	));
+	
+ 	// insert the new topic
+	StatusController::Post($status);
+	
+	// redirect back to topic page
+	Redirect("?m=create#newstatus");
+}
+
 ?>

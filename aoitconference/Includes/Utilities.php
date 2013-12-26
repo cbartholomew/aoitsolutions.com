@@ -1,4 +1,23 @@
 <?php
+	function BootstrapNewUser($account)
+	{
+		// create user with default status 
+		$defaultStatusNames = array("Pending", "Confirmed", "Cancelled");
+		
+		foreach($defaultStatusNames as $statusName)
+		{
+			// init new topic based on request parameters
+			$status = new Status(array(
+				"STATUS_IDENTITY"	=> null,
+				"ACCOUNT_IDENTITY"  => $account->_identity,
+				"NAME"				=> $statusName
+			));
+			
+			// insert the new topic
+			StatusController::Post($status);	
+		}
+	}
+	
 	function PostSessionIdentity($userAccess)
 	{
 		if(!UserAccessController::Post($userAccess))
@@ -10,6 +29,7 @@
 			$_SESSION["identity"] = $userAccess->_accountIdentity;
 		}
 	}
+	
 	function PutSession($userAccess)
 	{
 		// set the updated last request dttm
@@ -388,8 +408,6 @@
 			{
 				foreach($statuses as $status)
 				{
-					if(isset($status->accountIdentity))
-					{
 						$btnManageHtml = "<button type='button' onclick='manage(this);' operation='status' id='manage_status_" . 
 						$status->_statusIdentity . "' class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
 				
@@ -400,7 +418,6 @@
 						$html .= "<td>" . $status->_name . "</td>";
 						$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";	
 						$html .= "</tr>";
-					}
 				}
 			}
 		}

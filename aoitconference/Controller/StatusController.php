@@ -86,9 +86,7 @@ class StatusController
 			"FROM",
 			"STATUS",
 			"WHERE",
-			"ACCOUNT_IDENTITY = ?",
-			"OR",
-			"ACCOUNT_IDENTITY IS NULL"
+			"ACCOUNT_IDENTITY = ?"
 		),
 		"POST"  => array(
 			"INSERT INTO",

@@ -8,15 +8,6 @@ var request_map = {
 	"delete_track"	 : handlePrompt,
 	"delete_status"  : handlePrompt
 };
-
-var search_initializers = 
-[
-	{ element: $("#speaker_search"), inside: "speakers" },
-	{ element: "topic_search"  , inside: "topics" },
-	{ element: "track_search"  , inside: "tracks" },
-	{ element: "status_search" , inside: "allstatus" }
-];
-
 // clean out data when ajax is completed
 $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
    $("#mySocialNetworkModal").removeData();
@@ -25,59 +16,13 @@ $('#generic_modal').on('hidden.bs.modal', function (e) {
    $("#generic_modal").removeData();
 });
 
-
-// $(search_initializers).each(function(){
-// 	$("#" + this.element).on("keyup",function(e){
-// 		var searchFor = $("#" + this.element).val();
-// 		var inTable	  = $("." + this.inside);
-// 		search(searchFor,inTable);
-// 	});		
-// });
-$(search_initializers[0].element).on("keyup",function(e){
-	var searchFor = $(search_initializers[0].element).val();
-	var inTable	  = $(".speakers");
-	search(searchFor,inTable);
-});
-
-
-function search( query, tableBody)
-{	
-	var hideNone = false;
-	
-	if(query == "")
-	{
-		hideNone = true;
-	}
-	
-	$(tableBody).children().each(function(){
-		if(hideNone)
-		{
-			$(this).show();
-		}
-		else
-		{			
-			var columnText = $(this).html();
-			query = query.toLowerCase();
-			columnText = columnText.toLowerCase();
-			if(columnText.indexOf(query) == -1)
-			{
-				$(this).hide();
-			}
-			else
-			{
-				$(this).show();
-			}	
-		}
-	});
-}
-
 function manage( element ){
 	var url			= "index.php";
 	var method 		= "GET";
 	var requestType  = $(element).attr("id").split('_')[0];
 	var subOperation = $(element).attr("id").split('_')[1];
 	var identity 	 = $(element).attr("id").split('_')[2]; 
-	var operation	= $(element).attr("operation");
+	var operation	 = $(element).attr("operation");
 	var callback = request_map[requestType + "_" + operation];	
 	var request = {
 		"m" : requestType + "_" + operation,
