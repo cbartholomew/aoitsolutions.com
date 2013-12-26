@@ -11,7 +11,7 @@
 				#SPEAKER_VIEW#
 			</div>
 			<div class="panel col-sm-6">
-			<br>
+				<br>
 				<form class="form-horizontal" role="search">
 			    	<div class="form-group">
 			        	<input id="speaker_search" type="text" class="form-control col-sm-3" placeholder="Search" />

@@ -1,7 +1,21 @@
 var request_map = {
 	"manage_speaker" : handleSpeaker,
-	"delete_speaker" : handlePrompt
+	"manage_topic"	 : handleTopic,
+	"manage_track"	 : handleTrack,
+	"manage_status"	 : handleStatus,
+	"delete_speaker" : handlePrompt,
+	"delete_topic"   : handlePrompt,
+	"delete_track"	 : handlePrompt,
+	"delete_status"  : handlePrompt
 };
+
+var search_initializers = 
+[
+	{ element: $("#speaker_search"), inside: "speakers" },
+	{ element: "topic_search"  , inside: "topics" },
+	{ element: "track_search"  , inside: "tracks" },
+	{ element: "status_search" , inside: "allstatus" }
+];
 
 // clean out data when ajax is completed
 $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
@@ -11,11 +25,20 @@ $('#generic_modal').on('hidden.bs.modal', function (e) {
    $("#generic_modal").removeData();
 });
 
-$("#speaker_search").on("keyup",function(e){
-	var searchFor = $("#speaker_search").val();
+
+// $(search_initializers).each(function(){
+// 	$("#" + this.element).on("keyup",function(e){
+// 		var searchFor = $("#" + this.element).val();
+// 		var inTable	  = $("." + this.inside);
+// 		search(searchFor,inTable);
+// 	});		
+// });
+$(search_initializers[0].element).on("keyup",function(e){
+	var searchFor = $(search_initializers[0].element).val();
 	var inTable	  = $(".speakers");
 	search(searchFor,inTable);
 });
+
 
 function search( query, tableBody)
 {	
@@ -115,6 +138,18 @@ function handleSpeaker(data){
 		var labelHtml = "<button class='clear-label btn btn-block btn-warning btn-clear'><a href='?m=create' class='clear btn-clear'>Cancel Changes</a></button>";
 		$("#create_speaker_form").append(labelHtml);
 	}
+}
+
+function handleTopic(data){
+
+}
+
+function handleTrack(data){
+
+}
+
+function handleStatus(data){
+	
 }
 
 function appendHandle( element ){

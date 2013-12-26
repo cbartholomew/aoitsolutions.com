@@ -73,6 +73,18 @@ function handlePost($request)
 				handleCreateSpeakerPost($request,$userAccess);
 				return;
 			break;
+			case "create_topic":
+				handleCreateTopicPost($request,$userAccess);
+				return;
+			break;
+			case "create_track":
+				handleCreateTrackPost($request,$userAccess);
+				return;
+			break;
+			case "create_status":
+				handleCreateStatusPost($request,$userAccess);
+				return;
+			break;
 			default:
 				// 
 				unset($request["m"]);

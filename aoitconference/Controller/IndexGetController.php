@@ -159,21 +159,49 @@ function handleCreateGet($request,$userAccess)
 	 *	Topic View Constructor
 	 *
 	 ********************************************************************/
+	array_push($topicViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($topicViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
 	
-		// TODO
+	// apply special arguments to speaker view only
+	$topicViewController = new ViewController(new View("CREATE_INDEX_TOPIC_VIEW",
+														 "Create/CREATE_INDEX_TOPIC_VIEW.php",
+														 $topicViewArguments));
+														
+	// create topic view html													
+	$topicCreateViewHTML = $topicViewController->renderViewHTML(false,false);
+	
+	
 	/********************************************************************
 	 *
 	 *	Track View Constructor
 	 *
 	 ********************************************************************/
-		// TODO
-		
+	array_push($trackViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($trackViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+
+	// apply special arguments to speaker view only
+	$trackViewController = new ViewController(new View("CREATE_INDEX_TRACK_VIEW",
+														 "Create/CREATE_INDEX_TRACK_VIEW.php",
+														 $trackViewArguments));
+
+	// create topic view html													
+	$trackCreateViewHTML = $trackViewController->renderViewHTML(false,false);
+	
 	/********************************************************************
 	 *
 	 *	Status View Constructor
 	 *  
 	 ********************************************************************/
-		// TODO
+	array_push($statusViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($statusViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+
+	// apply special arguments to speaker view only
+	$statusViewController = new ViewController(new View("CREATE_INDEX_STATUS_VIEW",
+														 "Create/CREATE_INDEX_STATUS_VIEW.php",
+														 $statusViewArguments));
+
+	// create topic view html													
+	$statusCreateViewHTML = $statusViewController->renderViewHTML(false,false);
 		
 	// display message text to user based on if they are logged in or not
 	$headerText = "Account";
@@ -209,8 +237,11 @@ function handleCreateGet($request,$userAccess)
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"	,$viewHtml));
 	array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"		,$speakerCreateViewHTML));
  	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW",$speakerListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TOPIC_VIEW"		,$topicCreateViewHTML));
 	array_push($arguments,View::MakeViewArgument("TOPIC_LIST_VIEW"	,$topicListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TRACK_VIEW"		,$trackCreateViewHTML));
 	array_push($arguments,View::MakeViewArgument("TRACK_LIST_VIEW"	,$trackListViewHTML));
+	array_push($arguments,View::MakeViewArgument("STATUS_VIEW"		,$statusCreateViewHTML));
 	array_push($arguments,View::MakeViewArgument("STATUS_LIST_VIEW"	,$statusListViewHTML));
 		
 	// create new view controller

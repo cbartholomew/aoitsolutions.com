@@ -27,9 +27,9 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
         <ul class="dropdown-menu">
 	 	  <li><a href="../aoitconference/">Home</a></li>
-          <li><a href="?m=create">Create</a></li>
-          <li><a href="#">Manage</a></li>
-          <li><a href="#">Launch</a></li>
+          <li><a href="?m=create">Create Attributes</a></li>
+          <li><a href="#">Manage Conferences</a></li>
+          <li><a href="#">Launch Agenda</a></li>
           <li class="divider"></li>
           <li><a href="#">About AOIT Conference</a></li>
         </ul>
