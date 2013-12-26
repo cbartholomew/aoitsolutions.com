@@ -21,7 +21,29 @@ class TopicController
 		}
 		
 		return $topics;
-	}	
+	}
+		
+	public static function GetById($topic)
+	{
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["GET_BY_ID"]);
+				
+			$rows = query($query,$topic->_accountIdentity,$topic->_topicIdentity);
+				
+			foreach($rows as $row)
+			{	
+				$topic = new Topic($row);		
+				break;		
+			}
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+		
+		return $topic;
+	}
 		
 	public static function Post($topic)
 	{
@@ -86,9 +108,17 @@ class TopicController
 			"FROM",
 			"TOPIC",
 			"WHERE",
+			"ACCOUNT_IDENTITY = ?"
+		),
+		"GET_BY_ID" => array(
+			"SELECT",
+			"*",
+			"FROM",
+			"TOPIC",
+			"WHERE",
 			"ACCOUNT_IDENTITY = ?",
-			"OR",
-			"ACCOUNT_IDENTITY IS NULL"
+			"AND",
+			"TOPIC_IDENTITY = ?"
 		),
 		"POST"  => array(
 			"INSERT INTO",

@@ -2,7 +2,7 @@
   <input type="hidden" id="m" name="m" value="create_speaker" /> 
   <input type="hidden" id="speaker_identity" name="speaker_identity" value="" /> 
   <input type="hidden" id="speaker_being_updated" value="0" />
-  <input type="hidden" id="method" name="method" value="POST" /> 
+  <input type="hidden" id="speaker_method" name="method" value="POST" /> 
   <div class="form-group">
     <label for="first_name" class="control-label">First Name</label>
     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="John" 		value="#SPEAKER_FIRST_NAME#" required />

@@ -178,6 +178,42 @@ function handleGet($request)
 					return;
 				}
 			break;
+			case "manage_topic":
+				if(CheckAuth($userAccess))
+				{
+					handleManageTopicGet($request,$userAccess);
+					return;
+				}
+				else
+				{
+					NotAuthorized();
+					return;
+				}
+			break;
+			case "manage_track":
+				if(CheckAuth($userAccess))
+				{
+					handleManageTrackGet($request,$userAccess);
+					return;
+				}
+				else
+				{
+					NotAuthorized();
+					return;
+				}
+			break;
+			case "manage_status":
+				if(CheckAuth($userAccess))
+				{
+					handleManageStatusGet($request,$userAccess);
+					return;
+				}
+				else
+				{
+					NotAuthorized();
+					return;
+				}
+			break;
 			default:
 				// unset request
 				unset($request["m"]);

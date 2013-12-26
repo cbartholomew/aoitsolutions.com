@@ -58,7 +58,7 @@ function handleSpeaker(data){
 	var speaker = data["speaker"];
 	var social 	= data["speakerSocial"];
 	$("#speaker_identity").val(speaker["_speakerIdentity"]);
-	$("#method").val("PUT");
+	$("#speaker_method").val("PUT");
 	$("#first_name").val(speaker["_firstName"]);
 	$("#public option[value='" + speaker["_public"] + "']").attr("selected","selected");
 	$("#last_name").val(speaker["_lastName"]);
@@ -78,23 +78,44 @@ function handleSpeaker(data){
 	});
 	$(".btn-speaker-submit").text("Save Changes to Speaker");
 	$("#speaker_being_updated").val("1");
-	
-	if($(".clear-label").length == 0) {
-		var labelHtml = "<button class='clear-label btn btn-block btn-warning btn-clear'><a href='?m=create' class='clear btn-clear'>Cancel Changes</a></button>";
-		$("#create_speaker_form").append(labelHtml);
-	}
+	appendCancelButton($("#create_speaker_form"),"btn-speaker-clear","speaker");
 }
 
 function handleTopic(data){
-
+	var topic = data["topic"];
+	$("#topic_identity").val(topic["_topicIdentity"]);
+	$("#topic_method").val("PUT");
+	$("#topic_name").val(topic["_name"]);
+	$(".btn-topic-submit").text("Save Changes to Topic");
+	appendCancelButton($("#create_topic_form"),"btn-topic-clear","topic");
 }
 
 function handleTrack(data){
-
+	var track = data["track"];
+	$("#track_identity").val(track["_trackIdentity"]);
+	$("#track_method").val("PUT");
+	$("#track_name").val(track["_name"]);
+	$(".btn-track-submit").text("Save Changes to Track");
+	appendCancelButton($("#create_track_form"),"btn-track-clear","track");
 }
 
 function handleStatus(data){
-	
+	var status = data["status"];
+	$("#status_identity").val(status["_statusIdentity"]);
+	$("#status_method").val("PUT");
+	$("#status_name").val(status["_name"]);
+	$(".btn-status-submit").text("Save Changes to Status");
+	appendCancelButton($("#create_status_form"),"btn-status-clear","newstatus");
+}
+
+function appendCancelButton(currentForm, cancelElementId, returnTo)
+{
+	if($("#" + cancelElementId).length == 0) {
+		var labelHtml = "<a id='" + cancelElementId + "' class='clearn clear-label btn btn-block btn-warning btn-clear' " + 
+		"href='?m=create&return=" + returnTo + "'>Cancel Changes</a>";
+			
+		currentForm.append(labelHtml);
+	}				
 }
 
 function appendHandle( element ){

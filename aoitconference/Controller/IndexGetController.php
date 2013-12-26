@@ -73,6 +73,13 @@ function handleAccountLoginGet($request)
 	print $reg_view->renderViewHTML(true,true);
 }
 
+function handleAccountSignoutGet($request)
+{
+	// unset the header
+	unset($request["m"]);
+	Signout();
+}
+
 function handleAccountRegistrationGet($request)
 {
 	// make arguments array to hold new view arguments
@@ -90,8 +97,79 @@ function handleAccountRegistrationGet($request)
 	print $reg_view->renderViewHTML(true,true);	
 }
 
+function handleSocialModalGet($request)
+{
+	// pass default "add" text to modal unless it's an updated
+	$socialAction = "Add";
+	// view arguments array
+	$arguments = array();
+	// get the social id that was requested
+	$socialIdentity  = (isset($request["social"])) ? $request["social"]   : null;
+	// if there is a speaker value set - return the speaker information
+	$speakerIdentity = (isset($request["speaker"])) ? $request["speaker"] : null;	
+	// handle
+	$incomingHandle  =  (isset($request["handle"]))  ? $request["handle"]  : "";
+	// profile url
+	$incomingProfile  =  (isset($request["profile"])) ? $request["profile"] : "";
+	// viewability 
+	$incomingViewable =  (isset($request["public"]))  ? $request["public"]  : "";
+	// handle checked or not checked
+	$incomingViewable =  ($incomingViewable == "1") ? "checked" : "";
+	
+	// make update network if it's an update
+	if($incomingHandle != "" || isset($speakerIdentity)) 
+	{
+		$socialAction = "Update";
+	}
+	
+	// speaker modal view
+	$socialModalViewHTML  = "";
+
+	// Get the speaker social items
+	$socialType = SocialTypeController::GetById(new SocialType(array(
+		"SOCIAL_TYPE_IDENTITY" => $socialIdentity,
+		"NAME"				   => null,
+		"ICO_URL"			   => null,
+		"URL"				   => null,
+		"BANNER_URL"		   => null,
+		"PLACEHOLDER_A"		   => null
+	)));
+
+	// push arguments 
+	array_push($arguments,View::MakeViewArgument("SOCIAL_HEADER_LOGO",$socialType->_icoUrl));
+	array_push($arguments,View::MakeViewArgument("SOCIAL_HEADER_TYPE",$socialType->_name));
+	array_push($arguments,View::MakeViewArgument("SOCIAL_PLACEHOLDER_A",$socialType->_placeHolderA));
+	array_push($arguments,View::MakeViewArgument("SOCIAL_URL",$socialType->_url));
+	
+	// these are for the callback
+	array_push($arguments,View::MakeViewArgument("SOCIAL_HANDLE" ,$incomingHandle));
+	array_push($arguments,View::MakeViewArgument("SOCIAL_PROFILE",$incomingProfile));
+	array_push($arguments,View::MakeViewArgument("SOCIAL_PUBLIC" ,$incomingViewable));
+	array_push($arguments,View::MakeViewArgument("SOCIAL_ACTION", $socialAction));
+	// apply special arguments to speaker view only
+	$socialModalViewController = new ViewController(new View("CREATE_INDEX_SOCIAL_VIEW","Create/CREATE_INDEX_SOCIAL_VIEW.php",$arguments));
+
+	// speaker create view html
+	$socialModalViewHTML = $socialModalViewController->renderViewHTML(false,false);
+
+	print $socialModalViewHTML;
+}
+
 function handleCreateGet($request,$userAccess)
 {
+	// override render and go straight to the correct url w/ the pound appended to it
+	if(isset($request["return"]))
+	{
+		// get the return to address
+		$returnTo = $request["return"];
+		// unset the return 
+		unset($request["return"]);
+		// redirect the user and override the render
+		Redirect("?m=create" . "#" . $returnTo);
+		// exit
+		exit;
+	}
+	
 	// new array to hold all arguments for index view
 	$arguments = array();	
 	// new array to hold the view arguments for each view
@@ -231,6 +309,7 @@ function handleCreateGet($request,$userAccess)
 	$trackListViewHTML 	 = GetTrackListViewHTML($userAccess);
 	// get status list view html 
 	$statusListViewHTML  = GetStatusListViewHTML($userAccess);
+
 	
 	// push on to the argument stack
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"	,$headerText));
@@ -286,7 +365,6 @@ function handleManageSpeakerGet($request,$userAccess)
 	
 	// make new associative array
 	$result = array(
-		"status" => 200,
 		"speaker" => $speaker,
 		"speakerSocial" => $speakerSocialList 
 	);
@@ -298,63 +376,87 @@ function handleManageSpeakerGet($request,$userAccess)
 	exit;
 }
 
-function handleSocialModalGet($request)
+function handleManageTopicGet($request,$userAccess)
 {
-	// pass default "add" text to modal unless it's an updated
-	$socialAction = "Add";
-	// view arguments array
-	$arguments = array();
-	// get the social id that was requested
-	$socialIdentity  = (isset($request["social"])) ? $request["social"]   : null;
-	// if there is a speaker value set - return the speaker information
-	$speakerIdentity = (isset($request["speaker"])) ? $request["speaker"] : null;	
-	// handle
-	$incomingHandle  =  (isset($request["handle"]))  ? $request["handle"]  : "";
-	// profile url
-	$incomingProfile  =  (isset($request["profile"])) ? $request["profile"] : "";
-	// viewability 
-	$incomingViewable =  (isset($request["public"]))  ? $request["public"]  : "";
-	// handle checked or not checked
-	$incomingViewable =  ($incomingViewable == "1") ? "checked" : "";
-	
-	// make update network if it's an update
-	if($incomingHandle != "" || isset($speakerIdentity)) 
-	{
-		$socialAction = "Update";
-	}
-	
-	// speaker modal view
-	$socialModalViewHTML  = "";
-
-	// Get the speaker social items
-	$socialType = SocialTypeController::GetById(new SocialType(array(
-		"SOCIAL_TYPE_IDENTITY" => $socialIdentity,
-		"NAME"				   => null,
-		"ICO_URL"			   => null,
-		"URL"				   => null,
-		"BANNER_URL"		   => null,
-		"PLACEHOLDER_A"		   => null
+	// get topic information
+	$topic = TopicController::GetById(new Topic(array(
+		"TOPIC_IDENTITY"	=> $request["identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> null
 	)));
-
-	// push arguments 
-	array_push($arguments,View::MakeViewArgument("SOCIAL_HEADER_LOGO",$socialType->_icoUrl));
-	array_push($arguments,View::MakeViewArgument("SOCIAL_HEADER_TYPE",$socialType->_name));
-	array_push($arguments,View::MakeViewArgument("SOCIAL_PLACEHOLDER_A",$socialType->_placeHolderA));
-	array_push($arguments,View::MakeViewArgument("SOCIAL_URL",$socialType->_url));
 	
-	// these are for the callback
-	array_push($arguments,View::MakeViewArgument("SOCIAL_HANDLE" ,$incomingHandle));
-	array_push($arguments,View::MakeViewArgument("SOCIAL_PROFILE",$incomingProfile));
-	array_push($arguments,View::MakeViewArgument("SOCIAL_PUBLIC" ,$incomingViewable));
-	array_push($arguments,View::MakeViewArgument("SOCIAL_ACTION", $socialAction));
-	// apply special arguments to speaker view only
-	$socialModalViewController = new ViewController(new View("CREATE_INDEX_SOCIAL_VIEW","Create/CREATE_INDEX_SOCIAL_VIEW.php",$arguments));
-
-	// speaker create view html
-	$socialModalViewHTML = $socialModalViewController->renderViewHTML(false,false);
-
-	print $socialModalViewHTML;
+	// return json instead of re-rendering
+	header('Content-type: application/json');
+	
+	// remove account identity, should be secret (for the most part)
+	$topic->_accountIdentity = "private";
+	
+	// make new result
+	$result = array(
+		"topic" => $topic
+	);
+	
+	// return the result in json format
+	print json_encode($result);
+	
+	// exit
+	exit;
 }
+
+function handleManageTrackGet($request,$userAccess)
+{
+	// get track information
+	$track = TrackController::GetById(new Track(array(
+		"TRACK_IDENTITY"	=> $request["identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> null
+	)));
+	
+	// return json instead of re-rendering
+	header('Content-type: application/json');
+	
+	// remove account identity, should be secret (for the most part)
+	$track->_accountIdentity = "private";
+	
+	// make new result
+	$result = array(
+		"track" => $track
+	);
+	
+	// return the result in json format
+	print json_encode($result);
+	
+	// exit
+	exit;	
+}
+
+function handleManageStatusGet($request,$userAccess)
+{
+	// get track information
+	$status = StatusController::GetById(new Status(array(
+		"STATUS_IDENTITY"	=> $request["identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> null
+	)));
+	
+	// return json instead of re-rendering
+	header('Content-type: application/json');
+	
+	// remove account identity, should be secret (for the most part)
+	$status->_accountIdentity = "private";
+	
+	// make new result
+	$result = array(
+		"status" => $status
+	);
+	
+	// return the result in json format
+	print json_encode($result);
+	
+	// exit
+	exit;
+}
+
 
 function handlePromptWithActionGet($request,$userAccess)
 {
@@ -401,12 +503,6 @@ function handlePromptWithActionGet($request,$userAccess)
 	
 }
 
-function handleAccountSignoutGet($request)
-{
-	// unset the header
-	unset($request["m"]);
-	Signout();
-}
 
 
 

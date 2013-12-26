@@ -21,6 +21,28 @@ class TrackController
 		}
 		
 		return $tracks;
+	}
+	
+	public static function GetById($track)
+	{
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["GET_BY_ID"]);
+				
+			$rows = query($query,$track->_accountIdentity,$track->_trackIdentity);
+				
+			foreach($rows as $row)
+			{	
+				$track = new Track($row);		
+				break;		
+			}
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+		
+		return $track;
 	}	
 		
 	public static function Post($track)
@@ -86,9 +108,16 @@ class TrackController
 			"FROM",
 			"TRACK",
 			"WHERE",
+			"ACCOUNT_IDENTITY = ?"
+		),"GET_BY_ID" => array(
+			"SELECT",
+			"*",
+			"FROM",
+			"TRACK",
+			"WHERE",
 			"ACCOUNT_IDENTITY = ?",
-			"OR",
-			"ACCOUNT_IDENTITY IS NULL"
+			"AND",
+			"TRACK_IDENTITY = ?"
 		),
 		"POST"  => array(
 			"INSERT INTO",

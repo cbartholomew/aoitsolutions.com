@@ -22,7 +22,29 @@ class StatusController
 		
 		return $statuses;
 	}	
+	
+	public static function GetById($status)
+	{
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["GET_BY_ID"]);
+				
+			$rows = query($query,$status->_accountIdentity,$status->_statusIdentity);
+				
+			foreach($rows as $row)
+			{	
+				$status = new Status($row);		
+				break;		
+			}
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+		}
 		
+		return $status;
+	}
+	
 	public static function Post($status)
 	{
 		try
@@ -87,6 +109,16 @@ class StatusController
 			"STATUS",
 			"WHERE",
 			"ACCOUNT_IDENTITY = ?"
+		),
+		"GET_BY_ID" => array(
+			"SELECT",
+			"*",
+			"FROM",
+			"STATUS",
+			"WHERE",
+			"ACCOUNT_IDENTITY = ?",
+			"AND",
+			"STATUS_IDENTITY = ?"
 		),
 		"POST"  => array(
 			"INSERT INTO",
