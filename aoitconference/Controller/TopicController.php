@@ -89,8 +89,8 @@ class TopicController
 			$query = implode(" ",self::$sqlQueries["DELETE"]);
 
 			query($query,
-				$topic->_accountIdentity,
-				$topic->_topicIdentity);
+				$topic->_topicIdentity,
+				$topic->_accountIdentity);
 		}
 		catch(Exception $e)
 		{
@@ -144,7 +144,7 @@ class TopicController
 			"AND",
 			"ACCOUNT_IDENTITY = ?",
 			"AND",
-			"ACCOUNT_IDENTITY IS NOT NULL" 
+			"ACCOUNT_IDENTITY IS NOT NULL"
 		)	
 	);
 }

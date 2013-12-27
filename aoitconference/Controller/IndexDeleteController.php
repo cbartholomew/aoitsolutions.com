@@ -45,4 +45,77 @@ function handleCreateSpeakerDelete($request,$userAccess)
 		BadRequest();		
 	}
 }
+
+function handleCreateTopicDelete($request,$userAccess)
+{
+	// create a new speaker in the database
+	$topic = new Topic(array(
+		"TOPIC_IDENTITY"	=> $request["topic_identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> null
+	));
+	
+	// set return to path
+	$returnTo = "#" . $request["return"];
+	
+	// insert the new speaker
+	if(TopicController::Delete($topic))
+	{
+		// return back to the tab
+		Redirect("?m=create". $returnTo);
+	}
+	else
+	{
+		BadRequest();		
+	}
+}
+
+function handleCreateTrackDelete($request,$userAccess)
+{
+	// create a new speaker in the database
+	$track = new Track(array(
+		"TRACK_IDENTITY"	=> $request["track_identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> null
+	));
+	
+	// set return to path
+	$returnTo = "#" . $request["return"];
+	
+	// insert the new speaker
+	if(TrackController::Delete($track))
+	{
+		// return back to the tab
+		Redirect("?m=create". $returnTo);
+	}
+	else
+	{
+		BadRequest();		
+	}
+}
+
+function handleCreateStatusDelete($request,$userAccess)
+{
+	// create a new speaker in the database
+	$status = new Status(array(
+		"STATUS_IDENTITY"	=> $request["status_identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"				=> null
+	));
+	
+	// set return to path
+	$returnTo = "#newstatus";
+	
+	// insert the new speaker
+	if(StatusController::Delete($status))
+	{
+		// return back to the tab
+		Redirect("?m=create". $returnTo);
+	}
+	else
+	{
+		BadRequest();		
+	}
+}
+
 ?>

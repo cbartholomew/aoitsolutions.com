@@ -1,4 +1,10 @@
-<?php	
+<?php
+/*
+ * $view = new View(
+	"INDEX_VIEW",
+	"Index/INDEX_VIEW.php",
+	$array_arguments)	
+ */
 class View
 {
 	public $_viewName;

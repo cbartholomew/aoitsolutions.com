@@ -1,4 +1,17 @@
 <?php	
+/*
+ *	$speaker = new Speaker(array(
+ *		"SPEAKER_IDENTITY" =>  null,
+ *		"ACCOUNT_IDENTITY" =>  $userAccess->_accountIdentity,
+ *		"FIRST_NAME"	   =>  null,
+ *		"LAST_NAME"   	   =>  null,
+ *		"EMAIL_ADDRESS"    =>  null,
+ *		"PUBLIC"		   =>  null,
+ *		"STATUS"		   =>  null,
+ *		"COMPANY"		   =>  null,
+ *		"JOB_TITLE"		   =>  null
+ *	));
+ */
 class Speaker
 {
 	public $_speakerIdentity;

@@ -89,8 +89,8 @@ class TrackController
 			$query = implode(" ",self::$sqlQueries["DELETE"]);
 
 			query($query,
-				$track->_accountIdentity,
-				$track->_trackIdentity);
+				$track->_trackIdentity,
+				$track->_accountIdentity);
 		}
 		catch(Exception $e)
 		{

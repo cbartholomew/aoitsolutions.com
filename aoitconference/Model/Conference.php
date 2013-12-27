@@ -1,4 +1,14 @@
 <?php
+/*
+ * $conference = new Conference(array(
+ * 	"CONFERENCE_IDENTITY" => null,
+ * 	"ACCOUNT_IDENTITY"    => $userAccess->_accountIdentity,
+ * 	"NAME"                => null,
+ * 	"START_DATE"          => null,
+ * 	"END_DATE"            => null,
+ * 	"NUMBER_OF_DAYS"	  => null
+ * ));
+*/
 class Conference
 {
 	public $_conferenceIdentity;

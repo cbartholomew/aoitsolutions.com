@@ -457,7 +457,6 @@ function handleManageStatusGet($request,$userAccess)
 	exit;
 }
 
-
 function handlePromptWithActionGet($request,$userAccess)
 {
 	// view arguments array
@@ -494,7 +493,11 @@ function handlePromptWithActionGet($request,$userAccess)
 	$promptView = GetPromptPath($userAction);
 	
 	// render new view controller with specific view
-	$promptModalViewController = new ViewController(new View($promptView["name"],$promptView["filePath"],$arguments));	
+	$promptModalViewController = new ViewController(new View(
+		$promptView["name"],
+		$promptView["filePath"],
+		$arguments
+	));	
 	
 	// render the object data
 	$promptHTML = $promptModalViewController->renderViewHTML(false,false);

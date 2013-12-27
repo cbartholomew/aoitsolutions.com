@@ -26,9 +26,9 @@
 			<button type="button" class="btn btn-block btn-danger" data-dismiss="modal" onclick="">No, Cancel</button>
 		</div>
 		<div class="col-sm-6">
-			<form id="create_speaker_form" class="form" role="form" action="index.php" method="POST">
-			  <input type="hidden" id="m" name="m" value="delete_speaker" /> 
-			  <input type="hidden" id="speaker_identity" name="speaker_identity" value="#MODAL_OBJECT_IDENTITY#" /> 
+			<form id="delete_#MODAL_OBJECT_TYPE#_form" class="form" role="form" action="index.php" method="POST">
+			  <input type="hidden" id="m" name="m" value="delete_#MODAL_OBJECT_TYPE#" /> 
+			  <input type="hidden" id="#MODAL_OBJECT_TYPE#_identity" name="#MODAL_OBJECT_TYPE#_identity" value="#MODAL_OBJECT_IDENTITY#" /> 
 			  <input type="hidden" id="method" name="method" value="DELETE" />
 			  <input type="hidden" id="return" name="return" value="#MODAL_OBJECT_TYPE#" />
 			  <button type="submit" class="btn btn-block btn-success" id="#MODAL_OBJECT_IDENTITY#">Yes, Remove</button>

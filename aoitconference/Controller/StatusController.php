@@ -89,8 +89,8 @@ class StatusController
 			$query = implode(" ",self::$sqlQueries["DELETE"]);
 
 			query($query,
-				$status->_accountIdentity,
-				$status->_statusIdentity);
+				$status->_statusIdentity,
+				$status->_accountIdentity);
 		}
 		catch(Exception $e)
 		{

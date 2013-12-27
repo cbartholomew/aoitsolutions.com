@@ -1,4 +1,15 @@
 <?php
+/*
+ *	$account = new Account(array(
+ *		"IDENTITY"					=> null,
+ *		"EMAIL_ADDRESS" 			=> null,
+ *		"FIRST_NAME" 				=> null,
+ *		"LAST_NAME"  				=> null,
+ *		"ORGANIZATION_NAME" 		=> null,
+ *		"ACCOUNT_TYPE_IDENTITY"  	=> null,
+ *		"ACCOUNT_DISABLED" 			=> null
+ *	));
+ */
 class Account
 {
 	public $_identity;

@@ -157,7 +157,10 @@ function handleGet($request)
 				}
 				// I don't want it to loop back to the modal
 				$request["m"] = "create";
-			case "delete_speaker":
+			case "delete_speaker"	:
+			case "delete_topic"		:
+			case "delete_track"		:
+			case "delete_status"	:
 				if(CheckAuth($userAccess))
 				{
 					handlePromptWithActionGet($request,$userAccess);
@@ -273,6 +276,18 @@ function handlePut($request)
 				handleCreateSpeakerPut($request,$userAccess);
 				return;
 			break;
+			case "create_topic":
+				handleCreateTopicPut($request,$userAccess);
+				return;           
+			break;                
+			case "create_track":  
+				handleCreateTrackPut($request,$userAccess);
+				return;           
+			break;                
+			case "create_status": 
+				handleCreateStatusPut($request,$userAccess);
+				return;
+			break;
 			default:
 				// 
 				unset($request["m"]);
@@ -322,6 +337,18 @@ function handleDelete($request)
 		{
 			case "delete_speaker":
 				handleCreateSpeakerDelete($request,$userAccess);
+				return;
+			break;
+			case "delete_topic":
+				handleCreateTopicDelete($request,$userAccess);
+				return;
+			break;
+			case "delete_track":
+				handleCreateTrackDelete($request,$userAccess);
+				return;
+			break;
+			case "delete_status":
+				handleCreateStatusDelete($request,$userAccess);
 				return;
 			break;
 			default:

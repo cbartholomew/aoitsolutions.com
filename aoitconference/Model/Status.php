@@ -1,4 +1,11 @@
 <?php
+/*
+ *	$status = new Status(array(
+ *		"STATUS_IDENTITY"	=> null,
+ *		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+ *		"NAME"				=> null
+ *	));
+ */
 class Status
 {
 	public $_statusIdentity;

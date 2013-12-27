@@ -18,7 +18,6 @@
 		}
 	}
 	
-	
 	function PostSessionIdentity($userAccess)
 	{
 		if(!UserAccessController::Post($userAccess))
@@ -116,10 +115,7 @@
 		// session ok
 		return true;
 	}	
-	/**
-     * Logs out current user, if any.  Based on Example #1 at
-     * http://us.php.net/manual/en/function.session-destroy.php.
-     */
+
     function Signout()
     {
         // unset any session variables
@@ -455,21 +451,26 @@
 	
 	function GetPromptObject($userAccess, $requestAction, $requestType, $requestIdentity)
 	{
+		$arguments = array();
+		
+		$modalObject = null;
 		$modalObjectName = "";
 		$modalObjectType = "";
 		$modalObjectInformation = "";
 		$modalObjectIdentity	= "";
 		$modalObjectAction		= "";
 		
+		// assign variables
+		$modalObjectType   		= $requestType;
+		$modalObjectAction 		= $requestAction;
+		$modalObjectIdentity	= $requestIdentity;
+		
+			
 		switch($requestType)
 		{
 			case "speaker":
-				$modalObjectType   		= $requestType;
-				$modalObjectAction 		= $requestAction;
-				$modalObjectIdentity	= $requestIdentity;
-				
 				// get speaker from controller
-				$speaker = SpeakerController::GetById(new Speaker(array(
+				$modalObject = SpeakerController::GetById(new Speaker(array(
 					"SPEAKER_IDENTITY"	 => $requestIdentity,
 					"ACCOUNT_IDENTITY"   => $userAccess->_accountIdentity,
 					"FIRST_NAME"	     => null,
@@ -481,9 +482,9 @@
 					"JOB_TITLE"	         => null
 				)));
 				
-				if(isset($speaker))
+				if(isset($modalObject))
 				{
-					$modalObjectName   = $speaker->_firstName . " " . $speaker->_lastName;
+					$modalObjectName   = $modalObject->_firstName . " " . $modalObject->_lastName;
 					
 					// create the request action
 					switch($requestAction)
@@ -496,23 +497,133 @@
 						break;
 					}
 					
-					$modalObjectInformation .= "<table class='table table-striped'>";
-					$modalObjectInformation .= "<tr>";
-					$modalObjectInformation .= "<th>First Name</th>";
-					$modalObjectInformation .= "<th>Last Name</th>";
-					$modalObjectInformation .= "<th>Email Address</th>";
-					$modalObjectInformation .= "<th>Identity</th>";
-					$modalObjectInformation .= "</tr>";
-					$modalObjectInformation .= "<tr>";
-					$modalObjectInformation .= "<td>" . $speaker->_firstName    . "</td>";
-					$modalObjectInformation .= "<td>" . $speaker->_lastName     . "</td>";
-					$modalObjectInformation .= "<td>" . $speaker->_emailAddress . "</td>";
-					$modalObjectInformation .= "<td>" . $requestIdentity 		. "</td>";
-					$modalObjectInformation .= "</tr>";
-					$modalObjectInformation .= "</table>";	
+					// push the view arguments in the array
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_FIRST_NAME",$modalObject->_firstName));
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_LAST_NAME",$modalObject->_lastName));
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_EMAIL_ADDRESS",$modalObject->_emailAddress));
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_REQUEST_IDENTITY",$requestIdentity));
+					
+					// apply special arguments to speaker list view
+					$modalViewController = new ViewController(
+						new View("DELETE_SPEAKER_MODAL_VIEW",
+								 "Delete/DELETE_SPEAKER_TABLE_VIEW.php",
+								 $arguments));
+					
+					// get the html from the view controller
+					$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
 				}
 			break;
-			
+			case "topic":
+				// get topic information
+				$modalObject = TopicController::GetById(new Topic(array(
+					"TOPIC_IDENTITY"	=> $requestIdentity,
+					"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+					"NAME"				=> null
+				)));
+				
+				if(isset($modalObject))
+				{
+					$modalObjectName   = $modalObject->_name;
+					
+					// create the request action
+					switch($requestAction)
+					{
+						case "delete":
+							$modalObjectAction = "purge(this);";  
+						break;
+						case "alert":
+							$modalObjectAction = "alertUser(this);";  
+						break;
+					}
+					
+					// push the view arguments in the array
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME",$modalObject->_name));
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_REQUEST_IDENTITY",$requestIdentity));
+					
+					// apply special arguments to speaker list view
+					$modalViewController = new ViewController(
+						new View("DELETE_TOPIC_TABLE_VIEW",
+								 "Delete/DELETE_TOPIC_TABLE_VIEW.php",
+								 $arguments));
+					
+					// get the html from the view controller
+					$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
+				}
+			break;
+			case "track":
+				// get topic information
+				$modalObject = TrackController::GetById(new Track(array(
+					"TRACK_IDENTITY"	=> $requestIdentity,
+					"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+					"NAME"				=> null
+				)));
+				
+				if(isset($modalObject))
+				{
+					$modalObjectName   = $modalObject->_name;
+					
+					// create the request action
+					switch($requestAction)
+					{
+						case "delete":
+							$modalObjectAction = "purge(this);";  
+						break;
+						case "alert":
+							$modalObjectAction = "alertUser(this);";  
+						break;
+					}
+					
+					// push the view arguments in the array
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME",$modalObject->_name));
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_REQUEST_IDENTITY",$requestIdentity));
+					
+					// apply special arguments to speaker list view
+					$modalViewController = new ViewController(
+						new View("DELETE_TRACK_TABLE_VIEW",
+								 "Delete/DELETE_TRACK_TABLE_VIEW.php",
+								 $arguments));
+					
+					// get the html from the view controller
+					$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
+				}
+			break;
+			case "status":
+				// get topic information
+				$modalObject = StatusController::GetById(new Status(array(
+					"STATUS_IDENTITY"	=> $requestIdentity,
+					"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+					"NAME"				=> null
+				)));
+				
+				if(isset($modalObject))
+				{
+					$modalObjectName   = $modalObject->_name;
+					
+					// create the request action
+					switch($requestAction)
+					{
+						case "delete":
+							$modalObjectAction = "purge(this);";  
+						break;
+						case "alert":
+							$modalObjectAction = "alertUser(this);";  
+						break;
+					}
+					
+					// push the view arguments in the array
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME",$modalObject->_name));
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_REQUEST_IDENTITY",$requestIdentity));
+					
+					// apply special arguments to speaker list view
+					$modalViewController = new ViewController(
+						new View("DELETE_STATUS_TABLE_VIEW",
+								 "Delete/DELETE_STATUS_TABLE_VIEW.php",
+								 $arguments));
+					
+					// get the html from the view controller
+					$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
+				}
+			break;
 		}
 		
 		return array(

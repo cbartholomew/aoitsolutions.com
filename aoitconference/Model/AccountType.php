@@ -1,4 +1,11 @@
 <?php
+/*
+ * $accountType = new AccountType(array(
+ * 	"ACCOUNT_TYPE_IDENTITY" => null,
+ * 	"NAME"                  => null,
+ * 	"ENABLED"               => null
+ * ));
+ */
 class AccountType
 {
 	public $_typeIdentity;

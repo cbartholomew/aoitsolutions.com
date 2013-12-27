@@ -22,14 +22,7 @@ function handleCreateSpeakerPut($request,$userAccess)
 	
 	// update the social types
 	$socialTypes = SocialTypeController::Get();
-	
-	/* 
-	 * instead of updating individual ones - delete all and insert new ones
-	 * that come in with the request. This is more cleaner than updating individual ones
-	 * especially when user removes one after insert is there. 
-	 */
-	SpeakerSocialController::DeleteAllById($newSpeaker);
-	
+
 	// handle social network update and inserts
 	foreach($socialTypes as $socialType)
 	{
@@ -37,30 +30,44 @@ function handleCreateSpeakerPut($request,$userAccess)
 		{
 			// check if user has this social type
 			$speakerSocial = SpeakerSocialController::GetByIdAndType($newSpeaker, $socialType);
-		
+			
 			// get the listed network name
 			$network = $socialType->_name;
-		
+			
 			// get each property that was provided
 			$handle  = $request[$network . "_handle"];
 			$profile = $request[$network . "_url"];
 			$public  = $request[$network . "_is_public"];
 			
-			// insert social network, assume it's new
-			$speakerSocialType = new SpeakerSocial(array(
-				"SPEAKER_SOCIAL_IDENTITY" 	=> null,
-				"SPEAKER_IDENTITY"			=> $newSpeaker->_speakerIdentity,
-				"SOCIAL_TYPE_IDENTITY"		=> $socialType->_socialTypeIdentity,
-				"HANDLE"					=> $handle,
-				"PROFILE_URL"				=> $profile,
-				"IS_VIEWABLE"				=> $public
-			));
-			
-			// insert social network associated to the speaker identity
-			SpeakerSocialController::Post($speakerSocialType);
-		}
+			// if user has this social type - update
+			if(isset($speakerSocial))
+			{
+				// set new properties 
+				$speakerSocial->_handle 	= $handle;
+				$speakerSocial->_profileUrl = $profile;
+				$speakerSocial->_isViewable = $public;
+				
+				// update the social network
+				SpeakerSocialController::Put($speakerSocial);
+			}
+			else
+			{
+				// insert social network, it looks as though it's new
+				$speakerSocialType = new SpeakerSocial(array(
+					"SPEAKER_SOCIAL_IDENTITY" 	=> null,
+					"SPEAKER_IDENTITY"			=> $newSpeaker->_speakerIdentity,
+					"SOCIAL_TYPE_IDENTITY"		=> $socialType->_socialTypeIdentity,
+					"HANDLE"					=> $handle,
+					"PROFILE_URL"				=> $profile,
+					"IS_VIEWABLE"				=> $public
+				));
+				
+				// insert social network associated to the speaker identity
+				SpeakerSocialController::Post($speakerSocialType);
+			}
+		}	
 	}
-		
+	
 	Redirect("?m=create#speaker");	
 }
 
@@ -68,7 +75,7 @@ function handleCreateTopicPut($request,$userAccess)
 {	
 	// init new topic
 	$topic = new Topic(array(
-		"TOPIC_IDENTITY"	=> $request["topic_identity"],
+		"TOPIC_IDENTITY"	=> $request["identity"],
 		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
 		"NAME"				=> $request["topic_name"]
 	));
@@ -82,35 +89,15 @@ function handleCreateTopicPut($request,$userAccess)
 
 function handleCreateTrackPut($request,$userAccess)
 {
-	// init new topic
-	$track = new Track(array(
-		"TOPIC_IDENTITY"	=> $request["track_identity"],
-		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
-		"NAME"				=> $request["track_name"]
-	));
 	
-	// update the topic 
-	TrackController::Put($track);
-	
-	// redirect user back to the correct tab
-	Redirect("?m=create#track");
 	
 }
 
 function handleCreateStatusPut($request,$userAccess)
 {
-	// init new topic
-	$status = new Status(array(
-		"STATUS_IDENTITY"	=> $request["status_identity"],
-		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
-		"NAME"				=> $request["status_name"]
-	));
 	
-	// update the topic 
-	StatusController::Put($status);
 	
-	// redirect user back to the correct tab
-	Redirect("?m=create#newstatus");
+	
 }
 
 ?>

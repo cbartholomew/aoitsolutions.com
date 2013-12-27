@@ -1,4 +1,11 @@
 <?php
+/*
+ * $topic = new Topic(array(
+ * 		"TOPIC_IDENTITY"	=> null,
+ * 		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+ * 		"NAME"				=> null
+ * ));
+ */
 class Topic
 {
 	public $_topicIdentity;

@@ -1,4 +1,24 @@
 <?php
+/*
+ * $conferenceEvent = new ConferenceEvent(array(
+ * 		"EVENT_IDENTITY"		=> null,
+ * 		"CONFERENCE_IDENTITY"   => null,
+ * 		"NAME"                  => null,
+ * 		"PANEL_NAME"            => null,
+ * 		"PUBLIC"                => null,
+ * 		"STATUS_ID"             => null,
+ * 		"TYPE_ID"               => null,
+ * 		"TRACK_ID"              => null,
+ * 		"DAY_NO"                => null,
+ * 		"START_TIME"  	       	=> null,
+ * 		"END_TIME"          	=> null,
+ * 		"ROOM"  	            => null,
+ * 		"HASHTAG"           	=> null,
+ * 		"ABSTRACT"          	=> null,
+ * 		"SUMMARY"          	    => null,
+ * 		"EVENT_FULL"     	    => null
+ * ));
+ */
 class ConferenceEvent
 {
 	public $_eventIdentity;

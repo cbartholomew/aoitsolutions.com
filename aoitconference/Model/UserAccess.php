@@ -1,4 +1,13 @@
 <?php
+/*
+ * 	$userAccess = new UserAccess(array(						
+ *		"USER_ACCESS_INDEX" => null,
+ *		"SESSION" 			=> session_id(), 	
+ *		"CREATED_DTTM" 		=> null,
+ *		"LAST_REQUEST_DTTM" => null,
+ *		"ACCOUNT_IDENTITY" 	=> $account->_identity
+ *	));
+ */
 class UserAccess
 {
 	public $_userAccessIndex;

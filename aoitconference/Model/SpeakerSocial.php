@@ -1,4 +1,14 @@
 <?php
+/*
+ *	$speakerSocial = new SpeakerSocial(array(
+ *		"SPEAKER_SOCIAL_IDENTITY" 	=> null,
+ *		"SPEAKER_IDENTITY"			=> null,
+ *		"SOCIAL_TYPE_IDENTITY"		=> null,
+ *		"HANDLE"					=> null,
+ *		"PROFILE_URL"				=> null,
+ *		"IS_VIEWABLE"				=> null
+ *	));
+ */
 class SpeakerSocial
 {
 	public $_speakerSocialIdentity;

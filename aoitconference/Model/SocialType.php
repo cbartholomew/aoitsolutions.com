@@ -1,4 +1,14 @@
 <?php
+/*
+ * $socialType = new SocialType(array(
+ * 	"SOCIAL_TYPE_IDENTITY"  => null,
+ * 	"NAME"                  => null,
+ * 	"ICO_URL"               => null,
+ * 	"URL"                   => null,
+ * 	"BANNER_URL"            => null,
+ * 	"PLACEHOLDER_A"         => null
+ * ));
+*/
 class SocialType
 {
 	public $_socialTypeIdentity;

@@ -127,6 +127,22 @@ class SpeakerSocialController
 		return true;
 	}
 	
+	public static function DeleteAllById($speakerSocial)
+	{
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["DELETE_ALL_BY_ID"]);
+	
+			query($query,$speakerSocial->_speakerIdentity);
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);			
+			return false;
+		}	
+		return true;
+	}
+	
 	// sql query, done in such a way where it is easier to add fields, if needed
     public static $sqlQueries = array(
 		"GET" 	=> array(
@@ -180,6 +196,12 @@ class SpeakerSocialController
 			"SPEAKER_SOCIAL",
 			"WHERE",
 			"SPEAKER_SOCIAL_IDENTITY = ?"
+		),
+		"DELETE_ALL_BY_ID" => array(
+			"DELETE FROM",
+			"SPEAKER_SOCIAL",
+			"WHERE",
+			"SPEAKER_IDENTITY = ?"
 		)	
 	);
 }
