@@ -12,7 +12,7 @@
  * 		"DAY_NO"                => null,
  * 		"START_TIME"  	       	=> null,
  * 		"END_TIME"          	=> null,
- * 		"ROOM"  	            => null,
+ * 		"ROOM_IDENTITY"  	    => null,
  * 		"HASHTAG"           	=> null,
  * 		"ABSTRACT"          	=> null,
  * 		"SUMMARY"          	    => null,
@@ -32,7 +32,7 @@ class ConferenceEvent
 	public $_dayNo;
 	public $_startTime;
 	public $_endTime;
-	public $_room;
+	public $_roomIdentity;
 	public $_hashTag;
 	public $_abstract;
 	public $_summary;
@@ -51,7 +51,7 @@ class ConferenceEvent
 		$this->_dayNo               = $obj["DAY_NO"];
 		$this->_startTime           = $obj["START_TIME"];
 		$this->_endTime             = $obj["END_TIME"];
-		$this->_room                = $obj["ROOM"];
+		$this->_roomIdentity        = $obj["ROOM_IDENTITY"];
 		$this->_hashTag             = $obj["HASHTAG"];
 		$this->_abstract            = $obj["ABSTRACT"];
 		$this->_summary             = $obj["SUMMARY"];
