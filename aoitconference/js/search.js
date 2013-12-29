@@ -18,6 +18,11 @@ $("#status_search").on("keyup",function(e){
 	var inTable	  = $(".allstatus");
 	search(searchFor,inTable);
 });
+$("#eventtype_search").on("keyup",function(e){
+	var searchFor = $("#eventtype_search").val();
+	var inTable	  = $(".eventtypes");
+	search(searchFor,inTable);
+});
 function search( query, tableBody ) {	
 	var hideNone = false;
 	if(query == "") {

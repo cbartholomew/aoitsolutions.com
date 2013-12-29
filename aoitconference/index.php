@@ -31,75 +31,6 @@ switch($_SERVER["REQUEST_METHOD"])
 	break;
 }
 
-function handlePost($request)
-{
-	// identity
-	$identity = (isset($_SESSION["identity"])) ? $_SESSION["identity"] : null;
-	
-	// get credentials
-	// make new user access object
-	$userAccess = new UserAccess(array(						
-		"USER_ACCESS_INDEX" => null,
-		"SESSION" 			=> session_id(), 	
-		"CREATED_DTTM" 		=> null,
-		"LAST_REQUEST_DTTM" => null,
-		"ACCOUNT_IDENTITY" 	=> $identity
-	));
-	
-	// if there is an m assoicated to request, check what kind
-	// otherwise, print the normal landing page			
-	if(isset($userAccess->_accountIdentity))
-	{
-		// get user access information and check if it's expired	
-		$userAccess = GetSession($userAccess);
-
-		// update the last request dttm
-		PutSession($userAccess);	
-	}
-	
-	if(isset($request["m"]))
-	{
-		switch($request["m"])
-		{
-			case "registration": 			
-				handleAccountRegistrationPost($request);
-				return;
-			break;
-			case "login":
-				handleAccountLoginPost($request);
-				return;
-			break;
-			case "create_speaker":
-				handleCreateSpeakerPost($request,$userAccess);
-				return;
-			break;
-			case "create_topic":
-				handleCreateTopicPost($request,$userAccess);
-				return;
-			break;
-			case "create_track":
-				handleCreateTrackPost($request,$userAccess);
-				return;
-			break;
-			case "create_status":
-				handleCreateStatusPost($request,$userAccess);
-				return;
-			break;
-			default:
-				// 
-				unset($request["m"]);
-				handleGet($request);
-		}
-		Redirect("?m=login&return=" . $request["m"]);		
-	}			
-	else
-	{     	
-		// landing page
-		handleLandingGet($request,$userAccess);
-		return;
-	}
-}
-
 function handleGet($request)
 {	
 	// identity
@@ -161,6 +92,7 @@ function handleGet($request)
 			case "delete_topic"		:
 			case "delete_track"		:
 			case "delete_status"	:
+			case "delete_eventtype" :
 				if(CheckAuth($userAccess))
 				{
 					handlePromptWithActionGet($request,$userAccess);
@@ -217,6 +149,18 @@ function handleGet($request)
 					return;
 				}
 			break;
+			case "manage_eventtype":
+				if(CheckAuth($userAccess))
+				{
+					handleManageEventTypeGet($request,$userAccess);
+					return;
+				}
+				else
+				{
+					NotAuthorized();
+					return;
+				}
+			break;
 			default:
 				// unset request
 				unset($request["m"]);
@@ -233,6 +177,79 @@ function handleGet($request)
 		return;
 	}	
 			
+}
+
+function handlePost($request)
+{
+	// identity
+	$identity = (isset($_SESSION["identity"])) ? $_SESSION["identity"] : null;
+	
+	// get credentials
+	// make new user access object
+	$userAccess = new UserAccess(array(						
+		"USER_ACCESS_INDEX" => null,
+		"SESSION" 			=> session_id(), 	
+		"CREATED_DTTM" 		=> null,
+		"LAST_REQUEST_DTTM" => null,
+		"ACCOUNT_IDENTITY" 	=> $identity
+	));
+	
+	// if there is an m assoicated to request, check what kind
+	// otherwise, print the normal landing page			
+	if(isset($userAccess->_accountIdentity))
+	{
+		// get user access information and check if it's expired	
+		$userAccess = GetSession($userAccess);
+
+		// update the last request dttm
+		PutSession($userAccess);	
+	}
+	
+	if(isset($request["m"]))
+	{
+		switch($request["m"])
+		{
+			case "registration": 			
+				handleAccountRegistrationPost($request);
+				return;
+			break;
+			case "login":
+				handleAccountLoginPost($request);
+				return;
+			break;
+			case "create_speaker":
+				handleCreateSpeakerPost($request,$userAccess);
+				return;
+			break;
+			case "create_topic":
+				handleCreateTopicPost($request,$userAccess);
+				return;
+			break;
+			case "create_track":
+				handleCreateTrackPost($request,$userAccess);
+				return;
+			break;
+			case "create_status":
+				handleCreateStatusPost($request,$userAccess);
+				return;
+			break;
+			case "create_eventtype":
+				handleCreateEventTypePost($request,$userAccess);
+				return;
+			break;
+			default:
+				// 
+				unset($request["m"]);
+				handleGet($request);
+		}
+		Redirect("?m=login&return=" . $request["m"]);		
+	}			
+	else
+	{     	
+		// landing page
+		handleLandingGet($request,$userAccess);
+		return;
+	}
 }
 
 function handlePut($request)
@@ -286,6 +303,10 @@ function handlePut($request)
 			break;                
 			case "create_status": 
 				handleCreateStatusPut($request,$userAccess);
+				return;
+			break;
+			case "create_eventtype": 
+				handleCreateEventTypePut($request,$userAccess);
 				return;
 			break;
 			default:
@@ -349,6 +370,10 @@ function handleDelete($request)
 			break;
 			case "delete_status":
 				handleCreateStatusDelete($request,$userAccess);
+				return;
+			break;
+			case "delete_eventtype":
+				handleCreateEventTypeDelete($request,$userAccess);
 				return;
 			break;
 			default:

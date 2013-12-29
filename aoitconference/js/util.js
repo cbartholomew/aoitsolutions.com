@@ -1,12 +1,14 @@
 var request_map = {
-	"manage_speaker" : handleSpeaker,
-	"manage_topic"	 : handleTopic,
-	"manage_track"	 : handleTrack,
-	"manage_status"	 : handleStatus,
-	"delete_speaker" : handlePrompt,
-	"delete_topic"   : handlePrompt,
-	"delete_track"	 : handlePrompt,
-	"delete_status"  : handlePrompt
+	"manage_speaker" 	: handleSpeaker,
+	"manage_topic"	 	: handleTopic,
+	"manage_track"	 	: handleTrack,
+	"manage_status"	 	: handleStatus,
+	"manage_eventtype"	: handleEventType,
+	"delete_speaker"  	: handlePrompt,
+	"delete_topic"   	: handlePrompt,
+	"delete_track"	 	: handlePrompt,
+	"delete_status"  	: handlePrompt,
+	"delete_eventtype"	: handlePrompt
 };
 // clean out data when ajax is completed
 $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
@@ -106,6 +108,15 @@ function handleStatus(data){
 	$("#status_name").val(status["_name"]);
 	$(".btn-status-submit").text("Save Changes to Status");
 	appendCancelButton($("#create_status_form"),"btn-status-clear","newstatus");
+}
+
+function handleEventType(data){
+	var status = data["eventtype"];
+	$("#eventtype_identity").val(status["_eventTypeIdentity"]);
+	$("#eventtype_method").val("PUT");
+	$("#eventtype_name").val(status["_name"]);
+	$(".btn-eventtype-submit").text("Save Changes to Event Type");
+	appendCancelButton($("#create_eventtype_form"),"btn-eventtype-clear","eventtype");
 }
 
 function appendCancelButton(currentForm, cancelElementId, returnTo)

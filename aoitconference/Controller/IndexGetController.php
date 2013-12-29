@@ -173,16 +173,18 @@ function handleCreateGet($request,$userAccess)
 	// new array to hold all arguments for index view
 	$arguments = array();	
 	// new array to hold the view arguments for each view
-	$speakerViewArguments = array();
-	$topicViewArguments   = array();
-	$trackViewArguments   = array();
-	$statusViewArguments  = array();
+	$speakerViewArguments   = array();
+	$topicViewArguments     = array();
+	$trackViewArguments     = array();
+	$statusViewArguments    = array();
+	$eventTypeViewArguments = array();
 	
 	// variables to hold html 
-	$speakerCreateViewHTML = "";
-	$topicCreateViewHTML   = "";
-	$trackCreateViewHTML   = "";
-	$statusCreateViewHTML   = "";
+	$speakerCreateViewHTML 	= "";
+	$topicCreateViewHTML   	= "";
+	$trackCreateViewHTML   	= "";
+	$statusCreateViewHTML  	= "";
+	$eventTypeCreateViewHTML= "";
 	
 	// check if the user is logged in or not
 	$viewHtmlPath  = (isset($userAccess->_userAccessIndex)) ? "View/Index/SUB_HEADER_VIEW_AUTH.php" : "View/Index/SUB_HEADER_VIEW_NOAUTH.php";
@@ -277,9 +279,24 @@ function handleCreateGet($request,$userAccess)
 	$statusViewController = new ViewController(new View("CREATE_INDEX_STATUS_VIEW",
 														 "Create/CREATE_INDEX_STATUS_VIEW.php",
 														 $statusViewArguments));
-
-	// create topic view html													
+														
+	// create status view html													
 	$statusCreateViewHTML = $statusViewController->renderViewHTML(false,false);
+	/********************************************************************
+	 *
+	 *	Event Type View Constructor
+	 *  
+	 ********************************************************************/
+	array_push($eventTypeViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($eventTypeViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+
+	// apply special arguments to speaker view only
+	$eventTypeViewController = new ViewController(new View("CREATE_INDEX_EVENT_TYPE_VIEW",
+														 "Create/CREATE_INDEX_EVENT_TYPE_VIEW.php",
+														 $eventTypeViewArguments));
+																																								
+	// create event view html													
+	$eventTypeCreateViewHTML = $eventTypeViewController->renderViewHTML(false,false);
 		
 	// display message text to user based on if they are logged in or not
 	$headerText = "Account";
@@ -309,19 +326,22 @@ function handleCreateGet($request,$userAccess)
 	$trackListViewHTML 	 = GetTrackListViewHTML($userAccess);
 	// get status list view html 
 	$statusListViewHTML  = GetStatusListViewHTML($userAccess);
-
+	// get event type list view html 
+	$eventTypeListViewHTML  = GetEventTypeListViewHTML($userAccess);
 	
 	// push on to the argument stack
-	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"	,$headerText));
-	array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"	,$viewHtml));
-	array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"		,$speakerCreateViewHTML));
- 	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW",$speakerListViewHTML));
-	array_push($arguments,View::MakeViewArgument("TOPIC_VIEW"		,$topicCreateViewHTML));
-	array_push($arguments,View::MakeViewArgument("TOPIC_LIST_VIEW"	,$topicListViewHTML));
-	array_push($arguments,View::MakeViewArgument("TRACK_VIEW"		,$trackCreateViewHTML));
-	array_push($arguments,View::MakeViewArgument("TRACK_LIST_VIEW"	,$trackListViewHTML));
-	array_push($arguments,View::MakeViewArgument("STATUS_VIEW"		,$statusCreateViewHTML));
-	array_push($arguments,View::MakeViewArgument("STATUS_LIST_VIEW"	,$statusListViewHTML));
+	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"		,$headerText));
+	array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"		,$viewHtml));
+	array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"			,$speakerCreateViewHTML));
+ 	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW"	,$speakerListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TOPIC_VIEW"			,$topicCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("TOPIC_LIST_VIEW"		,$topicListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TRACK_VIEW"			,$trackCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("TRACK_LIST_VIEW"		,$trackListViewHTML));
+	array_push($arguments,View::MakeViewArgument("STATUS_VIEW"			,$statusCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("STATUS_LIST_VIEW"		,$statusListViewHTML));
+	array_push($arguments,View::MakeViewArgument("EVENT_TYPE_VIEW"		,$eventTypeCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("EVENT_TYPE_LIST_VIEW"	,$eventTypeListViewHTML));	
 		
 	// create new view controller
 	$vc = new ViewController(new View("CREATE_INDEX_VIEW",
@@ -448,6 +468,33 @@ function handleManageStatusGet($request,$userAccess)
 	// make new result
 	$result = array(
 		"status" => $status
+	);
+	
+	// return the result in json format
+	print json_encode($result);
+	
+	// exit
+	exit;
+}
+
+function handleManageEventTypeGet($request,$userAccess)
+{
+	// get track information
+	$eventType = eventTypeController::GetById(new EventType(array(
+		"EVENT_TYPE_IDENTITY"	=> $request["identity"],
+		"ACCOUNT_IDENTITY"  	=> $userAccess->_accountIdentity,
+		"NAME"					=> null
+	)));
+	
+	// return json instead of re-rendering
+	header('Content-type: application/json');
+	
+	// remove account identity, should be secret (for the most part)
+	$eventType->_accountIdentity = "private";
+	
+	// make new result
+	$result = array(
+		"eventtype" => $eventType
 	);
 	
 	// return the result in json format

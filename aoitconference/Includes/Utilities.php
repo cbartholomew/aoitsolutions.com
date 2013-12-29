@@ -3,7 +3,6 @@
 	{
 		// create user with default status 
 		$defaultStatusNames = array("Pending", "Confirmed", "Cancelled");
-		
 		foreach($defaultStatusNames as $statusName)
 		{
 			// init new topic based on request parameters
@@ -13,8 +12,23 @@
 				"NAME"				=> $statusName
 			));
 			
-			// insert the new topic
+			// insert the new status
 			StatusController::Post($status);	
+		}
+		
+		// create user with default event types 
+		$defaultEventTypes  = array("Keynote","Session","Workshop","Code Lab");
+		foreach($defaultEventTypes as $eventTypeName)
+		{
+			// init new topic based on request parameters
+			$eventType = new EventType(array(
+				"EVENT_TYPE_IDENTITY"	=> null,
+				"ACCOUNT_IDENTITY" 		=> $account->_identity,
+				"NAME"					=> $eventTypeName
+			));
+			
+			// insert the new event type
+			EventTypeController::Post($eventType);	
 		}
 	}
 	
@@ -425,6 +439,53 @@
 		return $html;
 	}
 	
+	function GetEventTypeListViewHTML($userAccess)
+	{
+		// define and init html for speaker
+		$html = "";
+		
+		try
+		{					
+			// init new speaker array
+			$eType = new EventType(array(
+				"EVENT_TYPE_IDENTITY"	 => null,
+				"ACCOUNT_IDENTITY"   	 => $userAccess->_accountIdentity,
+				"NAME"	     			 => null
+			));
+		
+			// get list of event types by account identity
+			$eventTypes = EventTypeController::Get($eType);
+		
+			if(count($eventTypes) <= 0)
+			{
+				$html .= "<tr>";
+				$html .= "<td colspan='2'>This account has no event types available</td>";
+				$html .= "</tr>";	
+			}
+			else
+			{
+				foreach($eventTypes as $eventType)
+				{
+						$btnManageHtml = "<button type='button' onclick='manage(this);' operation='eventtype' id='manage_eventtype_" . 
+						$eventType->_eventTypeIdentity . "' class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
+				
+						$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='eventtype' id='delete_eventtype_" . 
+						$eventType->_eventTypeIdentity . "' class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
+					
+						$html .= "<tr>";
+						$html .= "<td>" . $eventType->_name . "</td>";
+						$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";	
+						$html .= "</tr>";
+				}
+			}
+		}
+		catch(Exception $e)
+		{
+				trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+		return $html;
+	}
+	
 	function GetPromptPath($requestedAction)
 	{
 		$name   	= "";
@@ -618,6 +679,43 @@
 					$modalViewController = new ViewController(
 						new View("DELETE_STATUS_TABLE_VIEW",
 								 "Delete/DELETE_STATUS_TABLE_VIEW.php",
+								 $arguments));
+					
+					// get the html from the view controller
+					$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
+				}
+			break;
+			case "eventtype":
+				// get topic information
+				$modalObject = EventTypeController::GetById(new EventType(array(
+					"EVENT_TYPE_IDENTITY"	=> $requestIdentity,
+					"ACCOUNT_IDENTITY"  	=> $userAccess->_accountIdentity,
+					"NAME"					=> null
+				)));
+				
+				if(isset($modalObject))
+				{
+					$modalObjectName   = $modalObject->_name;
+					
+					// create the request action
+					switch($requestAction)
+					{
+						case "delete":
+							$modalObjectAction = "purge(this);";  
+						break;
+						case "alert":
+							$modalObjectAction = "alertUser(this);";  
+						break;
+					}
+					
+					// push the view arguments in the array
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME",$modalObject->_name));
+					array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_REQUEST_IDENTITY",$requestIdentity));
+					
+					// apply special arguments to speaker list view
+					$modalViewController = new ViewController(
+						new View("DELETE_EVENT_TYPE_TABLE_VIEW",
+								 "Delete/DELETE_EVENT_TYPE_TABLE_VIEW.php",
 								 $arguments));
 					
 					// get the html from the view controller

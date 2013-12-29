@@ -218,4 +218,20 @@ function handleCreateStatusPost($request,$userAccess)
 	Redirect("?m=create#newstatus");
 }
 
+function handleCreateEventTypePost($request,$userAccess)
+{
+	// init new topic based on request parameters
+	$eventType = new EventType(array(
+		"EVENT_TYPE_IDENTITY"	=> null,
+		"ACCOUNT_IDENTITY"  	=> $userAccess->_accountIdentity,
+		"NAME"					=> $request["eventtype_name"]
+	));
+	
+ 	// insert the new topic
+	EventTypeController::Post($eventType);
+	
+	// redirect back to topic page
+	Redirect("?m=create#eventtype");
+}
+
 ?>

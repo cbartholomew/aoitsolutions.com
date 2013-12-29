@@ -25,6 +25,7 @@ require("Controller/SocialTypeController.php");
 require("Controller/StatusController.php");
 require("Controller/TopicController.php");
 require("Controller/TrackController.php");
+require("Controller/EventTypeController.php");
 
 // Models
 require("Model/View.php");
@@ -36,4 +37,5 @@ require("Model/SocialType.php");
 require("Model/Status.php");
 require("Model/Topic.php");
 require("Model/Track.php");
+require("Model/EventType.php");
 ?>

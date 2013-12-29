@@ -118,4 +118,28 @@ function handleCreateStatusDelete($request,$userAccess)
 	}
 }
 
+function handleCreateEventTypeDelete($request,$userAccess)
+{
+	// create a new speaker in the database
+	$eventType = new EventType(array(
+		"EVENT_TYPE_IDENTITY"	=> $request["eventtype_identity"],
+		"ACCOUNT_IDENTITY"  	=> $userAccess->_accountIdentity,
+		"NAME"					=> null
+	));
+	
+	// set return to path
+	$returnTo = "#eventtype";
+	
+	// insert the new speaker
+	if(EventTypeController::Delete($eventType))
+	{
+		// return back to the tab
+		Redirect("?m=create". $returnTo);
+	}
+	else
+	{
+		BadRequest();		
+	}
+}
+
 ?>

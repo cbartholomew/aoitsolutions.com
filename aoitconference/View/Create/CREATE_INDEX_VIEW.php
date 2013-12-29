@@ -4,6 +4,7 @@
 		<li><a href="#topic" 	data-toggle="tab">Topic</a></li>
 		<li><a href="#track"  	data-toggle="tab">Track</a></li>
 		<li><a href="#newstatus"  	data-toggle="tab">Status</a></li>
+		<li><a href="#eventtype"  	data-toggle="tab">Event Type</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade in active" id="speaker">
@@ -102,6 +103,30 @@
 					</thead>
 					<tbody class="allstatus">
 						#STATUS_LIST_VIEW#
+					</tbody>					
+				</table>
+			</div>
+		</div>
+		<div class="tab-pane fade"  id="eventtype">
+			<div id="eventtype_panel" class="panel col-sm-6">
+				#EVENT_TYPE_VIEW#
+			</div>
+			<div class="panel col-sm-6">
+			<br>
+				<form class="form-horizontal" role="search">
+			    	<div class="form-group">
+			        	<input id="eventtype_search" type="text" class="form-control col-sm-3" placeholder="Search" />
+			      	</div>
+			    </form>
+				<table class='table table-condensed'>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="eventtypes">
+						#EVENT_TYPE_LIST_VIEW#
 					</tbody>					
 				</table>
 			</div>

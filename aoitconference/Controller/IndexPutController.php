@@ -113,4 +113,19 @@ function handleCreateStatusPut($request,$userAccess)
 	Redirect("?m=create#newstatus");
 }
 
+function handleCreateEventTypePut($request,$userAccess)
+{
+	// init new topic
+	$eventType = new EventType(array(
+		"EVENT_TYPE_IDENTITY"	=> $request["eventtype_identity"],
+		"ACCOUNT_IDENTITY"  	=> $userAccess->_accountIdentity,
+		"NAME"					=> $request["eventtype_name"]
+	));
+	
+	// update the topic 
+	EventTypeController::Put($eventType);
+	
+	// redirect user back to the correct tab
+	Redirect("?m=create#eventtype");
+}
 ?>
