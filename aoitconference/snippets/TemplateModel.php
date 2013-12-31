@@ -11,13 +11,13 @@ class TemplateModel
 	
 	function __construct($obj) 
 	{
-		$this->  = $obj[""];
-		$this->  = $obj[""];
-		$this->  = $obj["E"];
-		$this->  = $obj[""];
-		$this->  = $obj[""];
-		$this->  = $obj[""];
-		$this->  = $obj[""];
+		$this->_property  = $obj[""];
+		$this->_property  = $obj[""];
+		$this->_property  = $obj[""];
+		$this->_property  = $obj[""];
+		$this->_property  = $obj[""];
+		$this->_property  = $obj[""];
+		$this->_property  = $obj[""];
 			 
 		return $this;
 	}
