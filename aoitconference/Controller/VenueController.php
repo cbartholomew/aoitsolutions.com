@@ -156,7 +156,7 @@ class VenueController
 			"CITY = ?,",
 			"STATE = ?,",
 			"ZIP = ?,",
-			"COUNTRY)",
+			"COUNTRY = ?",
 			"WHERE",
 			"VENUE_IDENTITY = ?"
 		),

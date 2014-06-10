@@ -123,7 +123,7 @@ class StateController
 		"UPDATE" => array(
 			"UPDATE",
 			"STATE SET",
-			"NAME = ?,", 
+			"NAME = ?", 
 			"WHERE",
 			"STATE_IDENTITY = ?"
 		),
