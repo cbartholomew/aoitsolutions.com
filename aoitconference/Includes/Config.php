@@ -26,6 +26,9 @@ require("Controller/StatusController.php");
 require("Controller/TopicController.php");
 require("Controller/TrackController.php");
 require("Controller/EventTypeController.php");
+require("Controller/StateController.php");
+require("Controller/VenueController.php");
+require("Controller/RoomController.php");
 
 // Models
 require("Model/View.php");
@@ -38,4 +41,7 @@ require("Model/Status.php");
 require("Model/Topic.php");
 require("Model/Track.php");
 require("Model/EventType.php");
+require("Model/State.php");
+require("Model/Venue.php");
+require("Model/Room.php");
 ?>

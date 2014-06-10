@@ -113,7 +113,7 @@ class RoomController
 			"*",
 			"FROM",
 			"ROOM",
-			"WHERE"
+			"WHERE",
 			"VENUE_IDENTITY = ?"
 		),
 		"GET_BY_ID"=> array(
@@ -121,7 +121,7 @@ class RoomController
 			"*",
 			"FROM",
 			"ROOM",
-			"WHERE"
+			"WHERE",
 			"ROOM_IDENTITY = ?"
 		),
 		"POST"  => array(
