@@ -1,22 +1,27 @@
 <?php
 class TemplateController
 {																	
-	public static function Get()
-	{
-		
-	}	
-		
-	public static function Post()
+	public static function Get($obj)
 	{
 		
 	}	
 	
-	public static function Put()
+	public static function GetById($obj)
+	{
+		
+	}
+	
+	public static function Post($obj)
+	{
+		
+	}	
+	
+	public static function Put($obj)
 	{
 				
 	}
 	
-	public static function Delete()
+	public static function Delete($obj)
 	{
 		
 	}
@@ -28,6 +33,14 @@ class TemplateController
 			"*",
 			"FROM",
 			"<TABLE>"
+		),
+		"GET_BY_ID"=> array(
+				"SELECT",
+				"*",
+				"FROM",
+				"<TABLE>",
+				"WHERE"
+				"<COLUMN> = ?"
 		),
 		"POST"  => array(
 			"INSERT INTO",
