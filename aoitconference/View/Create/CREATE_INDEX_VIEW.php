@@ -1,12 +1,18 @@
 <div class='container'>
+ 	<!-- Define create attributes tab-->
 	<ul class="nav nav-tabs nav-justified" id="createTabs">
 		<li class="active"><a href="#speaker"  data-toggle="tab">Speaker</a></li>
-		<li><a href="#topic" 	data-toggle="tab">Topic</a></li>
-		<li><a href="#track"  	data-toggle="tab">Track</a></li>
+		<li><a href="#topic" 		data-toggle="tab">Topic</a></li>
+		<li><a href="#track"  		data-toggle="tab">Track</a></li>
 		<li><a href="#newstatus"  	data-toggle="tab">Status</a></li>
 		<li><a href="#eventtype"  	data-toggle="tab">Event Type</a></li>
+		<li><a href="#venue"  		data-toggle="tab">Venue</a></li>
 	</ul>
+	
+	<!-- Begin Tab Content-->
 	<div class="tab-content">
+		
+		<!-- Begin Speaker Tab Content-->
 		<div class="tab-pane fade in active" id="speaker">
 			<div id="speaker_panel" class="panel col-sm-6">
 				#SPEAKER_VIEW#
@@ -35,6 +41,9 @@
 				</table>
 			</div>
 		</div>
+		<!-- End Speaker Tab Content-->
+		
+		<!-- Begin Topic Tab Content-->
 		<div class="tab-pane fade"  id="topic">
 			<div id="topic_panel" class="panel col-sm-6">
 				#TOPIC_VIEW#
@@ -59,6 +68,9 @@
 				</table>
 			</div>
 		</div>
+		<!-- End Topic Tab Content-->
+		
+		<!-- Begin Track Tab Content-->
 		<div class="tab-pane fade"  id="track">
 			<div id="track_panel" class="panel col-sm-6">
 				#TRACK_VIEW#
@@ -83,6 +95,9 @@
 				</table>
 			</div>
 		</div>
+		<!-- End Track Tab Content-->
+		
+		<!-- Begin Status Tab Content-->
 		<div class="tab-pane fade"  id="newstatus">
 			<div id="status_panel" class="panel col-sm-6">
 				#STATUS_VIEW#
@@ -107,6 +122,9 @@
 				</table>
 			</div>
 		</div>
+		<!-- End Status Tab Content-->
+		
+		<!-- Begin Event Type Tab Content-->
 		<div class="tab-pane fade"  id="eventtype">
 			<div id="eventtype_panel" class="panel col-sm-6">
 				#EVENT_TYPE_VIEW#
@@ -131,5 +149,18 @@
 				</table>
 			</div>
 		</div>
-	</div>
+		<!-- End Event Type Tab Content-->
+		
+		<!-- Begin Venue Tab Content-->
+		<div class="tab-pane fade " id="venue">
+			<div id="venue_panel" class="panel col-sm-6">
+				#VENUE_VIEW_LEFT#
+			</div>
+			<div class="panel col-sm-6">
+ 				#VENUE_VIEW_RIGHT#
+			</div>
+		</div>
+		<!-- End Venue Tab Content-->
+	</div> 
 </div>
+<!-- End Tab Content-->
