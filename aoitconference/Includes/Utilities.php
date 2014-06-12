@@ -295,8 +295,6 @@
 		return $html;
 	}
 	
-	
-	
 	function GetSpeakerListViewHTML($userAccess)
 	{
 		// define and init html for speaker
