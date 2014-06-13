@@ -44,6 +44,265 @@ function handleLandingGet($request,$userAccess)
 	print $vc->renderViewHTML(true,true);	
 }
 
+function handleCreateGet($request,$userAccess)
+{
+	// override render and go straight to the correct url w/ the pound appended to it
+	if(isset($request["return"]))
+	{
+		// get the return to address
+		$returnTo = $request["return"];
+		// unset the return 
+		unset($request["return"]);
+		// redirect the user and override the render
+		Redirect("?m=create" . "#" . $returnTo);
+		// exit
+		exit;
+	}
+	
+	// new array to hold all arguments for index view
+	$arguments = array();	
+	// new array to hold the view arguments for each view
+	$speakerViewArguments   = array();
+	$topicViewArguments     = array();
+	$trackViewArguments     = array();
+	$statusViewArguments    = array();
+	$eventTypeViewArguments = array();
+	$venueViewArguments 	= array();
+	
+	// variables to hold html 
+	$speakerCreateViewHTML 	= "";
+	$topicCreateViewHTML   	= "";
+	$trackCreateViewHTML   	= "";
+	$statusCreateViewHTML  	= "";
+	$eventTypeCreateViewHTML= "";
+	$venueViewCreateViewHTML= "";
+	
+	// check if the user is logged in or not
+	$viewHtmlPath  = (isset($userAccess->_userAccessIndex)) ? "View/Index/SUB_HEADER_VIEW_AUTH.php" : "View/Index/SUB_HEADER_VIEW_NOAUTH.php";
+	// get the sub header information
+	$viewHtml = file_get_contents($viewHtmlPath);
+		
+	/********************************************************************
+	 *	Speaker View Constructor Begin
+	 ********************************************************************/
+	// get the social type and status html
+	$socialViewTypeHTML = GetSocialTypeHTML();
+	$socialStatusHTML 	= GetStatusHTML($userAccess, null);
+	
+	// set up variables for speaker view rendering
+	$viewMethod 			  = "POST";
+	$viewAction 			  = "Add";
+	
+	// these varibles are set up if I wanted to go a different route than ajax
+	$viewSpeakerFirstName 	  = "";
+	$viewSpeakerLastName  	  = "";
+	$viewSpeakerEmail	  	  = "";
+	$viewSpeakerJobTitle  	  = "";
+	$viewSpeakerCompany	 	  = "";
+	$viewSpeakerSocialOptions = "";
+	
+	// push the speaker social html to the argument stack
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_TYPE", 	$socialViewTypeHTML));
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE", 	$socialStatusHTML));
+	
+	// push blank speaker arguments to the view since it's create only
+	array_push($speakerViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_FIRST_NAME",$viewSpeakerFirstName));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_LAST_NAME",$viewSpeakerLastName));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_EMAIL",$viewSpeakerEmail));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_JOB_TITLE",$viewSpeakerJobTitle));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_COMPANY",$viewSpeakerCompany));	
+	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_OPTIONS",$viewSpeakerSocialOptions));
+	array_push($speakerViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+		
+	// apply special arguments to speaker view only
+	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW",
+														 "Create/CREATE_INDEX_SPEAKER_VIEW.php",
+														 $speakerViewArguments));
+	
+	// speaker create view html
+	$speakerCreateViewHTML = $speakerViewController->renderViewHTML(false,false);	
+	/********************************************************************
+	 *	Speaker View Constructor End
+	 ********************************************************************/
+	
+	/********************************************************************
+	 *	Topic View Constructor Begin
+	 ********************************************************************/
+	array_push($topicViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($topicViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+	
+	// apply special arguments to speaker view only
+	$topicViewController = new ViewController(new View("CREATE_INDEX_TOPIC_VIEW",
+														 "Create/CREATE_INDEX_TOPIC_VIEW.php",
+														 $topicViewArguments));
+														
+	// create topic view html													
+	$topicCreateViewHTML = $topicViewController->renderViewHTML(false,false);
+	/********************************************************************
+	 *	Topic View Constructor End
+	 ********************************************************************/
+	
+	/********************************************************************
+	 *	Track View Constructor Begin
+	 ********************************************************************/
+	array_push($trackViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($trackViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+
+	// apply special arguments to speaker view only
+	$trackViewController = new ViewController(new View("CREATE_INDEX_TRACK_VIEW",
+														 "Create/CREATE_INDEX_TRACK_VIEW.php",
+														 $trackViewArguments));
+
+	// create topic view html													
+	$trackCreateViewHTML = $trackViewController->renderViewHTML(false,false);	
+	/********************************************************************
+	 *	Track View Constructor End
+	 ********************************************************************/
+	
+	/********************************************************************
+	 *	Status View Constructor Begin
+	 ********************************************************************/
+	array_push($statusViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($statusViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+
+	// apply special arguments to speaker view only
+	$statusViewController = new ViewController(new View("CREATE_INDEX_STATUS_VIEW",
+														 "Create/CREATE_INDEX_STATUS_VIEW.php",
+														 $statusViewArguments));
+														
+	// create status view html													
+	$statusCreateViewHTML = $statusViewController->renderViewHTML(false,false);	
+	/********************************************************************
+	 *	Status View Constructor End
+	 ********************************************************************/
+	
+	/********************************************************************
+	 *	Event Type View Constructor Begin
+	 ********************************************************************/
+	array_push($eventTypeViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($eventTypeViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+
+	// apply special arguments to speaker view only
+	$eventTypeViewController = new ViewController(new View("CREATE_INDEX_EVENT_TYPE_VIEW",
+														 "Create/CREATE_INDEX_EVENT_TYPE_VIEW.php",
+														 $eventTypeViewArguments));
+																																								
+	// create event view html													
+	$eventTypeCreateViewHTML = $eventTypeViewController->renderViewHTML(false,false);	
+	/********************************************************************
+	 *	Event Type View Constructor End
+	 ********************************************************************/
+	
+	/********************************************************************
+	 *	Venue View Constructor Begin
+	 ********************************************************************/
+	// set up variables for state view rendering
+	$viewMethod 			  = "POST";
+	$viewAction 			  = "Add";
+	
+	// get the state list, pass null in as the venue
+	$viewVenueStateHTML = GetStateHTML(null);
+	
+	// these varibles are set up if I wanted to go a different route than ajax
+	$viewVenueName 	  	= "";
+	$viewVenueImage  	= "";
+	$viewVenueCapacity	= "";
+	$viewVenueAddress  	= "";
+	$viewVenueCity	 	= "";
+	$viewVenueState 	= $viewVenueStateHTML;
+	$viewVenueZip 		= "";
+	$viewVenueCountry 	= "";
+	
+	// push blank speaker arguments to the view since it's create only
+	array_push($venueViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_NAME",$viewVenueName));	
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_IMAGE",$viewVenueImage));	
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_CAPACITY",$viewVenueCapacity));
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_ADDRESS",$viewVenueAddress));	
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_CITY",$viewVenueCity));	
+	// getting general view built - below will be the text for the state drop down
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_STATE_LIST",$viewVenueState));	
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_ZIP",$viewVenueZip));
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_COUNTRY",$viewVenueCountry));
+	array_push($venueViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+		
+	// apply special arguments to speaker view only
+	$venueViewController = new ViewController(new View("CREATE_INDEX_VENUE_VIEW",
+														 "Create/CREATE_INDEX_VENUE_VIEW.php",
+														 $venueViewArguments));
+	
+	// speaker create view html
+	$venueCreateViewHTML = $venueViewController->renderViewHTML(false,false);		
+	/********************************************************************
+	 *	Venue View Constructor End
+	 ********************************************************************/
+		
+		
+	// display message text to user based on if they are logged in or not
+	$headerText = "Account";
+	
+	// make new account object
+	$account = new Account(array(
+		"IDENTITY"					=> $userAccess->_accountIdentity,
+		"EMAIL_ADDRESS" 			=> null,
+		"FIRST_NAME" 				=> null,
+		"LAST_NAME"  				=> null,
+		"ORGANIZATION_NAME" 		=> null,
+		"ACCOUNT_TYPE_IDENTITY"  	=> null,
+		"ACCOUNT_DISABLED" 			=> null
+	));
+
+	// access the acount by the id
+	$account = AccountController::GetById($account);
+	
+	// modify the header text
+	$headerText = $account->_firstName . " " . $account->_lastName;
+	
+	/********************************************************************
+	 *	List View Columns
+	 ********************************************************************/
+	// get the speaker list view html
+	$speakerListViewHTML = GetSpeakerListViewHTML($userAccess);
+	// get topic list view html
+	$topicListViewHTML 	 = GetTopicListViewHTML($userAccess);
+	// get track list view html
+	$trackListViewHTML 	 = GetTrackListViewHTML($userAccess);
+	// get status list view html 
+	$statusListViewHTML  = GetStatusListViewHTML($userAccess);
+	// get event type list view html 
+	$eventTypeListViewHTML  = GetEventTypeListViewHTML($userAccess);
+	// get venue view html 
+	$venueViewListViewHTML = "<td cols=7>not implemented</td>";
+	
+	// push on to the argument stack
+	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"		,$headerText));
+	array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"		,$viewHtml));
+	array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"			,$speakerCreateViewHTML));
+ 	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW"	,$speakerListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TOPIC_VIEW"			,$topicCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("TOPIC_LIST_VIEW"		,$topicListViewHTML));
+	array_push($arguments,View::MakeViewArgument("TRACK_VIEW"			,$trackCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("TRACK_LIST_VIEW"		,$trackListViewHTML));
+	array_push($arguments,View::MakeViewArgument("STATUS_VIEW"			,$statusCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("STATUS_LIST_VIEW"		,$statusListViewHTML));
+	array_push($arguments,View::MakeViewArgument("EVENT_TYPE_VIEW"		,$eventTypeCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("EVENT_TYPE_LIST_VIEW"	,$eventTypeListViewHTML));
+	array_push($arguments,View::MakeViewArgument("VENUE_VIEW"			,$venueCreateViewHTML));	
+	array_push($arguments,View::MakeViewArgument("VENUE_LIST_VIEW"		,$venueViewListViewHTML));
+			
+			
+	// create new view controller
+	$vc = new ViewController(new View("CREATE_INDEX_VIEW",
+									  "Create/CREATE_INDEX_VIEW.php",
+									  $arguments));
+
+	// this method will render w arguments
+	print $vc->renderViewHTML(true,true);		
+
+}
+
+
 function handleAccountLoginGet($request)
 {
 	// make arguments array to hold new view arguments
@@ -153,204 +412,6 @@ function handleSocialModalGet($request)
 	$socialModalViewHTML = $socialModalViewController->renderViewHTML(false,false);
 
 	print $socialModalViewHTML;
-}
-
-function handleCreateGet($request,$userAccess)
-{
-	// override render and go straight to the correct url w/ the pound appended to it
-	if(isset($request["return"]))
-	{
-		// get the return to address
-		$returnTo = $request["return"];
-		// unset the return 
-		unset($request["return"]);
-		// redirect the user and override the render
-		Redirect("?m=create" . "#" . $returnTo);
-		// exit
-		exit;
-	}
-	
-	// new array to hold all arguments for index view
-	$arguments = array();	
-	// new array to hold the view arguments for each view
-	$speakerViewArguments   = array();
-	$topicViewArguments     = array();
-	$trackViewArguments     = array();
-	$statusViewArguments    = array();
-	$eventTypeViewArguments = array();
-	
-	// variables to hold html 
-	$speakerCreateViewHTML 	= "";
-	$topicCreateViewHTML   	= "";
-	$trackCreateViewHTML   	= "";
-	$statusCreateViewHTML  	= "";
-	$eventTypeCreateViewHTML= "";
-	
-	// check if the user is logged in or not
-	$viewHtmlPath  = (isset($userAccess->_userAccessIndex)) ? "View/Index/SUB_HEADER_VIEW_AUTH.php" : "View/Index/SUB_HEADER_VIEW_NOAUTH.php";
-	// get the sub header information
-	$viewHtml = file_get_contents($viewHtmlPath);
-		
-	/********************************************************************
-	 *
-	 *	Speaker View Constructor 
-	 *
-	 ********************************************************************/
-	// get the social type and status html
-	$socialViewTypeHTML = GetSocialTypeHTML();
-	$socialStatusHTML 	= GetStatusHTML($userAccess, null);
-	
-	// set up variables for speaker view rendering
-	$viewMethod 			  = "POST";
-	$viewAction 			  = "Add";
-	
-	// these varibles are set up if I wanted to go a different route than ajax
-	$viewSpeakerFirstName 	  = "";
-	$viewSpeakerLastName  	  = "";
-	$viewSpeakerEmail	  	  = "";
-	$viewSpeakerJobTitle  	  = "";
-	$viewSpeakerCompany	 	  = "";
-	$viewSpeakerSocialOptions = "";
-	
-	// push the speaker social html to the argument stack
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_TYPE", 	$socialViewTypeHTML));
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_STATUS_TYPE", 	$socialStatusHTML));
-	
-	// push blank speaker arguments to the view since it's create only
-	array_push($speakerViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_FIRST_NAME",$viewSpeakerFirstName));	
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_LAST_NAME",$viewSpeakerLastName));	
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_EMAIL",$viewSpeakerEmail));	
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_JOB_TITLE",$viewSpeakerJobTitle));	
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_COMPANY",$viewSpeakerCompany));	
-	array_push($speakerViewArguments,View::MakeViewArgument("SPEAKER_SOCIAL_OPTIONS",$viewSpeakerSocialOptions));
-	array_push($speakerViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
-		
-	// apply special arguments to speaker view only
-	$speakerViewController = new ViewController(new View("CREATE_INDEX_SPEAKER_VIEW",
-														 "Create/CREATE_INDEX_SPEAKER_VIEW.php",
-														 $speakerViewArguments));
-	
-	// speaker create view html
-	$speakerCreateViewHTML = $speakerViewController->renderViewHTML(false,false);
-	
-	/********************************************************************
-	 *
-	 *	Topic View Constructor
-	 *
-	 ********************************************************************/
-	array_push($topicViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
-	array_push($topicViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
-	
-	// apply special arguments to speaker view only
-	$topicViewController = new ViewController(new View("CREATE_INDEX_TOPIC_VIEW",
-														 "Create/CREATE_INDEX_TOPIC_VIEW.php",
-														 $topicViewArguments));
-														
-	// create topic view html													
-	$topicCreateViewHTML = $topicViewController->renderViewHTML(false,false);
-	
-	
-	/********************************************************************
-	 *
-	 *	Track View Constructor
-	 *
-	 ********************************************************************/
-	array_push($trackViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
-	array_push($trackViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
-
-	// apply special arguments to speaker view only
-	$trackViewController = new ViewController(new View("CREATE_INDEX_TRACK_VIEW",
-														 "Create/CREATE_INDEX_TRACK_VIEW.php",
-														 $trackViewArguments));
-
-	// create topic view html													
-	$trackCreateViewHTML = $trackViewController->renderViewHTML(false,false);
-	
-	/********************************************************************
-	 *
-	 *	Status View Constructor
-	 *  
-	 ********************************************************************/
-	array_push($statusViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
-	array_push($statusViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
-
-	// apply special arguments to speaker view only
-	$statusViewController = new ViewController(new View("CREATE_INDEX_STATUS_VIEW",
-														 "Create/CREATE_INDEX_STATUS_VIEW.php",
-														 $statusViewArguments));
-														
-	// create status view html													
-	$statusCreateViewHTML = $statusViewController->renderViewHTML(false,false);
-	/********************************************************************
-	 *
-	 *	Event Type View Constructor
-	 *  
-	 ********************************************************************/
-	array_push($eventTypeViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
-	array_push($eventTypeViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
-
-	// apply special arguments to speaker view only
-	$eventTypeViewController = new ViewController(new View("CREATE_INDEX_EVENT_TYPE_VIEW",
-														 "Create/CREATE_INDEX_EVENT_TYPE_VIEW.php",
-														 $eventTypeViewArguments));
-																																								
-	// create event view html													
-	$eventTypeCreateViewHTML = $eventTypeViewController->renderViewHTML(false,false);
-		
-	// display message text to user based on if they are logged in or not
-	$headerText = "Account";
-	
-	// make new account object
-	$account = new Account(array(
-		"IDENTITY"					=> $userAccess->_accountIdentity,
-		"EMAIL_ADDRESS" 			=> null,
-		"FIRST_NAME" 				=> null,
-		"LAST_NAME"  				=> null,
-		"ORGANIZATION_NAME" 		=> null,
-		"ACCOUNT_TYPE_IDENTITY"  	=> null,
-		"ACCOUNT_DISABLED" 			=> null
-	));
-
-	// access the acount by the id
-	$account = AccountController::GetById($account);
-	
-	// modify the header text
-	$headerText = $account->_firstName . " " . $account->_lastName;
-	
-	// get the speaker list view html
-	$speakerListViewHTML = GetSpeakerListViewHTML($userAccess);
-	// get topic list view html
-	$topicListViewHTML 	 = GetTopicListViewHTML($userAccess);
-	// get track list view html
-	$trackListViewHTML 	 = GetTrackListViewHTML($userAccess);
-	// get status list view html 
-	$statusListViewHTML  = GetStatusListViewHTML($userAccess);
-	// get event type list view html 
-	$eventTypeListViewHTML  = GetEventTypeListViewHTML($userAccess);
-	
-	// push on to the argument stack
-	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"		,$headerText));
-	array_push($arguments,View::MakeViewArgument("ACCOUNT_DROPDOWN"		,$viewHtml));
-	array_push($arguments,View::MakeViewArgument("SPEAKER_VIEW"			,$speakerCreateViewHTML));
- 	array_push($arguments,View::MakeViewArgument("SPEAKER_LIST_VIEW"	,$speakerListViewHTML));
-	array_push($arguments,View::MakeViewArgument("TOPIC_VIEW"			,$topicCreateViewHTML));
-	array_push($arguments,View::MakeViewArgument("TOPIC_LIST_VIEW"		,$topicListViewHTML));
-	array_push($arguments,View::MakeViewArgument("TRACK_VIEW"			,$trackCreateViewHTML));
-	array_push($arguments,View::MakeViewArgument("TRACK_LIST_VIEW"		,$trackListViewHTML));
-	array_push($arguments,View::MakeViewArgument("STATUS_VIEW"			,$statusCreateViewHTML));
-	array_push($arguments,View::MakeViewArgument("STATUS_LIST_VIEW"		,$statusListViewHTML));
-	array_push($arguments,View::MakeViewArgument("EVENT_TYPE_VIEW"		,$eventTypeCreateViewHTML));
-	array_push($arguments,View::MakeViewArgument("EVENT_TYPE_LIST_VIEW"	,$eventTypeListViewHTML));	
-		
-	// create new view controller
-	$vc = new ViewController(new View("CREATE_INDEX_VIEW",
-									  "Create/CREATE_INDEX_VIEW.php",
-									  $arguments));
-
-	// this method will render w arguments
-	print $vc->renderViewHTML(true,true);		
-
 }
 
 function handleManageSpeakerGet($request,$userAccess)
@@ -553,7 +614,11 @@ function handlePromptWithActionGet($request,$userAccess)
 	
 }
 
-
+function handleVenueGet($request, $userAccess)
+{
+	// used for individual identity rendering
+	
+}
 
 
 ?>
