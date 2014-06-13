@@ -154,10 +154,31 @@
 		<!-- Begin Venue Tab Content-->
 		<div class="tab-pane fade " id="venue">
 			<div id="venue_panel" class="panel col-sm-6">
-				#VENUE_VIEW_LEFT#
+				#VENUE_VIEW#
 			</div>
 			<div class="panel col-sm-6">
- 				#VENUE_VIEW_RIGHT#
+ 				<br>
+					<form class="form-horizontal" role="search">
+				    	<div class="form-group">
+				        	<input id="venue_search" type="text" class="form-control col-sm-3" placeholder="Search" />
+				      	</div>
+				    </form>
+					<table class='table table-condensed'>
+						<thead>
+							<tr>
+								<th>Image</th>
+								<th>Name</th>
+								<th>Address</th>
+								<th>City</th>
+								<th>State</th>
+								<th>Zip</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody class="venues">
+							#VENUE_LIST_VIEW#
+						</tbody>					
+					</table>
 			</div>
 		</div>
 		<!-- End Venue Tab Content-->
