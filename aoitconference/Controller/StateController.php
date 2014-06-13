@@ -25,7 +25,7 @@ class StateController
 																
 	public static function GetAll()
 	{
-		$states = array();
+		$states = [];
 		try
 		{
 			$query = implode(" ",self::$sqlQueries["GET_ALL"]);
