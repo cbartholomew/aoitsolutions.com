@@ -3,7 +3,7 @@ class VenueController
 {																	
 	public static function Get($venue)
 	{
-		$venueList = [];
+		$venueList = array();
 		try
 		{
 			$query = implode(" ",self::$sqlQueries["GET"]);

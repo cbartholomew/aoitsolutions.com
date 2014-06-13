@@ -263,17 +263,17 @@ function handleCreateGet($request,$userAccess)
 	 *	List View Columns
 	 ********************************************************************/
 	// get the speaker list view html
-	$speakerListViewHTML = GetSpeakerListViewHTML($userAccess);
+	$speakerListViewHTML 	= GetSpeakerListViewHTML($userAccess);
 	// get topic list view html
-	$topicListViewHTML 	 = GetTopicListViewHTML($userAccess);
+	$topicListViewHTML 	 	= GetTopicListViewHTML($userAccess);
 	// get track list view html
-	$trackListViewHTML 	 = GetTrackListViewHTML($userAccess);
+	$trackListViewHTML 	 	= GetTrackListViewHTML($userAccess);
 	// get status list view html 
-	$statusListViewHTML  = GetStatusListViewHTML($userAccess);
+	$statusListViewHTML  	= GetStatusListViewHTML($userAccess);
 	// get event type list view html 
 	$eventTypeListViewHTML  = GetEventTypeListViewHTML($userAccess);
 	// get venue view html 
-	$venueViewListViewHTML = "<td cols=7>not implemented</td>";
+	$venueViewListViewHTML 	= GetVenueListViewHTML($userAccess);
 	
 	// push on to the argument stack
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"		,$headerText));

@@ -72,4 +72,5 @@
 </form>
 
 <div class="modal fade"  id="myRoomModal" tabindex="-1" role="dialog" aria-labelledby="myRoomModalLabel" aria-hidden="true">
-</div><!-- /.modal -->
+</div>
+<!-- /.modal -->
