@@ -1,0 +1,9 @@
+Necessary
+Add Vendor Module 
+	
+
+Feature:
+Add Equipment Inventory & Equipment Type Modules
+	Add Event-Equipment Module which incorporates the above w/ Quantities 
+	Add 
+
