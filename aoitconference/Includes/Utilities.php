@@ -187,7 +187,8 @@
 			
 		foreach($allSocialTypes as $socialType)
 		{
-			$html .= "<li><a data-toggle='modal' href=?m=modal&social=" . $socialType->_socialTypeIdentity . "
+			// added "type" to reuse modal functionality
+			$html .= "<li><a data-toggle='modal' href=?m=modal&type=social&social=" . $socialType->_socialTypeIdentity . "
 				    data-target='#mySocialNetworkModal' custom='" . $socialType->_icoUrl . "' id='" 
 				  . $socialType->_socialTypeIdentity 
 				  . "' class='socialType'>" . $socialType->_name . "</a></li>";

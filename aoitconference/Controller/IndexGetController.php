@@ -356,6 +356,12 @@ function handleAccountRegistrationGet($request)
 	print $reg_view->renderViewHTML(true,true);	
 }
 
+
+function handleRoomModalGet($request)
+{
+	return;
+}
+
 function handleSocialModalGet($request)
 {
 	// pass default "add" text to modal unless it's an updated
