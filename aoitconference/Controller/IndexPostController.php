@@ -234,4 +234,28 @@ function handleCreateEventTypePost($request,$userAccess)
 	Redirect("?m=create#eventtype");
 }
 
+function handleCreateVenuePost($request,$userAccess)
+{
+	// init new venue based on request parameters
+	$venue = new Venue(array(
+		"VENUE_IDENTITY" 	=> null,
+		"ACCOUNT_IDENTITY" 	=> $userAccess->_accountIdentity,
+		"NAME"            	=> $request["name"],
+		"IMAGE"            	=> $request["image"],
+		"CAPACITY"         	=> $request["capacity"],
+		"ADDRESS"           => $request["address"],
+		"CITY"            	=> $request["city"],
+  		"STATE"				=> $request["state"],
+  		"ZIP"               => $request["zip"],
+  		"COUNTRY"           => 1
+	));
+
+	// insert the new venue
+	VenueController::Post($venue);
+
+	// redirect back to the vendue page
+	Redirect("?m=create#venue");
+
+}
+
 ?>

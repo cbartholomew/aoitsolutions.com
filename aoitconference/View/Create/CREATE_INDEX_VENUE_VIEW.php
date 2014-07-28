@@ -42,18 +42,6 @@
   </div>
 
   <div class="form-group">
-	<!-- Split button -->
-	<div class="btn-group">
-	  <button type="button" class="btn btn-info" data-toggle="dropdown">
-	   <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Room
-	  </button>
-	</div>
-	<div class="room_options">
-		#VENUE_ROOM_OPTIONS#
-	</div>
-  </div>
-
-  <div class="form-group">
     <label for="image" class="control-label">Image URL</label>
     <input type="text" class="form-control" id="image" name="image" placeholder="http://upload.wikimedia.org/wikipedia/commons/a/af/WhiteHouseSouthFacade.JPG" value="#VENUE_IMAGE#" />
   </div>

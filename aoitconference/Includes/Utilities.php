@@ -479,18 +479,27 @@
 			{
 				foreach($venues as $venue)
 				{
-					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='track' id='manage_track_" . $venue->_venueIdentity . "' 
+					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='track' id='manage_venue_" . $venue->_venueIdentity . "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
 
-					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='track' id='delete_track_" . $venue->_venueIdentity .  "' 
+					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='track' id='delete_venue_" . $venue->_venueIdentity .  "' 
 					class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
 
+					// create new state variable w/ state id from venue
+					$state = new State(array(
+						"STATE_IDENTITY"	=> $venue->_state,
+						"NAME"				=> null
+					));
+
+					// get the state by state identity
+					$state = StateController::Get($state);
+
 					$html .= "<tr>";
-					$html .= "<td>" . $venue->_image 	. "</td>";
+					$html .= "<td><img  class ='img-thumbnail' src='" . $venue->_image 	. "' alt='" . $venue->_image . "' height=100 width=100 /></td>";
 					$html .= "<td>" . $venue->_name 	. "</td>";
 					$html .= "<td>" . $venue->_address 	. "</td>";
 					$html .= "<td>" . $venue->_city 	. "</td>";
-					$html .= "<td>" . $venue->_state 	. "</td>";
+					$html .= "<td name='" . $venue->_state . "'>" . $state->_name	. "</td>";
 					$html .= "<td>" . $venue->_zip 		. "</td>";
 					$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";	
 					$html .= "</tr>";
@@ -503,6 +512,11 @@
 		}
 		
 		return $html;
+	}
+
+	function GetRoomListViewHTML($userAccess, $venue)
+	{
+
 	}
 	
 	function GetStatusListViewHTML($userAccess)

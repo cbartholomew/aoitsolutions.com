@@ -48,6 +48,30 @@ class RoomController
 		return $roomResult;
 	}
 	
+	public static function GetUsingUser($room,$userAccess)
+	{
+		$roomList = [];
+		
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["GET_SECURE"]);
+
+			$rows = query($query, $room->_venueIdentity, $userAccess->_accountIdentity);
+
+			foreach($rows as $row)
+			{			
+				$room = new Room($row);
+				array_push($roomList, $room);
+			}
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+
+		return $roomList;		
+	}	
+
 	public static function Post($room)
 	{
 		try
@@ -115,6 +139,20 @@ class RoomController
 			"ROOM",
 			"WHERE",
 			"VENUE_IDENTITY = ?"
+		),
+		"GET_SECURE" => array(
+			"SELECT", 
+			"*",
+			"FROM", 
+			"ROOM AS R",
+			"INNER JOIN", 
+			"VENUE AS V",
+			"ON", 
+			"V.VENUE_IDENTITY = R.VENUE_IDENTITY",
+			"WHERE", 
+			"R.VENUE_IDENTITY = ?",
+			"AND",
+			"V.ACCOUNT_IDENTITY = ?"
 		),
 		"GET_BY_ID"=> array(
 			"SELECT",

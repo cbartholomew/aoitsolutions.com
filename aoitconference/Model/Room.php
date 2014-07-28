@@ -1,4 +1,13 @@
 <?php
+/*
+ * $room = new Room(array(
+ * 	"ROOM_IDENTITY"  	=> null,
+ * 	"VENUE_IDENTITY"  	=> null,
+ * 	"NAME"              => null,
+ * 	"ROOM_NUMBER"       => null,
+ * 	"CAPACITY"          => null
+ * ));
+ */
 class Room
 {
 	public $_roomIdentity;

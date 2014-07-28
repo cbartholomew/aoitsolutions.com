@@ -246,6 +246,11 @@ function handlePost($request)
 				handleCreateEventTypePost($request,$userAccess);
 				return;
 			break;
+			case "create_venue":
+				handleCreateVenuePost($request,$userAccess);
+				return;
+			break;
+
 			default:
 				// 
 				unset($request[PARAM_METHOD_CALLED]);
