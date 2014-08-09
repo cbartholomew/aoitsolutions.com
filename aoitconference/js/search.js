@@ -9,7 +9,6 @@ var searchConfig = [
 
 function initSearchFields(searchConfig){
 	$(searchConfig).each(function(){
-		console.log(this.div);
 		var config = this;
 		$(this.div).on("keyup",function(e){
 			var searchFor = $(config.div).val();
