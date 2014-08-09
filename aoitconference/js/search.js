@@ -1,28 +1,24 @@
-$("#speaker_search").on("keyup",function(e){
-	var searchFor = $("#speaker_search").val();
-	var inTable	  = $(".speakers");
-	search(searchFor,inTable);
-});
-$("#topic_search").on("keyup",function(e){
-	var searchFor = $("#topic_search").val();
-	var inTable	  = $(".topics");
-	search(searchFor,inTable);
-});
-$("#track_search").on("keyup",function(e){
-	var searchFor = $("#track_search").val();
-	var inTable	  = $(".tracks");
-	search(searchFor,inTable);
-});
-$("#status_search").on("keyup",function(e){
-	var searchFor = $("#status_search").val();
-	var inTable	  = $(".allstatus");
-	search(searchFor,inTable);
-});
-$("#eventtype_search").on("keyup",function(e){
-	var searchFor = $("#eventtype_search").val();
-	var inTable	  = $(".eventtypes");
-	search(searchFor,inTable);
-});
+var searchConfig = [
+	{ div: "#speaker_search", 	cls:".speakers"},
+	{ div: "#topic_search", 	cls: ".topics"},	
+	{ div: "#track_search", 	cls: ".tracks"},
+	{ div: "#status_search", 	cls: ".allstatus"},
+	{ div: "#eventtype_search", cls: ".eventtypes"},
+	{ div: "#vendue_search", 	cls: ".vendues"}
+];
+
+function initSearchFields(searchConfig){
+	$(searchConfig).each(function(){
+		console.log(this.div);
+		var config = this;
+		$(this.div).on("keyup",function(e){
+			var searchFor = $(config.div).val();
+			var inTable   = $(config.cls);
+			search(searchFor,inTable);
+		});
+	});
+}
+
 function search( query, tableBody ) {	
 	var hideNone = false;
 	if(query == "") {
@@ -46,3 +42,6 @@ function search( query, tableBody ) {
 		}
 	});
 }
+
+// init listeners for searching
+initSearchFields(searchConfig);
