@@ -45,4 +45,52 @@ function GetStatusHTML($userAccess,$speaker)
 	
 	return $html;
 }
+
+function GetStatusListViewHTML($userAccess)
+{
+	// define and init html for speaker
+	$html = "";
+	
+	try
+	{					
+		// init new speaker array
+		$s = new Status(array(
+			"STATUS_IDENTITY"	 => null,
+			"ACCOUNT_IDENTITY"   => $userAccess->_accountIdentity,
+			"NAME"	     		 => null
+		));
+	
+		// get list of speakers by account identity
+		$statuses = StatusController::Get($s);
+	
+		if(count($statuses) <= 0)
+		{
+			$html .= "<tr>";
+			$html .= "<td colspan='2'>This account has no Statuses available</td>";
+			$html .= "</tr>";	
+		}
+		else
+		{
+			foreach($statuses as $status)
+			{
+					$btnManageHtml = "<button type='button' onclick='manage(this);' operation='status' id='manage_status_" . 
+					$status->_statusIdentity . "' class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
+			
+					$btnRemoveHtml = "<button type='button' onclick='prompt(this);' operation='status' id='delete_status_" . 
+					$status->_statusIdentity . "' class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
+				
+					$html .= "<tr>";
+					$html .= "<td>" . $status->_name . "</td>";
+					$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";	
+					$html .= "</tr>";
+			}
+		}
+	}
+	catch(Exception $e)
+	{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+	}
+	return $html;
+}
+
 ?>
