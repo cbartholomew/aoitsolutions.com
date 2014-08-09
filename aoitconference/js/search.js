@@ -1,10 +1,10 @@
 var searchConfig = [
-	{ div: "#speaker_search", 	cls:".speakers"},
+	{ div: "#speaker_search", 	cls: ".speakers"},
 	{ div: "#topic_search", 	cls: ".topics"},	
 	{ div: "#track_search", 	cls: ".tracks"},
 	{ div: "#status_search", 	cls: ".allstatus"},
 	{ div: "#eventtype_search", cls: ".eventtypes"},
-	{ div: "#vendue_search", 	cls: ".vendues"}
+	{ div: "#vendue_search", 	cls: ".venues"}
 ];
 
 function initSearchFields(searchConfig){
