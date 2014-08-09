@@ -1,5 +1,4 @@
 <?php
-
 function GetEventTypeListViewHTML($userAccess)
 {
 	// define and init html for speaker

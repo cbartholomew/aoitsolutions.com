@@ -6,8 +6,20 @@ session_start();
 
 // includes
 require("Constants.php");
-require("Utilities.php");
 require("DAL.php");
+
+// Utility
+require("Utility/GeneralUtility.php");
+require("Utility/EventTypeUtility.php");
+require("Utility/RoomUtility.php");
+require("Utility/SocialTypeUtility.php");
+require("Utility/SpeakerUtility.php");
+require("Utility/StateUtility.php");
+require("Utility/StatusUtility.php");
+require("Utility/TopicUtility.php");
+require("Utility/TrackUtility.php");
+require("Utility/UserUtility.php");
+require("Utility/VenueUtility.php");
 
 // Main Controllers
 require("Controller/IndexGetController.php");
