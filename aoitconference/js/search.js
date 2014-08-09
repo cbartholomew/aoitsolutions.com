@@ -7,7 +7,7 @@ var searchConfig = [
 	{ div: "#vendue_search", 	cls: ".venues"}
 ];
 
-function initSearchFields(searchConfig){
+function initSearchFields( searchConfig ){
 	$(searchConfig).each(function(){
 		var config = this;
 		$(this.div).on("keyup",function(e){
