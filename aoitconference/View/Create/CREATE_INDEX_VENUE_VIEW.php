@@ -37,8 +37,10 @@
   </div>
   
   <div class="form-group">
-    <label for="country" class="control-label">Country</label>
-      <input type="text" class="form-control" id="country" name="country" placeholder="United States of America" value="#VENUE_COUNTRY#" />
+      <label for="country" class="control-label">Country</label>
+      <select id="country"class="form-control" name="country">
+    #VENUE_COUNTRY_LIST#
+    </select>
   </div>
 
   <div class="form-group">
@@ -58,7 +60,4 @@
   </div>
 
 </form>
-
-<div class="modal fade"  id="myRoomModal" tabindex="-1" role="dialog" aria-labelledby="myRoomModalLabel" aria-hidden="true">
-</div>
 <!-- /.modal -->

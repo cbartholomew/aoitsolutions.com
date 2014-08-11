@@ -203,6 +203,7 @@ function handleCreateGet($request,$userAccess)
 	
 	// get the state list, pass null in as the venue
 	$viewVenueStateHTML = GetStateHTML(null);
+	$viewVenueCountryHTML = GetCountryHTML(null);
 	
 	// these varibles are set up if I wanted to go a different route than ajax
 	$viewVenueName 	  	= "";
@@ -211,8 +212,8 @@ function handleCreateGet($request,$userAccess)
 	$viewVenueAddress  	= "";
 	$viewVenueCity	 	= "";
 	$viewVenueState 	= $viewVenueStateHTML;
+	$viewVenueCountry  	= $viewVenueCountryHTML;
 	$viewVenueZip 		= "";
-	$viewVenueCountry 	= "";
 	
 	// push blank speaker arguments to the view since it's create only
 	array_push($venueViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
@@ -222,9 +223,9 @@ function handleCreateGet($request,$userAccess)
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_ADDRESS",$viewVenueAddress));	
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_CITY",$viewVenueCity));	
 	// getting general view built - below will be the text for the state drop down
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_COUNTRY_LIST",$viewVenueCountry));	
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_STATE_LIST",$viewVenueState));	
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_ZIP",$viewVenueZip));
-	array_push($venueViewArguments,View::MakeViewArgument("VENUE_COUNTRY",$viewVenueCountry));
 	array_push($venueViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
 		
 	// apply special arguments to speaker view only
