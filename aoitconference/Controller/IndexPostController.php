@@ -234,4 +234,33 @@ function handleCreateEventTypePost($request,$userAccess)
 	Redirect("?m=create#eventtype");
 }
 
+function handleCreateVenuePost($request,$userAccess)
+{
+	// check if image is blank
+	$imageUrl = CheckVenueImage($request["image_url"]);
+
+	// init new venue based on request parameters
+	$venue = new Venue(array(
+		"VENUE_IDENTITY" 	=> null,
+		"ACCOUNT_IDENTITY" 	=> $userAccess->_accountIdentity,
+		"NAME"            	=> $request["name"],
+		"IMAGE"            	=> $imageUrl,
+		"IMAGE_URL"			=> $imageUrl,
+		"CAPACITY"         	=> $request["capacity"],
+		"ADDRESS"           => $request["address"],
+		"CITY"            	=> $request["city"],
+  		"STATE"				=> $request["state"],
+  		"ZIP"               => $request["zip"],
+  		"COUNTRY"           => $request["country"],
+  		"PUBLIC_USE"		=> $request["public_use"]
+	));
+
+	// insert the new venue
+	VenueController::Post($venue);
+
+	// redirect back to the vendue page
+	Redirect("?m=create#venue");
+
+}
+
 ?>

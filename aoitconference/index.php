@@ -11,17 +11,17 @@ require("includes/Config.php");
 
 switch($_SERVER["REQUEST_METHOD"])
 {
-	case "GET":
+	case REQUEST_GET:
 		handleGet($_GET);
 	break;
-	case "POST":
-		switch($_POST["method"])
+	case REQUEST_POST:
+		switch($_POST[PARAM_REQUEST_METHOD])
 		{
-			case "PUT":
+			case REQUEST_PUT:
 				handlePut($_POST);
 				return;
 			break;	
-			case "DELETE":
+			case REQUEST_DELETE:
 				handleDelete($_POST);
 			break;
 			default:
@@ -57,9 +57,9 @@ function handleGet($request)
 		PutSession($userAccess);	
 	}
 
-	if(isset($request["m"]))
+	if(isset($request[PARAM_METHOD_CALLED]))
 	{				
-		switch($request["m"])
+		switch($request[PARAM_METHOD_CALLED])
 		{
 			case "login":
 				handleAccountLoginGet($request);				
@@ -83,23 +83,33 @@ function handleGet($request)
 			case "modal":
 				if(CheckAuth($userAccess))
 				{
-					handleSocialModalGet($request);
+					$requestType = $request["type"];
+					
+					if($requestType == "social")
+					{
+						handleSocialModalGet($request);
+					}
+					else if($requestType  == "room")
+					{
+						handleRoomModalGet($request);
+					}
 					return;
 				}
 				// I don't want it to loop back to the modal
-				$request["m"] = "create";
+				$request[PARAM_METHOD_CALLED] = "create";
 			case "delete_speaker"	:
 			case "delete_topic"		:
 			case "delete_track"		:
 			case "delete_status"	:
 			case "delete_eventtype" :
+			case "delete_venue":
 				if(CheckAuth($userAccess))
 				{
 					handlePromptWithActionGet($request,$userAccess);
 					return;
 				}
 				// I don't want it to loop back to the modal
-				$request["m"] = "create";
+				$request[PARAM_METHOD_CALLED] = "create";
 			break;
 			case "manage_speaker":
 				if(CheckAuth($userAccess))
@@ -160,15 +170,27 @@ function handleGet($request)
 					NotAuthorized();
 					return;
 				}
+				break;
+			case "manage_venue":
+				if(CheckAuth($userAccess))
+				{
+					handleManageVenueGet($request,$userAccess);
+					return;
+				}
+				else
+				{
+					NotAuthorized();
+					return;
+				}
 			break;
 			default:
 				// unset request
-				unset($request["m"]);
+				unset($request[PARAM_METHOD_CALLED]);
 				handleGet($request);
 				return;
 		}	
 		
-		Redirect("?m=login&return=" . $request["m"]);	
+		Redirect("?m=login&return=" . $request[PARAM_METHOD_CALLED]);	
 	}
 	else
 	{     	
@@ -205,9 +227,9 @@ function handlePost($request)
 		PutSession($userAccess);	
 	}
 	
-	if(isset($request["m"]))
+	if(isset($request[PARAM_METHOD_CALLED]))
 	{
-		switch($request["m"])
+		switch($request[PARAM_METHOD_CALLED])
 		{
 			case "registration": 			
 				handleAccountRegistrationPost($request);
@@ -237,12 +259,17 @@ function handlePost($request)
 				handleCreateEventTypePost($request,$userAccess);
 				return;
 			break;
+			case "create_venue":
+				handleCreateVenuePost($request,$userAccess);
+				return;
+			break;
+
 			default:
 				// 
-				unset($request["m"]);
+				unset($request[PARAM_METHOD_CALLED]);
 				handleGet($request);
 		}
-		Redirect("?m=login&return=" . $request["m"]);		
+		Redirect("?m=login&return=" . $request[PARAM_METHOD_CALLED]);		
 	}			
 	else
 	{     	
@@ -279,9 +306,9 @@ function handlePut($request)
 		PutSession($userAccess);	
 	}
 	
-	if(isset($request["m"]))
+	if(isset($request[PARAM_METHOD_CALLED]))
 	{
-		switch($request["m"])
+		switch($request[PARAM_METHOD_CALLED])
 		{
 			case "registration": 			
 				return;
@@ -309,12 +336,15 @@ function handlePut($request)
 				handleCreateEventTypePut($request,$userAccess);
 				return;
 			break;
+			case "create_venue":
+				handleCreateVenuePut($request,$userAccess);
+				return;
 			default:
 				// 
-				unset($request["m"]);
+				unset($request[PARAM_METHOD_CALLED]);
 				handleGet($request);
 		}
-		Redirect("?m=login&return=" . $request["m"]);		
+		Redirect("?m=login&return=" . $request[PARAM_METHOD_CALLED]);		
 	}			
 	else
 	{     	
@@ -352,9 +382,9 @@ function handleDelete($request)
 		PutSession($userAccess);	
 	}
 	
-	if(isset($request["m"]))
+	if(isset($request[PARAM_METHOD_CALLED]))
 	{
-		switch($request["m"])
+		switch($request[PARAM_METHOD_CALLED])
 		{
 			case "delete_speaker":
 				handleCreateSpeakerDelete($request,$userAccess);
@@ -376,12 +406,16 @@ function handleDelete($request)
 				handleCreateEventTypeDelete($request,$userAccess);
 				return;
 			break;
+			case "delete_venue":
+				handleCreateVenueDisable($request,$userAccess);
+				return;
+			break;
 			default:
 				// 
-				unset($request["m"]);
+				unset($request[PARAM_METHOD_CALLED]);
 				handleGet($request);
 		}
-		Redirect("?m=login&return=" . $request["m"]);		
+		Redirect("?m=login&return=" . $request[PARAM_METHOD_CALLED]);		
 	}			
 	else
 	{     	

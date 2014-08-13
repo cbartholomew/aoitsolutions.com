@@ -4,11 +4,13 @@ var request_map = {
 	"manage_track"	 	: handleTrack,
 	"manage_status"	 	: handleStatus,
 	"manage_eventtype"	: handleEventType,
+	"manage_venue"		: handleVenue,
 	"delete_speaker"  	: handlePrompt,
 	"delete_topic"   	: handlePrompt,
 	"delete_track"	 	: handlePrompt,
 	"delete_status"  	: handlePrompt,
-	"delete_eventtype"	: handlePrompt
+	"delete_eventtype"	: handlePrompt,
+	"delete_venue"		: handlePrompt
 };
 // clean out data when ajax is completed
 $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
@@ -16,6 +18,10 @@ $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
 });
 $('#generic_modal').on('hidden.bs.modal', function (e) {
    $("#generic_modal").removeData();
+});
+$("#venue_image_url").on("blur",function(){
+	var imageSrc = $("#venue_image_url").val();
+	$("#venue_preview").attr("src",imageSrc);
 });
 
 function manage( element ){
@@ -50,12 +56,12 @@ function prompt( element ){
 	$.aoit.request(url,method,request,callback); 	
 }
 
-function handlePrompt(data){
+function handlePrompt( data ){
 	$("#generic_modal").html(data);
 	$("#generic_modal").modal("show");
 }
 
-function handleSpeaker(data){
+function handleSpeaker( data ){
 	// add update speaker check?
 	var speaker = data["speaker"];
 	var social 	= data["speakerSocial"];
@@ -83,7 +89,7 @@ function handleSpeaker(data){
 	appendCancelButton($("#create_speaker_form"),"btn-speaker-clear","speaker");
 }
 
-function handleTopic(data){
+function handleTopic( data ){
 	var topic = data["topic"];
 	$("#topic_identity").val(topic["_topicIdentity"]);
 	$("#topic_method").val("PUT");
@@ -92,7 +98,7 @@ function handleTopic(data){
 	appendCancelButton($("#create_topic_form"),"btn-topic-clear","topic");
 }
 
-function handleTrack(data){
+function handleTrack( data ){
 	var track = data["track"];
 	$("#track_identity").val(track["_trackIdentity"]);
 	$("#track_method").val("PUT");
@@ -101,7 +107,7 @@ function handleTrack(data){
 	appendCancelButton($("#create_track_form"),"btn-track-clear","track");
 }
 
-function handleStatus(data){
+function handleStatus( data ){
 	var status = data["status"];
 	$("#status_identity").val(status["_statusIdentity"]);
 	$("#status_method").val("PUT");
@@ -109,14 +115,32 @@ function handleStatus(data){
 	$(".btn-status-submit").text("Save Changes to Status");
 	appendCancelButton($("#create_status_form"),"btn-status-clear","newstatus");
 }
-
-function handleEventType(data){
-	var status = data["eventtype"];
-	$("#eventtype_identity").val(status["_eventTypeIdentity"]);
+ 
+function handleEventType( data ){
+	var eventtype = data["eventtype"];
+	$("#eventtype_identity").val(eventtype["_eventTypeIdentity"]);
 	$("#eventtype_method").val("PUT");
-	$("#eventtype_name").val(status["_name"]);
+	$("#eventtype_name").val(eventtype["_name"]);
 	$(".btn-eventtype-submit").text("Save Changes to Event Type");
 	appendCancelButton($("#create_eventtype_form"),"btn-eventtype-clear","eventtype");
+}
+
+function handleVenue( data ){
+	var venue = data["venue"];
+	$("#venue_identity").val(venue["_venueIdentity"]);
+	$("#venue_method").val("PUT");
+	$("#venue_name").val(venue["_name"]);
+	$("#venue_address").val(venue["_address"]);
+	$("#venue_capacity").val(venue["_capacity"]);
+	$("#venue_city").val(venue["_city"]);
+	$("#venue_preview").attr("src",venue["_image"]);
+	$("#venue_image_url").val(venue["_imageUrl"]);
+	$("#venue_zip").val(venue["_zip"]);
+	$("#venue_public_use option[value='" + venue["_publicUse"] + "']").attr("selected","selected");
+	$("#venue_country option[value='" + venue["_country"] + "']").attr("selected","selected");
+	$("#venue_state option[value='" + venue["_state"] + "']").attr("selected","selected");
+	$(".btn-venue-submit").text("Save Changes to Venue");
+	appendCancelButton($("#create_venue_form"),"btn-venue-clear","venue");
 }
 
 function appendCancelButton(currentForm, cancelElementId, returnTo)

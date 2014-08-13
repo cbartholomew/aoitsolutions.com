@@ -106,7 +106,7 @@ function handleCreateStatusPut($request,$userAccess)
 		"NAME"				=> $request["status_name"]
 	));
 	
-	// update the topic 
+	// update the status 
 	StatusController::Put($status);
 	
 	// redirect user back to the correct tab
@@ -122,10 +122,48 @@ function handleCreateEventTypePut($request,$userAccess)
 		"NAME"					=> $request["eventtype_name"]
 	));
 	
-	// update the topic 
+	// update the event 
 	EventTypeController::Put($eventType);
 	
 	// redirect user back to the correct tab
 	Redirect("?m=create#eventtype");
+}
+
+function handleCreateVenuePut($request,$userAccess)
+{
+	// check if whoever is making the request has access 
+	// to actually make these changes (incase of console scripting)
+	// by passing the disable
+	if(!IsVenueOwner($request,$userAccess))
+	{
+		if(!IsAccountTypeCanEdit($userAccess))
+		{
+			// send bad request
+			BadRequest();
+		}
+	}
+
+	// init new venue array
+    $venue = new Venue(array(
+		"VENUE_IDENTITY" 	=> $request["venue_identity"],
+		"ACCOUNT_IDENTITY" 	=> $userAccess->_accountIdentity,
+		"NAME"            	=> $request["venue_name"],
+		"IMAGE"            	=> $request["venue_image_url"],
+		"IMAGE_URL"			=> $request["venue_image_url"],
+		"CAPACITY"         	=> $request["venue_capacity"],
+		"ADDRESS"           => $request["venue_address"],
+		"CITY"            	=> $request["venue_city"],
+	 	"STATE"				=> $request["venue_state"],
+	 	"ZIP"               => $request["venue_zip"],
+	 	"COUNTRY"           => $request["venue_country"],
+	 	"PUBLIC_USE"		=> $request["venue_public_use"],
+	 	"DISABLED"			=> False
+	));
+	
+	// update the venue
+	VenueController::Put($venue);
+
+	// redirect user back to the correct tab
+	Redirect("?m=create#venue");
 }
 ?>

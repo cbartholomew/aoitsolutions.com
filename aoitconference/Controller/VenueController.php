@@ -3,7 +3,7 @@ class VenueController
 {																	
 	public static function Get($venue)
 	{
-		$venueList = [];
+		$venueList = array();
 		try
 		{
 			$query = implode(" ",self::$sqlQueries["GET"]);
@@ -30,7 +30,7 @@ class VenueController
 		{
 			$query = implode(" ",self::$sqlQueries["GET_BY_ID"]);
 
-			$rows = query($query, $venue->_venueResult);
+			$rows = query($query, $venue->_venueIdentity);
 
 			foreach($rows as $row)
 			{			
@@ -55,12 +55,14 @@ class VenueController
 				$venue->_accountIdentity,
 				$venue->_name,
 				$venue->_image,
+				$venue->_imageUrl,
 				$venue->_capacity,
 				$venue->_address,
 				$venue->_city,
 				$venue->_state,
 				$venue->_zip,
-				$venue->_country);
+				$venue->_country,
+				$venue->_publicUse);
 		}
 		catch(Exception $e)
 		{
@@ -80,12 +82,14 @@ class VenueController
 				$venue->_accountIdentity,
 				$venue->_name,
 				$venue->_image,
+				$venue->_imageUrl,
 				$venue->_capacity,
 				$venue->_address,
 				$venue->_city,
 				$venue->_state,
 				$venue->_zip,
 				$venue->_country,
+				$venue->_publicUse,
 				$venue->_venueIdentity);
 		}
 		catch(Exception $e)
@@ -102,7 +106,7 @@ class VenueController
 		{
 			$query = implode(" ",self::$sqlQueries["DELETE"]);
 	
-			query($query,$venue->_venueIdentity);
+			query($query,$venue->_venueIdentity,$venue->_accountIdentity);
 		}
 		catch(Exception $e)
 		{
@@ -112,6 +116,22 @@ class VenueController
 		return true;		
 	}
 	
+		public static function Disable($venue)
+	{
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["DISABLE"]);
+	
+			query($query,$venue->_venueIdentity,$venue->_accountIdentity);
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);			
+			return false;
+		}	
+		return true;		
+	}
+
 	// sql query, done in such a way where it is easier to add fields, if needed
     public static $sqlQueries = array(
 		"GET" 	=> array(
@@ -120,7 +140,11 @@ class VenueController
 			"FROM",
 			"VENUE",
 			"WHERE",
-			"ACCOUNT_IDENTITY = ?"
+			"(ACCOUNT_IDENTITY = ?",
+			"OR",
+			"PUBLIC_USE = true)",
+			"AND",
+			"DISABLED = False"
 		),
 		"GET_BY_ID"=> array(
 			"SELECT",
@@ -128,7 +152,9 @@ class VenueController
 			"FROM",
 			"VENUE",
 			"WHERE",
-			"VENUE_IDENTITY = ?"
+			"VENUE_IDENTITY = ?",
+			"AND",
+			"DISABLED = False"
 		),
 		"POST"  => array(
 			"INSERT INTO",
@@ -136,14 +162,17 @@ class VenueController
 			"(ACCOUNT_IDENTITY,",
 			"NAME,",
 			"IMAGE,",
+			"IMAGE_URL,",
 			"CAPACITY,",
 			"ADDRESS,",
 			"CITY,",
 			"STATE,",
 			"ZIP,",
-			"COUNTRY)",
+			"COUNTRY,",
+			"PUBLIC_USE,",
+			"DISABLED)",
 			"VALUES",
-			"(?,?,?,?,?,?,?,?,?,?)"
+			"(?,?,?,?,?,?,?,?,?,?,?,False)"
 		),
 		"UPDATE" => array(
 			"UPDATE",
@@ -151,12 +180,14 @@ class VenueController
 			"ACCOUNT_IDENTITY = ?,", 
 			"NAME = ?,",
 			"IMAGE = ?,",
+			"IMAGE_URL = ?,",
 			"CAPACITY = ?,",
 			"ADDRESS = ?,",
 			"CITY = ?,",
 			"STATE = ?,",
 			"ZIP = ?,",
-			"COUNTRY = ?",
+			"COUNTRY = ?,",
+			"PUBLIC_USE = ?",
 			"WHERE",
 			"VENUE_IDENTITY = ?"
 		),
@@ -164,8 +195,19 @@ class VenueController
 			"DELETE FROM",
 			"VENUE",
 			"WHERE",
-			"VENUE_IDENTITY = ?"
-		)	
+			"VENUE_IDENTITY = ?",
+			"AND",
+			"ACCOUNT_IDENTITY = ?"
+		),
+		"DISABLE" => array(
+			"UPDATE VENUE",
+			"SET",
+			"DISABLED = True",
+			"WHERE",
+			"VENUE_IDENTITY = ?",
+			"AND",
+			"ACCOUNT_IDENTITY = ?"
+		)
 	);
 }
 ?>

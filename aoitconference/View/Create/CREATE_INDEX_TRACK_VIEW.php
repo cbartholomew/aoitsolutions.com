@@ -3,7 +3,7 @@
   <input type="hidden" id="track_identity" name="track_identity" value="" /> 
   <input type="hidden" id="track_method" name="method" value="POST" /> 
   <div class="form-group">
-    <label for="name" class="control-label">Track Name</label>
+    <label for="track_name" class="control-label">Track Name</label>
     <input type="text" class="form-control" id="track_name" name="track_name" placeholder="Executive Branch" value="" required />
   </div>
   <div class="form-group">

@@ -6,8 +6,22 @@ session_start();
 
 // includes
 require("Constants.php");
-require("Utilities.php");
 require("DAL.php");
+
+// Utility
+require("Utility/GeneralUtility.php");
+require("Utility/EventTypeUtility.php");
+require("Utility/RoomUtility.php");
+require("Utility/SocialTypeUtility.php");
+require("Utility/SpeakerUtility.php");
+require("Utility/StateUtility.php");
+require("Utility/StatusUtility.php");
+require("Utility/TopicUtility.php");
+require("Utility/TrackUtility.php");
+require("Utility/UserUtility.php");
+require("Utility/VenueUtility.php");
+require("Utility/CountryUtility.php");
+require("Utility/AccountTypeUtility.php");
 
 // Main Controllers
 require("Controller/IndexGetController.php");
@@ -29,6 +43,7 @@ require("Controller/EventTypeController.php");
 require("Controller/StateController.php");
 require("Controller/VenueController.php");
 require("Controller/RoomController.php");
+require("Controller/CountryController.php");
 
 // Models
 require("Model/View.php");
@@ -44,4 +59,5 @@ require("Model/EventType.php");
 require("Model/State.php");
 require("Model/Venue.php");
 require("Model/Room.php");
+require("Model/Country.php");
 ?>

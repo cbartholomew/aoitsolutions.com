@@ -203,6 +203,7 @@ function handleCreateGet($request,$userAccess)
 	
 	// get the state list, pass null in as the venue
 	$viewVenueStateHTML = GetStateHTML(null);
+	$viewVenueCountryHTML = GetCountryHTML(null);
 	
 	// these varibles are set up if I wanted to go a different route than ajax
 	$viewVenueName 	  	= "";
@@ -211,8 +212,8 @@ function handleCreateGet($request,$userAccess)
 	$viewVenueAddress  	= "";
 	$viewVenueCity	 	= "";
 	$viewVenueState 	= $viewVenueStateHTML;
+	$viewVenueCountry  	= $viewVenueCountryHTML;
 	$viewVenueZip 		= "";
-	$viewVenueCountry 	= "";
 	
 	// push blank speaker arguments to the view since it's create only
 	array_push($venueViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
@@ -222,9 +223,9 @@ function handleCreateGet($request,$userAccess)
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_ADDRESS",$viewVenueAddress));	
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_CITY",$viewVenueCity));	
 	// getting general view built - below will be the text for the state drop down
+	array_push($venueViewArguments,View::MakeViewArgument("VENUE_COUNTRY_LIST",$viewVenueCountry));	
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_STATE_LIST",$viewVenueState));	
 	array_push($venueViewArguments,View::MakeViewArgument("VENUE_ZIP",$viewVenueZip));
-	array_push($venueViewArguments,View::MakeViewArgument("VENUE_COUNTRY",$viewVenueCountry));
 	array_push($venueViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
 		
 	// apply special arguments to speaker view only
@@ -263,17 +264,17 @@ function handleCreateGet($request,$userAccess)
 	 *	List View Columns
 	 ********************************************************************/
 	// get the speaker list view html
-	$speakerListViewHTML = GetSpeakerListViewHTML($userAccess);
+	$speakerListViewHTML 	= GetSpeakerListViewHTML($userAccess);
 	// get topic list view html
-	$topicListViewHTML 	 = GetTopicListViewHTML($userAccess);
+	$topicListViewHTML 	 	= GetTopicListViewHTML($userAccess);
 	// get track list view html
-	$trackListViewHTML 	 = GetTrackListViewHTML($userAccess);
+	$trackListViewHTML 	 	= GetTrackListViewHTML($userAccess);
 	// get status list view html 
-	$statusListViewHTML  = GetStatusListViewHTML($userAccess);
+	$statusListViewHTML  	= GetStatusListViewHTML($userAccess);
 	// get event type list view html 
 	$eventTypeListViewHTML  = GetEventTypeListViewHTML($userAccess);
 	// get venue view html 
-	$venueViewListViewHTML = "<td cols=7>not implemented</td>";
+	$venueViewListViewHTML 	= GetVenueListViewHTML($userAccess);
 	
 	// push on to the argument stack
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"		,$headerText));
@@ -354,6 +355,12 @@ function handleAccountRegistrationGet($request)
 	$reg_view = new ViewController(new View("REGISTER_VIEW","Account/REGISTER_VIEW.php",$arguments));	
 	// echo register view
 	print $reg_view->renderViewHTML(true,true);	
+}
+
+
+function handleRoomModalGet($request)
+{
+	return;
 }
 
 function handleSocialModalGet($request)
@@ -538,18 +545,52 @@ function handleManageStatusGet($request,$userAccess)
 	exit;
 }
 
+function handleManageVenueGet($request,$userAccess)
+{
+	$venue = VenueController::GetById(new Venue(array(
+		"VENUE_IDENTITY" 	=> $request["identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"            	=> null,
+		"IMAGE"            	=> null,
+		"IMAGE_URL"			=> null,
+		"CAPACITY"         	=> null,
+		"ADDRESS"           => null,
+		"CITY"            	=> null,
+		"STATE"				=> null,
+		"ZIP"               => null,
+		"COUNTRY"           => null,
+		"PUBLIC_USE"		=> null,
+		"DISABLED"			=> null
+	)));
+
+	// return json instead of re-rendering
+	header('Content-type: application/json');
+
+	// remove account identity, should be secret (for the most part)
+	$venue->_accountIdentity = "private";
+	
+	// make new result
+	$result = array(
+		"venue" => $venue
+	);
+
+	// return the result in json format
+	print json_encode($result);
+	
+	// exit
+	exit;
+
+}
+
 function handleManageEventTypeGet($request,$userAccess)
 {
 	// get track information
-	$eventType = eventTypeController::GetById(new EventType(array(
+	$eventType = EventTypeController::GetById(new EventType(array(
 		"EVENT_TYPE_IDENTITY"	=> $request["identity"],
 		"ACCOUNT_IDENTITY"  	=> $userAccess->_accountIdentity,
 		"NAME"					=> null
 	)));
-	
-	// return json instead of re-rendering
-	header('Content-type: application/json');
-	
+		
 	// remove account identity, should be secret (for the most part)
 	$eventType->_accountIdentity = "private";
 	
@@ -613,12 +654,5 @@ function handlePromptWithActionGet($request,$userAccess)
 	print $promptHTML;
 	
 }
-
-function handleVenueGet($request, $userAccess)
-{
-	// used for individual identity rendering
-	
-}
-
 
 ?>
