@@ -102,6 +102,7 @@ function handleGet($request)
 			case "delete_track"		:
 			case "delete_status"	:
 			case "delete_eventtype" :
+			case "delete_venue":
 				if(CheckAuth($userAccess))
 				{
 					handlePromptWithActionGet($request,$userAccess);
@@ -162,6 +163,18 @@ function handleGet($request)
 				if(CheckAuth($userAccess))
 				{
 					handleManageEventTypeGet($request,$userAccess);
+					return;
+				}
+				else
+				{
+					NotAuthorized();
+					return;
+				}
+				break;
+			case "manage_venue":
+				if(CheckAuth($userAccess))
+				{
+					handleManageVenueGet($request,$userAccess);
 					return;
 				}
 				else
@@ -323,6 +336,9 @@ function handlePut($request)
 				handleCreateEventTypePut($request,$userAccess);
 				return;
 			break;
+			case "create_venue":
+				handleCreateVenuePut($request,$userAccess);
+				return;
 			default:
 				// 
 				unset($request[PARAM_METHOD_CALLED]);
@@ -388,6 +404,10 @@ function handleDelete($request)
 			break;
 			case "delete_eventtype":
 				handleCreateEventTypeDelete($request,$userAccess);
+				return;
+			break;
+			case "delete_venue":
+				handleCreateVenueDisable($request,$userAccess);
 				return;
 			break;
 			default:

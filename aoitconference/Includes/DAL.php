@@ -64,19 +64,29 @@ function query(/* $sql [, ... ] */)
         exit;
     }
 
-    // execute SQL statement
-    $results = $statement->execute($parameters);
-	
-	setLastId($handle->lastInsertId());
-	
-    // return result set's rows, if any
-    if ($results !== false)
+    try 
     {
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
-    else
+        // execute SQL statement
+        $results = $statement->execute($parameters);
+        
+        setLastId($handle->lastInsertId());
+    
+        // return result set's rows, if any
+        if ($results !== false)
+        {
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        else
+        {
+            return false;
+        }
+    
+    } 
+    catch (Exception $e) 
     {
-        return false;
+        // trigger (big, orange) error
+        trigger_error($e->getMessage(), E_USER_ERROR);
+        exit;
     }
 }
 

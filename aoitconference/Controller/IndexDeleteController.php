@@ -142,4 +142,113 @@ function handleCreateEventTypeDelete($request,$userAccess)
 	}
 }
 
+function handleCreateVenueDisable($request,$userAccess)
+{
+	// check if whoever is making the request has access 
+	// to actually make these changes (incase of console scripting)
+	// by passing the disable
+	if(!IsVenueOwner($request,$userAccess))
+	{
+		if(!IsAccountTypeCanEdit($userAccess))
+		{
+			// send bad request
+			BadRequest();
+		}
+	}
+	// init new venue array
+    $venue = new Venue(array(
+		"VENUE_IDENTITY" 	=> $request["venue_identity"],
+		"ACCOUNT_IDENTITY" 	=> null,
+		"NAME"            	=> null,
+		"IMAGE"            	=> null,
+		"IMAGE_URL"			=> null,
+		"CAPACITY"         	=> null,
+		"ADDRESS"           => null,
+		"CITY"            	=> null,
+	 	"STATE"				=> null,
+	 	"ZIP"               => null,
+	 	"COUNTRY"           => null,
+	 	"PUBLIC_USE"		=> null,
+	 	"DISABLED"			=> null
+	));
+
+	// get full object, including orignal owner
+	// as the original account identity is needed
+	// by the time the execution is here, we know 
+	// this person has access to remove the code
+	$venue = VenueController::GetById($venue);
+
+	// set return to path
+	$returnTo = "#venue";
+	
+	// insert the new speaker
+	if(VenueController::Disable($venue))
+	{
+		// return back to the tab
+		Redirect("?m=create". $returnTo);
+	}
+	else
+	{
+		BadRequest();		
+	}
+
+}
+
+/* ATTENTION - DO NOT USE UNLESS YOU REALLY WANT TO PURGE
+ * Should not be used unless your intention is to fully
+ * delete the venue and her rooms from the system.
+ * i.e. choosing to the disable instead of removing
+ * to preserve relationships
+ */
+function handleCreateVenueDelete($request,$userAccess)
+{	
+	// check if whoever is making the request has access 
+	// to actually make these changes (incase of console scripting)
+	// by passing the disable
+	if(!IsVenueOwner($request,$userAccess))
+	{
+		if(!IsAccountTypeCanEdit($userAccess))
+		{
+			// send bad request
+			BadRequest();
+		}
+	}
+	// init new venue array
+    $venue = new Venue(array(
+		"VENUE_IDENTITY" 	=> $request["venue_identity"],
+		"ACCOUNT_IDENTITY" 	=> null,
+		"NAME"            	=> null,
+		"IMAGE"            	=> null,
+		"IMAGE_URL"			=> null,
+		"CAPACITY"         	=> null,
+		"ADDRESS"           => null,
+		"CITY"            	=> null,
+	 	"STATE"				=> null,
+	 	"ZIP"               => null,
+	 	"COUNTRY"           => null,
+	 	"PUBLIC_USE"		=> null,
+	 	"DISABLED"			=> null
+	));
+
+	// get full object, including orignal owner
+	// as the original account identity is needed
+	// by the time the execution is here, we know 
+	// this person has access to remove the code
+	$venue = VenueController::GetById($venue);
+
+	// set return to path
+	$returnTo = "#venue";
+	
+	// insert the new speaker
+	if(VenueController::Delete($venue))
+	{
+		// return back to the tab
+		Redirect("?m=create". $returnTo);
+	}
+	else
+	{
+		BadRequest();		
+	}
+}
+
 ?>

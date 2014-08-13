@@ -12,7 +12,8 @@
 *   "STATE"				=> null,
 *   "ZIP"               => null,
 *   "COUNTRY"           => null,
-*   "PUBLIC_USE"		=> null
+*   "PUBLIC_USE"		=> null,
+*	"DISABLED"			=> null,
 * ));
 */
 class Venue
@@ -29,6 +30,7 @@ class Venue
 	public $_zip;
 	public $_country;
 	public $_publicUse;
+	public $_disabled;
 
 	function __construct($obj) 
 	{
@@ -44,7 +46,8 @@ class Venue
 		$this->_zip             = $obj["ZIP"];
 		$this->_country         = $obj["COUNTRY"];
 		$this->_publicUse		= $obj["PUBLIC_USE"];
-		
+		$this->_disabled		= $obj["DISABLED"];
+
 		return $this;
 	}
 	

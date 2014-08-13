@@ -28,6 +28,12 @@ var options = {
 		options : { 
 				errorClass: "errorCls" 
 		} 
+	},
+	"create_venue" : { 
+		element: $("#create_venue_form"), 
+		options : { 
+				errorClass: "errorCls" 
+		} 
 	}
 };
 
@@ -58,6 +64,11 @@ var options = {
 				var createEventType   = options["create_eventtype"].element;
 				var formOptions	   	  = options["create_eventtype"].options;
 				createEventType.validate(formOptions);
+			},
+			"create_venue" : function() {
+				var createVenue   	= options["create_venue"].element;
+				var formOptions	   	= options["create_venue"].options;
+				createVenue.validate(formOptions);
 			}
 		};
 		return methods[name]();
@@ -83,3 +94,4 @@ $.aoit("create_topic");
 $.aoit("create_track");
 $.aoit("create_status");
 $.aoit("create_eventtype");
+$.aoit("create_venue");

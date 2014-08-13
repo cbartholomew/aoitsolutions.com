@@ -545,18 +545,52 @@ function handleManageStatusGet($request,$userAccess)
 	exit;
 }
 
+function handleManageVenueGet($request,$userAccess)
+{
+	$venue = VenueController::GetById(new Venue(array(
+		"VENUE_IDENTITY" 	=> $request["identity"],
+		"ACCOUNT_IDENTITY"  => $userAccess->_accountIdentity,
+		"NAME"            	=> null,
+		"IMAGE"            	=> null,
+		"IMAGE_URL"			=> null,
+		"CAPACITY"         	=> null,
+		"ADDRESS"           => null,
+		"CITY"            	=> null,
+		"STATE"				=> null,
+		"ZIP"               => null,
+		"COUNTRY"           => null,
+		"PUBLIC_USE"		=> null,
+		"DISABLED"			=> null
+	)));
+
+	// return json instead of re-rendering
+	header('Content-type: application/json');
+
+	// remove account identity, should be secret (for the most part)
+	$venue->_accountIdentity = "private";
+	
+	// make new result
+	$result = array(
+		"venue" => $venue
+	);
+
+	// return the result in json format
+	print json_encode($result);
+	
+	// exit
+	exit;
+
+}
+
 function handleManageEventTypeGet($request,$userAccess)
 {
 	// get track information
-	$eventType = eventTypeController::GetById(new EventType(array(
+	$eventType = EventTypeController::GetById(new EventType(array(
 		"EVENT_TYPE_IDENTITY"	=> $request["identity"],
 		"ACCOUNT_IDENTITY"  	=> $userAccess->_accountIdentity,
 		"NAME"					=> null
 	)));
-	
-	// return json instead of re-rendering
-	header('Content-type: application/json');
-	
+		
 	// remove account identity, should be secret (for the most part)
 	$eventType->_accountIdentity = "private";
 	
@@ -620,12 +654,5 @@ function handlePromptWithActionGet($request,$userAccess)
 	print $promptHTML;
 	
 }
-
-function handleVenueGet($request, $userAccess)
-{
-	// used for individual identity rendering
-	
-}
-
 
 ?>

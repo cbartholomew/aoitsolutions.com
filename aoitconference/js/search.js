@@ -4,7 +4,7 @@ var searchConfig = [
 	{ div: "#track_search", 	cls: ".tracks"},
 	{ div: "#status_search", 	cls: ".allstatus"},
 	{ div: "#eventtype_search", cls: ".eventtypes"},
-	{ div: "#vendue_search", 	cls: ".venues"}
+	{ div: "#venue_search", 	cls: ".venues"}
 ];
 
 function initSearchFields( searchConfig ){

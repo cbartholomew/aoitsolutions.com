@@ -357,6 +357,53 @@ function GetPromptObject($userAccess, $requestAction, $requestType, $requestIden
 				$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
 			}
 		break;
+		case "venue":
+			// get topic information
+			$modalObject = VenueController::GetById(new Venue(array(
+				"VENUE_IDENTITY" 	=> $requestIdentity,
+				"ACCOUNT_IDENTITY" 	=> $userAccess->_accountIdentity,
+				"NAME"            	=> null,
+				"IMAGE"            	=> null,
+				"IMAGE_URL"			=> null,
+				"CAPACITY"         	=> null,
+				"ADDRESS"           => null,
+				"CITY"            	=> null,
+  				"STATE"				=> null,
+  				"ZIP"               => null,
+  				"COUNTRY"           => null,
+  				"PUBLIC_USE"		=> null,
+				"DISABLED"			=> null
+			)));
+
+			if(isset($modalObject))
+			{
+				$modalObjectName   = $modalObject->_name;
+				
+				// create the request action
+				switch($requestAction)
+				{
+					case "delete":
+						$modalObjectAction = "purge(this);";  
+					break;
+					case "alert":
+						$modalObjectAction = "alertUser(this);";  
+					break;
+				}
+				
+				// push the view arguments in the array
+				array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_NAME",$modalObject->_name));
+				array_push($arguments,View::MakeViewArgument("MODAL_OBJECT_REQUEST_IDENTITY",$requestIdentity));
+				
+				// apply special arguments to speaker list view
+				$modalViewController = new ViewController(
+					new View("DELETE_VENUE_TABLE_VIEW",
+							 "Delete/DELETE_VENUE_TABLE_VIEW.php",
+							 $arguments));
+				
+				// get the html from the view controller
+				$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
+			}
+		break;
 	}
 	
 	return array(

@@ -21,6 +21,7 @@ require("Utility/TrackUtility.php");
 require("Utility/UserUtility.php");
 require("Utility/VenueUtility.php");
 require("Utility/CountryUtility.php");
+require("Utility/AccountTypeUtility.php");
 
 // Main Controllers
 require("Controller/IndexGetController.php");
