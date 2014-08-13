@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2014 at 05:38 PM
+-- Generation Time: Aug 13, 2014 at 08:29 PM
 -- Server version: 5.5.33
 -- PHP Version: 5.5.3
 
@@ -43,7 +43,7 @@ CREATE TABLE `ACCOUNT` (
 --
 
 INSERT INTO `ACCOUNT` (`IDENTITY`, `EMAIL_ADDRESS`, `FIRST_NAME`, `LAST_NAME`, `ORGANIZATION_NAME`, `ACCOUNT_TYPE_IDENTITY`, `ACCOUNT_DISABLED`) VALUES
-(10, 'cbartholomew@gmail.com', 'Christopher', 'Bartholomew', 'AOIT', 1, '\0'),
+(10, 'cbartholomew@gmail.com', 'Christopher', 'Bartholomew', 'AOIT', 3, '\0'),
 (15, 'cbartholomew@fas.harvard.edu', 'Christopher', 'Bartholomew', 'Test Organization ', 1, '\0'),
 (16, 'admin@aoitsolutions.com', 'Admin', 'Aoit', 'AOIT Solutions', 2, '\0');
 
@@ -685,7 +685,7 @@ CREATE TABLE `USER_ACCESS` (
   `ACCOUNT_IDENTITY` bigint(20) NOT NULL,
   PRIMARY KEY (`USER_ACCESS_INDEX`),
   UNIQUE KEY `SESSION` (`SESSION`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=82 ;
 
 --
 -- Dumping data for table `USER_ACCESS`
@@ -706,7 +706,8 @@ INSERT INTO `USER_ACCESS` (`USER_ACCESS_INDEX`, `SESSION`, `CREATED_DTTM`, `LAST
 (74, '1aa5a436423d5b1ccd9e116bdd907c29', '2014-06-24 18:06:28', '2014-06-25 00:12:35', 10),
 (75, '7413c019329cfced1ad8c6bd181d49d9', '2014-07-26 21:06:50', '2014-07-27 03:59:46', 10),
 (76, '90afaf75a20eb6547ccf033c4dec7ddb', '2014-07-28 19:44:08', '2014-07-29 03:47:22', 10),
-(78, '40e1deb20bf95be599fabb2e12295645', '2014-08-11 17:57:40', '2014-08-12 00:40:36', 10);
+(78, '40e1deb20bf95be599fabb2e12295645', '2014-08-11 17:57:40', '2014-08-12 00:40:36', 10),
+(81, '4ceffd179d06636e9088ca2ee21b4ed5', '2014-08-13 16:15:47', '2014-08-14 00:27:48', 10);
 
 -- --------------------------------------------------------
 
@@ -726,16 +727,18 @@ CREATE TABLE `VENUE` (
   `STATE` int(11) NOT NULL,
   `ZIP` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `COUNTRY` int(11) NOT NULL,
-  `PUBLIC_USE` bit(1) NOT NULL DEFAULT b'1',
+  `PUBLIC_USE` tinyint(1) NOT NULL DEFAULT '1',
+  `DISABLED` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`VENUE_IDENTITY`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `VENUE`
 --
 
-INSERT INTO `VENUE` (`VENUE_IDENTITY`, `ACCOUNT_IDENTITY`, `NAME`, `IMAGE`, `IMAGE_URL`, `CAPACITY`, `ADDRESS`, `CITY`, `STATE`, `ZIP`, `COUNTRY`, `PUBLIC_USE`) VALUES
-(1, 10, 'The White House', 0x687474703a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f612f61662f5768697465486f757365536f7574684661636164652e4a5047, '', 999, '1600 Penn Ave', 'Washington', 51, '02380', 231, '');
+INSERT INTO `VENUE` (`VENUE_IDENTITY`, `ACCOUNT_IDENTITY`, `NAME`, `IMAGE`, `IMAGE_URL`, `CAPACITY`, `ADDRESS`, `CITY`, `STATE`, `ZIP`, `COUNTRY`, `PUBLIC_USE`, `DISABLED`) VALUES
+(1, 10, 'The White House', 0x687474703a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f612f61662f5768697465486f757365536f7574684661636164652e4a5047, 'http://upload.wikimedia.org/wikipedia/commons/a/af/WhiteHouseSouthFacade.JPG', 300, '1600 Penn Ave', 'Washington', 51, '02380', 231, 1, 0),
+(15, 10, 'Moscone Center', 0x63646e2f696d616765732f6e6f2d696d6167652d666f756e642e6a7067, 'cdn/images/no-image-found.jpg', 1000, '747 Howard St', 'San Francisco ', 5, '94103', 231, 1, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
