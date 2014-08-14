@@ -50,13 +50,37 @@ class RoomController
 	
 	public static function GetUsingUser($room,$userAccess)
 	{
-		$roomList = [];
+		$roomList = array();
 		
 		try
 		{
 			$query = implode(" ",self::$sqlQueries["GET_SECURE"]);
 
 			$rows = query($query, $room->_venueIdentity, $userAccess->_accountIdentity);
+
+			foreach($rows as $row)
+			{			
+				$room = new Room($row);
+				array_push($roomList, $room);
+			}
+		}
+		catch(Exception $e)
+		{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+		}
+
+		return $roomList;		
+	}	
+
+	public static function GetAllRoomsUsingUser($userAccess)
+	{
+		$roomList = array();
+		
+		try
+		{
+			$query = implode(" ",self::$sqlQueries["GET_SECURE_ALL"]);
+
+			$rows = query($query,$userAccess->_accountIdentity);
 
 			foreach($rows as $row)
 			{			
@@ -153,6 +177,22 @@ class RoomController
 			"R.VENUE_IDENTITY = ?",
 			"AND",
 			"V.ACCOUNT_IDENTITY = ?"
+		),
+		"GET_SECURE_ALL" => array(
+			"SELECT", 
+			"*",
+			"FROM", 
+			"ROOM AS R",
+			"INNER JOIN", 
+			"VENUE AS V",
+			"ON", 
+			"V.VENUE_IDENTITY = R.VENUE_IDENTITY",
+			"WHERE", 
+			"(V.ACCOUNT_IDENTITY = ?",
+			"OR",
+			"V.PUBLIC_USE = true)",
+			"AND",
+			"V.DISABLED = False"
 		),
 		"GET_BY_ID"=> array(
 			"SELECT",

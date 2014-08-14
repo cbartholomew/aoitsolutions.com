@@ -68,6 +68,7 @@ function handleCreateGet($request,$userAccess)
 	$statusViewArguments    = array();
 	$eventTypeViewArguments = array();
 	$venueViewArguments 	= array();
+	$roomViewArguments 		= array();
 	
 	// variables to hold html 
 	$speakerCreateViewHTML 	= "";
@@ -76,6 +77,7 @@ function handleCreateGet($request,$userAccess)
 	$statusCreateViewHTML  	= "";
 	$eventTypeCreateViewHTML= "";
 	$venueViewCreateViewHTML= "";
+	$roomViewCreateViewHTML = "";
 	
 	// check if the user is logged in or not
 	$viewHtmlPath  = (isset($userAccess->_userAccessIndex)) ? "View/Index/SUB_HEADER_VIEW_AUTH.php" : "View/Index/SUB_HEADER_VIEW_NOAUTH.php";
@@ -238,7 +240,37 @@ function handleCreateGet($request,$userAccess)
 	/********************************************************************
 	 *	Venue View Constructor End
 	 ********************************************************************/
-		
+	
+	/********************************************************************
+	 *	Room View Constructor Begin
+	 ********************************************************************/
+
+	// get a list of venues
+	$roomVenueSelectListHTML = GetVenueSelectListViewHTML($userAccess);
+
+	$viewRoomCapacity = "";
+	$viewRoomNumber	  = "";
+	$viewRoomName	  = "";
+	$viewRoomVenues	  = $roomVenueSelectListHTML;
+
+	array_push($roomViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
+	array_push($roomViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+	array_push($roomViewArguments,View::MakeViewArgument("ROOM_NAME",$viewRoomName));
+	array_push($roomViewArguments,View::MakeViewArgument("ROOM_NUMBER",$viewRoomNumber));
+	array_push($roomViewArguments,View::MakeViewArgument("ROOM_CAPACITY",$viewRoomCapacity));
+	array_push($roomViewArguments,View::MakeViewArgument("ROOM_VENUE_LIST"), $viewRoomVenues));
+	// apply special arguments to speaker view only
+	$roomViewController = new ViewController(new View("CREATE_INDEX_ROOM_VIEW",
+														 "Create/CREATE_INDEX_ROOM_VIEW.php",
+														 $roomViewArguments));
+																																								
+	// create room view html													
+	$roomCreateViewHTML = $roomViewController->renderViewHTML(false,false);	
+
+	/********************************************************************
+	 *	Room View Constructor End
+	 ********************************************************************/
+
 		
 	// display message text to user based on if they are logged in or not
 	$headerText = "Account";
@@ -275,6 +307,8 @@ function handleCreateGet($request,$userAccess)
 	$eventTypeListViewHTML  = GetEventTypeListViewHTML($userAccess);
 	// get venue view html 
 	$venueViewListViewHTML 	= GetVenueListViewHTML($userAccess);
+	// get room view html 
+	$venueRoomListViewHTML 	= GetRoomListViewHTML($userAccess);
 	
 	// push on to the argument stack
 	array_push($arguments,View::MakeViewArgument("ACCOUNT_MESSAGE"		,$headerText));
@@ -580,7 +614,7 @@ function handleManageVenueGet($request,$userAccess)
 
 function handleManageRoomGet($request, $userAccess)
 {
-	
+
 }
 
 function handleManageEventTypeGet($request,$userAccess)

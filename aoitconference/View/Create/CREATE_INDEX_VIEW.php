@@ -182,6 +182,36 @@
 			</div>
 		</div>
 		<!-- End Venue Tab Content-->
+
+		<!-- Begin Room Tab Content-->
+		<div class="tab-pane fade"  id="room">
+			<div id="room_panel" class="panel col-sm-6">
+				#ROOM_VIEW#
+			</div>
+			<div class="panel col-sm-6">
+			<br>
+				<form class="form-horizontal" role="search">
+			    	<div class="form-group">
+			        	<input id="room_search" type="text" class="form-control col-sm-3" placeholder="Search" />
+			      	</div>
+			    </form>
+				<table class='table table-condensed'>
+					<thead>
+						<tr>
+							<th>Venue</th>
+							<th>Name</th>
+							<th>Number</th>
+							<th>Capacity</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="rooms">
+						#ROOM_LIST_VIEW#
+					</tbody>					
+				</table>
+			</div>
+		</div>
+		<!-- End Room Tab Content-->
 	</div> 
 </div>
 <!-- End Tab Content-->

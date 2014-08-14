@@ -20,6 +20,54 @@ function GetVenueImageBase64($venue)
 	return base64_encode($imageData);	 
 }
 
+function GetVenueSelectListViewHTML($userAccess)
+{
+	$html = "";
+
+	try
+	{					
+		// init new venue array
+    	$v = new Venue(array(
+	    	"VENUE_IDENTITY" 	=> null,
+	    	"ACCOUNT_IDENTITY" 	=> $userAccess->_accountIdentity,
+	    	"NAME"            	=> null,
+	    	"IMAGE"            	=> null,
+	    	"IMAGE_URL"			=> null,
+	    	"CAPACITY"         	=> null,
+	    	"ADDRESS"           => null,
+	    	"CITY"            	=> null,
+	      	"STATE"				=> null,
+	      	"ZIP"               => null,
+	      	"COUNTRY"           => null,
+	      	"PUBLIC_USE"		=> null,
+	      	"DISABLED"			=> null
+	    ));
+
+		// get list of speakers by account identity
+		$venues = VenueController::Get($v);
+
+		if(count($venues) <= 0)
+		{
+			$html .= "<option selected=selected>No available venues.</option>";
+		}
+		else
+		{
+			foreach($venues as $venue)
+			{
+				$html .= "<option value='" . $venue->_venueIdentity . "'>";
+				$html .= $venue->_name;
+				$html .= "</option>";
+			}
+		}
+	}
+	catch(Exception $e)
+	{
+			trigger_error($e->getMessage(), E_USER_ERROR);
+	}
+
+	return $html;
+}
+
 function GetVenueListViewHTML($userAccess)
 {
 
