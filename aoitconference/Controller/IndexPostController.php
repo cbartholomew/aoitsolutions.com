@@ -260,7 +260,10 @@ function handleCreateVenuePost($request,$userAccess)
 
 	// redirect back to the vendue page
 	Redirect("?m=create#venue");
-
 }
 
+function handleCreateRoomPost($request,$userAccess)
+{
+	
+}
 ?>

@@ -65,7 +65,7 @@ function handleCreateSpeakerPut($request,$userAccess)
 }
 
 function handleCreateTopicPut($request,$userAccess)
-{	
+{
 	// init new topic
 	$topic = new Topic(array(
 		"TOPIC_IDENTITY"	=> $request["topic_identity"],
@@ -94,7 +94,6 @@ function handleCreateTrackPut($request,$userAccess)
 	
 	// redirect user back to the correct tab
 	Redirect("?m=create#track");
-	
 }
 
 function handleCreateStatusPut($request,$userAccess)
@@ -166,4 +165,10 @@ function handleCreateVenuePut($request,$userAccess)
 	// redirect user back to the correct tab
 	Redirect("?m=create#venue");
 }
+
+function handleCreateRoomPut($request,$userAccess)
+{
+	
+}
+
 ?>

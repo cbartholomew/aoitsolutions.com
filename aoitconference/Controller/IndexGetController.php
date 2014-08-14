@@ -300,9 +300,7 @@ function handleCreateGet($request,$userAccess)
 
 	// this method will render w arguments
 	print $vc->renderViewHTML(true,true);		
-
 }
-
 
 function handleAccountLoginGet($request)
 {
@@ -356,7 +354,6 @@ function handleAccountRegistrationGet($request)
 	// echo register view
 	print $reg_view->renderViewHTML(true,true);	
 }
-
 
 function handleRoomModalGet($request)
 {
@@ -579,7 +576,11 @@ function handleManageVenueGet($request,$userAccess)
 	
 	// exit
 	exit;
+}
 
+function handleManageRoomGet($request, $userAccess)
+{
+	
 }
 
 function handleManageEventTypeGet($request,$userAccess)
@@ -652,7 +653,6 @@ function handlePromptWithActionGet($request,$userAccess)
 	$promptHTML = $promptModalViewController->renderViewHTML(false,false);
 	
 	print $promptHTML;
-	
 }
 
 ?>

@@ -201,7 +201,7 @@ function handleCreateVenueDisable($request,$userAccess)
  * to preserve relationships
  */
 function handleCreateVenueDelete($request,$userAccess)
-{	
+{
 	// check if whoever is making the request has access 
 	// to actually make these changes (incase of console scripting)
 	// by passing the disable
@@ -251,4 +251,8 @@ function handleCreateVenueDelete($request,$userAccess)
 	}
 }
 
+function handleCreateRoomDelete($request,$userAccess)
+{
+	
+}
 ?>
