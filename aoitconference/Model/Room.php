@@ -8,7 +8,7 @@
  * 	"CAPACITY"          => null
  * ));
  */
-class Room
+class Room extends Venue
 {
 	public $_roomIdentity;
 	public $_venueIdentity;
@@ -20,7 +20,7 @@ class Room
 	{
 		$this->_roomIdentity  	= $obj["ROOM_IDENTITY"];
 		$this->_venueIdentity  	= $obj["VENUE_IDENTITY"];
-		$this->_name  			= $obj["NAME"];
+		$this->_roomName  		= $obj["NAME"];
 		$this->_roomNumber 		= $obj["ROOM_NUMBER"];
 		$this->_capacity  		= $obj["CAPACITY"];
 		

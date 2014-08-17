@@ -61,6 +61,8 @@ class RoomController
 			foreach($rows as $row)
 			{			
 				$room = new Room($row);
+
+				$room->
 				array_push($roomList, $room);
 			}
 		}
@@ -85,6 +87,11 @@ class RoomController
 			foreach($rows as $row)
 			{			
 				$room = new Room($row);
+
+				// ADD EXTENDED PROPERTIES
+				$room->_accountIdentity = $row["ACCOUNT_IDENTITY"];
+				$room->_name   			= $row["VENUE_NAME"];
+
 				array_push($roomList, $room);
 			}
 		}
@@ -180,19 +187,22 @@ class RoomController
 		),
 		"GET_SECURE_ALL" => array(
 			"SELECT", 
-			"*",
-			"FROM", 
-			"ROOM AS R",
-			"INNER JOIN", 
-			"VENUE AS V",
-			"ON", 
-			"V.VENUE_IDENTITY = R.VENUE_IDENTITY",
-			"WHERE", 
-			"(V.ACCOUNT_IDENTITY = ?",
-			"OR",
-			"V.PUBLIC_USE = true)",
-			"AND",
-			"V.DISABLED = False"
+			"R.ROOM_IDENTITY,",
+			"R.VENUE_IDENTITY,",
+			"R.NAME,",
+			"R.ROOM_NUMBER,",
+			"R.CAPACITY,",
+			"R.VENUE_IDENTITY,",
+			"ACCOUNT_IDENTITY,",
+			"V.NAME AS VENUE_NAME, ",
+			"V.DISABLED AS VENUE_DISABLED",
+			"FROM ROOM AS R",
+			"INNER JOIN VENUE AS V ON V.VENUE_IDENTITY = R.VENUE_IDENTITY",
+			"WHERE (",
+			"V.ACCOUNT_IDENTITY = ?",
+			"OR V.PUBLIC_USE = TRUE",
+			")",
+			"AND V.DISABLED = FALSE"
 		),
 		"GET_BY_ID"=> array(
 			"SELECT",

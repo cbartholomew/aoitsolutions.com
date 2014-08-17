@@ -9,7 +9,7 @@
 	 </select>
 	</div>
 	<div class="form-group">
-		<label for="" class="control-label">Venue not listed? <a href="#venue">Create one</a></label>
+		<label for="" class="control-label">Venue not listed? <a href="index.php?m=create#venue">Create one</a></label>
 	<div class="form-group">
 	</div>
 	<label for="roomName" class="control-label">Room Name</label>

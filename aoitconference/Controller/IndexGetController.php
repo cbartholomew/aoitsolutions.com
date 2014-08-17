@@ -254,11 +254,11 @@ function handleCreateGet($request,$userAccess)
 	$viewRoomVenues	  = $roomVenueSelectListHTML;
 
 	array_push($roomViewArguments,View::MakeViewArgument("METHOD",$viewMethod));	
-	array_push($roomViewArguments,View::MakeViewArgument("ACTION",$viewAction));	
+	array_push($roomViewArguments,View::MakeViewArgument("ROOM_ACTION",$viewAction));	
 	array_push($roomViewArguments,View::MakeViewArgument("ROOM_NAME",$viewRoomName));
 	array_push($roomViewArguments,View::MakeViewArgument("ROOM_NUMBER",$viewRoomNumber));
 	array_push($roomViewArguments,View::MakeViewArgument("ROOM_CAPACITY",$viewRoomCapacity));
-	array_push($roomViewArguments,View::MakeViewArgument("ROOM_VENUE_LIST"), $viewRoomVenues));
+	array_push($roomViewArguments,View::MakeViewArgument("ROOM_VENUE_LIST", $viewRoomVenues));
 	// apply special arguments to speaker view only
 	$roomViewController = new ViewController(new View("CREATE_INDEX_ROOM_VIEW",
 														 "Create/CREATE_INDEX_ROOM_VIEW.php",
@@ -293,7 +293,7 @@ function handleCreateGet($request,$userAccess)
 	$headerText = $account->_firstName . " " . $account->_lastName;
 	
 	/********************************************************************
-	 *	List View Columns
+	 *	List View Columns (the place where you manage and list the items)
 	 ********************************************************************/
 	// get the speaker list view html
 	$speakerListViewHTML 	= GetSpeakerListViewHTML($userAccess);
@@ -325,6 +325,8 @@ function handleCreateGet($request,$userAccess)
 	array_push($arguments,View::MakeViewArgument("EVENT_TYPE_LIST_VIEW"	,$eventTypeListViewHTML));
 	array_push($arguments,View::MakeViewArgument("VENUE_VIEW"			,$venueCreateViewHTML));	
 	array_push($arguments,View::MakeViewArgument("VENUE_LIST_VIEW"		,$venueViewListViewHTML));
+	array_push($arguments,View::MakeViewArgument("ROOM_VIEW"			,$roomCreateViewHTML));
+	array_push($arguments,View::MakeViewArgument("ROOM_LIST_VIEW"		,$venueRoomListViewHTML));
 			
 			
 	// create new view controller

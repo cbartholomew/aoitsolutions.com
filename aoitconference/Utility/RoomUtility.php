@@ -16,7 +16,7 @@ function GetRoomListViewHTML($userAccess)
 		if(count($rooms) <= 0)
 		{
 			$html .= "<tr>";
-			$html .= "<td colspan='5'>This account has no venues available</td>";
+			$html .= "<td colspan='5'>This account has no rooms available</td>";
 			$html .= "</tr>";	
 		}
 		else
@@ -41,28 +41,17 @@ function GetRoomListViewHTML($userAccess)
 					}	
 				}
 
-				$btnManageHtml = "<button type='button' " .$editDisabled. " onclick='manage(this);' operation='venue' id='manage_venue_" . $venue->_venueIdentity . "' 
+				$btnManageHtml = "<button type='button' " .$editDisabled. " onclick='manage(this);' operation='room' id='manage_room_" . $room->_roomIdentity . "' 
 				class='btn btn-default'><i class='glyphicon glyphicon-wrench inverse'></i></button>";
 
-				$btnRemoveHtml = "<button type='button' " .$editDisabled. " onclick='prompt(this);' operation='venue' id='delete_venue_" . $venue->_venueIdentity .  "' 
+				$btnRemoveHtml = "<button type='button' " .$editDisabled. " onclick='prompt(this);' operation='room' id='delete_room_" . $room->_roomIdentity .  "' 
 				class='btn btn-default'><i class='glyphicon glyphicon-minus inverse'></i></button>";
 
-				// create new state variable w/ state id from venue
-				$state = new State(array(
-					"STATE_IDENTITY"	=> $venue->_state,
-					"NAME"				=> null
-				));
-
-				// get the state by state identity
-				$state = StateController::Get($state);
-
 				$html .= "<tr>";
-				$html .= "<td><img  class ='img-thumbnail' src='" . $venue->_imageUrl 	. "' alt='" . $venue->_imageUrl . "' height=100 width=100 /></td>";
-				$html .= "<td>" . $venue->_name 	. "</td>";
-				$html .= "<td>" . $venue->_address 	. "</td>";
-				$html .= "<td>" . $venue->_city 	. "</td>";
-				$html .= "<td name='" . $venue->_state . "'>" . $state->_name	. "</td>";
-				$html .= "<td>" . $venue->_zip 		. "</td>";
+				$html .= "<td>" . $room->_name 	. "</td>";
+				$html .= "<td>" . $room->_roomName 	. "</td>";
+				$html .= "<td>" . $room->_roomNumber 	. "</td>";
+				$html .= "<td>" . $room->_capacity 		. "</td>";
 				$html .= "<td><div class='btn-group btn-group-xs'>" .  $btnManageHtml . $btnRemoveHtml . "</div></td>";	
 				$html .= "</tr>";
 			}

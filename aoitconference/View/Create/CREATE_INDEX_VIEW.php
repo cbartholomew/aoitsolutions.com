@@ -7,6 +7,7 @@
 		<li><a href="#newstatus"  	data-toggle="tab">Status</a></li>
 		<li><a href="#eventtype"  	data-toggle="tab">Event Type</a></li>
 		<li><a href="#venue"  		data-toggle="tab">Venue</a></li>
+		<li><a href="#room"  		data-toggle="tab">Rooms</a></li>
 	</ul>
 	
 	<!-- Begin Tab Content-->
