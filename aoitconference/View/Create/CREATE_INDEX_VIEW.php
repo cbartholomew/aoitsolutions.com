@@ -187,7 +187,7 @@
 		<!-- Begin Room Tab Content-->
 		<div class="tab-pane fade"  id="room">
 			<div id="room_panel" class="panel col-sm-6">
-				#  v#
+				#ROOM_VIEW#
 			</div>
 			<div class="panel col-sm-6">
 			<br>

@@ -253,6 +253,24 @@ function handleCreateVenueDelete($request,$userAccess)
 
 function handleCreateRoomDelete($request,$userAccess)
 {
-	
+	$returnTo = "#room";
+
+	$room = new Room(array(
+		"ROOM_IDENTITY"  	=> $request["room_identity"],
+		"VENUE_IDENTITY"  	=> null,
+		"NAME"              => null,
+		"ROOM_NUMBER"       => null,
+		"CAPACITY"          => null
+	));
+
+	if(RoomController::CheckVenueOwnership($room,$userAccess))
+	{
+		// user owns the venue and therefore owns the room
+	}
+	else
+	{
+		// user does not own the room. Should correctly error - this is a place holder.
+		BadRequest()
+	}
 }
 ?>

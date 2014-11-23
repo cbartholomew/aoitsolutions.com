@@ -160,6 +160,30 @@ class RoomController
 		}	
 		return true;		
 	}
+
+	public static function CheckVenueOwnership($room, $userAccess)
+	{
+		$value = false;
+
+		try {
+			$query = implode(" ",self::$sqlQueries["CHECK_OWNERSHIP"]);
+
+			$rows = query($query,$room->_roomIdentity, $userAccess->_accountIdentity);
+			
+			foreach($rows as $row)
+			{		
+				// ternary test	
+				$value = ($row["ROOM_OWNED"]);
+				break;
+			}
+		} catch (Exception $e) {
+			trigger_error($e->getMessage(), E_USER_ERROR);			
+			return false;
+		}
+
+		// return 
+		return value;
+	}
 	
 	// sql query, done in such a way where it is easier to add fields, if needed
     public static $sqlQueries = array(
@@ -237,6 +261,14 @@ class RoomController
 			"ROOM",
 			"WHERE",
 			"ROOM_IDENTITY = ?"
+		),
+		"CHECK_OWNERSHIP" => array(
+			"SELECT COUNT(R.ROOM_IDENTITY) AS ROOM_OWNED",
+			"FROM ROOM AS R",
+			"INNER JOIN VENUE AS V"
+			"ON R.VENUE_IDENTITY = V.VENUE_IDENTITY",
+			"WHERE R.ROOM_IDENTITY = ?"
+			"AND V.ACCOUNT_IDENTITY = ?"
 		)	
 	);
 }
