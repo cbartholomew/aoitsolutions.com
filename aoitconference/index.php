@@ -103,6 +103,7 @@ function handleGet($request)
 			case "delete_status"	:
 			case "delete_eventtype" :
 			case "delete_venue":
+			case "delete_room":
 				if(CheckAuth($userAccess))
 				{
 					handlePromptWithActionGet($request,$userAccess);
@@ -175,6 +176,18 @@ function handleGet($request)
 				if(CheckAuth($userAccess))
 				{
 					handleManageVenueGet($request,$userAccess);
+					return;
+				}
+				else
+				{
+					NotAuthorized();
+					return;
+				}
+			break;
+			case "manage_room":
+				if(CheckAuth($userAccess))
+				{
+					handleManageRoomGet($request,$userAccess);
 					return;
 				}
 				else
@@ -408,6 +421,10 @@ function handleDelete($request)
 			break;
 			case "delete_venue":
 				handleCreateVenueDisable($request,$userAccess);
+				return;
+			break;
+			case "delete_room":
+				handleCreateRoomDelete($request,$userAccess);
 				return;
 			break;
 			default:

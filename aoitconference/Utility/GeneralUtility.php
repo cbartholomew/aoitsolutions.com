@@ -404,6 +404,7 @@ function GetPromptObject($userAccess, $requestAction, $requestType, $requestIden
 				$modalObjectInformation = $modalViewController->renderViewHTML(false,false);
 			}
 		break;
+		// CREATE ONE FOR ROOM
 	}
 	
 	return array(

@@ -263,14 +263,16 @@ function handleCreateRoomDelete($request,$userAccess)
 		"CAPACITY"          => null
 	));
 
-	if(RoomController::CheckVenueOwnership($room,$userAccess))
+	if(IsUserRoomOwner($room,$userAccess) || IsAccountTypeCanEdit($userAccess))
 	{
-		// user owns the venue and therefore owns the room
+		// user owns the venue or is an admin and therefore owns and can edit the room
+		echo "user can edit";
 	}
 	else
 	{
+		echo "user can't edit";
 		// user does not own the room. Should correctly error - this is a place holder.
-		BadRequest()
+		BadRequest();
 	}
 }
 ?>

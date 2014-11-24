@@ -5,12 +5,14 @@ var request_map = {
 	"manage_status"	 	: handleStatus,
 	"manage_eventtype"	: handleEventType,
 	"manage_venue"		: handleVenue,
+	"manage_room"		: handleRoom,
 	"delete_speaker"  	: handlePrompt,
 	"delete_topic"   	: handlePrompt,
 	"delete_track"	 	: handlePrompt,
 	"delete_status"  	: handlePrompt,
 	"delete_eventtype"	: handlePrompt,
-	"delete_venue"		: handlePrompt
+	"delete_venue"		: handlePrompt,
+	"delete_room"		: handlePrompt
 };
 // clean out data when ajax is completed
 $('#mySocialNetworkModal').on('hidden.bs.modal', function (e) {
@@ -141,6 +143,10 @@ function handleVenue( data ){
 	$("#venue_state option[value='" + venue["_state"] + "']").attr("selected","selected");
 	$(".btn-venue-submit").text("Save Changes to Venue");
 	appendCancelButton($("#create_venue_form"),"btn-venue-clear","venue");
+}
+
+function handleRoom( data ){
+	
 }
 
 function appendCancelButton(currentForm, cancelElementId, returnTo)

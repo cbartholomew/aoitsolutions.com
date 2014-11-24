@@ -1,4 +1,9 @@
 <?php 
+function IsUserRoomOwner($room,$userAccess)
+{
+	return RoomController::CheckVenueOwnership($room,$userAccess);
+}
+
 function GetRoomListViewHTML($userAccess)
 {
 

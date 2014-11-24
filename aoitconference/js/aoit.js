@@ -34,6 +34,12 @@ var options = {
 		options : { 
 				errorClass: "errorCls" 
 		} 
+	},
+	"create_room" : { 
+		element: $("#create_room_form"), 
+		options : { 
+				errorClass: "errorCls" 
+		} 
 	}
 };
 
@@ -69,6 +75,11 @@ var options = {
 				var createVenue   	= options["create_venue"].element;
 				var formOptions	   	= options["create_venue"].options;
 				createVenue.validate(formOptions);
+			},
+			"create_room" : function() {
+				var createVenue   	= options["create_room"].element;
+				var formOptions	   	= options["create_room"].options;
+				createVenue.validate(formOptions);
 			}
 		};
 		return methods[name]();
@@ -95,3 +106,4 @@ $.aoit("create_track");
 $.aoit("create_status");
 $.aoit("create_eventtype");
 $.aoit("create_venue");
+$.aoit("create_room");
